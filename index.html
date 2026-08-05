@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Venture Studio — Portfolio</title>
+<style>
+  :root{--bg:#fbfbfa;--fg:#1a1a18;--mut:#6b6b66;--line:#e4e4e0;--accent:#2f6f4e;--card:#fff}
+  @media (prefers-color-scheme:dark){:root{--bg:#131312;--fg:#eceae5;--mut:#9a978f;--line:#2b2b28;--accent:#7fc9a0;--card:#1b1b19}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:3rem 1.25rem 5rem}
+  h1{font-size:1.9rem;margin:0 0 .3rem;letter-spacing:-.02em}
+  .sub{color:var(--mut);margin:0 0 .4rem}
+  .stats{display:flex;gap:1.5rem;flex-wrap:wrap;margin:1.5rem 0 2.5rem;padding:1rem 1.25rem;
+         border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  .stats div{display:flex;flex-direction:column}
+  .stats b{font-size:1.5rem;line-height:1.1}
+  .stats span{color:var(--mut);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+  .grid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+  .card{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:1.15rem;
+        display:flex;flex-direction:column;gap:.7rem}
+  .card.unshipped{opacity:.62}
+  .card header{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem}
+  .card h2{font-size:1.05rem;margin:0}
+  .card code{color:var(--mut);font-size:.78rem}
+  .card time{margin-left:auto;color:var(--mut);font-size:.78rem}
+  .card p{margin:0;color:var(--mut);font-size:.9rem}
+  .scores{display:grid;grid-template-columns:1fr 1fr;gap:.15rem .9rem}
+  .axis{display:grid;grid-template-columns:5.2rem 1fr 1.3rem;align-items:center;gap:.4rem;font-size:.74rem}
+  .axis span{color:var(--mut)}
+  .axis i{height:5px;border-radius:3px;background:var(--line);position:relative;display:block}
+  .axis i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--v);border-radius:3px;background:var(--accent)}
+  .axis b{font-variant-numeric:tabular-nums;font-weight:600;text-align:right}
+  .dl{margin-top:auto;display:block;text-align:center;padding:.6rem;border-radius:8px;
+      background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
+  .dl small{font-weight:400;opacity:.85}
+  .dl.none{background:transparent;border:1px dashed var(--line);color:var(--mut);font-weight:400}
+  footer{margin-top:3rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--line);padding-top:1.2rem}
+</style></head><body><div class="wrap">
+<h1>AI Venture Studio</h1>
+<p class="sub">An autonomous factory that finds an opportunity, builds a native macOS app, verifies it, and ships an installer — unattended, every morning.</p>
+<div class="stats">
+  <div><b>12</b><span>ventures</span></div>
+  <div><b>8</b><span>installers shipped</span></div>
+  <div><b>0.6 MB</b><span>total artifacts</span></div>
+  <div><b>2026-08-05</b><span>last updated</span></div>
+</div>
+<div class="grid">
+    <article class="card">
+      <header>
+        <h2>ContractDriftFinder</h2>
+        <code>contract-drift-finder</code>
+        <time>2026-08-05</time>
+      </header>
+      <p>A native macOS app for SMB owners, ops managers, and freelancers that opens PDFs locally, extracts contract and invoice text, flags auto-renewals, escalators, duplicate charges, and missing caps, and exports a one-page risk report that shows where money may be leaking.</p>
+      <div class="scores">
+        <div class="axis"><span>profit</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>change</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>effort</span>
+          <i style="--v:60%"></i><b>6</b></div>
+        <div class="axis"><span>viability</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>future</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>market</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>population</span>
+          <i style="--v:60%"></i><b>6</b></div>
+        <div class="axis"><span>availability</span>
+          <i style="--v:80%"></i><b>8</b></div></div>
+      <a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/contract-drift-finder/ContractDriftFinder.dmg">Download&nbsp;.dmg <small>60 KB</small></a>
+    </article>
+    <article class="card">
+      <header>
+        <h2>BidTriage</h2>
+        <code>local-rfp-triage</code>
+        <time>2026-08-04</time>
+      </header>
+      <p>Local RFP/Bid Triage Assistant for small contractors: target users are small government-contracting and B2B bid teams that lose time and money to missed deadlines, mandatory attachments, and compliance mistakes. Value proposition: a native macOS desktop app that locally reads an RFP and turns it into a concrete submiss…</p>
+      <div class="scores">
+        <div class="axis"><span>profit</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>change</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>effort</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>viability</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>future</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>market</span>
+          <i style="--v:60%"></i><b>6</b></div>
+        <div class="axis"><span>population</span>
+          <i style="--v:50%"></i><b>5</b></div>
+        <div class="axis"><span>availability</span>
+          <i style="--v:90%"></i><b>9</b></div></div>
+      <a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/local-rfp-triage/BidTriage.dmg">Download&nbsp;.dmg <small>57 KB</small></a>
+    </article>
+    <article class="card">
+      <header>
+        <h2>GatewayControlCenter</h2>
+        <code>mac-secret-sweep</code>
+        <time>2026-08-04</time>
+      </header>
+      
+      
+      <a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/mac-secret-sweep/GatewayControlCenter.dmg">Download&nbsp;.dmg <small>83 KB</small></a>
+    </article>
+    <article class="card">
+      <header>
+        <h2>TaxGapScout</h2>
+        <code>offline-tax-gap-scanner</code>
+        <time>2026-08-02</time>
+      </header>
+      <p>A local-only macOS desktop app for freelancers and microbusinesses that scans receipts, bank PDFs, and CSV exports to detect missing expense records, categorize deductible items, and surface tax-season gaps before they become expensive problems.</p>
+      <div class="scores">
+        <div class="axis"><span>profit</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>change</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>effort</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>viability</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>future</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>market</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>population</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>availability</span>
+          <i style="--v:90%"></i><b>9</b></div></div>
+      <a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/offline-tax-gap-scanner/TaxGapScout.dmg">Download&nbsp;.dmg <small>62 KB</small></a>
+    </article>
+    <article class="card">
+      <header>
+        <h2>DownloadTriageAssistant</h2>
+        <code>download-triage-assistant</code>
+        <time>2026-08-01</time>
+      </header>
+      <p>A native macOS desktop utility for security-conscious users, consultants, and IT admins that inspects local downloads before they are opened. It scans folders containing DMGs, ZIPs, PKGs, and app bundles, reports signature/notarization/quarantine status, surfaces bundle identity and archive contents, and gives a clear …</p>
+      <div class="scores">
+        <div class="axis"><span>profit</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>change</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>effort</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>viability</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>future</span>
+          <i style="--v:90%"></i><b>9</b></div>
+        <div class="axis"><span>market</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>population</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>availability</span>
+          <i style="--v:80%"></i><b>8</b></div></div>
+      <a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/download-triage-assistant/DownloadTriageAssistant.dmg">Download&nbsp;.dmg <small>67 KB</small></a>
+    </article>
+    <article class="card">
+      <header>
+        <h2>AirgapGatewayControl</h2>
+        <code>airgap-redaction-workbench</code>
+        <time>2026-07-31</time>
+      </header>
+      <p>Air-gapped Redaction Workbench: target users are law firms, compliance teams, journalists, and regulated SMBs that handle sensitive PDFs locally. Painful problem: they need to redact text and metadata correctly without sending documents to a cloud service, and manual workflows are slow and error-prone. Value propositio…</p>
+      <div class="scores">
+        <div class="axis"><span>profit</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>change</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>effort</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>viability</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>future</span>
+          <i style="--v:90%"></i><b>9</b></div>
+        <div class="axis"><span>market</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>population</span>
+          <i style="--v:50%"></i><b>5</b></div>
+        <div class="axis"><span>availability</span>
+          <i style="--v:80%"></i><b>8</b></div></div>
+      <a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/airgap-redaction-workbench/AirgapGatewayControl.dmg">Download&nbsp;.dmg <small>112 KB</small></a>
+    </article>
+    <article class="card">
+      <header>
+        <h2>ReceiptSentinel</h2>
+        <code>receipt-sentinel</code>
+        <time>2026-07-31</time>
+      </header>
+      <p>Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses who are drowning in paper and PDF receipts. It solves the painful problem of manual expense sorting, missing receipt detection, and accountant-ready export by doing everything locally on the Mac, with no cloud account and no ex…</p>
+      <div class="scores">
+        <div class="axis"><span>profit</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>change</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>effort</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>viability</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>future</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>market</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>population</span>
+          <i style="--v:60%"></i><b>6</b></div>
+        <div class="axis"><span>availability</span>
+          <i style="--v:90%"></i><b>9</b></div></div>
+      <a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg">Download&nbsp;.dmg <small>70 KB</small></a>
+    </article>
+    <article class="card">
+      <header>
+        <h2>DepositPacket</h2>
+        <code>tenant-deposit-dispute-packet</code>
+        <time>2026-07-31</time>
+      </header>
+      <p>A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes, and landlord correspondence into a timestamped security-deposit dispute packet. Target user: tenants facing withheld deposits. Painful problem: the evidence is scattered and hard to organize under deadline. Value proposition…</p>
+      <div class="scores">
+        <div class="axis"><span>profit</span>
+          <i style="--v:60%"></i><b>6</b></div>
+        <div class="axis"><span>change</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>effort</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>viability</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>future</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>market</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>population</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>availability</span>
+          <i style="--v:90%"></i><b>9</b></div></div>
+      <a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg">Download&nbsp;.dmg <small>61 KB</small></a>
+    </article>
+    <article class="card unshipped">
+      <header>
+        <h2>non-employer-cyber-checklist</h2>
+        <code>non-employer-cyber-checklist</code>
+        
+      </header>
+      
+      
+      <span class="dl none">No installer produced</span>
+    </article>
+    <article class="card unshipped">
+      <header>
+        <h2>privacy-first-memory-capture</h2>
+        <code>privacy-first-memory-capture</code>
+        
+      </header>
+      
+      
+      <span class="dl none">No installer produced</span>
+    </article>
+    <article class="card unshipped">
+      <header>
+        <h2>subscription-cancel-proof</h2>
+        <code>subscription-cancel-proof</code>
+        
+      </header>
+      <p>subscription-cancel-proof-packet: a native macOS desktop app for consumers and advocates who need to prove a subscription cancellation. Pain point: vendors hide confirmations, keep billing, or make the cancellation trail hard to reconstruct. Value proposition: a local app that assembles screenshots, receipts, call note…</p>
+      <div class="scores">
+        <div class="axis"><span>profit</span>
+          <i style="--v:60%"></i><b>6</b></div>
+        <div class="axis"><span>change</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>effort</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>viability</span>
+          <i style="--v:60%"></i><b>6</b></div>
+        <div class="axis"><span>future</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>market</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>population</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>availability</span>
+          <i style="--v:80%"></i><b>8</b></div></div>
+      <span class="dl none">No installer produced</span>
+    </article>
+    <article class="card unshipped">
+      <header>
+        <h2>warranty-claim-packet</h2>
+        <code>warranty-claim-packet</code>
+        
+      </header>
+      <p>Warranty claim packet builder for consumers who need to win a rejected return, repair, or warranty claim; target users are people dealing with appliances, electronics, or household products who have scattered proof and missed deadlines; painful problem is that valid claims fail because evidence is fragmented and chrono…</p>
+      <div class="scores">
+        <div class="axis"><span>profit</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>change</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>effort</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>viability</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>future</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>market</span>
+          <i style="--v:80%"></i><b>8</b></div>
+        <div class="axis"><span>population</span>
+          <i style="--v:70%"></i><b>7</b></div>
+        <div class="axis"><span>availability</span>
+          <i style="--v:80%"></i><b>8</b></div></div>
+      <span class="dl none">No installer produced</span>
+    </article></div>
+<footer>
+  Each venture was selected by scoring candidates 1–10 across eight competing perspectives and
+  choosing the best balance, not the best single score. Installers are unsigned, so macOS will
+  warn on first open — right-click → Open to run them. Generated from the studio's own run records.
+</footer>
+</div></body></html>
