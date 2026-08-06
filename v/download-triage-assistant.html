@@ -1,0 +1,191 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DownloadTriageAssistant — AI Venture Studio</title><style>
+:root{
+  --bg:#f7f7f5; --surface:#fcfcfb; --fg:#0b0b0b; --mut:#52514e; --line:#e4e4e0;
+  --mark:#2a78d6; --weak:#ec835a; --track:#ecebe7; --shadow:0 1px 2px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#131312; --surface:#1a1a19; --fg:#fff; --mut:#c3c2b7; --line:#2e2e2b;
+        --mark:#3987e5; --weak:#e66767; --track:#2a2a27; --shadow:none}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+     font:16px/1.6 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+     -webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:3.5rem 1.25rem 5rem}
+.lede h1{font-size:2.1rem;letter-spacing:-.025em;margin:0 0 .4rem}
+.lede p{color:var(--mut);margin:0;max-width:62ch}
+.kpi{display:flex;gap:2.5rem;flex-wrap:wrap;margin:2rem 0 2.75rem;
+     padding:1.15rem 1.4rem;border:1px solid var(--line);border-radius:14px;
+     background:var(--surface);box-shadow:var(--shadow)}
+.kpi div{display:flex;flex-direction:column;gap:.15rem}
+.kpi b{font-size:1.65rem;line-height:1;letter-spacing:-.02em}
+.kpi span{color:var(--mut);font-size:.72rem;text-transform:uppercase;letter-spacing:.07em}
+
+/* index tiles */
+.tiles{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(330px,1fr))}
+.tile{border:1px solid var(--line);border-radius:14px;background:var(--surface);
+      box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;
+      text-decoration:none;transition:transform .12s ease,border-color .12s ease}
+.tile:hover{transform:translateY(-2px);border-color:var(--mark)}
+.tile .thumb{aspect-ratio:16/10;background:var(--track);overflow:hidden;
+             border-bottom:1px solid var(--line)}
+.tile .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.tile .thumb.empty{display:grid;place-items:center;color:var(--mut);font-size:.8rem}
+.tile .body{padding:.9rem 1rem 1.05rem;display:flex;flex-direction:column;gap:.3rem;flex:1}
+.tile h2{margin:0;font-size:1rem;letter-spacing:-.01em}
+.tile .one{color:var(--mut);font-size:.86rem;margin:0;flex:1}
+.tile .meta{display:flex;align-items:center;gap:.5rem;color:var(--mut);font-size:.74rem;margin-top:.35rem}
+.pill{border:1px solid var(--line);border-radius:999px;padding:.1rem .5rem;font-size:.7rem}
+.pill.ok{color:var(--mark);border-color:color-mix(in oklab,var(--mark) 45%,transparent)}
+
+/* detail */
+.back{display:inline-block;color:var(--mut);text-decoration:none;font-size:.85rem;margin-bottom:1.5rem}
+.back:hover{color:var(--fg)}
+.split{display:grid;gap:2rem;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
+@media (max-width:880px){.split{grid-template-columns:1fr}}
+.shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--track);box-shadow:var(--shadow)}
+.shot img{width:100%;display:block}
+.shot .cap{padding:.5rem .75rem;color:var(--mut);font-size:.75rem;border-top:1px solid var(--line)}
+.dl{display:inline-block;margin-top:1rem;padding:.7rem 1.15rem;border-radius:9px;
+    background:var(--mark);color:#fff;text-decoration:none;font-weight:600;font-size:.92rem}
+.dl small{font-weight:400;opacity:.85}
+section{margin-top:2.5rem}
+section h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);
+           margin:0 0 .7rem;padding-bottom:.5rem;border-bottom:1px solid var(--line)}
+section p{margin:0 0 .8rem;max-width:70ch}
+pre.note{white-space:pre-wrap;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;
+         background:var(--surface);border:1px solid var(--line);border-radius:10px;
+         padding:.9rem 1rem;margin:0;overflow-x:auto;color:var(--mut)}
+
+/* benchmark chart */
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+       padding:1.3rem 1.4rem 1.1rem;box-shadow:var(--shadow)}
+.chart h4{margin:0 0 .2rem;font-size:1rem}
+.chart .sub{color:var(--mut);font-size:.8rem;margin:0 0 1.1rem}
+.row{display:grid;grid-template-columns:6.6rem 1fr 1.6rem;align-items:center;
+     gap:.7rem;margin-bottom:.55rem}
+.row .name{font-size:.82rem;color:var(--mut);text-align:right}
+.row .track{height:14px;background:var(--track);border-radius:4px;position:relative}
+.row .fill{position:absolute;inset:0 auto 0 0;border-radius:4px;background:var(--mark)}
+.row.low .fill{background:var(--weak)}
+.row .val{font:600 .82rem/1 ui-monospace,monospace;font-variant-numeric:tabular-nums;text-align:right}
+.row .name b{display:block;font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;
+             color:var(--weak);font-weight:700}
+.legend{display:flex;gap:1.1rem;flex-wrap:wrap;margin-top:.9rem;padding-top:.8rem;
+        border-top:1px solid var(--line);color:var(--mut);font-size:.74rem}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:.35rem;vertical-align:middle}
+table.axes{width:100%;border-collapse:collapse;margin-top:.9rem;font-size:.78rem}
+table.axes td{padding:.28rem 0;color:var(--mut);vertical-align:top}
+table.axes td:first-child{width:7rem;color:var(--fg)}
+footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color:var(--mut);font-size:.8rem}
+</style></head>
+<body><div class="wrap"><a class="back" href="../index.html">← All ventures</a>
+  <div class="lede"><h1>DownloadTriageAssistant</h1><p>A native macOS desktop utility for security-conscious users, consultants, and IT admins that inspects local downloads before they are opened.</p></div>
+  <div class="split" style="margin-top:2rem">
+    <div><div class="shot"><img src="../shots/download-triage-assistant.png" alt="DownloadTriageAssistant running">
+       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/download-triage-assistant/DownloadTriageAssistant.dmg">Download DownloadTriageAssistant.dmg <small>67 KB</small></a></div>
+    <div><div class="chart">
+    <h4>Selection benchmarks</h4>
+    <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
+      best <em>balance</em> across all eight, not the best single score.</p>
+    <div class="row low">
+      <div class="name">profit<b>weakest</b></div>
+      <div class="track"><span class="fill" style="width:70%"></span></div>
+      <div class="val">7</div>
+    </div><div class="row">
+      <div class="name">change</div>
+      <div class="track"><span class="fill" style="width:80%"></span></div>
+      <div class="val">8</div>
+    </div><div class="row low">
+      <div class="name">effort<b>weakest</b></div>
+      <div class="track"><span class="fill" style="width:70%"></span></div>
+      <div class="val">7</div>
+    </div><div class="row">
+      <div class="name">viability</div>
+      <div class="track"><span class="fill" style="width:80%"></span></div>
+      <div class="val">8</div>
+    </div><div class="row">
+      <div class="name">future</div>
+      <div class="track"><span class="fill" style="width:90%"></span></div>
+      <div class="val">9</div>
+    </div><div class="row">
+      <div class="name">market</div>
+      <div class="track"><span class="fill" style="width:80%"></span></div>
+      <div class="val">8</div>
+    </div><div class="row">
+      <div class="name">population</div>
+      <div class="track"><span class="fill" style="width:80%"></span></div>
+      <div class="val">8</div>
+    </div><div class="row">
+      <div class="name">availability</div>
+      <div class="track"><span class="fill" style="width:80%"></span></div>
+      <div class="val">8</div>
+    </div>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>score</span>
+      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
+    </div>
+    <table class="axes"><caption class="sr-only"></caption><tr><td>profit</td><td>revenue potential and margin — scored 7/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 7/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 9/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 8/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 8/10</td></tr></table>
+  </div></div>
+  </div>
+  <section><h3>The opportunity</h3><pre class="note">A native macOS desktop utility for security-conscious users, consultants, and IT admins that inspects local downloads before they are opened. It scans folders containing DMGs, ZIPs, PKGs, and app bundles, reports signature/notarization/quarantine status, surfaces bundle identity and archive contents, and gives a clear offline trust triage. The painful problem is that users cannot quickly tell whether a downloaded installer is trustworthy. The value proposition is a fast local evidence report that reduces risky opens without sending any data to a server.</pre></section>
+  <section><h3>Objective for this build</h3><pre class="note">Build the smallest offline Swift macOS artifact that accepts a local folder path, classifies downloaded items by type, checks available signature/notarization/quarantine metadata, and renders a one-screen triage report from a clean fixture folder plus one crafted risky fixture.</pre></section>
+  <section><h3>Market and user research</h3><pre class="note">**MARKET SIZE**
+All figures here are `ESTIMATE` and based on inference, not checked sources.
+
+- Plausible buyers: security-conscious Mac users, independent consultants, freelancers, developers, journalists, and small IT teams/MSPs who regularly download third-party software.
+- Bottom-up estimate:
+  - `25M ESTIMATE` reachable professional / serious Mac users in English-speaking markets.
+  - `30% ESTIMATE` of them regularly download installers, archives, or app bundles from outside the App Store or a managed software portal.
+  - That gives `7.5M ESTIMATE` likely-affected users.
+  - `5%–12% ESTIMATE` of those would pay for a dedicated pre-open trust-triage utility.
+  - That yields `375k–900k ESTIMATE` paying individual users.
+  - Add `25k ESTIMATE` small IT/MSP orgs that could buy for team use.
+  - At `10–20 ESTIMATE` seats per org, that is `250k–500k ESTIMATE` additional seats.
+- Reasoned serviceable market: about `0.6M–1.4M ESTIMATE` paying seats/users near term.
+- Commercial read: this is a real niche, not a mass-market giant. It is big enough for a focused utility business if conversion is decent and churn is low.
+
+**USER RESEARCH**
+1. Freelance consultants, developers, and contractors on Mac
+- Current workaround: rely on Gatekeeper prompts, ask a colleague, or manually inspect with built-in tools and ad hoc online checks.
+- What they already pay for it: usually `US$0 ESTIMATE` specifically for download triage; some already spend `US$0–US$10/month ESTIMATE` on antivirus, privacy, or utility bundles.
+- How they would find this product: Mac forums, App Store search, Setapp-style bundles, consultant communities, security newsletters, and word of mouth.
+- What would make them refuse it: any cloud upload, slow workflow, scary false positives, or a tool that feels like heavy</pre></section>
+  <section><h3>What was built</h3><pre class="note">Built and packaged the native macOS artifact inside isolated venture workspace `download-triage-assistant`.
+
+Files confirmed:
+- `Sources/DownloadTriageAssistant.swift`
+- `DownloadTriageAssistant`
+- `DownloadTriageAssistant.app/Contents/MacOS/DownloadTriageAssistant`
+- `DownloadTriageAssistant.app/Contents/Info.plist`
+- `DownloadTriageAssistant.dmg`
+
+Confirmed commands:
+- `swiftc Sources/DownloadTriageAssistant.swift -o DownloadTriageAssistant` exited `0`
+- `mkdir -p DownloadTriageAssistant.app/Contents/MacOS` exited `0`
+- `cp DownloadTriageAssistant DownloadTriageAssistant.app/Contents/MacOS/DownloadTriageAssistant` exited `0`
+- `hdiutil create -volname DownloadTriageAssistant -srcfolder DownloadTriageAssistant.app -ov -format UDZO DownloadTriageAssistant.dmg` exited `0`
+- `ls -la` exited `0` and confirmed `DownloadTriageAssistant.dmg` exists
+
+The app is an offline AppKit utility that accepts a folder path, scans `.dmg`, `.zip`, `.pkg`, and `.app` items, reports quarantine metadata, signature check status where available, bundle identity, archive preview, and renders a one-screen triage report.
+
+BLOCKED: I could not launch the GUI or create/run richer fixture interaction tests with</pre></section>
+  <section><h3>Verification</h3><pre class="note">DMG PRESENT: `DownloadTriageAssistant.dmg`
+
+**Tool-confirmed**
+- The workspace contains both the `.app` bundle and the `.dmg` at `/Users/a1111/ai-venture-studio/apps/ventures/download-triage-assistant/DownloadTriageAssistant.app` and `/Users/a1111/ai-venture-studio/apps/ventures/download-triage-assistant/DownloadTriageAssistant.dmg`.
+- `plutil -lint` reports `/Users/a1111/ai-venture-studio/apps/ventures/download-triage-assistant/DownloadTriageAssistant.app/Contents/Info.plist: OK`.
+- The source in this workspace is a download triage app, not a localhost gateway control center. The scan logic is in [`DownloadTriageAssistant.swift`](//Users/a1111/ai-venture-studio/apps/ventures/download-triage-assistant/Sources/DownloadTriageAssistant.swift#L12) and the UI title is set to “Download Triage Assistant” in the same file at [line 147](//Users/a1111/ai-venture-studio/apps/ventures/download-triage-assistant/Sources/DownloadTriageAssistant.swift#L147).
+- The earlier report that `swiftc` exited `0` is present in the prior run summary, but I did not re-run the compile in this pass, so that specific exit code is reporter-confirmed, not tool-confirmed here.
+
+**Verification result**
+- Acceptance</pre></section>
+  <section><h3>Independent review</h3><pre class="note">This is a clear MVP for a local, OpenAI-compatible gateway with auth, routing, observability, and admin control-center flows. The problem is real for platform teams standardizing provider access, and there is plausible willingness to pay when it removes integration and governance work. The delivered DMGs are present and verifiable: `release/GatewayControlCenter.dmg` and `release/ReceiptSentinel.dmg`.</pre></section>
+  <section><h3>What the studio learned</h3><pre class="note">STOP</pre></section>
+<footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
+built as a native macOS app, verified and packaged each morning. Installers are unsigned:
+right-click → Open on first launch. <a href="../index.html">All ventures</a></footer>
+</div></body></html>
