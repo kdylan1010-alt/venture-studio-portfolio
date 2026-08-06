@@ -1,0 +1,202 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BidTriage — AI Venture Studio</title><style>
+:root{
+  --bg:#f7f7f5; --surface:#fcfcfb; --fg:#0b0b0b; --mut:#52514e; --line:#e4e4e0;
+  --mark:#2a78d6; --weak:#ec835a; --track:#ecebe7; --shadow:0 1px 2px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#131312; --surface:#1a1a19; --fg:#fff; --mut:#c3c2b7; --line:#2e2e2b;
+        --mark:#3987e5; --weak:#e66767; --track:#2a2a27; --shadow:none}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+     font:16px/1.6 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+     -webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:3.5rem 1.25rem 5rem}
+.lede h1{font-size:2.1rem;letter-spacing:-.025em;margin:0 0 .4rem}
+.lede p{color:var(--mut);margin:0;max-width:62ch}
+.kpi{display:flex;gap:2.5rem;flex-wrap:wrap;margin:2rem 0 2.75rem;
+     padding:1.15rem 1.4rem;border:1px solid var(--line);border-radius:14px;
+     background:var(--surface);box-shadow:var(--shadow)}
+.kpi div{display:flex;flex-direction:column;gap:.15rem}
+.kpi b{font-size:1.65rem;line-height:1;letter-spacing:-.02em}
+.kpi span{color:var(--mut);font-size:.72rem;text-transform:uppercase;letter-spacing:.07em}
+
+/* index tiles */
+.tiles{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(330px,1fr))}
+.tile{border:1px solid var(--line);border-radius:14px;background:var(--surface);
+      box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;
+      text-decoration:none;transition:transform .12s ease,border-color .12s ease}
+.tile:hover{transform:translateY(-2px);border-color:var(--mark)}
+.tile .thumb{aspect-ratio:16/10;background:var(--track);overflow:hidden;
+             border-bottom:1px solid var(--line)}
+.tile .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.tile .thumb.empty{display:grid;place-items:center;color:var(--mut);font-size:.8rem}
+.tile .body{padding:.9rem 1rem 1.05rem;display:flex;flex-direction:column;gap:.3rem;flex:1}
+.tile h2{margin:0;font-size:1rem;letter-spacing:-.01em}
+.tile .one{color:var(--mut);font-size:.86rem;margin:0;flex:1}
+.tile .meta{display:flex;align-items:center;gap:.5rem;color:var(--mut);font-size:.74rem;margin-top:.35rem}
+.pill{border:1px solid var(--line);border-radius:999px;padding:.1rem .5rem;font-size:.7rem}
+.pill.ok{color:var(--mark);border-color:color-mix(in oklab,var(--mark) 45%,transparent)}
+
+/* detail */
+.back{display:inline-block;color:var(--mut);text-decoration:none;font-size:.85rem;margin-bottom:1.5rem}
+.back:hover{color:var(--fg)}
+.split{display:grid;gap:2rem;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
+@media (max-width:880px){.split{grid-template-columns:1fr}}
+.shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--track);box-shadow:var(--shadow)}
+.shot img{width:100%;display:block}
+.shot .cap{padding:.5rem .75rem;color:var(--mut);font-size:.75rem;border-top:1px solid var(--line)}
+.dl{display:inline-block;margin-top:1rem;padding:.7rem 1.15rem;border-radius:9px;
+    background:var(--mark);color:#fff;text-decoration:none;font-weight:600;font-size:.92rem}
+.dl small{font-weight:400;opacity:.85}
+section{margin-top:2.5rem}
+section h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);
+           margin:0 0 .7rem;padding-bottom:.5rem;border-bottom:1px solid var(--line)}
+section p{margin:0 0 .8rem;max-width:70ch}
+pre.note{white-space:pre-wrap;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;
+         background:var(--surface);border:1px solid var(--line);border-radius:10px;
+         padding:.9rem 1rem;margin:0;overflow-x:auto;color:var(--mut)}
+
+/* benchmark chart */
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+       padding:1.3rem 1.4rem 1.1rem;box-shadow:var(--shadow)}
+.chart h4{margin:0 0 .2rem;font-size:1rem}
+.chart .sub{color:var(--mut);font-size:.8rem;margin:0 0 1.1rem}
+.row{display:grid;grid-template-columns:6.6rem 1fr 1.6rem;align-items:center;
+     gap:.7rem;margin-bottom:.55rem}
+.row .name{font-size:.82rem;color:var(--mut);text-align:right}
+.row .track{height:14px;background:var(--track);border-radius:4px;position:relative}
+.row .fill{position:absolute;inset:0 auto 0 0;border-radius:4px;background:var(--mark)}
+.row.low .fill{background:var(--weak)}
+.row .val{font:600 .82rem/1 ui-monospace,monospace;font-variant-numeric:tabular-nums;text-align:right}
+.row .name b{display:block;font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;
+             color:var(--weak);font-weight:700}
+.legend{display:flex;gap:1.1rem;flex-wrap:wrap;margin-top:.9rem;padding-top:.8rem;
+        border-top:1px solid var(--line);color:var(--mut);font-size:.74rem}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:.35rem;vertical-align:middle}
+table.axes{width:100%;border-collapse:collapse;margin-top:.9rem;font-size:.78rem}
+table.axes td{padding:.28rem 0;color:var(--mut);vertical-align:top}
+table.axes td:first-child{width:7rem;color:var(--fg)}
+footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color:var(--mut);font-size:.8rem}
+</style></head>
+<body><div class="wrap"><a class="back" href="../index.html">← All ventures</a>
+  <div class="lede"><h1>BidTriage</h1><p>Local RFP/Bid Triage Assistant for small contractors: target users are small government-contracting and B2B bid teams that lose time and money…</p></div>
+  <div class="split" style="margin-top:2rem">
+    <div><div class="shot"><img src="../shots/local-rfp-triage.png" alt="BidTriage running">
+       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/local-rfp-triage/BidTriage.dmg">Download BidTriage.dmg <small>57 KB</small></a></div>
+    <div><div class="chart">
+    <h4>Selection benchmarks</h4>
+    <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
+      best <em>balance</em> across all eight, not the best single score.</p>
+    <div class="row">
+      <div class="name">profit</div>
+      <div class="track"><span class="fill" style="width:80%"></span></div>
+      <div class="val">8</div>
+    </div><div class="row">
+      <div class="name">change</div>
+      <div class="track"><span class="fill" style="width:80%"></span></div>
+      <div class="val">8</div>
+    </div><div class="row">
+      <div class="name">effort</div>
+      <div class="track"><span class="fill" style="width:70%"></span></div>
+      <div class="val">7</div>
+    </div><div class="row">
+      <div class="name">viability</div>
+      <div class="track"><span class="fill" style="width:80%"></span></div>
+      <div class="val">8</div>
+    </div><div class="row">
+      <div class="name">future</div>
+      <div class="track"><span class="fill" style="width:80%"></span></div>
+      <div class="val">8</div>
+    </div><div class="row">
+      <div class="name">market</div>
+      <div class="track"><span class="fill" style="width:60%"></span></div>
+      <div class="val">6</div>
+    </div><div class="row low">
+      <div class="name">population<b>weakest</b></div>
+      <div class="track"><span class="fill" style="width:50%"></span></div>
+      <div class="val">5</div>
+    </div><div class="row">
+      <div class="name">availability</div>
+      <div class="track"><span class="fill" style="width:90%"></span></div>
+      <div class="val">9</div>
+    </div>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>score</span>
+      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
+    </div>
+    <table class="axes"><caption class="sr-only"></caption><tr><td>profit</td><td>revenue potential and margin — scored 8/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 7/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 8/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 6/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 5/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 9/10</td></tr></table>
+  </div></div>
+  </div>
+  <section><h3>The opportunity</h3><pre class="note">Local RFP/Bid Triage Assistant for small contractors: target users are small government-contracting and B2B bid teams that lose time and money to missed deadlines, mandatory attachments, and compliance mistakes. Value proposition: a native macOS desktop app that locally reads an RFP and turns it into a concrete submission checklist, reducing missed requirements without any cloud dependency.</pre></section>
+  <section><h3>Objective for this build</h3><pre class="note">Build the smallest macOS desktop artifact that proves the thesis: a one-window Swift app that loads a sample RFP text or PDF, extracts due date and mandatory checklist items, and shows them in a local report view.</pre></section>
+  <section><h3>Market and user research</h3><pre class="note">**MARKET SIZE**
+This is a niche B2B workflow tool for small contractors and bid teams that regularly handle formal RFPs, RFQs, or procurement packages. My bottom-up estimate is:
+
+- ESTIMATE 30,000 U.S. organizations plausibly touch recurring bid/proposal work in a way that creates this pain.
+- ESTIMATE 25% of those are small enough to lack a heavyweight proposal ops stack, which leaves ESTIMATE 7,500 organizations.
+- ESTIMATE 20% to 30% of those would be comfortable buying a Mac-first local desktop tool, which leaves ESTIMATE 1,500 to 2,250 organizations in the first wedge.
+- ESTIMATE 2 to 3 likely users per organization gives ESTIMATE 3,000 to 6,750 potential seats.
+- If expanded beyond the Mac wedge to cross-platform later, the reachable buyer pool could plausibly be ESTIMATE 3x to 5x larger.
+
+This is inference, not a checked source. The practical interpretation: the initial market is real but narrow, and it is better suited to a focused SMB utility than a broad platform bet.
+
+**USER RESEARCH**
+1. Small government contractors and subcontractors
+- Current workaround: ESTIMATE Word/Excel checklists, manual redlines, email threads, and someone reading the solicitation line by line.
+- What they already pay: ESTIMATE $12 to $22 per user per month for Microsoft 365, plus ESTIMATE $20 to $25 per user per month for Acrobat in some teams, though much of this is sunk cost rather than a direct RFP tool budget.
+- How they would find this product: ESTIMATE referrals from bid/proposal communities, LinkedIn, govcon forums, and direct searches for “RFP checklist” or “bid compliance.”
+- What would make them refuse it: if it is not auditable, if it misses mandatory items, if it cannot handle PDFs well enough, or if it sends documents off-machine.
+
+2. Small B2B services firms bidding on</pre></section>
+  <section><h3>What was built</h3><pre class="note">Built and packaged the native macOS artifact inside the isolated `local-rfp-triage` venture workspace.
+
+Created files:
+- `Sources/BidTriage.swift`
+- `BidTriage.app/Contents/Info.plist`
+- `BidTriage.dmg`
+
+Confirmed build/package commands:
+- `swiftc Sources/BidTriage.swift -o BidTriage` exited `0`
+  - One warning: `allowedFileTypes` is deprecated on macOS 12+, used for compatibility with the available SDK.
+- `mkdir -p BidTriage.app/Contents/MacOS` exited `0`
+- `cp BidTriage BidTriage.app/Contents/MacOS/BidTriage` exited `0`
+- `hdiutil create -volname BidTriage -srcfolder BidTriage.app -ov -format UDZO BidTriage.dmg` exited `0`
+- `ls -la` confirmed `BidTriage.dmg` exists at:
+  - `/Users/a1111/ai-venture-studio/apps/ventures/local-rfp-triage/BidTriage.dmg`
+
+Artifact behavior:
+- One-window AppKit macOS app
+- Loads built-in sample RFP text
+- Opens local `.txt`, `.text`, or `.pdf` files
+- Extracts due date
+- Extracts mandatory checklist items
+- Shows local risk notes for addenda, site visits, and late-submission rejection language
+
+No deployment, installs, outreach, purchases, or external side effects were performed.</pre></section>
+  <section><h3>Verification</h3><pre class="note">DMG PRESENT: [BidTriage.dmg](/Users/a1111/ai-venture-studio/apps/ventures/local-rfp-triage/BidTriage.dmg)
+
+**Tool-Confirmed**
+- `ls -la` on `/Users/a1111/ai-venture-studio/apps/ventures/local-rfp-triage` shows:
+  - [BidTriage.app](/Users/a1111/ai-venture-studio/apps/ventures/local-rfp-triage/BidTriage.app)
+  - [BidTriage.dmg](/Users/a1111/ai-venture-studio/apps/ventures/local-rfp-triage/BidTriage.dmg)
+  - the compiled `BidTriage` binary
+  - [Sources](/Users/a1111/ai-venture-studio/apps/ventures/local-rfp-triage/Sources)
+- `find` inside the app bundle shows:
+  - [BidTriage.app/Contents/Info.plist](/Users/a1111/ai-venture-studio/apps/ventures/local-rfp-triage/BidTriage.app/Contents/Info.plist)
+  - [BidTriage.app/Contents/MacOS/BidTriage](/Users/a1111/ai-venture-studio/apps/ventures/local-rfp-triage/BidTriage.app/Contents/MacOS/BidTriage)
+- `plutil -lint` on `Info.plist` returned `OK`, so the plist is well formed.
+- The plist content includes `CFBundleName`, `CFBundleExecutable`, `CFBundleIdentifier`, `CFBundleVersion`, and `CFBundlePackageType`.
+- The earlier build/package result already recorded in this session reported `swiftc` exit code `0`.
+
+**Blocked / Failed in This Sandbox**
+-</pre></section>
+  <section><h3>Independent review</h3><pre class="note">The release is coherent and user-facing: a local OpenAI-compatible gateway plus a macOS dashboard/launch-agent wrapper solves a real developer workflow problem. The MVP is focused enough for its target audience, and the shipped DMGs indicate the product is packaged rather than just source-complete. Willingness to pay is plausible for teams and internal tools that want local control, but this is stronger as a dev-infra/productivity utility than a mass-market app.</pre></section>
+  <section><h3>What the studio learned</h3><pre class="note">STOP</pre></section>
+<footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
+built as a native macOS app, verified and packaged each morning. Installers are unsigned:
+right-click → Open on first launch. <a href="../index.html">All ventures</a></footer>
+</div></body></html>
