@@ -1,16 +1,16 @@
 # AI Venture Studio
 
-**9 free macOS apps. Built autonomously, one every morning.**
+**10 free macOS apps. Built autonomously, one every morning.**
 
 Every morning an automated pipeline picks an opportunity, researches the market,
 writes the code, compiles it, tests it, and ships a signed-off installer — with no
 human in the loop. These are the results. All free, no signup, no tracking.
 
-[**Browse all 9 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
+[**Browse all 10 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
-  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/contract-drift-finder.html"><img src="shots/contract-drift-finder.png" width="720" alt="ContractDriftFinder"></a>
-  <br><sub><i>ContractDriftFinder — one of 9 tools below</i></sub>
+  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/einvoice-workbench.html"><img src="shots/einvoice-workbench.png" width="720" alt="EInvoiceWorkbench"></a>
+  <br><sub><i>EInvoiceWorkbench — one of 10 tools below</i></sub>
 </p>
 
 ---
@@ -19,6 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
+| **[EInvoiceWorkbench](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/einvoice-workbench.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/einvoice-workbench/EInvoiceWorkbench.dmg) <br><sub>89 KB</sub> |
 | **[ContractDriftFinder](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/contract-drift-finder.html)** | A native macOS app for SMB owners, ops managers, and freelancers that opens PDFs locally,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/contract-drift-finder/ContractDriftFinder.dmg) <br><sub>60 KB</sub> |
 | **[LocalSecretsPIISweeper](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/local-secrets-pii-sweeper.html)** | A privacy-first native macOS utility for consultants, agencies, and small businesses that scans… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/local-secrets-pii-sweeper/LocalSecretsPIISweeper.dmg) <br><sub>142 KB</sub> |
 | **[BidTriage](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/local-rfp-triage.html)** | Local RFP/Bid Triage Assistant for small contractors: target users are small… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/local-rfp-triage/BidTriage.dmg) <br><sub>57 KB</sub> |
@@ -29,7 +30,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>70 KB</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>61 KB</sub> |
 
-<sub>9 apps · 0.7 MB total · macOS 12+</sub>
+<sub>10 apps · 0.8 MB total · macOS 12+</sub>
 
 ---
 
