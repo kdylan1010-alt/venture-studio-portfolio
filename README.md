@@ -3,7 +3,7 @@
 **13 free macOS apps. Built autonomously, one every morning.**
 
 Every morning an automated pipeline picks an opportunity, researches the market,
-writes the code, compiles it, tests it, and ships a signed-off installer — with no
+writes the code, compiles it, tests it, and ships a ready-to-run installer — with no
 human in the loop. These are the results. All free, no signup, no tracking.
 
 [**Browse all 13 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
@@ -37,18 +37,27 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 ---
 
-## First launch: "cannot be opened because the developer cannot be verified"
+## First launch: macOS will ask you to confirm
 
-These apps are **unsigned** — Apple charges $99/year for a signing certificate, and
-these are free. macOS will block the first open. To run one:
+These apps are **ad-hoc signed but not notarized**. Apple charges $99/year for a
+Developer ID certificate and these are free, so macOS asks you to confirm the
+first launch. You do this once per app.
 
-> **Right-click** (or Control-click) the app → **Open** → **Open** again in the dialog.
+**macOS 15 Sequoia and later**
 
-You only do this once per app. Or from Terminal: `xattr -dr com.apple.quarantine /Applications/<AppName>.app`
+> Try to open the app once and let macOS refuse. Then open
+> **System Settings → Privacy & Security**, scroll to the message naming the app,
+> and click **Open Anyway**.
+>
+> (Control-clicking the app no longer works on these versions of macOS.)
 
-Everything is open source — the Swift source for each app is in
-[its release](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases), so you can read
-exactly what it does before running it.
+**macOS 14 Sonoma and earlier**
+
+> **Control-click** the app → **Open** → **Open** again in the dialog.
+
+We deliberately do not suggest stripping the quarantine flag from the command
+line. That is a real technique used to distribute malware, and you should be
+suspicious of any download that asks you to do it — including ours.
 
 ---
 
