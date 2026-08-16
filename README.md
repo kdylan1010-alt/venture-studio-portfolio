@@ -1,16 +1,16 @@
 # AI Venture Studio
 
-**15 free macOS apps. Built autonomously, one every morning.**
+**19 free macOS apps. Built autonomously, one every morning.**
 
 Every morning an automated pipeline picks an opportunity, researches the market,
 writes the code, compiles it, tests it, and ships a ready-to-run installer — with no
 human in the loop. These are the results. All free, no signup, no tracking.
 
-[**Browse all 15 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
+[**Browse all 19 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
   <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/airgap-redaction-workbench.html"><img src="shots/airgap-redaction-workbench.png" width="720" alt="AirgapRedactionWorkbench"></a>
-  <br><sub><i>AirgapRedactionWorkbench — one of 15 tools below</i></sub>
+  <br><sub><i>AirgapRedactionWorkbench — one of 19 tools below</i></sub>
 </p>
 
 ---
@@ -19,6 +19,10 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
+| **[AccessibilityWorkbench](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/ada-accessibility-workbench.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/ada-accessibility-workbench/AccessibilityWorkbench.dmg) <br><sub>658 KB</sub> |
+| **[AIDisclosureDesk](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/ai-disclosure-desk.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/ai-disclosure-desk/AIDisclosureDesk.dmg) <br><sub>703 KB</sub> |
+| **[HeatSafetyLogBinder](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/heat-safety-log-binder.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/heat-safety-log-binder/HeatSafetyLogBinder.dmg) <br><sub>648 KB</sub> |
+| **[TariffDriftDesk](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tariff-drift-desk.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tariff-drift-desk/TariffDriftDesk.dmg) <br><sub>137 KB</sub> |
 | **[Vendor1099Copilot](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/vendor-1099-copilot.html)** | Vendor 1099 Threshold Copilot: a native macOS desktop app for SMB owners, bookkeepers, and… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/vendor-1099-copilot/Vendor1099Copilot.dmg) <br><sub>675 KB</sub> |
 | **[EvidencePack](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/accessibility-evidence-pack.html)** | Accessibility Evidence Pack for SaaS teams, agencies, and digital product owners shipping into… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/accessibility-evidence-pack/EvidencePack.dmg) <br><sub>692 KB</sub> |
 | **[AirgapRedactionWorkbench](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/airgap-redaction-workbench.html)** | Air-gapped Redaction Workbench: target users are law firms, compliance teams, journalists, and… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/airgap-redaction-workbench/AirgapRedactionWorkbench.dmg) <br><sub>302 KB</sub> |
@@ -35,7 +39,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB</sub> |
 
-<sub>15 apps · 6.1 MB total · macOS 12+</sub>
+<sub>19 apps · 8.2 MB total · macOS 12+</sub>
 
 ---
 
