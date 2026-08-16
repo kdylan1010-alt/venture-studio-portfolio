@@ -4,35 +4,47 @@
 :root{
   --bg:#f7f7f5; --surface:#fcfcfb; --fg:#0b0b0b; --mut:#52514e; --line:#e4e4e0;
   --mark:#2a78d6; --weak:#ec835a; --track:#ecebe7; --shadow:0 1px 2px rgba(0,0,0,.05);
+  --shadow-hover:0 12px 24px -12px rgba(20,20,15,.22);
+  --ease:cubic-bezier(.2,.7,.2,1);
 }
 @media (prefers-color-scheme:dark){
   :root{--bg:#131312; --surface:#1a1a19; --fg:#fff; --mut:#c3c2b7; --line:#2e2e2b;
-        --mark:#3987e5; --weak:#e66767; --track:#2a2a27; --shadow:none}
+        --mark:#3987e5; --weak:#e66767; --track:#2a2a27; --shadow:none;
+        --shadow-hover:0 16px 32px -14px rgba(0,0,0,.55)}
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--fg);
      font:16px/1.6 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
      -webkit-font-smoothing:antialiased}
 a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:3.5rem 1.25rem 5rem}
+a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:3.5rem 1.25rem 5rem;position:relative}
+.glow{position:absolute;top:-8rem;left:50%;width:60rem;height:26rem;
+      transform:translateX(-50%);pointer-events:none;z-index:-1;
+      background:radial-gradient(closest-side,color-mix(in oklab,var(--mark) 13%,transparent),transparent 72%);
+      filter:blur(6px)}
 .lede h1{font-size:2.1rem;letter-spacing:-.025em;margin:0 0 .4rem}
 .lede p{color:var(--mut);margin:0;max-width:62ch}
 .kpi{display:flex;gap:2.5rem;flex-wrap:wrap;margin:2rem 0 2.75rem;
      padding:1.15rem 1.4rem;border:1px solid var(--line);border-radius:14px;
      background:var(--surface);box-shadow:var(--shadow)}
 .kpi div{display:flex;flex-direction:column;gap:.15rem}
-.kpi b{font-size:1.65rem;line-height:1;letter-spacing:-.02em}
+.kpi b{font-size:1.65rem;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .kpi span{color:var(--mut);font-size:.72rem;text-transform:uppercase;letter-spacing:.07em}
 
 /* index tiles */
 .tiles{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(330px,1fr))}
 .tile{border:1px solid var(--line);border-radius:14px;background:var(--surface);
       box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;
-      text-decoration:none;transition:transform .12s ease,border-color .12s ease}
-.tile:hover{transform:translateY(-2px);border-color:var(--mark)}
+      text-decoration:none;transition:transform .18s var(--ease),box-shadow .18s var(--ease),border-color .18s var(--ease);
+      opacity:0;animation:fadeUp .5s var(--ease) both;animation-delay:var(--d,0ms)}
+.tile:hover{transform:translateY(-3px);border-color:var(--mark);box-shadow:var(--shadow-hover)}
+.tile:hover .thumb img{transform:scale(1.035)}
 .tile .thumb{aspect-ratio:16/10;background:var(--track);overflow:hidden;
              border-bottom:1px solid var(--line)}
-.tile .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.tile .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
+                  transition:transform .5s var(--ease)}
 .tile .thumb.empty{display:grid;place-items:center;color:var(--mut);font-size:.8rem}
 .tile .body{padding:.9rem 1rem 1.05rem;display:flex;flex-direction:column;gap:.3rem;flex:1}
 .tile h2{margin:0;font-size:1rem;letter-spacing:-.01em}
@@ -40,6 +52,13 @@ a{color:inherit}
 .tile .meta{display:flex;align-items:center;gap:.5rem;color:var(--mut);font-size:.74rem;margin-top:.35rem}
 .pill{border:1px solid var(--line);border-radius:999px;padding:.1rem .5rem;font-size:.7rem}
 .pill.ok{color:var(--mark);border-color:color-mix(in oklab,var(--mark) 45%,transparent)}
+.pill.dl{color:var(--weak);border-color:color-mix(in oklab,var(--weak) 45%,transparent)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .tile{animation:none;opacity:1}
+  .tile,.tile .thumb img{transition:none}
+}
 
 /* detail */
 .back{display:inline-block;color:var(--mut);text-decoration:none;font-size:.85rem;margin-bottom:1.5rem}
@@ -82,7 +101,7 @@ table.axes td{padding:.28rem 0;color:var(--mut);vertical-align:top}
 table.axes td:first-child{width:7rem;color:var(--fg)}
 footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color:var(--mut);font-size:.8rem}
 </style></head>
-<body><div class="wrap"><div class="lede">
+<body><div class="wrap"><div class="glow" aria-hidden="true"></div><div class="lede">
     <h1>AI Venture Studio</h1>
     <p>Every morning this system finds an opportunity, scores it against eight competing
        perspectives, builds a native macOS app, verifies it and ships an installer —
@@ -91,181 +110,202 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <div class="kpi">
     <div><b>24</b><span>ventures</span></div>
     <div><b>19</b><span>installers</span></div>
-    <div><b>13</b><span>screenshots</span></div>
+    <div><b>1</b><span>downloads</span></div>
     <div><b>8.2 MB</b><span>shipped</span></div>
+    <div><b>$19.37</b><span>api-equivalent cost</span></div>
+    <div><b>$200.00</b><span>cost per download</span></div>
   </div>
-  <div class="tiles"><a class="tile" href="v/ada-accessibility-workbench.html">
+  <div class="tiles"><a class="tile" style="--d:0ms" href="v/ada-accessibility-workbench.html">
       <div class="thumb empty">no screenshot</div>
       <div class="body">
         <h2>AccessibilityWorkbench</h2>
         <p class="one">No recorded thesis for this venture.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-16</span>
         </div>
-      </div></a><a class="tile" href="v/ai-disclosure-desk.html">
+      </div></a><a class="tile" style="--d:45ms" href="v/ai-disclosure-desk.html">
       <div class="thumb empty">no screenshot</div>
       <div class="body">
         <h2>AIDisclosureDesk</h2>
         <p class="one">No recorded thesis for this venture.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-16</span>
         </div>
-      </div></a><a class="tile" href="v/heat-safety-log-binder.html">
+      </div></a><a class="tile" style="--d:90ms" href="v/heat-safety-log-binder.html">
       <div class="thumb empty">no screenshot</div>
       <div class="body">
         <h2>HeatSafetyLogBinder</h2>
         <p class="one">No recorded thesis for this venture.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-16</span>
         </div>
-      </div></a><a class="tile" href="v/tariff-drift-desk.html">
+      </div></a><a class="tile" style="--d:135ms" href="v/tariff-drift-desk.html">
       <div class="thumb empty">no screenshot</div>
       <div class="body">
         <h2>TariffDriftDesk</h2>
         <p class="one">No recorded thesis for this venture.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-13</span>
         </div>
-      </div></a><a class="tile" href="v/vendor-1099-copilot.html">
+      </div></a><a class="tile" style="--d:180ms" href="v/vendor-1099-copilot.html">
       <div class="thumb empty">no screenshot</div>
       <div class="body">
         <h2>Vendor1099Copilot</h2>
         <p class="one">Vendor 1099 Threshold Copilot: a native macOS desktop app for SMB owners, bookkeepers, and accounting firms that imports bank CSVs, invoice PD…</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-12</span>
         </div>
-      </div></a><a class="tile" href="v/accessibility-evidence-pack.html">
+      </div></a><a class="tile" style="--d:225ms" href="v/accessibility-evidence-pack.html">
       <div class="thumb empty">no screenshot</div>
       <div class="body">
         <h2>EvidencePack</h2>
         <p class="one">Accessibility Evidence Pack for SaaS teams, agencies, and digital product owners shipping into the EU: a native macOS app that checks staging…</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-11</span>
         </div>
-      </div></a><a class="tile" href="v/airgap-redaction-workbench.html">
+      </div></a><a class="tile" style="--d:270ms" href="v/airgap-redaction-workbench.html">
       <div class="thumb"><img src="shots/airgap-redaction-workbench.png" alt="AirgapRedactionWorkbench interface" loading="lazy"></div>
       <div class="body">
         <h2>AirgapRedactionWorkbench</h2>
         <p class="one">Air-gapped Redaction Workbench: target users are law firms, compliance teams, journalists, and regulated SMBs that handle sensitive PDFs locally.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-10</span>
         </div>
-      </div></a><a class="tile" href="v/contract-drift-finder.html">
+      </div></a><a class="tile" style="--d:315ms" href="v/contract-drift-finder.html">
       <div class="thumb"><img src="shots/contract-drift-finder.png" alt="ContractDriftFinder interface" loading="lazy"></div>
       <div class="body">
         <h2>ContractDriftFinder</h2>
         <p class="one">A native macOS app for SMB owners, ops managers, and freelancers that opens PDFs locally, extracts contract and invoice text, flags auto-renew…</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-10</span>
         </div>
-      </div></a><a class="tile" href="v/download-triage-assistant.html">
+      </div></a><a class="tile" style="--d:360ms" href="v/download-triage-assistant.html">
       <div class="thumb"><img src="shots/download-triage-assistant.png" alt="DownloadTriageAssistant interface" loading="lazy"></div>
       <div class="body">
         <h2>DownloadTriageAssistant</h2>
         <p class="one">A native macOS desktop utility for security-conscious users, consultants, and IT admins that inspects local downloads before they are opened.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-10</span>
         </div>
-      </div></a><a class="tile" href="v/einvoice-workbench.html">
+      </div></a><a class="tile" style="--d:405ms" href="v/einvoice-workbench.html">
       <div class="thumb"><img src="shots/einvoice-workbench.png" alt="EInvoiceWorkbench interface" loading="lazy"></div>
       <div class="body">
         <h2>EInvoiceWorkbench</h2>
         <p class="one">No recorded thesis for this venture.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-10</span>
         </div>
-      </div></a><a class="tile" href="v/local-rfp-triage.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/local-rfp-triage.html">
       <div class="thumb"><img src="shots/local-rfp-triage.png" alt="BidTriage interface" loading="lazy"></div>
       <div class="body">
         <h2>BidTriage</h2>
         <p class="one">Local RFP/Bid Triage Assistant for small contractors: target users are small government-contracting and B2B bid teams that lose time and money…</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-10</span>
         </div>
-      </div></a><a class="tile" href="v/local-secrets-pii-sweeper.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/local-secrets-pii-sweeper.html">
       <div class="thumb"><img src="shots/local-secrets-pii-sweeper.png" alt="LocalSecretsPIISweeper interface" loading="lazy"></div>
       <div class="body">
         <h2>LocalSecretsPIISweeper</h2>
         <p class="one">A privacy-first native macOS utility for consultants, agencies, and small businesses that scans local files, PDFs, and images for secrets, PII…</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-10</span>
         </div>
-      </div></a><a class="tile" href="v/mac-secret-sweep.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/mac-secret-sweep.html">
       <div class="thumb"><img src="shots/mac-secret-sweep.png" alt="MacSecretSweep interface" loading="lazy"></div>
       <div class="body">
         <h2>MacSecretSweep</h2>
         <p class="one">No recorded thesis for this venture.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-10</span>
         </div>
-      </div></a><a class="tile" href="v/offline-tax-gap-scanner.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/offline-tax-gap-scanner.html">
       <div class="thumb"><img src="shots/offline-tax-gap-scanner.png" alt="TaxGapScout interface" loading="lazy"></div>
       <div class="body">
         <h2>TaxGapScout</h2>
         <p class="one">A local-only macOS desktop app for freelancers and microbusinesses that scans receipts, bank PDFs, and CSV exports to detect missing expense r…</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-10</span>
         </div>
-      </div></a><a class="tile" href="v/policy-drift-radar.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/policy-drift-radar.html">
       <div class="thumb"><img src="shots/policy-drift-radar.png" alt="PolicyDriftRadar interface" loading="lazy"></div>
       <div class="body">
         <h2>PolicyDriftRadar</h2>
         <p class="one">No recorded thesis for this venture.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-10</span>
         </div>
-      </div></a><a class="tile" href="v/prior-auth-appeal-desk.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/prior-auth-appeal-desk.html">
       <div class="thumb"><img src="shots/prior-auth-appeal-desk.png" alt="PriorAuthAppealDesk interface" loading="lazy"></div>
       <div class="body">
         <h2>PriorAuthAppealDesk</h2>
         <p class="one">No recorded thesis for this venture.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-10</span>
         </div>
-      </div></a><a class="tile" href="v/procurement-pulse-desktop.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/procurement-pulse-desktop.html">
       <div class="thumb"><img src="shots/procurement-pulse-desktop.png" alt="ProcurementPulse interface" loading="lazy"></div>
       <div class="body">
         <h2>ProcurementPulse</h2>
         <p class="one">Procurement Pulse for small contractors, estimators, and boutique firms that lose revenue when they miss bid opportunities or deadline changes.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-10</span>
         </div>
-      </div></a><a class="tile" href="v/receipt-sentinel.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/receipt-sentinel.html">
       <div class="thumb"><img src="shots/receipt-sentinel.png" alt="ReceiptSentinel interface" loading="lazy"></div>
       <div class="body">
         <h2>ReceiptSentinel</h2>
         <p class="one">Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses who are drowning in paper and PDF receipts.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          <span class="pill dl">1 download</span>
           <span>2026-08-10</span>
         </div>
-      </div></a><a class="tile" href="v/tenant-deposit-dispute-packet.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/tenant-deposit-dispute-packet.html">
       <div class="thumb"><img src="shots/tenant-deposit-dispute-packet.png" alt="DepositPacket interface" loading="lazy"></div>
       <div class="body">
         <h2>DepositPacket</h2>
         <p class="one">A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes, and landlord correspondence into a timestamped…</p>
         <div class="meta">
           <span class="pill ok">installer</span>
+          
           <span>2026-08-10</span>
         </div>
-      </div></a><a class="tile" href="v/claims-attachment-packet-builder.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/claims-attachment-packet-builder.html">
       <div class="thumb empty">no screenshot</div>
       <div class="body">
         <h2>claims-attachment-packet-builder</h2>
@@ -273,8 +313,9 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
         <div class="meta">
           <span class="pill">no build</span>
           
+          
         </div>
-      </div></a><a class="tile" href="v/non-employer-cyber-checklist.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/non-employer-cyber-checklist.html">
       <div class="thumb empty">no screenshot</div>
       <div class="body">
         <h2>non-employer-cyber-checklist</h2>
@@ -282,8 +323,9 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
         <div class="meta">
           <span class="pill">no build</span>
           
+          
         </div>
-      </div></a><a class="tile" href="v/privacy-first-memory-capture.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/privacy-first-memory-capture.html">
       <div class="thumb empty">no screenshot</div>
       <div class="body">
         <h2>privacy-first-memory-capture</h2>
@@ -291,8 +333,9 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
         <div class="meta">
           <span class="pill">no build</span>
           
+          
         </div>
-      </div></a><a class="tile" href="v/subscription-cancel-proof.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/subscription-cancel-proof.html">
       <div class="thumb empty">no screenshot</div>
       <div class="body">
         <h2>subscription-cancel-proof</h2>
@@ -300,8 +343,9 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
         <div class="meta">
           <span class="pill">no build</span>
           
+          
         </div>
-      </div></a><a class="tile" href="v/warranty-claim-packet.html">
+      </div></a><a class="tile" style="--d:450ms" href="v/warranty-claim-packet.html">
       <div class="thumb empty">no screenshot</div>
       <div class="body">
         <h2>warranty-claim-packet</h2>
@@ -309,9 +353,31 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
         <div class="meta">
           <span class="pill">no build</span>
           
+          
         </div>
       </div></a></div>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
 right-click → Open on first launch. <a href="index.html">All ventures</a></footer>
-</div></body></html>
+</div><script>
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.kpi b').forEach(function(el, i){
+    var raw = el.textContent, m = raw.match(/^([$]?)([\d.,]+)(.*)$/);
+    if (!m) return;
+    var prefix = m[1], target = parseFloat(m[2].replace(/,/g,'')), suffix = m[3];
+    if (!isFinite(target)) return;
+    var dp = (m[2].split('.')[1] || '').length;
+    var start = null, dur = 650, delay = i * 60;
+    el.textContent = prefix + (0).toFixed(dp) + suffix;
+    requestAnimationFrame(function step(t){
+      if (start === null) start = t + delay;
+      var p = Math.min(1, Math.max(0, (t - start) / dur));
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = target * eased;
+      el.textContent = prefix + val.toFixed(dp).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + suffix;
+      if (p < 1) requestAnimationFrame(step); else el.textContent = raw;
+    });
+  });
+})();
+</script></body></html>
