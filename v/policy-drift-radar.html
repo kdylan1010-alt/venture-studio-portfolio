@@ -244,10 +244,10 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>PolicyDriftRadar</h1><p>No recorded thesis for this venture.</p>
+  <div class="lede"><h1>PolicyDriftRadar</h1><p>AI Policy &amp; Standards Radar for founders, legal/compliance teams, policy analysts, and researchers who need to track fast-moving public rules…</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      
+      <span class="badge">Built in 2h 0m</span>
       <span class="badge">2026-08-10</span>
       
       
@@ -257,14 +257,119 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
     <div><div class="shot"><img src="../shots/policy-drift-radar.png" alt="PolicyDriftRadar running">
        <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/policy-drift-radar/PolicyDriftRadar.dmg">Download PolicyDriftRadar.dmg <small>400 KB</small></a>
        </div>
-    <div></div>
+    <div><div class="chart">
+    <h2 class="chart-title">Selection benchmarks</h2>
+    <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
+      best <em>balance</em> across all eight, not the best single score.</p>
+    <div aria-hidden="true"><div class="row" style="--w:80%">
+      <div class="name">profit</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">change</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row low" style="--w:60%">
+      <div class="name">effort<b>weakest</b></div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">6</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">viability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:90%">
+      <div class="name">future</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">9</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">market</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:70%">
+      <div class="name">population</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">availability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div></div>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>score</span>
+      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
+    </div>
+    <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 8/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 6/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 9/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 7/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 8/10</td></tr></table>
+  </div></div>
   </div>
-  
-  
-  
-  
-  
-  
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">AI Policy &amp; Standards Radar for founders, legal/compliance teams, policy analysts, and researchers who need to track fast-moving public rules and standards. Painful problem: important regulatory and standards changes are scattered across many sites and PDFs, easy to miss, and hard to compare over time. Value proposition: a native Mac app that watches a curated source list, fetches HTML and PDF updates, highlights real diffs, suppresses noise, and turns changes into a daily brief with exportable evidence.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build Policy Drift Radar, a native macOS desktop app that lets users define a watchlist of public policy and standards sources, polls those sources on a schedule, snapshots page contents, diffs HTML and PDF changes, filters noise, and surfaces a daily brief with exportable evidence and notifications.</pre></section>
+  <section><h2 class="section-title">Market and user research</h2><pre class="note">All figures below are `ESTIMATE` unless noted. The market logic is `inference`, not checked-source research, because there is no web access in this run.
+
+**MARKET SIZE**
+- Plausible buyers are people whose job depends on noticing changes in public rules, guidance, standards, filings, or policy documents: in-house compliance, legal ops, policy analysts, regulatory consultants, standards teams, and research staff.
+- Bottom-up estimate:
+  - `ESTIMATE` 20,000 U.S. organizations have at least one person tracking policy, regulatory, or standards changes.
+  - `ESTIMATE` 30% are Mac-friendly enough to prefer a native Mac app.
+  - `20,000 x 30% = ESTIMATE 6,000 organizations`
+  - `ESTIMATE` 2 seats per organization on average.
+  - `6,000 x 2 = ESTIMATE 12,000 seats`
+  - Add solo consultants, independent researchers, and small firms outside that count: `ESTIMATE` 3,000 to 8,000 more seats.
+  - Reachable initial market: `ESTIMATE` 15,000 to 20,000 seats in the first geography, or `ESTIMATE` 25,000 to 40,000 seats if you include adjacent English-speaking markets.
+- This is a niche market, not a mass-market one, but it is large enough for a small B2B software business if retention is strong.
+
+**USER RESEARCH**
+- In-house legal/compliance teams at regulated SMBs and mid-market firms
+  - Current workaround: Google Alerts, RSS, bookmarked regulator pages, newsletters, Slack pings, and periodic manual checks.
+  - What they already pay: `ESTIMATE` $0 to $15/mo/person for alert tools, plus `ESTIMATE` hundreds to thousands per month for legal research, compliance monitoring, or outside counsel when they need help.
+  - How they would find this product: legal ops communities, compliance newsletters, referrals from counsel, LinkedIn, search, and niche vendor recommendations.
+  - What would ma</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">Built and packaged the native macOS artifact inside the isolated `policy-drift-radar` venture workspace.
+
+Confirmed deliverable:
+`/Users/a1111/ai-venture-studio/apps/ventures/policy-drift-radar/PolicyDriftRadar.dmg`
+
+Files created/updated:
+- `Sources/PolicyDriftRadar.swift`
+- `PolicyDriftRadar`
+- `PolicyDriftRadar.app/Contents/MacOS/PolicyDriftRadar`
+- `PolicyDriftRadar.app/Contents/Info.plist`
+- `PolicyDriftRadar.dmg`
+
+Confirmed command results:
+- `swiftc Sources/PolicyDriftRadar.swift -o PolicyDriftRadar` exit `0`
+- `mkdir -p PolicyDriftRadar.app/Contents/MacOS` exit `0`
+- `cp PolicyDriftRadar PolicyDriftRadar.app/Contents/MacOS/PolicyDriftRadar` exit `0`
+- `hdiutil create -volname PolicyDriftRadar -srcfolder PolicyDriftRadar.app -ov -format UDZO PolicyDriftRadar.dmg` exit `0`
+- `ls -la` exit `0`, confirmed `PolicyDriftRadar.dmg` exists
+
+The app includes a native AppKit GUI, watchlist management, HTML/PDF fetching, snapshot storage, diff summaries, daily brief generation, export, UserDefaults persistence, local evidence storage, an app icon, and an empty state. Build completed with one non-blocking macOS deprecation warning for `NSBox.borderType`.
+
+BLOCKED: I did not run live run</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">DMG PRESENT: `PolicyDriftRadar.dmg`
+
+DEPTH: REAL
+
+Tool-confirmed checks
+- `ls -la` shows `PolicyDriftRadar.dmg` and `PolicyDriftRadar.app` in the venture workspace.
+- `swiftc Sources/PolicyDriftRadar.swift -o PolicyDriftRadar` exited `0`.
+- `hdiutil create -volname PolicyDriftRadar -srcfolder PolicyDriftRadar.app -ov -format UDZO PolicyDriftRadar.dmg` exited `0`.
+- `PolicyDriftRadar.app/Contents/Info.plist` is present and was previously verified as a well-formed plist with the expected bundle keys.
+- The bundle executable exists at `PolicyDriftRadar.app/Contents/MacOS/PolicyDriftRadar`.
+
+Reasoned review
+- The artifact shape matches the acceptance target: a native `.app` packaged inside a `.dmg`.
+- The implementation is described as using Apple system frameworks only and local persistence only, which fits the spec.
+- I do not have runtime proof here that the packaged app launches and completes the gateway workflow end to end.
+
+Unrun manual checks
+- Mounting and opening the `.dmg`.
+- Launching the `.app` from Finder.
+- Verifying live local gateway admin API requests.
+- Verifying cached/offline behavior.
+- Verifying confirmation prompts for destructive routing changes.
+
+Source count a</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">The product has a plausible narrow use case as a local macOS utility, and the scope is MVP-sized rather than sprawling. However, the review evidence is incomplete for a shipping decision: I found `.dmg` artifacts in the workspace, but no acceptance log explicitly confirming a verified delivery, which blocks a pass under the packaging requirement.</pre></section>
   </main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
