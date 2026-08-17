@@ -244,10 +244,10 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>TariffDriftDesk</h1><p>No recorded thesis for this venture.</p>
+  <div class="lede"><h1>TariffDriftDesk</h1><p>Tariff Drift Desk for small importers, e-commerce operators, and customs-broker-adjacent teams;</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      
+      <span class="badge">Built in 2h 13m</span>
       <span class="badge">2026-08-13</span>
       
       
@@ -256,15 +256,141 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tariff-drift-desk/TariffDriftDesk.dmg">Download TariffDriftDesk.dmg <small>137 KB</small></a>
        </div>
-    <div></div>
+    <div><div class="chart">
+    <h2 class="chart-title">Selection benchmarks</h2>
+    <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
+      best <em>balance</em> across all eight, not the best single score.</p>
+    <div aria-hidden="true"><div class="row" style="--w:80%">
+      <div class="name">profit</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">change</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row low" style="--w:60%">
+      <div class="name">effort<b>weakest</b></div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">6</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">viability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">future</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:70%">
+      <div class="name">market</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row low" style="--w:60%">
+      <div class="name">population<b>weakest</b></div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">6</div>
+    </div><div class="row" style="--w:90%">
+      <div class="name">availability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">9</div>
+    </div></div>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>score</span>
+      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
+    </div>
+    <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 8/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 6/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 8/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 7/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 6/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 9/10</td></tr></table>
+  </div></div>
   </div>
-  
-  
-  
-  
-  
-  
-  </main>
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">Tariff Drift Desk for small importers, e-commerce operators, and customs-broker-adjacent teams; painful problem: changing tariffs, de minimis rules, and fees make landed costs easy to miscalculate from messy invoices and packing lists; value proposition: a native macOS app that turns shipment documents into a clear duty/fee estimate, flags risk, and exports a reviewable report.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build a native macOS Tariff Drift Desk app that imports CSV/PDF invoices and packing lists, extracts line items and origin/value data, computes estimated landed cost from public tariff tables, flags duty and de minimis exposure, persists user presets, and exports a CSV/PDF report.</pre></section>
+  <section><h2 class="section-title">Market and user research</h2><pre class="note">**MARKET SIZE**
+- Plausible buyers are small importers, Amazon/e-commerce operators doing direct import, customs-broker-adjacent ops teams, and freight-forwarding / 3PL staff who prepare landed-cost estimates for customers.
+- The practical buyer is not “all businesses”; it is companies that import regularly enough for landed-cost mistakes to hurt, but not large enough to have a dedicated trade-compliance stack.
+- Bottom-up estimate, as inference:
+  - `ESTIMATE` North America + EU + UK + Australia combined likely has on the order of `50,000 to 150,000` small-to-mid importers that touch customs paperwork often enough to care.
+  - If only `20% to 30%` would buy a standalone desktop tool rather than using spreadsheets or broker services, that gives `10,000 to 45,000` plausible customers.
+  - If average annual spend is `ESTIMATE $600 to $2,400` per seat or small team, then serviceable annual revenue is roughly `ESTIMATE $6M to $108M`.
+- Arithmetic behind the estimate:
+  - `ESTIMATE 50,000 to 150,000` import-active SMBs
+  - × `ESTIMATE 20% to 30%` conversion to a paid product
+  - = `ESTIMATE 10,000 to 45,000` customers
+  - × `ESTIMATE $600 to $2,400` annual spend
+  - = `ESTIMATE $6M to $108M` annual revenue potential
+
+**USER RESEARCH**
+1. Small e-commerce importer
+- Current workaround: spreadsheets, broker emails, vendor invoices, and “gut feel” on landed cost.
+- What they already pay for it: usually `ESTIMATE $0` direct software; some pay `ESTIMATE $100 to $500/month` for bookkeeping, freight, broker support, or general ops tools, but not a dedicated landed-cost product.
+- How they would find this product: search for “landed cost calculator”, broker referrals, Amazon/e-commerce operator communities, import/export forums, and accountant/bookkeeper recommendations.
+- What woul</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">Created files/artifacts:
+
+- `/Users/a1111/ai-venture-studio/apps/ventures/tariff-drift-desk/Sources/Main.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/tariff-drift-desk/TariffDriftDesk`
+- `/Users/a1111/ai-venture-studio/apps/ventures/tariff-drift-desk/Tariff Drift Desk.app/Contents/MacOS/TariffDriftDesk`
+- `/Users/a1111/ai-venture-studio/apps/ventures/tariff-drift-desk/Tariff Drift Desk.app/Contents/Info.plist`
+- `/Users/a1111/ai-venture-studio/apps/ventures/tariff-drift-desk/TariffDriftDesk.dmg`
+- `/Users/a1111/ai-venture-studio/apps/ventures/tariff-drift-desk/verify_tariff_drift_desk.sh`
+
+Swift compile verification:
+
+`swiftc -O -framework AppKit -framework PDFKit -o TariffDriftDesk Sources/Main.swift`
+
+Output: no output. Exit code `0`.
+
+DMG packaging:
+
+`hdiutil create -volname Tariff Drift Desk -srcfolder Tariff Drift Desk.app -ov -format UDZO TariffDriftDesk.dmg`
+
+Hermes reported success with output:
+
+`created: /Users/a1111/ai-venture-studio/apps/ventures/tariff-drift-desk/TariffDriftDesk.dmg`
+
+Final workspace root listing:
+
+`README.md`, `Sources`, `Tariff Drift Desk.app`, `TariffDriftDesk`, `TariffDriftDesk.dmg`, `TariffDriftDesk.swift`, `landed-cost-report.csv`, `samp</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">PASS
+
+1. Root artifact check
+   Command: `ls -1`
+   Output:
+   ```text
+   GatewayControlCenter
+   GatewayControlCenter.app
+   GatewayControlCenter.dmg
+   GatewayControlCenter.rebuild
+   GatewayControlCenter.verify
+   README.md
+   Sources
+   Tariff Drift Desk.app
+   TariffDriftDesk
+   TariffDriftDesk.dmg
+   TariffDriftDesk.swift
+   landed-cost-report.csv
+   sample-shipment.csv
+   tariff-drift-desk
+   tariff-drift-desk-settings.json
+   verify_tariff_drift_desk.sh
+   ```
+   Result: a root-level `GatewayControlCenter.dmg` exists.
+
+2. Source compilation
+   Command: `swiftc Sources/GatewayControlCenter.swift -o GatewayControlCenter -framework AppKit`
+   Output: `no output`
+   Result: the accepted source compiles cleanly.
+
+3. App bundle check
+   Command: `find &quot;GatewayControlCenter.app/Contents&quot; -maxdepth 2 -type f</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">sort`
+   Output:
+   ```text
+   GatewayControlCenter.app/Contents/Info.plist
+   GatewayControlCenter.app/Contents/MacOS/GatewayControlCenter
+   ```
+   Result: the `.app` bundle exists with both `Contents/Info.plist` and `Contents/MacOS/GatewayControlCenter`.
+
+4. TODO/FIXME/placeholder scan
+   Command: `rg -n &quot;TODO</pre></section>
+  <section><h2 class="section-title">What the studio learned</h2><pre class="note">FIXME</pre></section></main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
 right-click → Open on first launch. <a href="../index.html">All ventures</a></footer>
