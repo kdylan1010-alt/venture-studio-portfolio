@@ -12,11 +12,15 @@
   --font-sans:'IBM Plex Sans',ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
 }
 @media (prefers-color-scheme:light){
+  /* --mark darkened from #0f8a5f (4.35:1 on white, fails WCAG 1.4.3 AA for
+     text) to #0a6b48 (5.4:1) -- found 2026-08-17 auditing the pill/badge text. */
   :root{--bg:#f5f3ee; --bg2:#ffffff; --bg3:#ece8de; --fg:#14181a; --mut:#5c6367; --line:#dedad0;
-        --mark:#0f8a5f; --weak:#a8620a; --shadow:0 1px 2px rgba(20,20,15,.06);
+        --mark:#0a6b48; --weak:#a8620a; --shadow:0 1px 2px rgba(20,20,15,.06);
         --shadow-hover:0 20px 40px -18px rgba(20,20,15,.16)}
 }
 *{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+         clip:rect(0,0,0,0);white-space:nowrap;border:0}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--fg);
      font:16px/1.6 var(--font-sans);-webkit-font-smoothing:antialiased}
@@ -45,21 +49,39 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
         color-mix(in oklab,var(--weak) 14%,transparent) 6deg,transparent 22deg,transparent 360deg);
       animation:sweep 11s linear infinite}
 @keyframes sweep{to{transform:rotate(360deg)}}
-.hero h1{margin:0 0 .7rem;font:800 clamp(2rem,4.4vw,2.75rem)/1.12 var(--font-mono);letter-spacing:-.01em}
-.hero h1 .type{display:inline-block;overflow:hidden;white-space:nowrap;vertical-align:bottom;
-      border-right:.12em solid var(--weak);width:17ch;
-      animation:type 1s steps(17,end) .1s both,caret .8s step-end 5}
-@keyframes type{from{width:0}}
-@keyframes caret{50%{border-color:transparent}}
-.hero p{color:var(--mut);margin:0;max-width:62ch;font-size:1.02rem}
+/* Boot sequence: the signature moment. This studio's whole premise is a machine
+   working while nobody watches, so the page opening like the machine is coming
+   online -- a status readout, not a title card -- is the one place to spend the
+   "make it feel alive" budget, per the studio brief. Each line is real: it
+   states an actual fact (venture count, build cadence, last run), not filler
+   ellipses. JS types them in sequence because CSS steps() can't stagger lines
+   of different lengths; reduced-motion prints the final state immediately. */
+.boot{font:13px/1.7 var(--font-mono);color:var(--mut);margin:0 0 1.3rem;min-height:5.1em}
+.boot .ln{opacity:0}
+.boot .ln.go{opacity:1}
+.boot .ln b{color:var(--mark)}
+.boot .caret{display:inline-block;width:.5em;height:1em;background:var(--weak);vertical-align:-.15em;
+      animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.hero h1{margin:0 0 .7rem;font:800 clamp(2rem,4.4vw,2.75rem)/1.12 var(--font-mono);letter-spacing:-.01em;
+      opacity:0;transform:translateY(6px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.hero h1.go{opacity:1;transform:none}
+.hero p{color:var(--mut);margin:0;max-width:62ch;font-size:1.02rem;
+      opacity:0;transition:opacity .6s var(--ease) .15s}
+.hero p.go{opacity:1}
 .lede h1{margin:0 0 .5rem;font:700 1.9rem/1.2 var(--font-mono);letter-spacing:-.01em}
 .lede p{color:var(--mut);margin:0;max-width:62ch}
 
 /* ticker -- the signature element: real build data, always moving */
-.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);
-        overflow:hidden;margin:1.6rem -1.25rem 0}
+.ticker{display:flex;align-items:stretch;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+        background:var(--bg2);overflow:hidden;margin:1.6rem -1.25rem 0}
+.tick-pause{flex:none;border:none;border-right:1px solid var(--line);background:transparent;color:var(--mut);
+        cursor:pointer;padding:0 .9rem;font-family:var(--font-mono);font-size:.9rem;line-height:1;
+        display:flex;align-items:center;min-width:24px;min-height:24px}
+.tick-pause:hover{color:var(--fg);background:color-mix(in oklab,var(--fg) 6%,transparent)}
+.tick-viewport{overflow:hidden;flex:1;min-width:0}
 .tick-track{display:flex;width:max-content;animation:tickscroll 46s linear infinite}
-.ticker:hover .tick-track,.ticker:focus-within .tick-track{animation-play-state:paused}
+.ticker.paused .tick-track,.tick-viewport:hover .tick-track{animation-play-state:paused}
 @keyframes tickscroll{to{transform:translateX(-50%)}}
 .tick-seq{display:flex;align-items:center;flex:none}
 .tick-item{display:inline-flex;align-items:baseline;gap:.55rem;white-space:nowrap;
@@ -70,11 +92,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 .tick-item i.ok{color:var(--mark)}
 .tick-item i.pending{color:var(--weak)}
 
-/* kpi */
-.kpi{display:flex;gap:2.2rem;flex-wrap:wrap;margin:1.75rem 0 2.75rem;
+/* kpi -- a console panel a pointer can "inspect": a soft light follows the
+   cursor across the readout, like a scanner head passing over the numbers.
+   Pure CSS via a custom property JS updates on mousemove; falls back to a
+   fixed position with no listener at all when hover isn't available. */
+.kpi{position:relative;display:flex;gap:2.2rem;flex-wrap:wrap;margin:1.75rem 0 2.75rem;
      padding:1.15rem 1.4rem;border:1px solid var(--line);border-radius:14px;
-     background:var(--bg2);box-shadow:var(--shadow)}
-.kpi div{display:flex;flex-direction:column;gap:.15rem}
+     background:var(--bg2);box-shadow:var(--shadow);overflow:hidden}
+.kpi::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+     background:radial-gradient(220px circle at var(--mx,50%) var(--my,0%),
+       color-mix(in oklab,var(--mark) 10%,transparent),transparent 70%);
+     opacity:0;transition:opacity .3s var(--ease)}
+.kpi:hover::before{opacity:1}
+.kpi div{position:relative;z-index:1;display:flex;flex-direction:column;gap:.15rem}
 .kpi b{font:700 1.6rem/1 var(--font-mono);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
 .kpi span{color:var(--mut);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-mono)}
 
@@ -94,10 +124,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
              border-bottom:1px solid var(--line)}
 .tile .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
                   transition:transform .5s var(--ease)}
-.tile .thumb::after{content:"";position:absolute;inset:0;pointer-events:none;
+/* Real app screenshots are bright native windows; dropped straight onto a dark
+   card they read as a glaring void (found reviewing the actual render 2026-08-17).
+   A fake title-bar strip + a soft top vignette makes even a plain white capture
+   read as "a window sitting in the panel" instead of a hole punched in it. */
+.tile .thumb.has-shot .bar{position:absolute;inset:0 0 auto 0;height:22px;z-index:2;
+      background:var(--bg3);border-bottom:1px solid color-mix(in oklab,var(--fg) 8%,transparent)}
+.tile .thumb.has-shot .bar::before{content:"";position:absolute;top:50%;left:8px;width:6px;height:6px;
+      border-radius:50%;transform:translateY(-50%);background:color-mix(in oklab,var(--mut) 55%,transparent);
+      box-shadow:12px 0 0 color-mix(in oklab,var(--mut) 55%,transparent),
+                 24px 0 0 color-mix(in oklab,var(--mut) 55%,transparent)}
+.tile .thumb.has-shot::after{content:"";position:absolute;inset:0 0 auto 0;height:38%;z-index:1;pointer-events:none;
+      background:linear-gradient(to bottom,color-mix(in oklab,var(--bg2) 55%,transparent),transparent)}
+.tile .thumb.has-shot img{padding-top:22px;box-sizing:border-box;background:var(--bg3)}
+.tile .thumb .sheen{position:absolute;inset:0;pointer-events:none;z-index:2;
       background:linear-gradient(115deg,transparent 42%,color-mix(in oklab,var(--fg) 14%,transparent) 50%,transparent 58%);
       transform:translateX(-130%);transition:transform .8s var(--ease)}
-.tile:hover .thumb::after{transform:translateX(130%)}
+.tile:hover .thumb .sheen{transform:translateX(130%)}
 .tile .thumb.empty{display:grid;place-items:center;color:var(--mut);font-size:.8rem;font-family:var(--font-mono)}
 .tile .body{padding:.9rem 1rem 1.05rem;display:flex;flex-direction:column;gap:.3rem;flex:1}
 .tile h2{margin:0;font-size:1rem;letter-spacing:-.01em;font-family:var(--font-mono);font-weight:600}
@@ -105,18 +148,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 .tile .meta{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem;color:var(--mut);font-size:.74rem;margin-top:.4rem}
 .pill{border:1px solid var(--line);border-radius:999px;padding:.15rem .55rem;font:600 .68rem/1.4 var(--font-mono)}
 .pill.ok{color:var(--mark);border-color:color-mix(in oklab,var(--mark) 45%,transparent)}
-.pill.dl{color:var(--weak);border-color:color-mix(in oklab,var(--weak) 45%,transparent)}
+.pill.count{color:var(--weak);border-color:color-mix(in oklab,var(--weak) 45%,transparent)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .hero .scan,.dot,.tick-track{animation:none}
-  .hero h1 .type{width:auto;border-right:none;animation:none}
+  .hero .scan,.dot,.tick-track,.boot .caret{animation:none}
+  .boot{display:none}
+  .hero h1,.hero p{opacity:1;transform:none;transition:none}
+  .kpi::before{display:none}
   .tile{opacity:1;transform:none;transition:box-shadow .25s var(--ease),border-color .25s var(--ease)}
-  .tile .thumb img,.tile .thumb::after{transition:none}
-  .tile .thumb::after{display:none}
+  .tile .thumb img,.tile .thumb .sheen{transition:none}
+  .tile .thumb .sheen{display:none}
+  .tick-pause{display:none}
 }
 
 /* detail */
-.back{display:inline-block;color:var(--mut);text-decoration:none;font-size:.85rem;margin-bottom:1.5rem;font-family:var(--font-mono)}
+.back{display:inline-block;color:var(--mut);text-decoration:none;font-size:.85rem;margin-bottom:1.5rem;
+      font-family:var(--font-mono);padding:.5rem 0;min-height:24px;box-sizing:border-box}
 .back:hover{color:var(--fg)}
 .badges{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0 0}
 .badge{font:600 .74rem/1 var(--font-mono);padding:.4rem .7rem;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
@@ -131,7 +178,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
     background:var(--mark);color:#04140d;text-decoration:none;font-weight:700;font-size:.92rem;font-family:var(--font-mono)}
 .dl small{font-weight:400;opacity:.75}
 section{margin-top:2.5rem}
-section h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);
+/* h2 (not h3): detail pages went h1 -> h4 (chart) -> h3 (sections), skipping a
+   level -- fixed 2026-08-17. Both this and .chart-title are h2 now; distinct
+   look comes from the class, not the tag, so nesting stays correct either way. */
+.section-title{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);
            margin:0 0 .7rem;padding-bottom:.5rem;border-bottom:1px solid var(--line);font-family:var(--font-mono)}
 section p{margin:0 0 .8rem;max-width:70ch}
 pre.note{white-space:pre-wrap;font:13px/1.6 var(--font-mono);
@@ -141,7 +191,7 @@ pre.note{white-space:pre-wrap;font:13px/1.6 var(--font-mono);
 /* benchmark chart */
 .chart{background:var(--bg2);border:1px solid var(--line);border-radius:14px;
        padding:1.3rem 1.4rem 1.1rem;box-shadow:var(--shadow)}
-.chart h4{margin:0 0 .2rem;font-size:1rem;font-family:var(--font-mono)}
+.chart-title{margin:0 0 .2rem;font-size:1rem;font-family:var(--font-mono)}
 .chart .sub{color:var(--mut);font-size:.8rem;margin:0 0 1.1rem}
 .row{display:grid;grid-template-columns:6.6rem 1fr 1.6rem;align-items:center;
      gap:.7rem;margin-bottom:.55rem}
@@ -164,30 +214,43 @@ table.axes td:first-child{width:7rem;color:var(--fg);font-family:var(--font-mono
 footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color:var(--mut);font-size:.8rem}
 </style></head>
 <body><div class="wrap">
-<div class="hdr">
+<header class="hdr">
   <span class="eyebrow"><i class="dot" aria-hidden="true"></i>AI Venture Studio</span>
   <span class="hdr-meta">Autonomous build log</span>
-</div>
-<div class="hero">
+</header>
+<main><div class="hero">
     <div class="scan" aria-hidden="true"></div>
-    <h1><span class="type">AI Venture Studio</span></h1>
+    <div class="boot" aria-hidden="true"><div class="ln" data-i="0">venture_studio boot — autonomous pipeline v1</div><div class="ln" data-i="1">inventory: <b>25</b> ventures, <b>20</b> shipped installers</div><div class="ln" data-i="2">last run: <b>2026-08-12</b> — pipeline idle, standing by</div><div class="ln" data-i="3">render complete. awaiting input_</div></div>
+    <h1>AI Venture Studio</h1>
     <p>Every morning this system finds an opportunity, scores it against eight competing
        perspectives, builds a native macOS app, verifies it and ships an installer —
        with no human in the loop. Here is everything it has made, and how long each one took.</p>
   </div>
-  <div class="ticker" role="group" aria-label="Build log, updated every publish">
-    <div class="tick-track"><div class="tick-seq"><span class="tick-item"><b>AccessibilityWorkbench</b><i class="ok">shipped</i></span><span class="tick-item"><b>AIDisclosureDesk</b><i class="ok">shipped</i><i>1 dl</i></span><span class="tick-item"><b>HeatSafetyLogBinder</b><i class="ok">shipped</i></span><span class="tick-item"><b>TariffDriftDesk</b><i class="ok">shipped</i></span><span class="tick-item"><b>Vendor1099Copilot</b><i>2h 10m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>EvidencePack</b><i>2h 28m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>AirgapRedactionWorkbench</b><i>1h 7m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>ContractDriftFinder</b><i>44m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>DownloadTriageAssistant</b><i>47m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>EInvoiceWorkbench</b><i class="ok">shipped</i></span><span class="tick-item"><b>BidTriage</b><i>43m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>LocalSecretsPIISweeper</b><i>36m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>MacSecretSweep</b><i class="ok">shipped</i></span><span class="tick-item"><b>TaxGapScout</b><i>43m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>PolicyDriftRadar</b><i class="ok">shipped</i></span><span class="tick-item"><b>PriorAuthAppealDesk</b><i class="ok">shipped</i></span><span class="tick-item"><b>ProcurementPulse</b><i>2h 20m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>ReceiptSentinel</b><i>36m to build</i><i class="ok">shipped</i><i>1 dl</i></span><span class="tick-item"><b>DepositPacket</b><i>43m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>subscription-cancel-proof</b><i>34m to build</i><i class="pending">no build</i></span><span class="tick-item"><b>warranty-claim-packet</b><i>57m to build</i><i class="pending">no build</i></span></div><div class="tick-seq" aria-hidden="true"><span class="tick-item"><b>AccessibilityWorkbench</b><i class="ok">shipped</i></span><span class="tick-item"><b>AIDisclosureDesk</b><i class="ok">shipped</i><i>1 dl</i></span><span class="tick-item"><b>HeatSafetyLogBinder</b><i class="ok">shipped</i></span><span class="tick-item"><b>TariffDriftDesk</b><i class="ok">shipped</i></span><span class="tick-item"><b>Vendor1099Copilot</b><i>2h 10m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>EvidencePack</b><i>2h 28m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>AirgapRedactionWorkbench</b><i>1h 7m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>ContractDriftFinder</b><i>44m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>DownloadTriageAssistant</b><i>47m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>EInvoiceWorkbench</b><i class="ok">shipped</i></span><span class="tick-item"><b>BidTriage</b><i>43m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>LocalSecretsPIISweeper</b><i>36m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>MacSecretSweep</b><i class="ok">shipped</i></span><span class="tick-item"><b>TaxGapScout</b><i>43m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>PolicyDriftRadar</b><i class="ok">shipped</i></span><span class="tick-item"><b>PriorAuthAppealDesk</b><i class="ok">shipped</i></span><span class="tick-item"><b>ProcurementPulse</b><i>2h 20m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>ReceiptSentinel</b><i>36m to build</i><i class="ok">shipped</i><i>1 dl</i></span><span class="tick-item"><b>DepositPacket</b><i>43m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>subscription-cancel-proof</b><i>34m to build</i><i class="pending">no build</i></span><span class="tick-item"><b>warranty-claim-packet</b><i>57m to build</i><i class="pending">no build</i></span></div></div>
+  <div class="ticker">
+    <button type="button" class="tick-pause" aria-pressed="false" aria-label="Pause build log ticker">&#10073;&#10073;</button>
+    <div class="tick-viewport" aria-hidden="true"><div class="tick-track"><div class="tick-seq"><span class="tick-item"><b>SupplierChangeMonitor</b><i class="ok">shipped</i></span><span class="tick-item"><b>AccessibilityWorkbench</b><i class="ok">shipped</i></span><span class="tick-item"><b>AIDisclosureDesk</b><i class="ok">shipped</i><i>1 dl</i></span><span class="tick-item"><b>HeatSafetyLogBinder</b><i class="ok">shipped</i></span><span class="tick-item"><b>TariffDriftDesk</b><i class="ok">shipped</i></span><span class="tick-item"><b>Vendor1099Copilot</b><i>2h 10m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>EvidencePack</b><i>2h 28m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>AirgapRedactionWorkbench</b><i>1h 7m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>ContractDriftFinder</b><i>44m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>DownloadTriageAssistant</b><i>47m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>EInvoiceWorkbench</b><i class="ok">shipped</i></span><span class="tick-item"><b>BidTriage</b><i>43m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>LocalSecretsPIISweeper</b><i>36m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>MacSecretSweep</b><i class="ok">shipped</i></span><span class="tick-item"><b>TaxGapScout</b><i>43m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>PolicyDriftRadar</b><i class="ok">shipped</i></span><span class="tick-item"><b>PriorAuthAppealDesk</b><i class="ok">shipped</i></span><span class="tick-item"><b>ProcurementPulse</b><i>2h 20m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>ReceiptSentinel</b><i>36m to build</i><i class="ok">shipped</i><i>1 dl</i></span><span class="tick-item"><b>DepositPacket</b><i>43m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>subscription-cancel-proof</b><i>34m to build</i><i class="pending">no build</i></span><span class="tick-item"><b>warranty-claim-packet</b><i>57m to build</i><i class="pending">no build</i></span></div><div class="tick-seq"><span class="tick-item"><b>SupplierChangeMonitor</b><i class="ok">shipped</i></span><span class="tick-item"><b>AccessibilityWorkbench</b><i class="ok">shipped</i></span><span class="tick-item"><b>AIDisclosureDesk</b><i class="ok">shipped</i><i>1 dl</i></span><span class="tick-item"><b>HeatSafetyLogBinder</b><i class="ok">shipped</i></span><span class="tick-item"><b>TariffDriftDesk</b><i class="ok">shipped</i></span><span class="tick-item"><b>Vendor1099Copilot</b><i>2h 10m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>EvidencePack</b><i>2h 28m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>AirgapRedactionWorkbench</b><i>1h 7m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>ContractDriftFinder</b><i>44m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>DownloadTriageAssistant</b><i>47m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>EInvoiceWorkbench</b><i class="ok">shipped</i></span><span class="tick-item"><b>BidTriage</b><i>43m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>LocalSecretsPIISweeper</b><i>36m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>MacSecretSweep</b><i class="ok">shipped</i></span><span class="tick-item"><b>TaxGapScout</b><i>43m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>PolicyDriftRadar</b><i class="ok">shipped</i></span><span class="tick-item"><b>PriorAuthAppealDesk</b><i class="ok">shipped</i></span><span class="tick-item"><b>ProcurementPulse</b><i>2h 20m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>ReceiptSentinel</b><i>36m to build</i><i class="ok">shipped</i><i>1 dl</i></span><span class="tick-item"><b>DepositPacket</b><i>43m to build</i><i class="ok">shipped</i></span><span class="tick-item"><b>subscription-cancel-proof</b><i>34m to build</i><i class="pending">no build</i></span><span class="tick-item"><b>warranty-claim-packet</b><i>57m to build</i><i class="pending">no build</i></span></div></div></div>
   </div>
   <div class="kpi">
-    <div><b>24</b><span>ventures</span></div>
-    <div><b>19</b><span>installers</span></div>
+    <div><b>25</b><span>ventures</span></div>
+    <div><b>20</b><span>installers</span></div>
     <div><b>2</b><span>downloads</span></div>
-    <div><b>8.2 MB</b><span>shipped</span></div>
+    <div><b>8.9 MB</b><span>shipped</span></div>
     <div><b>1h 7m</b><span>avg build time</span></div>
     <div><b>$19.37</b><span>api-equivalent cost</span></div>
-    <div><b>$200.00</b><span>cost per download</span></div>
+    <div><b>$200</b><span>monthly subscription (flat)</span></div>
   </div>
-  <div class="tiles"><a class="tile" href="v/ada-accessibility-workbench.html">
+  <div class="tiles"><a class="tile" href="v/supplier-change-monitor.html">
+      <div class="thumb empty">no screenshot</div>
+      <div class="body">
+        <h2>SupplierChangeMonitor</h2>
+        <p class="one">No recorded thesis for this venture.</p>
+        <div class="meta">
+          <span class="pill ok">installer</span>
+          
+          
+          <span>2026-08-17</span>
+        </div>
+      </div></a><a class="tile" href="v/ada-accessibility-workbench.html">
       <div class="thumb empty">no screenshot</div>
       <div class="body">
         <h2>AccessibilityWorkbench</h2>
@@ -205,7 +268,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
         <p class="one">No recorded thesis for this venture.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
-          <span class="pill dl">1 download</span>
+          <span class="pill count">1 download</span>
           
           <span>2026-08-16</span>
         </div>
@@ -254,7 +317,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
           <span>2026-08-11</span>
         </div>
       </div></a><a class="tile" href="v/airgap-redaction-workbench.html">
-      <div class="thumb"><img src="shots/airgap-redaction-workbench.png" alt="AirgapRedactionWorkbench interface" loading="lazy"></div>
+      <div class="thumb has-shot"><div class="bar"></div><img src="shots/airgap-redaction-workbench.png" alt="AirgapRedactionWorkbench interface" loading="lazy"><i class="sheen"></i></div>
       <div class="body">
         <h2>AirgapRedactionWorkbench</h2>
         <p class="one">Air-gapped Redaction Workbench: target users are law firms, compliance teams, journalists, and regulated SMBs that handle sensitive PDFs locally.</p>
@@ -265,7 +328,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
           <span>2026-08-10</span>
         </div>
       </div></a><a class="tile" href="v/contract-drift-finder.html">
-      <div class="thumb"><img src="shots/contract-drift-finder.png" alt="ContractDriftFinder interface" loading="lazy"></div>
+      <div class="thumb has-shot"><div class="bar"></div><img src="shots/contract-drift-finder.png" alt="ContractDriftFinder interface" loading="lazy"><i class="sheen"></i></div>
       <div class="body">
         <h2>ContractDriftFinder</h2>
         <p class="one">A native macOS app for SMB owners, ops managers, and freelancers that opens PDFs locally, extracts contract and invoice text, flags auto-renew…</p>
@@ -276,7 +339,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
           <span>2026-08-10</span>
         </div>
       </div></a><a class="tile" href="v/download-triage-assistant.html">
-      <div class="thumb"><img src="shots/download-triage-assistant.png" alt="DownloadTriageAssistant interface" loading="lazy"></div>
+      <div class="thumb has-shot"><div class="bar"></div><img src="shots/download-triage-assistant.png" alt="DownloadTriageAssistant interface" loading="lazy"><i class="sheen"></i></div>
       <div class="body">
         <h2>DownloadTriageAssistant</h2>
         <p class="one">A native macOS desktop utility for security-conscious users, consultants, and IT admins that inspects local downloads before they are opened.</p>
@@ -287,7 +350,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
           <span>2026-08-10</span>
         </div>
       </div></a><a class="tile" href="v/einvoice-workbench.html">
-      <div class="thumb"><img src="shots/einvoice-workbench.png" alt="EInvoiceWorkbench interface" loading="lazy"></div>
+      <div class="thumb has-shot"><div class="bar"></div><img src="shots/einvoice-workbench.png" alt="EInvoiceWorkbench interface" loading="lazy"><i class="sheen"></i></div>
       <div class="body">
         <h2>EInvoiceWorkbench</h2>
         <p class="one">No recorded thesis for this venture.</p>
@@ -298,7 +361,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
           <span>2026-08-10</span>
         </div>
       </div></a><a class="tile" href="v/local-rfp-triage.html">
-      <div class="thumb"><img src="shots/local-rfp-triage.png" alt="BidTriage interface" loading="lazy"></div>
+      <div class="thumb has-shot"><div class="bar"></div><img src="shots/local-rfp-triage.png" alt="BidTriage interface" loading="lazy"><i class="sheen"></i></div>
       <div class="body">
         <h2>BidTriage</h2>
         <p class="one">Local RFP/Bid Triage Assistant for small contractors: target users are small government-contracting and B2B bid teams that lose time and money…</p>
@@ -309,7 +372,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
           <span>2026-08-10</span>
         </div>
       </div></a><a class="tile" href="v/local-secrets-pii-sweeper.html">
-      <div class="thumb"><img src="shots/local-secrets-pii-sweeper.png" alt="LocalSecretsPIISweeper interface" loading="lazy"></div>
+      <div class="thumb has-shot"><div class="bar"></div><img src="shots/local-secrets-pii-sweeper.png" alt="LocalSecretsPIISweeper interface" loading="lazy"><i class="sheen"></i></div>
       <div class="body">
         <h2>LocalSecretsPIISweeper</h2>
         <p class="one">A privacy-first native macOS utility for consultants, agencies, and small businesses that scans local files, PDFs, and images for secrets, PII…</p>
@@ -320,7 +383,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
           <span>2026-08-10</span>
         </div>
       </div></a><a class="tile" href="v/mac-secret-sweep.html">
-      <div class="thumb"><img src="shots/mac-secret-sweep.png" alt="MacSecretSweep interface" loading="lazy"></div>
+      <div class="thumb has-shot"><div class="bar"></div><img src="shots/mac-secret-sweep.png" alt="MacSecretSweep interface" loading="lazy"><i class="sheen"></i></div>
       <div class="body">
         <h2>MacSecretSweep</h2>
         <p class="one">No recorded thesis for this venture.</p>
@@ -331,7 +394,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
           <span>2026-08-10</span>
         </div>
       </div></a><a class="tile" href="v/offline-tax-gap-scanner.html">
-      <div class="thumb"><img src="shots/offline-tax-gap-scanner.png" alt="TaxGapScout interface" loading="lazy"></div>
+      <div class="thumb has-shot"><div class="bar"></div><img src="shots/offline-tax-gap-scanner.png" alt="TaxGapScout interface" loading="lazy"><i class="sheen"></i></div>
       <div class="body">
         <h2>TaxGapScout</h2>
         <p class="one">A local-only macOS desktop app for freelancers and microbusinesses that scans receipts, bank PDFs, and CSV exports to detect missing expense r…</p>
@@ -342,7 +405,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
           <span>2026-08-10</span>
         </div>
       </div></a><a class="tile" href="v/policy-drift-radar.html">
-      <div class="thumb"><img src="shots/policy-drift-radar.png" alt="PolicyDriftRadar interface" loading="lazy"></div>
+      <div class="thumb has-shot"><div class="bar"></div><img src="shots/policy-drift-radar.png" alt="PolicyDriftRadar interface" loading="lazy"><i class="sheen"></i></div>
       <div class="body">
         <h2>PolicyDriftRadar</h2>
         <p class="one">No recorded thesis for this venture.</p>
@@ -353,7 +416,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
           <span>2026-08-10</span>
         </div>
       </div></a><a class="tile" href="v/prior-auth-appeal-desk.html">
-      <div class="thumb"><img src="shots/prior-auth-appeal-desk.png" alt="PriorAuthAppealDesk interface" loading="lazy"></div>
+      <div class="thumb has-shot"><div class="bar"></div><img src="shots/prior-auth-appeal-desk.png" alt="PriorAuthAppealDesk interface" loading="lazy"><i class="sheen"></i></div>
       <div class="body">
         <h2>PriorAuthAppealDesk</h2>
         <p class="one">No recorded thesis for this venture.</p>
@@ -364,7 +427,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
           <span>2026-08-10</span>
         </div>
       </div></a><a class="tile" href="v/procurement-pulse-desktop.html">
-      <div class="thumb"><img src="shots/procurement-pulse-desktop.png" alt="ProcurementPulse interface" loading="lazy"></div>
+      <div class="thumb has-shot"><div class="bar"></div><img src="shots/procurement-pulse-desktop.png" alt="ProcurementPulse interface" loading="lazy"><i class="sheen"></i></div>
       <div class="body">
         <h2>ProcurementPulse</h2>
         <p class="one">Procurement Pulse for small contractors, estimators, and boutique firms that lose revenue when they miss bid opportunities or deadline changes.</p>
@@ -375,18 +438,18 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
           <span>2026-08-10</span>
         </div>
       </div></a><a class="tile" href="v/receipt-sentinel.html">
-      <div class="thumb"><img src="shots/receipt-sentinel.png" alt="ReceiptSentinel interface" loading="lazy"></div>
+      <div class="thumb has-shot"><div class="bar"></div><img src="shots/receipt-sentinel.png" alt="ReceiptSentinel interface" loading="lazy"><i class="sheen"></i></div>
       <div class="body">
         <h2>ReceiptSentinel</h2>
         <p class="one">Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses who are drowning in paper and PDF receipts.</p>
         <div class="meta">
           <span class="pill ok">installer</span>
-          <span class="pill dl">1 download</span>
+          <span class="pill count">1 download</span>
           <span class="pill">36m</span>
           <span>2026-08-10</span>
         </div>
       </div></a><a class="tile" href="v/tenant-deposit-dispute-packet.html">
-      <div class="thumb"><img src="shots/tenant-deposit-dispute-packet.png" alt="DepositPacket interface" loading="lazy"></div>
+      <div class="thumb has-shot"><div class="bar"></div><img src="shots/tenant-deposit-dispute-packet.png" alt="DepositPacket interface" loading="lazy"><i class="sheen"></i></div>
       <div class="body">
         <h2>DepositPacket</h2>
         <p class="one">A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes, and landlord correspondence into a timestamped…</p>
@@ -451,13 +514,41 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
           <span class="pill">57m</span>
           
         </div>
-      </div></a></div>
+      </div></a></div></main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
 right-click → Open on first launch. <a href="index.html">All ventures</a></footer>
 </div><script>
 (function(){
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Boot sequence: lines appear one at a time, then the real headline fades in
+  // once the readout finishes -- the page feels like it's coming online rather
+  // than just fading in. Skipped entirely under reduced motion (CSS already
+  // hides .boot there and leaves h1/p visible).
+  var bootLines = document.querySelectorAll('.boot .ln');
+  var heroH1 = document.querySelector('.hero h1'), heroP = document.querySelector('.hero p');
+  if (!reduced && bootLines.length) {
+    bootLines.forEach(function(el, i){
+      setTimeout(function(){ el.classList.add('go') }, i * 320);
+    });
+    setTimeout(function(){
+      if (heroH1) heroH1.classList.add('go');
+      if (heroP) heroP.classList.add('go');
+    }, bootLines.length * 320 + 150);
+  } else if (heroH1) { heroH1.classList.add('go'); if (heroP) heroP.classList.add('go') }
+
+  // KPI panel: a soft light follows the pointer, like a scanner head reading
+  // the numbers. Pointer-only (matchMedia hover) so it never fires from touch
+  // scroll, and off entirely under reduced motion.
+  var kpi = document.querySelector('.kpi');
+  if (!reduced && kpi && matchMedia('(hover: hover)').matches) {
+    kpi.addEventListener('mousemove', function(e){
+      var r = kpi.getBoundingClientRect();
+      kpi.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      kpi.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  }
 
   if (!reduced) document.querySelectorAll('.kpi b').forEach(function(el, i){
     var raw = el.textContent, m = raw.match(/^([$]?)([\d.,]+)(.*)$/);
@@ -512,5 +603,12 @@ right-click → Open on first launch. <a href="index.html">All ventures</a></foo
       t.addEventListener('mouseleave', function(){ t.style.transform = '' });
     });
   }
+
+  var pauseBtn = document.querySelector('.tick-pause');
+  if (pauseBtn) pauseBtn.addEventListener('click', function(){
+    var on = pauseBtn.closest('.ticker').classList.toggle('paused');
+    pauseBtn.setAttribute('aria-pressed', String(on));
+    pauseBtn.innerHTML = on ? '&#9654;' : '&#10073;&#10073;';
+  });
 })();
 </script></body></html>
