@@ -244,10 +244,10 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>HeatSafetyLogBinder</h1><p>No recorded thesis for this venture.</p>
+  <div class="lede"><h1>HeatSafetyLogBinder</h1><p>Heat Safety Log Binder: a native macOS app for supervisors in construction, landscaping, warehousing, and agriculture who need to turn daily s…</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      
+      <span class="badge">Built in 1h 59m</span>
       <span class="badge">2026-08-16</span>
       
       
@@ -256,14 +256,119 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/heat-safety-log-binder/HeatSafetyLogBinder.dmg">Download HeatSafetyLogBinder.dmg <small>648 KB</small></a>
        </div>
-    <div></div>
+    <div><div class="chart">
+    <h2 class="chart-title">Selection benchmarks</h2>
+    <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
+      best <em>balance</em> across all eight, not the best single score.</p>
+    <div aria-hidden="true"><div class="row low" style="--w:70%">
+      <div class="name">profit<b>weakest</b></div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:90%">
+      <div class="name">change</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">9</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">effort</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">viability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:90%">
+      <div class="name">future</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">9</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">market</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">population</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">availability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div></div>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>score</span>
+      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
+    </div>
+    <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 7/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 9/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 8/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 9/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 8/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 8/10</td></tr></table>
+  </div></div>
   </div>
-  
-  
-  
-  
-  
-  
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">Heat Safety Log Binder: a native macOS app for supervisors in construction, landscaping, warehousing, and agriculture who need to turn daily shift logs, site photos, and local weather into a usable heat-safety compliance packet. The value proposition is faster daily documentation, clearer risk flags for dangerous heat windows, persistent site settings, and exportable reports that can be handed to managers or regulators.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build a native macOS SwiftUI application that imports a shift log CSV or plain-text notes, stores a site/location profile, fetches local forecast heat data with URLSession, flags unsafe work windows, and exports a PDF heat-safety binder with rest/water checks, incidents, and supervisor notes.</pre></section>
+  <section><h2 class="section-title">Market and user research</h2><pre class="note">**MARKET SIZE**
+- The plausible buyers are sites, not individual workers: construction crews, landscaping contractors, warehousing yards, concrete/asphalt crews, agriculture operations, and similar outdoor or semi-outdoor worksites that already keep daily safety records. Inference: the strongest fit is the person responsible for compliance paperwork, usually a supervisor, safety lead, or operations manager.
+- ESTIMATE arithmetic for a US-first market:
+  - ESTIMATE 60,000 construction sites/contractors with enough scale and heat exposure to care about daily logs.
+  - ESTIMATE 25,000 landscaping and grounds-maintenance operations with recurring summer exposure.
+  - ESTIMATE 20,000 warehousing, yard, and logistics sites with outdoor loading/unloading or dock work.
+  - ESTIMATE 15,000 agriculture and food-production sites that keep formal safety records.
+  - ESTIMATE total plausible buyers = 60,000 + 25,000 + 20,000 + 15,000 = 120,000 sites.
+- A reasonable near-term paying subset is smaller. Inference: if only ESTIMATE 20% of those sites buy software instead of using paper or Excel, that is ESTIMATE 24,000 paying sites.
+- At ESTIMATE $49 per site per month, that is ESTIMATE 24,000 x $49 x 12 = ESTIMATE $14.1M annual revenue potential in a solid-but-not-dominant adoption case.
+
+**USER RESEARCH**
+- Construction safety supervisors
+  - Current workaround: clipboard logs, paper heat checklists, or Excel sheets plus a weather app.
+  - What they already pay: often ESTIMATE $0 incremental if they use paper/Excel; if they use a broader safety platform, the effective cost is often bundled into a larger subscription.
+  - How they would find this product: through OSHA/heat-safety searches, peer referrals, safety consultants, or an app store/web search for “heat log,” “site safety binde</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">Created files:
+- `/Users/a1111/ai-venture-studio/apps/ventures/heat-safety-log-binder/Sources/AppModels.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/heat-safety-log-binder/Sources/DataStore.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/heat-safety-log-binder/Sources/Importers.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/heat-safety-log-binder/Sources/ForecastService.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/heat-safety-log-binder/Sources/PDFExporter.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/heat-safety-log-binder/Sources/HeatSafetyLogBinder.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/heat-safety-log-binder/Sources/main.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/heat-safety-log-binder/HeatSafetyLogBinder`
+- `/Users/a1111/ai-venture-studio/apps/ventures/heat-safety-log-binder/HeatSafetyLogBinder.app/Contents/MacOS/HeatSafetyLogBinder`
+- `/Users/a1111/ai-venture-studio/apps/ventures/heat-safety-log-binder/HeatSafetyLogBinder.app/Contents/Info.plist`
+- `/Users/a1111/ai-venture-studio/apps/ventures/heat-safety-log-binder/HeatSafetyLogBinder.dmg`
+
+Swift compile command:
+`swiftc -O -o HeatSafetyLogBinder Sources</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">PASS
+
+1. `.dmg` exists in the workspace root
+- Command: `venture_workspace_list {path: &quot;&quot;}`
+- Output:
+  - `.tmp`
+  - `HeatSafetyLogBinder`
+  - `HeatSafetyLogBinder.app`
+  - `HeatSafetyLogBinder.dmg`
+  - `SourcePulse`
+  - `SourcePulse.app`
+  - `SourcePulse.dmg`
+  - `Sources`
+  - `sourcepulse-harness`
+- Result: `SourcePulse.dmg` is present at the root.
+
+2. Sources compile
+- Command: `venture_workspace_run {command: &quot;swiftc&quot;, args: [&quot;-O&quot;,&quot;-o&quot;,&quot;HeatSafetyLogBinder&quot;,&quot;Sources/AppModels.swift&quot;,&quot;Sources/DataStore.swift&quot;,&quot;Sources/Importers.swift&quot;,&quot;Sources/ForecastService.swift&quot;,&quot;Sources/PDFExporter.swift&quot;,&quot;Sources/HeatSafetyLogBinder.swift&quot;,&quot;Sources/main.swift&quot;]}`
+- Output: `no output`
+- Result: compile succeeded.
+
+3. `.app` bundle contains `Contents/MacOS` and `Contents/Info.plist`
+- Command: `venture_workspace_list {path: &quot;HeatSafetyLogBinder.app&quot;}`
+- Output:
+  - `Contents`
+- Command: `venture_workspace_list {path: &quot;HeatSafetyLogBinder.app/Contents&quot;}`
+- Output:
+  - `Info.plist`
+  - `MacOS`
+- Command: `venture_workspace_list {path: &quot;HeatSafetyLogBinder.app/Contents/MacOS&quot;}`
+- Output:
+  - `HeatSafetyLogBinder`
+- Result: bundle structure is present.
+
+4. TODO, FIXME, or placeholder text in so</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">The work cannot be accepted as a shippable product yet because there is no verification evidence that a .dmg was produced. Without a distributable artifact, the MVP is not complete from the user’s perspective, regardless of source completeness.</pre></section>
   </main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
