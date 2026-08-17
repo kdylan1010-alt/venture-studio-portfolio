@@ -244,10 +244,10 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>SupplierChangeMonitor</h1><p>No recorded thesis for this venture.</p>
+  <div class="lede"><h1>SupplierChangeMonitor</h1><p>Supplier Change Monitor: target users are procurement, finance, sales, and operations teams that depend on a handful of public-company custome…</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      
+      <span class="badge">Built in 2h 13m</span>
       <span class="badge">2026-08-17</span>
       
       
@@ -256,15 +256,120 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/supplier-change-monitor/SupplierChangeMonitor.dmg">Download SupplierChangeMonitor.dmg <small>697 KB</small></a>
        </div>
-    <div></div>
+    <div><div class="chart">
+    <h2 class="chart-title">Selection benchmarks</h2>
+    <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
+      best <em>balance</em> across all eight, not the best single score.</p>
+    <div aria-hidden="true"><div class="row" style="--w:70%">
+      <div class="name">profit</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:70%">
+      <div class="name">change</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:70%">
+      <div class="name">effort</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">viability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">future</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">market</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row low" style="--w:60%">
+      <div class="name">population<b>weakest</b></div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">6</div>
+    </div><div class="row" style="--w:90%">
+      <div class="name">availability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">9</div>
+    </div></div>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>score</span>
+      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
+    </div>
+    <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 7/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 7/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 7/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 8/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 6/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 9/10</td></tr></table>
+  </div></div>
   </div>
-  
-  
-  
-  
-  
-  
-  </main>
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">Supplier Change Monitor: target users are procurement, finance, sales, and operations teams that depend on a handful of public-company customers or suppliers. Painful problem: they miss material changes buried in filings and press releases, then discover risk or opportunity too late. Value proposition: a local macOS app that watches named companies, fetches live SEC and IR updates, extracts meaningful changes in guidance, risk, margin, and supply-chain language, and exports a concise daily impact brief.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build a native macOS SwiftUI app that accepts a watchlist of public-company tickers or names, resolves them to SEC identities, fetches the latest 8-K/10-Q and investor-relations updates, highlights sentence-level changes in the newest material, persists the watchlist between launches, and exports a daily CSV/PDF brief.</pre></section>
+  <section><h2 class="section-title">Market and user research</h2><pre class="note">**MARKET SIZE**
+This product could plausibly be bought by companies that have material dependency on a relatively small number of public-company counterparties. The most likely buyers are procurement, supply-chain, finance, treasury, risk, and account teams that need early warning on guidance changes, covenant pressure, plant issues, margin compression, layoffs, or customer concentration risk.
+
+Bottom-up estimate:
+
+- US mid-market and enterprise companies with meaningful public-company counterparty exposure: **ESTIMATE 20,000 to 50,000**
+- Of those, teams likely to feel this pain strongly enough to try a dedicated tool: **ESTIMATE 10,000 to 20,000**
+- Of those, likely initial active buyers for a focused monitoring app: **ESTIMATE 2,000 to 5,000**
+
+Arithmetic behind the estimate:
+
+- There are roughly **ESTIMATE 100,000 to 200,000** US companies large enough to have formal procurement, finance, or operations teams.
+- A minority have concentrated exposure to public-company customers or suppliers that materially matters month to month. I would assume **ESTIMATE 10% to 25%** of those companies.
+- That gives **ESTIMATE 10,000 to 50,000** plausible target accounts.
+- If the product is narrow and useful, a realistic paid conversion from that universe might be **ESTIMATE 20% to 40%**, giving the 2,000 to 20,000 range; I would stay conservative and use **ESTIMATE 2,000 to 5,000** as the first serious buyer pool.
+
+**USER RESEARCH**
+1. Procurement and supply-chain risk teams at manufacturers, retailers, and distributors
+- Current workaround: manual review of SEC filings, earnings calls, press releases, and Google/SEC alerts for a shortlist of suppliers
+- What they already pay for it: often **ESTIMATE $0 to $500/month** for alerts and general news tools; larger teams may already pay</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">Created files:
+- `/Users/a1111/ai-venture-studio/apps/ventures/supplier-change-monitor/Sources/Main.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/supplier-change-monitor/Sources/Models.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/supplier-change-monitor/Sources/Store.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/supplier-change-monitor/Sources/SECClient.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/supplier-change-monitor/Sources/ChangeEngine.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/supplier-change-monitor/Sources/Exporter.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/supplier-change-monitor/Info.plist`
+- `/Users/a1111/ai-venture-studio/apps/ventures/supplier-change-monitor/Tests/TestHarness.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/supplier-change-monitor/SupplierChangeMonitor`
+- `/Users/a1111/ai-venture-studio/apps/ventures/supplier-change-monitor/SupplierChangeMonitor.app`
+- `/Users/a1111/ai-venture-studio/apps/ventures/supplier-change-monitor/SupplierChangeMonitor.dmg`
+
+Swift compile command:
+`swiftc -O -o SupplierChangeMonitor Sources/Main.swift Sources/Models.swift Sources/Store.swift Sources/SECClient.s</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">FAIL
+
+1. `.dmg` in workspace root
+- Command: `ls`
+- Output:
+  ```text
+  Info.plist
+  Sources
+  SupplierChangeMonitor
+  SupplierChangeMonitor.app
+  SupplierChangeMonitor.dmg
+  Tests
+  ```
+- Result: `.dmg` exists in the workspace root.
+
+2. Sources compile
+- Command: `swiftc -O -o SupplierChangeMonitor Sources/Main.swift Sources/Models.swift Sources/Store.swift Sources/SECClient.swift Sources/ChangeEngine.swift Sources/Exporter.swift`
+- Output: no output
+- Result: compile succeeded. The first sandboxed attempt failed with temp-file permission errors, but the elevated verification run completed silently with exit code `0`.
+
+3. `.app` bundle structure
+- Command: `find SupplierChangeMonitor.app -maxdepth 3 -type f</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">sort`
+- Output:
+  ```text
+  SupplierChangeMonitor.app/Contents/Info.plist
+  SupplierChangeMonitor.app/Contents/MacOS/SupplierChangeMonitor
+  ```
+- Result: the bundle has both `Contents/MacOS` and `Contents/Info.plist`.
+
+4. TODO / FIXME / placeholder scan
+- Command: `rg -n &quot;TODO</pre></section>
+  <section><h2 class="section-title">What the studio learned</h2><pre class="note">FIXME</pre></section></main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
 right-click → Open on first launch. <a href="../index.html">All ventures</a></footer>
