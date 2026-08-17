@@ -244,10 +244,10 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>PriorAuthAppealDesk</h1><p>No recorded thesis for this venture.</p>
+  <div class="lede"><h1>PriorAuthAppealDesk</h1><p>Prior Auth Appeal Desk for small specialty clinics and patient advocates: a native Mac application that ingests denial letters, EOBs, faxes, a…</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      
+      <span class="badge">Built in 1h 47m</span>
       <span class="badge">2026-08-10</span>
       
       
@@ -257,14 +257,99 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
     <div><div class="shot"><img src="../shots/prior-auth-appeal-desk.png" alt="PriorAuthAppealDesk running">
        <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/prior-auth-appeal-desk/PriorAuthAppealDesk.dmg">Download PriorAuthAppealDesk.dmg <small>400 KB</small></a>
        </div>
-    <div></div>
+    <div><div class="chart">
+    <h2 class="chart-title">Selection benchmarks</h2>
+    <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
+      best <em>balance</em> across all eight, not the best single score.</p>
+    <div aria-hidden="true"><div class="row" style="--w:70%">
+      <div class="name">profit</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:90%">
+      <div class="name">change</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">9</div>
+    </div><div class="row low" style="--w:60%">
+      <div class="name">effort<b>weakest</b></div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">6</div>
+    </div><div class="row" style="--w:70%">
+      <div class="name">viability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">future</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">market</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:70%">
+      <div class="name">population</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">availability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div></div>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>score</span>
+      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
+    </div>
+    <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 7/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 9/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 6/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 7/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 8/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 7/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 8/10</td></tr></table>
+  </div></div>
   </div>
-  
-  
-  
-  
-  
-  
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">Prior Auth Appeal Desk for small specialty clinics and patient advocates: a native Mac application that ingests denial letters, EOBs, faxes, and scanned portal screenshots, extracts payer, patient, service, denial reason, and deadline, then assembles a structured appeal packet and action list. Value proposition: reduce missed deadlines and manual admin time while improving appeal quality without relying on cloud services or paid APIs.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build a native macOS desktop app that watches or imports a folder of prior-auth denial PDFs and scanned images, OCRs them with Vision, extracts key fields with regex and PDF text parsing, shows a deadline-aware case queue, and exports an appeal packet PDF with a checklist and source references.</pre></section>
+  <section><h2 class="section-title">Market and user research</h2><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_1&quot;,&quot;tool&quot;:&quot;venture_workspace_write&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;path&quot;:&quot;main.swift&quot;,&quot;content&quot;:&quot;import Foundation\nimport AppKit\nimport Vision\nimport PDFKit\n\nstruct CaseRecord {\n    var patient: String?\n    var payer: String?\n    var service: String?\n    var denialReason: String?\n    var deadline: String?\n    var sources: [String] = []\n}\n\nenum DocumentKind {\n    case text\n    case image\n    case pdf\n    case unsupported\n}\n\nstruct SettingsStore {\n    private let defaults = UserDefaults.standard\n    private let inboxKey = \&quot;priorAuthAppealDesk.lastInboxPath\&quot;\n    private let packetKey = \&quot;priorAuthAppealDesk.lastPacketPath\&quot;\n\n    var lastInboxPath: String? {\n        defaults.string(forKey: inboxKey)\n    }\n\n    var lastPacketPath: String? {\n        defaults.string(forKey: packetKey)\n    }\n\n    mutating func save(lastInboxPath: String, lastPacketPath: String) {\n        defaults.set(lastInboxPath, forKey: inboxKey)\n        defaults.set(lastPacketPath, forKey: packetKey)\n    }\n}\n\nstruct DemoGenerator {\n    let folder: URL\n\n    func ensureDemoInbox() throws {\n        try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)\n\n        let letter = \&quot;\&quot;\&quot;\n        PATIENT: Jordan Smith\n        PAYER: Northstar Health Plan\n        SERVICE: MRI of left knee\n        DENIAL REASON: Medical necessity not sufficiently documented\n        APPEAL BY: September 5, 2026\n        CALL TO ACTION: Send clinical notes and imaging history.\n        \&quot;\&quot;\&quot;\n        try letter.write(to: folder.appendingPathComponent(\&quot;denial-letter.txt\&quot;), atomically: true, encoding: .utf8)\n\n        let eob = \&quot;\&quot;\&quot;\n        PATIENT: Jordan Smith\n        PAYER: Northstar Health Plan\n        SERVICE: MRI of left kne</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">Built and packaged the native macOS app inside the isolated `prior-auth-appeal-desk` venture workspace.
+
+Artifact confirmed:
+`/Users/a1111/ai-venture-studio/apps/ventures/prior-auth-appeal-desk/PriorAuthAppealDesk.dmg`
+
+Created files:
+- `Sources/PriorAuthAppealDesk.swift`
+- `Tests/ParserHarness.swift`
+- `PriorAuthAppealDesk.app/Contents/Info.plist`
+- `PriorAuthAppealDesk`
+- `ParserHarness`
+- `PriorAuthAppealDesk.app`
+- `PriorAuthAppealDesk.dmg`
+
+Confirmed build/package sequence:
+- `swiftc Sources/PriorAuthAppealDesk.swift -o PriorAuthAppealDesk` exited `0`
+- `mkdir -p PriorAuthAppealDesk.app/Contents/MacOS` exited `0`
+- `cp PriorAuthAppealDesk PriorAuthAppealDesk.app/Contents/MacOS/PriorAuthAppealDesk` exited `0`
+- wrote `PriorAuthAppealDesk.app/Contents/Info.plist`
+- `hdiutil create -volname PriorAuthAppealDesk -srcfolder PriorAuthAppealDesk.app -ov -format UDZO PriorAuthAppealDesk.dmg` exited `0`
+- `ls -la` exited `0` and confirmed `PriorAuthAppealDesk.dmg` exists
+
+Verification:
+- Parser harness passed: `PASS: parser harness`
+- DMG was additionally mounted and confirmed to contain `PriorAuthAppealDesk.app`
+
+One scope note: the app exports a local appeal packet `.txt` with checkli</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">DMG PRESENT: `PriorAuthAppealDesk.dmg`
+
+DEPTH: THIN
+
+Tool-confirmed in this turn
+- `ls -la` shows both [`PriorAuthAppealDesk.app`](/Users/a1111/ai-venture-studio/apps/ventures/prior-auth-appeal-desk/PriorAuthAppealDesk.app) and [`PriorAuthAppealDesk.dmg`](/Users/a1111/ai-venture-studio/apps/ventures/prior-auth-appeal-desk/PriorAuthAppealDesk.dmg) in the venture workspace.
+- The same listing also shows the separate `RecallRadar.app` and `RecallRadar.dmg` artifacts still present in the workspace.
+
+Previously reported, not freshly re-run in this turn
+- `swiftc Sources/PriorAuthAppealDesk.swift -o PriorAuthAppealDesk` exited `0`.
+- [`PriorAuthAppealDesk.app/Contents/Info.plist`](/Users/a1111/ai-venture-studio/apps/ventures/prior-auth-appeal-desk/PriorAuthAppealDesk.app/Contents/Info.plist) was written.
+- `hdiutil create -volname PriorAuthAppealDesk -srcfolder PriorAuthAppealDesk.app -ov -format UDZO PriorAuthAppealDesk.dmg` exited `0`.
+- The parser harness passed.
+- The DMG was mounted earlier and contained the app bundle.
+
+Reasoned review
+- The packaging requirement is satisfied at the file level because the `.dmg` exists.
+- The implementation is still thin relative to the recall-moni</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">The product has a clear internal-ops value proposition: a local control center for provider health, routing, credentials, and request monitoring that lets existing clients follow routing changes without code changes. That is a real MVP for teams already operating the gateway, but the scope is broad for a first release and the willingness to pay is mostly limited to teams with enough AI infra complexity to justify an admin console. I can see `release/GatewayControlCenter.dmg` and `release/GatewayControlCenter.app`, but there is no explicit acceptance record proving the DMG was validated end to end.</pre></section>
   </main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
