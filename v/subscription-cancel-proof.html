@@ -12,11 +12,15 @@
   --font-sans:'IBM Plex Sans',ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
 }
 @media (prefers-color-scheme:light){
+  /* --mark darkened from #0f8a5f (4.35:1 on white, fails WCAG 1.4.3 AA for
+     text) to #0a6b48 (5.4:1) -- found 2026-08-17 auditing the pill/badge text. */
   :root{--bg:#f5f3ee; --bg2:#ffffff; --bg3:#ece8de; --fg:#14181a; --mut:#5c6367; --line:#dedad0;
-        --mark:#0f8a5f; --weak:#a8620a; --shadow:0 1px 2px rgba(20,20,15,.06);
+        --mark:#0a6b48; --weak:#a8620a; --shadow:0 1px 2px rgba(20,20,15,.06);
         --shadow-hover:0 20px 40px -18px rgba(20,20,15,.16)}
 }
 *{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+         clip:rect(0,0,0,0);white-space:nowrap;border:0}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--fg);
      font:16px/1.6 var(--font-sans);-webkit-font-smoothing:antialiased}
@@ -45,21 +49,39 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
         color-mix(in oklab,var(--weak) 14%,transparent) 6deg,transparent 22deg,transparent 360deg);
       animation:sweep 11s linear infinite}
 @keyframes sweep{to{transform:rotate(360deg)}}
-.hero h1{margin:0 0 .7rem;font:800 clamp(2rem,4.4vw,2.75rem)/1.12 var(--font-mono);letter-spacing:-.01em}
-.hero h1 .type{display:inline-block;overflow:hidden;white-space:nowrap;vertical-align:bottom;
-      border-right:.12em solid var(--weak);width:17ch;
-      animation:type 1s steps(17,end) .1s both,caret .8s step-end 5}
-@keyframes type{from{width:0}}
-@keyframes caret{50%{border-color:transparent}}
-.hero p{color:var(--mut);margin:0;max-width:62ch;font-size:1.02rem}
+/* Boot sequence: the signature moment. This studio's whole premise is a machine
+   working while nobody watches, so the page opening like the machine is coming
+   online -- a status readout, not a title card -- is the one place to spend the
+   "make it feel alive" budget, per the studio brief. Each line is real: it
+   states an actual fact (venture count, build cadence, last run), not filler
+   ellipses. JS types them in sequence because CSS steps() can't stagger lines
+   of different lengths; reduced-motion prints the final state immediately. */
+.boot{font:13px/1.7 var(--font-mono);color:var(--mut);margin:0 0 1.3rem;min-height:5.1em}
+.boot .ln{opacity:0}
+.boot .ln.go{opacity:1}
+.boot .ln b{color:var(--mark)}
+.boot .caret{display:inline-block;width:.5em;height:1em;background:var(--weak);vertical-align:-.15em;
+      animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.hero h1{margin:0 0 .7rem;font:800 clamp(2rem,4.4vw,2.75rem)/1.12 var(--font-mono);letter-spacing:-.01em;
+      opacity:0;transform:translateY(6px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.hero h1.go{opacity:1;transform:none}
+.hero p{color:var(--mut);margin:0;max-width:62ch;font-size:1.02rem;
+      opacity:0;transition:opacity .6s var(--ease) .15s}
+.hero p.go{opacity:1}
 .lede h1{margin:0 0 .5rem;font:700 1.9rem/1.2 var(--font-mono);letter-spacing:-.01em}
 .lede p{color:var(--mut);margin:0;max-width:62ch}
 
 /* ticker -- the signature element: real build data, always moving */
-.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);
-        overflow:hidden;margin:1.6rem -1.25rem 0}
+.ticker{display:flex;align-items:stretch;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+        background:var(--bg2);overflow:hidden;margin:1.6rem -1.25rem 0}
+.tick-pause{flex:none;border:none;border-right:1px solid var(--line);background:transparent;color:var(--mut);
+        cursor:pointer;padding:0 .9rem;font-family:var(--font-mono);font-size:.9rem;line-height:1;
+        display:flex;align-items:center;min-width:24px;min-height:24px}
+.tick-pause:hover{color:var(--fg);background:color-mix(in oklab,var(--fg) 6%,transparent)}
+.tick-viewport{overflow:hidden;flex:1;min-width:0}
 .tick-track{display:flex;width:max-content;animation:tickscroll 46s linear infinite}
-.ticker:hover .tick-track,.ticker:focus-within .tick-track{animation-play-state:paused}
+.ticker.paused .tick-track,.tick-viewport:hover .tick-track{animation-play-state:paused}
 @keyframes tickscroll{to{transform:translateX(-50%)}}
 .tick-seq{display:flex;align-items:center;flex:none}
 .tick-item{display:inline-flex;align-items:baseline;gap:.55rem;white-space:nowrap;
@@ -70,11 +92,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 .tick-item i.ok{color:var(--mark)}
 .tick-item i.pending{color:var(--weak)}
 
-/* kpi */
-.kpi{display:flex;gap:2.2rem;flex-wrap:wrap;margin:1.75rem 0 2.75rem;
+/* kpi -- a console panel a pointer can "inspect": a soft light follows the
+   cursor across the readout, like a scanner head passing over the numbers.
+   Pure CSS via a custom property JS updates on mousemove; falls back to a
+   fixed position with no listener at all when hover isn't available. */
+.kpi{position:relative;display:flex;gap:2.2rem;flex-wrap:wrap;margin:1.75rem 0 2.75rem;
      padding:1.15rem 1.4rem;border:1px solid var(--line);border-radius:14px;
-     background:var(--bg2);box-shadow:var(--shadow)}
-.kpi div{display:flex;flex-direction:column;gap:.15rem}
+     background:var(--bg2);box-shadow:var(--shadow);overflow:hidden}
+.kpi::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+     background:radial-gradient(220px circle at var(--mx,50%) var(--my,0%),
+       color-mix(in oklab,var(--mark) 10%,transparent),transparent 70%);
+     opacity:0;transition:opacity .3s var(--ease)}
+.kpi:hover::before{opacity:1}
+.kpi div{position:relative;z-index:1;display:flex;flex-direction:column;gap:.15rem}
 .kpi b{font:700 1.6rem/1 var(--font-mono);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
 .kpi span{color:var(--mut);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-mono)}
 
@@ -94,10 +124,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
              border-bottom:1px solid var(--line)}
 .tile .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
                   transition:transform .5s var(--ease)}
-.tile .thumb::after{content:"";position:absolute;inset:0;pointer-events:none;
+/* Real app screenshots are bright native windows; dropped straight onto a dark
+   card they read as a glaring void (found reviewing the actual render 2026-08-17).
+   A fake title-bar strip + a soft top vignette makes even a plain white capture
+   read as "a window sitting in the panel" instead of a hole punched in it. */
+.tile .thumb.has-shot .bar{position:absolute;inset:0 0 auto 0;height:22px;z-index:2;
+      background:var(--bg3);border-bottom:1px solid color-mix(in oklab,var(--fg) 8%,transparent)}
+.tile .thumb.has-shot .bar::before{content:"";position:absolute;top:50%;left:8px;width:6px;height:6px;
+      border-radius:50%;transform:translateY(-50%);background:color-mix(in oklab,var(--mut) 55%,transparent);
+      box-shadow:12px 0 0 color-mix(in oklab,var(--mut) 55%,transparent),
+                 24px 0 0 color-mix(in oklab,var(--mut) 55%,transparent)}
+.tile .thumb.has-shot::after{content:"";position:absolute;inset:0 0 auto 0;height:38%;z-index:1;pointer-events:none;
+      background:linear-gradient(to bottom,color-mix(in oklab,var(--bg2) 55%,transparent),transparent)}
+.tile .thumb.has-shot img{padding-top:22px;box-sizing:border-box;background:var(--bg3)}
+.tile .thumb .sheen{position:absolute;inset:0;pointer-events:none;z-index:2;
       background:linear-gradient(115deg,transparent 42%,color-mix(in oklab,var(--fg) 14%,transparent) 50%,transparent 58%);
       transform:translateX(-130%);transition:transform .8s var(--ease)}
-.tile:hover .thumb::after{transform:translateX(130%)}
+.tile:hover .thumb .sheen{transform:translateX(130%)}
 .tile .thumb.empty{display:grid;place-items:center;color:var(--mut);font-size:.8rem;font-family:var(--font-mono)}
 .tile .body{padding:.9rem 1rem 1.05rem;display:flex;flex-direction:column;gap:.3rem;flex:1}
 .tile h2{margin:0;font-size:1rem;letter-spacing:-.01em;font-family:var(--font-mono);font-weight:600}
@@ -105,18 +148,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 .tile .meta{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem;color:var(--mut);font-size:.74rem;margin-top:.4rem}
 .pill{border:1px solid var(--line);border-radius:999px;padding:.15rem .55rem;font:600 .68rem/1.4 var(--font-mono)}
 .pill.ok{color:var(--mark);border-color:color-mix(in oklab,var(--mark) 45%,transparent)}
-.pill.dl{color:var(--weak);border-color:color-mix(in oklab,var(--weak) 45%,transparent)}
+.pill.count{color:var(--weak);border-color:color-mix(in oklab,var(--weak) 45%,transparent)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .hero .scan,.dot,.tick-track{animation:none}
-  .hero h1 .type{width:auto;border-right:none;animation:none}
+  .hero .scan,.dot,.tick-track,.boot .caret{animation:none}
+  .boot{display:none}
+  .hero h1,.hero p{opacity:1;transform:none;transition:none}
+  .kpi::before{display:none}
   .tile{opacity:1;transform:none;transition:box-shadow .25s var(--ease),border-color .25s var(--ease)}
-  .tile .thumb img,.tile .thumb::after{transition:none}
-  .tile .thumb::after{display:none}
+  .tile .thumb img,.tile .thumb .sheen{transition:none}
+  .tile .thumb .sheen{display:none}
+  .tick-pause{display:none}
 }
 
 /* detail */
-.back{display:inline-block;color:var(--mut);text-decoration:none;font-size:.85rem;margin-bottom:1.5rem;font-family:var(--font-mono)}
+.back{display:inline-block;color:var(--mut);text-decoration:none;font-size:.85rem;margin-bottom:1.5rem;
+      font-family:var(--font-mono);padding:.5rem 0;min-height:24px;box-sizing:border-box}
 .back:hover{color:var(--fg)}
 .badges{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0 0}
 .badge{font:600 .74rem/1 var(--font-mono);padding:.4rem .7rem;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
@@ -131,7 +178,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
     background:var(--mark);color:#04140d;text-decoration:none;font-weight:700;font-size:.92rem;font-family:var(--font-mono)}
 .dl small{font-weight:400;opacity:.75}
 section{margin-top:2.5rem}
-section h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);
+/* h2 (not h3): detail pages went h1 -> h4 (chart) -> h3 (sections), skipping a
+   level -- fixed 2026-08-17. Both this and .chart-title are h2 now; distinct
+   look comes from the class, not the tag, so nesting stays correct either way. */
+.section-title{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);
            margin:0 0 .7rem;padding-bottom:.5rem;border-bottom:1px solid var(--line);font-family:var(--font-mono)}
 section p{margin:0 0 .8rem;max-width:70ch}
 pre.note{white-space:pre-wrap;font:13px/1.6 var(--font-mono);
@@ -141,7 +191,7 @@ pre.note{white-space:pre-wrap;font:13px/1.6 var(--font-mono);
 /* benchmark chart */
 .chart{background:var(--bg2);border:1px solid var(--line);border-radius:14px;
        padding:1.3rem 1.4rem 1.1rem;box-shadow:var(--shadow)}
-.chart h4{margin:0 0 .2rem;font-size:1rem;font-family:var(--font-mono)}
+.chart-title{margin:0 0 .2rem;font-size:1rem;font-family:var(--font-mono)}
 .chart .sub{color:var(--mut);font-size:.8rem;margin:0 0 1.1rem}
 .row{display:grid;grid-template-columns:6.6rem 1fr 1.6rem;align-items:center;
      gap:.7rem;margin-bottom:.55rem}
@@ -164,25 +214,27 @@ table.axes td:first-child{width:7rem;color:var(--fg);font-family:var(--font-mono
 footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color:var(--mut);font-size:.8rem}
 </style></head>
 <body><div class="wrap">
-<div class="hdr">
+<header class="hdr">
   <span class="eyebrow"><i class="dot" aria-hidden="true"></i>AI Venture Studio</span>
   <span class="hdr-meta">Autonomous build log</span>
-</div>
-<a class="back" href="../index.html">← All ventures</a>
+</header>
+<main><a class="back" href="../index.html">← All ventures</a>
   <div class="lede"><h1>subscription-cancel-proof</h1><p>subscription-cancel-proof-packet: a native macOS desktop app for consumers and advocates who need to prove a subscription cancellation.</p>
     <div class="badges">
       <span class="badge pending">No installer</span>
       <span class="badge">Built in 34m</span>
       
+      <span class="badge">2,005,924 tokens · $0.73 api-equiv</span>
+      <span class="badge">Not yet monetized</span>
     </div>
   </div>
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div></div>
     <div><div class="chart">
-    <h4>Selection benchmarks</h4>
+    <h2 class="chart-title">Selection benchmarks</h2>
     <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
       best <em>balance</em> across all eight, not the best single score.</p>
-    <div class="row low" style="--w:60%">
+    <div aria-hidden="true"><div class="row low" style="--w:60%">
       <div class="name">profit<b>weakest</b></div>
       <div class="track"><span class="fill"></span></div>
       <div class="val">6</div>
@@ -214,19 +266,19 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
       <div class="name">availability</div>
       <div class="track"><span class="fill"></span></div>
       <div class="val">8</div>
-    </div>
+    </div></div>
     <div class="legend">
       <span><i style="background:var(--mark)"></i>score</span>
       <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
     </div>
-    <table class="axes"><caption class="sr-only"></caption><tr><td>profit</td><td>revenue potential and margin — scored 6/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 7/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 6/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 7/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 8/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 8/10</td></tr></table>
+    <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 6/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 7/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 6/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 7/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 8/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 8/10</td></tr></table>
   </div></div>
   </div>
-  <section><h3>The opportunity</h3><pre class="note">subscription-cancel-proof-packet: a native macOS desktop app for consumers and advocates who need to prove a subscription cancellation. Pain point: vendors hide confirmations, keep billing, or make the cancellation trail hard to reconstruct. Value proposition: a local app that assembles screenshots, receipts, call notes, and a structured timeline into a clean cancellation-proof packet for disputes or chargebacks.</pre></section>
-  <section><h3>Objective for this build</h3><pre class="note">Build the smallest offline Swift artifact that reads a clean and a crafted local fixture folder, evaluates whether a cancellation proof packet is complete, and prints an evidence report that demonstrates the thesis without any network or third-party dependency.</pre></section>
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">subscription-cancel-proof-packet: a native macOS desktop app for consumers and advocates who need to prove a subscription cancellation. Pain point: vendors hide confirmations, keep billing, or make the cancellation trail hard to reconstruct. Value proposition: a local app that assembles screenshots, receipts, call notes, and a structured timeline into a clean cancellation-proof packet for disputes or chargebacks.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build the smallest offline Swift artifact that reads a clean and a crafted local fixture folder, evaluates whether a cancellation proof packet is complete, and prints an evidence report that demonstrates the thesis without any network or third-party dependency.</pre></section>
   
-  <section><h3>What was built</h3><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_3&quot;,&quot;tool&quot;:&quot;venture_workspace_run&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;command&quot;:&quot;mkdir&quot;,&quot;args&quot;:[&quot;-p&quot;,&quot;CancelProofPacket.app/Contents/MacOS&quot;]}}]}</pre></section>
-  <section><h3>Verification</h3><pre class="note">DMG PRESENT: `release/GatewayControlCenter.dmg`
+  <section><h2 class="section-title">What was built</h2><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_3&quot;,&quot;tool&quot;:&quot;venture_workspace_run&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;command&quot;:&quot;mkdir&quot;,&quot;args&quot;:[&quot;-p&quot;,&quot;CancelProofPacket.app/Contents/MacOS&quot;]}}]}</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">DMG PRESENT: `release/GatewayControlCenter.dmg`
 
 **Acceptance**
 - FAIL
@@ -240,14 +292,42 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
 
 **Reasoned Review**
 - [</pre></section>
-  <section><h3>Independent review</h3><pre class="note">The product has a clear user problem and a plausible MVP: one OpenAI-compatible local gateway that hides provider differences, plus a macOS control-center dashboard and launch-agent packaging for daily use. The release artifact exists at `release/GatewayControlCenter.dmg`, and verification explicitly reported `DMG PRESENT`, so this is packaged and distributable rather than just source. Willingness to pay looks credible for teams or power users who need provider swapping, local observability, and a single admin surface.</pre></section>
-  <section><h3>What the studio learned</h3><pre class="note">STOP</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">The product has a clear user problem and a plausible MVP: one OpenAI-compatible local gateway that hides provider differences, plus a macOS control-center dashboard and launch-agent packaging for daily use. The release artifact exists at `release/GatewayControlCenter.dmg`, and verification explicitly reported `DMG PRESENT`, so this is packaged and distributable rather than just source. Willingness to pay looks credible for teams or power users who need provider swapping, local observability, and a single admin surface.</pre></section>
+  <section><h2 class="section-title">What the studio learned</h2><pre class="note">STOP</pre></section></main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
 right-click → Open on first launch. <a href="../index.html">All ventures</a></footer>
 </div><script>
 (function(){
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Boot sequence: lines appear one at a time, then the real headline fades in
+  // once the readout finishes -- the page feels like it's coming online rather
+  // than just fading in. Skipped entirely under reduced motion (CSS already
+  // hides .boot there and leaves h1/p visible).
+  var bootLines = document.querySelectorAll('.boot .ln');
+  var heroH1 = document.querySelector('.hero h1'), heroP = document.querySelector('.hero p');
+  if (!reduced && bootLines.length) {
+    bootLines.forEach(function(el, i){
+      setTimeout(function(){ el.classList.add('go') }, i * 320);
+    });
+    setTimeout(function(){
+      if (heroH1) heroH1.classList.add('go');
+      if (heroP) heroP.classList.add('go');
+    }, bootLines.length * 320 + 150);
+  } else if (heroH1) { heroH1.classList.add('go'); if (heroP) heroP.classList.add('go') }
+
+  // KPI panel: a soft light follows the pointer, like a scanner head reading
+  // the numbers. Pointer-only (matchMedia hover) so it never fires from touch
+  // scroll, and off entirely under reduced motion.
+  var kpi = document.querySelector('.kpi');
+  if (!reduced && kpi && matchMedia('(hover: hover)').matches) {
+    kpi.addEventListener('mousemove', function(e){
+      var r = kpi.getBoundingClientRect();
+      kpi.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      kpi.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  }
 
   if (!reduced) document.querySelectorAll('.kpi b').forEach(function(el, i){
     var raw = el.textContent, m = raw.match(/^([$]?)([\d.,]+)(.*)$/);
@@ -302,5 +382,12 @@ right-click → Open on first launch. <a href="../index.html">All ventures</a></
       t.addEventListener('mouseleave', function(){ t.style.transform = '' });
     });
   }
+
+  var pauseBtn = document.querySelector('.tick-pause');
+  if (pauseBtn) pauseBtn.addEventListener('click', function(){
+    var on = pauseBtn.closest('.ticker').classList.toggle('paused');
+    pauseBtn.setAttribute('aria-pressed', String(on));
+    pauseBtn.innerHTML = on ? '&#9654;' : '&#10073;&#10073;';
+  });
 })();
 </script></body></html>
