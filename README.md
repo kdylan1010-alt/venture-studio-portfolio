@@ -1,16 +1,16 @@
 # AI Venture Studio
 
-**19 free macOS apps. Built autonomously, one every morning.**
+**20 free macOS apps. Built autonomously, one every morning.**
 
 Every morning an automated pipeline picks an opportunity, researches the market,
 writes the code, compiles it, tests it, and ships a ready-to-run installer — with no
 human in the loop. These are the results. All free, no signup, no tracking.
 
-[**Browse all 19 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
+[**Browse all 20 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
   <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/airgap-redaction-workbench.html"><img src="shots/airgap-redaction-workbench.png" width="720" alt="AirgapRedactionWorkbench"></a>
-  <br><sub><i>AirgapRedactionWorkbench — one of 19 tools below</i></sub>
+  <br><sub><i>AirgapRedactionWorkbench — one of 20 tools below</i></sub>
 </p>
 
 ---
@@ -19,6 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
+| **[SupplierChangeMonitor](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/supplier-change-monitor.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/supplier-change-monitor/SupplierChangeMonitor.dmg) <br><sub>697 KB</sub> |
 | **[AccessibilityWorkbench](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/ada-accessibility-workbench.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/ada-accessibility-workbench/AccessibilityWorkbench.dmg) <br><sub>658 KB</sub> |
 | **[AIDisclosureDesk](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/ai-disclosure-desk.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/ai-disclosure-desk/AIDisclosureDesk.dmg) <br><sub>703 KB</sub> |
 | **[HeatSafetyLogBinder](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/heat-safety-log-binder.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/heat-safety-log-binder/HeatSafetyLogBinder.dmg) <br><sub>648 KB</sub> |
@@ -39,7 +40,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB</sub> |
 
-<sub>19 apps · 8.2 MB total · macOS 12+</sub>
+<sub>20 apps · 8.9 MB total · macOS 12+</sub>
 
 ---
 
