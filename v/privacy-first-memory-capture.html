@@ -244,10 +244,10 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>privacy-first-memory-capture</h1><p>No recorded thesis for this venture.</p>
+  <div class="lede"><h1>privacy-first-memory-capture</h1><p>{{ exec_build }}</p>
     <div class="badges">
       <span class="badge pending">No installer</span>
-      
+      <span class="badge">Built in 2h 26m</span>
       
       
       
@@ -260,9 +260,9 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   
   
   
-  
-  
-  
+  <section><h2 class="section-title">What was built</h2><pre class="note">{{ exec_build }}</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">{{ exec_verify }}</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">The product has a clear value proposition: a self-hosted, OpenAI-compatible gateway that hides provider churn behind one endpoint. That is a real pain point for teams wiring apps to multiple backends, so there is plausible willingness to pay if the gateway is reliable and easy to operate. The MVP is still broad, though: gateway, admin, dashboard, routing policies, memory, and multiple CLI/provider adapters are all in scope. I did not see end-to-end acceptance evidence in the workspace, so this is not ready for PASS.</pre></section>
   </main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
