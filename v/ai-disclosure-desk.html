@@ -244,10 +244,10 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>AIDisclosureDesk</h1><p>No recorded thesis for this venture.</p>
+  <div class="lede"><h1>AIDisclosureDesk</h1><p>AI Content Disclosure Desk for EU-facing agencies, publishers, and solo creators who now have to label synthetic content under the AI Act.</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      
+      <span class="badge">Built in 2h 8m</span>
       <span class="badge">2026-08-16</span>
       
       
@@ -255,15 +255,117 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   </div>
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/ai-disclosure-desk/AIDisclosureDesk.dmg">Download AIDisclosureDesk.dmg <small>703 KB</small></a>
-       <div class="meta" style="margin-top:.6rem"><span class="pill count">1 download so far</span></div></div>
-    <div></div>
+       </div>
+    <div><div class="chart">
+    <h2 class="chart-title">Selection benchmarks</h2>
+    <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
+      best <em>balance</em> across all eight, not the best single score.</p>
+    <div aria-hidden="true"><div class="row" style="--w:70%">
+      <div class="name">profit</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">change</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:70%">
+      <div class="name">effort</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">viability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">future</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:60%">
+      <div class="name">market</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">6</div>
+    </div><div class="row low" style="--w:50%">
+      <div class="name">population<b>weakest</b></div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">5</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">availability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div></div>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>score</span>
+      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
+    </div>
+    <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 7/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 7/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 8/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 6/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 5/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 8/10</td></tr></table>
+  </div></div>
   </div>
-  
-  
-  
-  
-  
-  
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">AI Content Disclosure Desk for EU-facing agencies, publishers, and solo creators who now have to label synthetic content under the AI Act. It reduces the manual burden of spotting likely AI-generated assets, generating required disclosures, and assembling audit-ready provenance packets.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build a native macOS app that imports a folder of images, PDFs, and text files, applies OCR and text heuristics to flag likely AI-generated or altered assets, attaches disclosure labels, and exports a compliance summary plus per-file audit log.</pre></section>
+  <section><h2 class="section-title">Market and user research</h2><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_1&quot;,&quot;tool&quot;:&quot;venture_workspace_hermes&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;brief&quot;:&quot;You are working inside the venture workspace for a macOS product called AI Content Disclosure Desk. Your job is to inspect the existing workspace and produce the smallest implementable artifact that tests the venture thesis. Do not use the web. Do not inspect anything outside this workspace. Follow these sections exactly:\n\n1. Context: This is a native macOS app concept for EU-facing agencies, publishers, and solo creators. It should import a folder of images, PDFs, and text files, flag likely AI-generated or altered assets with local heuristics/OCR, attach disclosure labels, and export a compliance summary plus per-file audit log.\n2. Goal: Determine what already exists, then build the smallest artifact that can test the thesis. Prefer a minimal runnable macOS prototype over a large product. If the workspace already contains something close, rework it rather than starting over.\n3. Constraints: No network, no external APIs, no package installs, no email/outreach/purchases/deployment. Use only local files and Apple system frameworks if needed. Keep it small and testable.\n4. Deliverable: A concise plan, then implement the artifact, then verify it compiles or otherwise runs using the allowed workspace tools. If you need to create an app scaffold, choose the smallest possible shape.\n5. Verification: Use the workspace run tools available to check status/diff and compile if possible. Report any blockers explicitly.\n6. Output: Summarize what you changed, what works, and what remains blocked or untested. Focus on the venture artifact only.&quot;}}}}]}</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">Created files:
+- `/Users/a1111/ai-venture-studio/apps/ventures/ai-disclosure-desk/Sources/Main.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/ai-disclosure-desk/Info.plist`
+- `/Users/a1111/ai-venture-studio/apps/ventures/ai-disclosure-desk/AIDisclosureDesk`
+- `/Users/a1111/ai-venture-studio/apps/ventures/ai-disclosure-desk/AIDisclosureDesk.app`
+- `/Users/a1111/ai-venture-studio/apps/ventures/ai-disclosure-desk/AIDisclosureDesk.dmg`
+
+Swift compile command:
+`swiftc -O -o AIDisclosureDesk Sources/Main.swift -framework AppKit -framework PDFKit -framework Vision`
+
+Compiler output:
+`no output`
+
+DMG path:
+`/Users/a1111/ai-venture-studio/apps/ventures/ai-disclosure-desk/AIDisclosureDesk.dmg`
+
+`hdiutil` result:
+Succeeded per Hermes build output:
+`created: /Users/a1111/ai-venture-studio/apps/ventures/ai-disclosure-desk/AIDisclosureDesk.dmg`
+
+Root listing verified:
+`AIDisclosureDesk`
+`AIDisclosureDesk.app`
+`AIDisclosureDesk.dmg`
+`Info.plist`
+`Sources`
+
+Known gaps:
+No live GUI launch was performed. The app compiles and packages, but UI interaction has not been manually smoke-tested in this stage.</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">FAIL
+
+1. `.dmg` in workspace root
+- Command/output: `venture_workspace_list` on `.` returned:
+  - `AIDisclosureDesk`
+  - `AIDisclosureDesk.app`
+  - `AIDisclosureDesk.dmg`
+  - `Info.plist`
+  - `SourceScout`
+  - `SourceScout.app`
+  - `SourceScout.dmg`
+  - `Sources`
+- Result: yes, a root `.dmg` exists.
+
+2. Sources compile
+- Command/output: `swiftc -O -o AIDisclosureDesk Sources/Main.swift -framework AppKit -framework PDFKit -framework Vision`
+- Output: `no output`
+- Result: compile succeeds.
+
+3. App bundle layout
+- Command/output: `venture_workspace_list` on `AIDisclosureDesk.app/Contents` returned:
+  - `Info.plist`
+  - `MacOS`
+- Result: the bundle has both `Contents/Info.plist` and `Contents/MacOS`.
+
+4. TODO / FIXME / placeholder text
+- Command/output: `venture_workspace_read` on `Sources/Main.swift`
+- Output observed: no `TODO`, no `FIXME`, and no placeholder markers in the file content.
+- Result: nothing like that remains in the source I read.
+
+5. Does the app actually implement Source Scout?
+- Command/output: reading `Sources/Main.swift`
+- Observed behavior: the code is an AI Content Disclosure Desk prototype that scans local folders of `txt`, `md`, `pdf`, and image files, extract</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">This is a real product slice, not a toy: a local control center for an AI gateway with live routing, provider management, and SSE monitoring. That has clear utility for teams already operating self-hosted model providers, but the willingness-to-pay story is still narrow because it mainly serves an internal ops/admin workflow. The release artifact exists, but I could not complete a stronger install/launch verification, so the user-facing product bar is not fully closed yet.</pre></section>
   </main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
