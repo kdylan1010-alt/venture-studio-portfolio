@@ -244,10 +244,10 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>claims-attachment-packet-builder</h1><p>No recorded thesis for this venture.</p>
+  <div class="lede"><h1>claims-attachment-packet-builder</h1><p>A native macOS claims-attachment assistant for provider billing teams and specialty clinics that ingests PDFs and scanned images, extracts dat…</p>
     <div class="badges">
       <span class="badge pending">No installer</span>
-      
+      <span class="badge">Built in 1h 4m</span>
       
       
       
@@ -255,14 +255,87 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   </div>
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div></div>
-    <div></div>
+    <div><div class="chart">
+    <h2 class="chart-title">Selection benchmarks</h2>
+    <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
+      best <em>balance</em> across all eight, not the best single score.</p>
+    <div aria-hidden="true"><div class="row" style="--w:70%">
+      <div class="name">profit</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">change</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row low" style="--w:50%">
+      <div class="name">effort<b>weakest</b></div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">5</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">viability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">future</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:60%">
+      <div class="name">market</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">6</div>
+    </div><div class="row low" style="--w:50%">
+      <div class="name">population<b>weakest</b></div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">5</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">availability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div></div>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>score</span>
+      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
+    </div>
+    <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 7/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 5/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 8/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 6/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 5/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 8/10</td></tr></table>
+  </div></div>
   </div>
-  
-  
-  
-  
-  
-  
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">A native macOS claims-attachment assistant for provider billing teams and specialty clinics that ingests PDFs and scanned images, extracts dates, signatures, and supporting clinical references, flags missing items, groups evidence into a payer-ready packet, and exports an organized attachment bundle with an exceptions report.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build a native macOS desktop app that imports a folder of claim-supporting PDFs and images, runs OCR and text extraction with Apple frameworks, detects missing signatures, dates, and patient or service metadata, groups supporting pages into one exportable attachment packet, and shows a clear issue report for manual review.</pre></section>
+  <section><h2 class="section-title">Market and user research</h2><pre class="note">**MARKET SIZE**
+- Plausible buyers are U.S. provider organizations that repeatedly assemble claim-supporting PDFs for payers: specialty clinics, therapy practices, DME suppliers, imaging groups, ASCs, and small billing/RCM shops serving them.
+- ESTIMATE: about 25,000 to 40,000 such organizations generate attachment-heavy claims often enough to care about this workflow.
+- ESTIMATE: a realistic first serviceable pool for a native macOS tool is about 12,000 to 18,000 organizations, assuming a meaningful subset already uses Macs in billing/admin workflows and is willing to adopt a local desktop tool.
+- Arithmetic behind the estimate:
+  - ESTIMATE 30,000 total target organizations
+  - ESTIMATE 40% of those are Mac-tolerant or Mac-heavy enough for a native desktop product
+  - 30,000 x 40% = ESTIMATE 12,000 serviceable organizations
+  - ESTIMATE 2 to 3 likely users per org
+  - 12,000 x 2 to 3 = ESTIMATE 24,000 to 36,000 user seats
+- If priced around ESTIMATE $3,000 per org per year, that is ESTIMATE $36M/year in serviceable revenue potential before broader expansion.
+- This is a narrow but real market: not huge by SMB software standards, but large enough for a focused business if the workflow pain is acute and recurring.
+
+**USER RESEARCH**
+- Segment 1: small specialty clinic billing teams
+  - Current workaround: manual packet assembly in Adobe Acrobat, Preview, Finder, shared drives, and fax/scanner workflows.
+  - What they already pay: ESTIMATE $20 to $35 per user per month for PDF tooling, plus the loaded cost of at least one billing/admin FTE, often ESTIMATE $45k to $70k/year or more.
+  - How they would find this product: referrals from practice managers, billing peers, specialty-clinic communities, and search for attachment or denial-workflow help.
+  - What would make them</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_1&quot;,&quot;tool&quot;:&quot;venture_workspace_run&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;command&quot;:&quot;mkdir&quot;,&quot;args&quot;:[&quot;-p&quot;,&quot;ClaimsPacketBuilder.app/Contents/MacOS&quot;]}}},{&quot;id&quot;:&quot;call_2&quot;,&quot;tool&quot;:&quot;venture_workspace_run&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;command&quot;:&quot;cp&quot;,&quot;args&quot;:[&quot;ClaimsPacketBuilder&quot;,&quot;ClaimsPacketBuilder.app/Contents/MacOS/ClaimsPacketBuilder&quot;]}}]}</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">DMG PRESENT: `build/GatewayControlCenter.dmg`
+
+DEPTH: THIN
+
+Tool-confirmed checks
+- `ls -la` showed the workspace contents, including a compiled binary and source tree.
+- `find` found `[build/GatewayControlCenter.app](/Users/a1111/ai-gateway/build/GatewayControlCenter.app)`, `[build/GatewayControlCenter.dmg](/Users/a1111/ai-gateway/build/GatewayControlCenter.dmg)`, and `[build/GatewayControlCenter.app/Contents/Info.plist](/Users/a1111/ai-gateway/build/GatewayControlCenter.app/Contents/Info.plist)`.
+- `find macos/ControlCenter -type f` showed exactly 2 files in the artifact source folder: `[macos/ControlCenter/GatewayControlCenter.swift](/Users/a1111/ai-gateway/macos/ControlCenter/GatewayControlCenter.swift)` and `[macos/ControlCenter/Info.plist](/Users/a1111/ai-gateway/macos/ControlCenter/Info.plist)`.
+- The source imports `SwiftUI`, `Foundation`, and `AppKit`.
+- The build script at `artifacts/claims-attachment-packet-builder/build.sh` invokes `swiftc` twice, but no build log in the workspace records the exit code.
+- `logs/gateway.log` shows the gateway process starting and then failing to bind `127.0.0.1:8080` because the address was already in use.
+
+Reasoned review
+- I inspected</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">The product solves real, understandable problems: local receipt scanning, recall triage, gateway control, and adjacent workflow automation. Those are plausible paid niches, especially for compliance-heavy or ops-heavy users who value offline or local-first tooling. The issue is focus: the repo reads like several related products and demos bundled together, so the MVP story is diluted and the buyer has to infer which problem is being sold. The value proposition is credible, but it needs one sharply defined primary workflow and a clearer reason to pay now.</pre></section>
   </main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
