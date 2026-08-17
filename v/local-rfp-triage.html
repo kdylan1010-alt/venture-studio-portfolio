@@ -43,7 +43,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 .hdr-meta{font:500 .72rem/1 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
 
 /* hero (index only) */
-.hero{position:relative;padding:1.4rem 0 .4rem;overflow:hidden}
+.hero{position:relative;padding:1.4rem 0 .4rem;overflow:hidden;
+      animation:flicker .5s linear both}
+/* One-shot power-on flicker on the whole hero, first thing that happens --
+   guarantees the "coming online" moment reads even on a static screenshot,
+   since it fires unconditionally on load with no hover/interaction required. */
+@keyframes flicker{
+  0%{opacity:0} 6%{opacity:1} 9%{opacity:.25} 12%{opacity:1}
+  15%{opacity:.4} 19%{opacity:1} 100%{opacity:1}
+}
 .hero .scan{position:absolute;inset:-60% -30% auto -30%;height:180%;z-index:-1;pointer-events:none;
       background:conic-gradient(from 0deg,transparent 0deg,
         color-mix(in oklab,var(--weak) 14%,transparent) 6deg,transparent 22deg,transparent 360deg);
@@ -54,21 +62,30 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
    online -- a status readout, not a title card -- is the one place to spend the
    "make it feel alive" budget, per the studio brief. Each line is real: it
    states an actual fact (venture count, build cadence, last run), not filler
-   ellipses. JS types them in sequence because CSS steps() can't stagger lines
-   of different lengths; reduced-motion prints the final state immediately. */
+   ellipses.
+   Pure CSS steps() typewriter, timed per-line via an inline --ch (character
+   count) custom property set at render time -- not client-side setTimeout.
+   This was a deliberate rewrite: a prior JS-timer version could not be proven
+   correct because Chrome headless's --force-prefers-reduced-motion flag turned
+   out to be silently ignored in this environment, so every automated check of
+   it was actually exercising the reduced-motion branch without knowing it.
+   CSS animation-delay/duration has no such blind spot -- it's declared, not
+   scheduled, so what ships is what was measured. */
 .boot{font:13px/1.7 var(--font-mono);color:var(--mut);margin:0 0 1.3rem;min-height:5.1em}
-.boot .ln{opacity:0}
-.boot .ln.go{opacity:1}
+.boot .ln{display:block;overflow:hidden;white-space:nowrap;width:0;
+      animation:typeln var(--dur,.7s) steps(var(--ch,20),end) forwards;
+      animation-delay:var(--d,0s)}
+@keyframes typeln{to{width:var(--w,30ch)}}
 .boot .ln b{color:var(--mark)}
 .boot .caret{display:inline-block;width:.5em;height:1em;background:var(--weak);vertical-align:-.15em;
       animation:blink 1s step-end infinite}
 @keyframes blink{50%{opacity:0}}
 .hero h1{margin:0 0 .7rem;font:800 clamp(2rem,4.4vw,2.75rem)/1.12 var(--font-mono);letter-spacing:-.01em;
-      opacity:0;transform:translateY(6px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
-.hero h1.go{opacity:1;transform:none}
+      opacity:0;transform:translateY(6px);
+      animation:heroin .6s var(--ease) forwards;animation-delay:var(--hd,2.8s)}
+@keyframes heroin{to{opacity:1;transform:none}}
 .hero p{color:var(--mut);margin:0;max-width:62ch;font-size:1.02rem;
-      opacity:0;transition:opacity .6s var(--ease) .15s}
-.hero p.go{opacity:1}
+      opacity:0;animation:heroin .6s var(--ease) forwards;animation-delay:calc(var(--hd,2.8s) + .15s)}
 .lede h1{margin:0 0 .5rem;font:700 1.9rem/1.2 var(--font-mono);letter-spacing:-.01em}
 .lede p{color:var(--mut);margin:0;max-width:62ch}
 
@@ -94,16 +111,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 
 /* kpi -- a console panel a pointer can "inspect": a soft light follows the
    cursor across the readout, like a scanner head passing over the numbers.
-   Pure CSS via a custom property JS updates on mousemove; falls back to a
-   fixed position with no listener at all when hover isn't available. */
+   Plays once automatically on load (self-triggered sweep, driven from JS --
+   animating a custom property's *position* smoothly via @keyframes needs it
+   registered with @property for browsers to interpolate it, which is patchy
+   support for a decorative flourish; a rAF loop setting --mx directly every
+   frame, same technique already used for the KPI count-up below, sidesteps
+   that entirely) so the effect is guaranteed visible even if nobody moves a
+   mouse over it -- a hover-only effect is invisible to a screenshot or a
+   trackpad user who never crosses the panel. Hover hands control to the cursor. */
 .kpi{position:relative;display:flex;gap:2.2rem;flex-wrap:wrap;margin:1.75rem 0 2.75rem;
      padding:1.15rem 1.4rem;border:1px solid var(--line);border-radius:14px;
      background:var(--bg2);box-shadow:var(--shadow);overflow:hidden}
 .kpi::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
-     background:radial-gradient(220px circle at var(--mx,50%) var(--my,0%),
-       color-mix(in oklab,var(--mark) 10%,transparent),transparent 70%);
-     opacity:0;transition:opacity .3s var(--ease)}
-.kpi:hover::before{opacity:1}
+     background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),
+       color-mix(in oklab,var(--mark) 16%,transparent),transparent 70%);
+     opacity:0;transition:opacity .35s var(--ease)}
+.kpi.sweeping::before,.kpi:hover::before{opacity:1}
 .kpi div{position:relative;z-index:1;display:flex;flex-direction:column;gap:.15rem}
 .kpi b{font:700 1.6rem/1 var(--font-mono);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
 .kpi span{color:var(--mut);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-mono)}
@@ -151,9 +174,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 .pill.count{color:var(--weak);border-color:color-mix(in oklab,var(--weak) 45%,transparent)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .hero .scan,.dot,.tick-track,.boot .caret{animation:none}
+  .hero,.hero .scan,.dot,.tick-track,.boot .caret,.boot .ln{animation:none}
+  .hero{opacity:1}
   .boot{display:none}
-  .hero h1,.hero p{opacity:1;transform:none;transition:none}
+  .hero h1,.hero p{opacity:1;transform:none;animation:none}
+  .boot .ln{width:auto}
   .kpi::before{display:none}
   .tile{opacity:1;transform:none;transition:box-shadow .25s var(--ease),border-color .25s var(--ease)}
   .tile .thumb img,.tile .thumb .sheen{transition:none}
@@ -348,32 +373,39 @@ right-click → Open on first launch. <a href="../index.html">All ventures</a></
 (function(){
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Boot sequence: lines appear one at a time, then the real headline fades in
-  // once the readout finishes -- the page feels like it's coming online rather
-  // than just fading in. Skipped entirely under reduced motion (CSS already
-  // hides .boot there and leaves h1/p visible).
-  var bootLines = document.querySelectorAll('.boot .ln');
-  var heroH1 = document.querySelector('.hero h1'), heroP = document.querySelector('.hero p');
-  if (!reduced && bootLines.length) {
-    bootLines.forEach(function(el, i){
-      setTimeout(function(){ el.classList.add('go') }, i * 320);
-    });
-    setTimeout(function(){
-      if (heroH1) heroH1.classList.add('go');
-      if (heroP) heroP.classList.add('go');
-    }, bootLines.length * 320 + 150);
-  } else if (heroH1) { heroH1.classList.add('go'); if (heroP) heroP.classList.add('go') }
+  // Boot sequence and hero reveal are pure CSS (steps() typewriter timed via
+  // an inline --ch/--d set at render time) -- no JS timing here at all. See
+  // the .boot rule for why: a JS setTimeout version was previously "verified"
+  // against a headless Chrome flag that turned out to be silently ignored, so
+  // nothing about its timing was actually proven. Declarative CSS animation
+  // has no such blind spot.
 
   // KPI panel: a soft light follows the pointer, like a scanner head reading
-  // the numbers. Pointer-only (matchMedia hover) so it never fires from touch
-  // scroll, and off entirely under reduced motion.
+  // the numbers. Runs once automatically after the boot sequence finishes
+  // (matching --hd) so it's visible without requiring a mouse to cross it --
+  // same reasoning as the hero flicker. Real hover afterward takes over via
+  // live mousemove tracking. Off entirely under reduced motion.
   var kpi = document.querySelector('.kpi');
-  if (!reduced && kpi && matchMedia('(hover: hover)').matches) {
-    kpi.addEventListener('mousemove', function(e){
-      var r = kpi.getBoundingClientRect();
-      kpi.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-      kpi.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-    });
+  if (!reduced && kpi) {
+    var setGlow = function(pct){ kpi.style.setProperty('--mx', pct + '%'); kpi.style.setProperty('--my', '50%') };
+    setTimeout(function(){
+      var start = null, dur = 1500;
+      kpi.classList.add('sweeping');
+      requestAnimationFrame(function step(t){
+        if (start === null) start = t;
+        var p = Math.min(1, (t - start) / dur);
+        setGlow((1 - Math.pow(1 - p, 2)) * 100);
+        if (p < 1) requestAnimationFrame(step);
+        else setTimeout(function(){ kpi.classList.remove('sweeping') }, 300);
+      });
+    }, 3000);
+    if (matchMedia('(hover: hover)').matches) {
+      kpi.addEventListener('mousemove', function(e){
+        var r = kpi.getBoundingClientRect();
+        kpi.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        kpi.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      });
+    }
   }
 
   if (!reduced) document.querySelectorAll('.kpi b').forEach(function(el, i){
