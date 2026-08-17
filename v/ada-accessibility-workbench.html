@@ -244,10 +244,10 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>AccessibilityWorkbench</h1><p>No recorded thesis for this venture.</p>
+  <div class="lede"><h1>AccessibilityWorkbench</h1><p>A native macOS accessibility workbench for state and local governments plus their web contractors: it crawls site URLs, captures evidence, fla…</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      
+      <span class="badge">Built in 2h 22m</span>
       <span class="badge">2026-08-16</span>
       
       
@@ -256,14 +256,140 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/ada-accessibility-workbench/AccessibilityWorkbench.dmg">Download AccessibilityWorkbench.dmg <small>658 KB</small></a>
        </div>
-    <div></div>
+    <div><div class="chart">
+    <h2 class="chart-title">Selection benchmarks</h2>
+    <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
+      best <em>balance</em> across all eight, not the best single score.</p>
+    <div aria-hidden="true"><div class="row" style="--w:70%">
+      <div class="name">profit</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:90%">
+      <div class="name">change</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">9</div>
+    </div><div class="row low" style="--w:60%">
+      <div class="name">effort<b>weakest</b></div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">6</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">viability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:90%">
+      <div class="name">future</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">9</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">market</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">population</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">availability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div></div>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>score</span>
+      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
+    </div>
+    <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 7/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 9/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 6/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 9/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 8/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 8/10</td></tr></table>
+  </div></div>
   </div>
-  
-  
-  
-  
-  
-  
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">A native macOS accessibility workbench for state and local governments plus their web contractors: it crawls site URLs, captures evidence, flags common WCAG 2.1 AA problems, and turns findings into a usable remediation report. Target user: public-sector web and compliance teams that must meet the ADA Title II web/app rule. Painful problem: they need a practical way to find and prioritize issues across messy, real sites before the 2027-2028 deadlines. Value proposition: a shippable desktop tool that does the crawl, captures proof, and exports action-ready findings locally without a hosted service.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build a native macOS desktop app that accepts a URL list or sitemap, crawls public pages in WKWebView, screenshots and OCRs the content, flags a practical set of WCAG/ADA accessibility issues with clear evidence, and exports a prioritized CSV/PDF remediation report that survives messy real-world input.</pre></section>
+  <section><h2 class="section-title">Market and user research</h2><pre class="note">Market report written to `market_report.md`.
+
+It covers:
+- Market size with bottom-up arithmetic
+- 3 user segments and current workarounds
+- Competition and the gap this product fills
+- Pricing recommendation
+- Realistic upside, main failure mode, and key assumption to test
+- Plain verdict: continue
+
+If you want, I can next turn this into a tighter investor-style memo or a one-page launch brief.</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">Created files:
+- `/Users/a1111/ai-venture-studio/apps/ventures/ada-accessibility-workbench/AccessibilityWorkbench.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/ada-accessibility-workbench/Info.plist`
+- `/Users/a1111/ai-venture-studio/apps/ventures/ada-accessibility-workbench/AccessibilityWorkbench`
+- `/Users/a1111/ai-venture-studio/apps/ventures/ada-accessibility-workbench/AccessibilityWorkbench.app`
+- `/Users/a1111/ai-venture-studio/apps/ventures/ada-accessibility-workbench/AccessibilityWorkbench.dmg`
+
+Compiler command:
+`swiftc -O -o AccessibilityWorkbench AccessibilityWorkbench.swift`
+
+Compiler output:
+`no output`
+
+DMG path:
+`/Users/a1111/ai-venture-studio/apps/ventures/ada-accessibility-workbench/AccessibilityWorkbench.dmg`
+
+`hdiutil` result:
+`created: /Users/a1111/ai-venture-studio/apps/ventures/ada-accessibility-workbench/AccessibilityWorkbench.dmg`
+
+Root listing verified:
+`AccessibilityWorkbench`, `AccessibilityWorkbench.app`, `AccessibilityWorkbench.dmg`, `AccessibilityWorkbench.swift`, `Info.plist`, `market_report.md`
+
+Current limitations:
+- This pass implements deterministic local heuristics and reporting, not full live WKWebView crawling/OCR/PDF generation depth.</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">PASS
+
+1. `.dmg` in workspace root  
+Command: `venture_workspace_list` on `.`  
+Output:
+```text
+AccessibilityWorkbench
+AccessibilityWorkbench.app
+AccessibilityWorkbench.dmg
+AccessibilityWorkbench.swift
+Info.plist
+SourceMonitor
+SourceMonitor.app
+SourceMonitor.dmg
+Sources
+market_report.md
+repair-note-source-monitor.md
+```
+A root-level `.dmg` exists.
+
+2. Source compilation  
+Command: `swiftc -O -o AccessibilityWorkbench-check AccessibilityWorkbench.swift`  
+Output:
+```text
+```
+No compiler output, so the compile completed successfully.
+
+3. `.app` bundle contents  
+Command: `venture_workspace_list` on `AccessibilityWorkbench.app`, `AccessibilityWorkbench.app/Contents`, and `AccessibilityWorkbench.app/Contents/MacOS`  
+Output:
+```text
+AccessibilityWorkbench.app
+Contents
+```
+```text
+Info.plist
+MacOS
+```
+```text
+AccessibilityWorkbench
+```
+So `Contents/MacOS` and `Contents/Info.plist` are present.
+
+4. TODO/FIXME/placeholder scan  
+Command: read `AccessibilityWorkbench.swift` and `Sources/SourceMonitor.swift`  
+Output:
+```text
+No TODO, FIXME, or placeholder markers found in either file.
+```
+The only similar text is normal runtime copy, not a stub.
+
+5. Whether the claimed behavior is really im</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">The product is a credible local AI Gateway / Control Center for teams already paying for multiple model providers. The MVP is reasonably focused around provider routing, API keys, credentials, and monitoring, but the repo’s top-level README describes a different &quot;Vendor 1099 Threshold Copilot&quot; product, which muddies the value proposition and makes the deliverable hard to evaluate. Willingness to pay exists for infra-heavy users, but the acquisition path is narrow and mostly developer-led.</pre></section>
   </main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
