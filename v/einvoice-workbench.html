@@ -244,10 +244,10 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>EInvoiceWorkbench</h1><p>No recorded thesis for this venture.</p>
+  <div class="lede"><h1>EInvoiceWorkbench</h1><p>eInvoice Workbench: a native macOS desktop app for SMEs, bookkeepers, and cross-border sellers that ingests invoice folders, extracts and norm…</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      
+      <span class="badge">Built in 1h 24m</span>
       <span class="badge">2026-08-10</span>
       
       
@@ -257,14 +257,98 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
     <div><div class="shot"><img src="../shots/einvoice-workbench.png" alt="EInvoiceWorkbench running">
        <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/einvoice-workbench/EInvoiceWorkbench.dmg">Download EInvoiceWorkbench.dmg <small>302 KB</small></a>
        </div>
-    <div></div>
+    <div><div class="chart">
+    <h2 class="chart-title">Selection benchmarks</h2>
+    <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
+      best <em>balance</em> across all eight, not the best single score.</p>
+    <div aria-hidden="true"><div class="row" style="--w:80%">
+      <div class="name">profit</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">change</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row low" style="--w:60%">
+      <div class="name">effort<b>weakest</b></div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">6</div>
+    </div><div class="row" style="--w:70%">
+      <div class="name">viability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:90%">
+      <div class="name">future</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">9</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">market</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:70%">
+      <div class="name">population</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div><div class="row" style="--w:70%">
+      <div class="name">availability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">7</div>
+    </div></div>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>score</span>
+      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
+    </div>
+    <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 8/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 6/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 7/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 9/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 7/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 7/10</td></tr></table>
+  </div></div>
   </div>
-  
-  
-  
-  
-  
-  
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">eInvoice Workbench: a native macOS desktop app for SMEs, bookkeepers, and cross-border sellers that ingests invoice folders, extracts and normalizes fields from PDFs/XML/CSV, checks them against current EU e-invoicing and public-procurement readiness rules, and exports a practical compliance checklist.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build a single-window macOS AppKit app in Swift that accepts a folder of mixed invoice samples, extracts basic invoice metadata, highlights missing or risky fields, fetches and caches official public e-invoicing guidance pages for context, and exports a dated readiness report. The smallest useful artifact is a working .dmg-ready desktop app with drag-and-drop import, progress feedback, error states, and text export.</pre></section>
+  <section><h2 class="section-title">Market and user research</h2><pre class="note">All numbers below are `ESTIMATE` and are reasoned inference from domain knowledge, not checked sources.
+
+**MARKET SIZE**
+- Plausible buyers are `ESTIMATE` European SMEs that issue B2B invoices, `ESTIMATE` bookkeeping/accounting firms serving those SMEs, and `ESTIMATE` small suppliers that need public-procurement-ready invoicing.
+- Bottom-up `ESTIMATE`: `ESTIMATE` 30M SMEs in Europe; `ESTIMATE` 10% have recurring e-invoicing or procurement exposure = `ESTIMATE` 3.0M; `ESTIMATE` 15% of those would consider a standalone readiness tool = `ESTIMATE` 450k buyer accounts.
+- Add `ESTIMATE` 50k bookkeeping firms that could buy for client workflows, with maybe `ESTIMATE` 20% adoption = `ESTIMATE` 10k accounts.
+- Total plausible paying accounts = `ESTIMATE` 460k.
+- If average revenue is `ESTIMATE` $240/year per account, the addressable annual revenue is `ESTIMATE` $110.4M.
+- If the product expands into multi-seat firm plans at `ESTIMATE` $480/year for a portion of buyers, the practical ceiling rises into the `ESTIMATE` low-to-mid hundreds of millions of ARR.
+- This is an inference because the real market depends on country-by-country rules, adoption friction, and whether buyers treat this as a point tool or a feature bundled into existing accounting software.
+
+**USER RESEARCH**
+- Segment 1: small bookkeeping firms
+- Current workaround: spreadsheets, email attachments, accounting exports, PDF review, and one-off manual checks before filing or sending invoices.
+- What they already pay for it: `ESTIMATE` $20-$80 per user per month for accounting software, `ESTIMATE` $10-$20 per month for PDF/file tools, plus billable staff time.
+- How they would find this product: accountant communities, bookkeeping associations, software marketplaces, and referrals from peers or clients.
+- What woul</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">Built and packaged the native macOS artifact inside the isolated `einvoice-workbench` venture workspace.
+
+Confirmed files/actions:
+- Wrote `Sources/EInvoiceWorkbench.swift`
+- Compiled with `swiftc Sources/EInvoiceWorkbench.swift -o EInvoiceWorkbench`, exit code `0`
+- Created `EInvoiceWorkbench.app/Contents/MacOS`, exit code `0`
+- Copied binary into the app bundle, exit code `0`
+- Wrote `EInvoiceWorkbench.app/Contents/Info.plist`
+- Packaged with `hdiutil create ... EInvoiceWorkbench.dmg`, exit code `0`
+- Confirmed `EInvoiceWorkbench.dmg` exists via `ls -la`
+
+Deliverable:
+`/Users/a1111/ai-venture-studio/apps/ventures/einvoice-workbench/EInvoiceWorkbench.dmg`
+
+The app is a single-window AppKit desktop tool with folder drag-and-drop, PDF/XML/CSV/TXT invoice parsing, metadata extraction, readiness flags, official guidance fetch/cache, progress/status feedback, and dated text report export.</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">DMG PRESENT: `SourceWatch.dmg`
+
+DEPTH: THIN
+
+Source files: 2  
+Frameworks used: `AppKit`, `Foundation`, `PDFKit`, `Vision`
+
+**Tool-Confirmed**
+- `ls -la` in the venture root shows both `[SourceWatch.app](/Users/a1111/ai-venture-studio/apps/ventures/einvoice-workbench/SourceWatch.app)` and `[SourceWatch.dmg](/Users/a1111/ai-venture-studio/apps/ventures/einvoice-workbench/SourceWatch.dmg)`.
+- `plutil -lint` reports `[SourceWatch.app/Contents/Info.plist](/Users/a1111/ai-venture-studio/apps/ventures/einvoice-workbench/SourceWatch.app/Contents/Info.plist)` as `OK`.
+- `plutil -p` shows a well-formed plist with `CFBundleExecutable`, `CFBundleIdentifier`, `CFBundleName`, `CFBundlePackageType`, `CFBundleVersion`, and `NSHighResolutionCapable`.
+- `find Sources -maxdepth 2 -type f` shows two Swift files: `[Sources/EInvoiceWorkbench.swift](/Users/a1111/ai-venture-studio/apps/ventures/einvoice-workbench/Sources/EInvoiceWorkbench.swift)` and `[Sources/SourceWatch.swift](/Users/a1111/ai-venture-studio/apps/ventures/einvoice-workbench/Sources/SourceWatch.swift)`.
+- `[Sources/SourceWatch.swift](/Users/a1111/ai-venture-studio/apps/ventures/einvoice-workbench/Sources/SourceWatch.swift)` imports `AppK</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">The work has tangible utility as a set of local desktop utilities, and a subset of them could plausibly attract niche buyers who need offline document triage or compliance-style checks. However, the product story is fragmented across many one-off tools, so the MVP is not yet focused enough to make the value proposition obvious or easy to sell. I also could not find acceptance evidence explicitly confirming a verified DMG-present delivery state, which is required here.</pre></section>
   </main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
