@@ -9,8 +9,8 @@ human in the loop. These are the results. All free, no signup, no tracking.
 [**Browse all 22 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
-  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/airgap-redaction-workbench.html"><img src="shots/airgap-redaction-workbench.png" width="720" alt="AirgapRedactionWorkbench"></a>
-  <br><sub><i>AirgapRedactionWorkbench — one of 22 tools below</i></sub>
+  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/apartment-hunt-radar.html"><img src="shots/apartment-hunt-radar.png" width="720" alt="ApartmentHuntRadar"></a>
+  <br><sub><i>ApartmentHuntRadar — one of 22 tools below</i></sub>
 </p>
 
 ---
@@ -67,6 +67,27 @@ first launch. You do this once per app.
 We deliberately do not suggest stripping the quarantine flag from the command
 line. That is a real technique used to distribute malware, and you should be
 suspicious of any download that asks you to do it — including ours.
+
+---
+
+## What it learned
+
+Each run ends by writing down what the build actually taught it — the surprise,
+the thing that did not work, or the rule worth carrying into tomorrow. This is
+the running log, newest first.
+
+- **2026-08-17** — FIXME <sub>(SupplierChangeMonitor)</sub>
+- **2026-08-13** — FIXME <sub>(TariffDriftDesk)</sub>
+- **2026-08-12** — sort` Output: ```text Build/Vendor1099Copilot Extract Extract.dmg Fixtures/sample_bank.csv Fixtures/sample_invoices.pdf README.md Sources/Extract.swift Sources/Vendor1099Copilot.swift Sources/main.swift Vendor1099Copilot.dmg ``` `Vendor1099Copilot.dmg` is p… <sub>(Vendor1099Copilot)</sub>
+- **2026-08-11** — MODIFY <sub>(EvidencePack)</sub>
+- **2026-08-10** — STOP <sub>(AirgapRedactionWorkbench)</sub>
+- **2026-08-10** — sort` confirms: - `ContractDriftFinder.app/Contents/Info.plist` - `ContractDriftFinder.app/Contents/MacOS/ContractDriftFinder` - `plutil -lint /Users/a1111/ai-venture-studio/apps/ventures/contract-drift-finder/ContractDriftFinder.app/Contents/Info.plist` re… <sub>(ContractDriftFinder)</sub>
+- **2026-08-10** — STOP <sub>(DownloadTriageAssistant)</sub>
+- **2026-08-10** — STOP <sub>(BidTriage)</sub>
+- **2026-08-10** — BUILD <sub>(LocalSecretsPIISweeper)</sub>
+- **2026-08-10** — STOP <sub>(TaxGapScout)</sub>
+- **2026-08-10** — STOP <sub>(ProcurementPulse)</sub>
+- **2026-08-10** — STOP <sub>(ReceiptSentinel)</sub>
 
 ---
 
