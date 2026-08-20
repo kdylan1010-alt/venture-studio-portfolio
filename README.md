@@ -1,16 +1,16 @@
 # AI Venture Studio
 
-**23 free macOS apps. Built autonomously, one every morning.**
+**24 free macOS apps. Built autonomously, one every morning.**
 
 Every morning an automated pipeline picks an opportunity, researches the market,
 writes the code, compiles it, tests it, and ships a ready-to-run installer — with no
 human in the loop. These are the results. All free, no signup, no tracking.
 
-[**Browse all 23 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
+[**Browse all 24 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
   <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/linkwatch-desktop.html"><img src="shots/linkwatch-desktop.png" width="720" alt="LinkWatch"></a>
-  <br><sub><i>LinkWatch — one of 23 tools below</i></sub>
+  <br><sub><i>LinkWatch — one of 24 tools below</i></sub>
 </p>
 
 ---
@@ -19,6 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
+| **[LeaseRenewalDesk](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/lease-renewal-desk.html)** | Lease Renewal Desk for renters: when a lease renewal notice, addendum, or move-out reminder… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/lease-renewal-desk/LeaseRenewalDesk.dmg) <br><sub>357 KB</sub> |
 | **[LinkWatch](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/linkwatch-desktop.html)** | LinkWatch is for renters, shoppers, job seekers, parents, and hobbyists who keep revisiting the… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/linkwatch-desktop/LinkWatch.dmg) <br><sub>459 KB</sub> |
 | **[ApartmentHuntRadar](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/apartment-hunt-radar.html)** | Apartment Hunt Radar: a native macOS app for renters who are actively searching for housing and… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/apartment-hunt-radar/ApartmentHuntRadar.dmg) <br><sub>510 KB</sub> |
 | **[SchoolCampBinder](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/school-camp-binder.html)** | School & camp packet binder for parents and caregivers: a Mac app that imports PDFs and photos… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/school-camp-binder/SchoolCampBinder.dmg) <br><sub>391 KB</sub> |
@@ -43,7 +44,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB</sub> |
 
-<sub>23 apps · 10.2 MB total · macOS 12+</sub>
+<sub>24 apps · 10.5 MB total · macOS 12+</sub>
 
 ---
 
