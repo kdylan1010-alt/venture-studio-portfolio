@@ -354,13 +354,11 @@ One compile warning was reported: `allowedFileTypes` is deprecated on macOS 12+,
   - `ContractDriftFinder.app`
   - `ContractDriftFinder.dmg` at `61663` bytes
   - `Sources`
-- `find /Users/a1111/ai-venture-studio/apps/ventures/contract-drift-finder/ContractDriftFinder.app -maxdepth 2 -type d</pre></section>
-  <section><h2 class="section-title">Independent review</h2><pre class="note">sort` shows the expected bundle layout:
+- `find /Users/a1111/ai-venture-studio/apps/ventures/contract-drift-finder/ContractDriftFinder.app -maxdepth 2 -type d / sort` shows the expected bundle layout:
   - `ContractDriftFinder.app`
   - `ContractDriftFinder.app/Contents`
   - `ContractDriftFinder.app/Contents/MacOS`
-- `find /Users/a1111/ai-venture-studio/apps/ventures/contract-drift-finder/ContractDriftFinder.app -maxdepth 3 -type f</pre></section>
-  <section><h2 class="section-title">What the studio learned</h2><pre class="note">sort` confirms:
+- `find /Users/a1111/ai-venture-studio/apps/ventures/contract-drift-finder/ContractDriftFinder.app -maxdepth 3 -type f / sort` confirms:
   - `ContractDriftFinder.app/Contents/Info.plist`
   - `ContractDriftFinder.app/Contents/MacOS/ContractDriftFinder`
 - `plutil -lint /Users/a1111/ai-venture-studio/apps/ventures/contract-drift-finder/ContractDriftFinder.app/Contents/Info.plist` returned `OK`
@@ -370,7 +368,9 @@ One compile warning was reported: `allowedFileTypes` is deprecated on macOS 12+,
 - `.dmg` exists: passed
 - `.app` bundle exists: passed
 - `Info.plist` present and well formed: passed
--</pre></section></main>
+-</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">The MVP is narrowly focused and aligned to a real pain point: first-pass screening of PDF contracts and invoices for obvious money-leak risks on macOS, fully offline. The feature set matches the stated user workflow, and the deliverable includes the required local PDF flow, heuristic clause flags, page-aware findings, and a one-page report. The value proposition is credible for SMB owners, ops users, and freelancers who want a fast triage tool before legal review. Willingness to pay is plausible if the app is positioned as a time-saving desktop utility with clear privacy benefits.</pre></section>
+  <section><h2 class="section-title">What the studio learned</h2><pre class="note">BUILD</pre></section></main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
 right-click → Open on first launch. <a href="../index.html">All ventures</a></footer>
