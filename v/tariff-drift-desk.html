@@ -380,8 +380,7 @@ Final workspace root listing:
    Result: the accepted source compiles cleanly.
 
 3. App bundle check
-   Command: `find &quot;GatewayControlCenter.app/Contents&quot; -maxdepth 2 -type f</pre></section>
-  <section><h2 class="section-title">Independent review</h2><pre class="note">sort`
+   Command: `find &quot;GatewayControlCenter.app/Contents&quot; -maxdepth 2 -type f / sort`
    Output:
    ```text
    GatewayControlCenter.app/Contents/Info.plist
@@ -390,8 +389,9 @@ Final workspace root listing:
    Result: the `.app` bundle exists with both `Contents/Info.plist` and `Contents/MacOS/GatewayControlCenter`.
 
 4. TODO/FIXME/placeholder scan
-   Command: `rg -n &quot;TODO</pre></section>
-  <section><h2 class="section-title">What the studio learned</h2><pre class="note">FIXME</pre></section></main>
+   Command: `rg -n &quot;TODO/FIXME/placeholder/stub/mock/lorem&quot; Sources/GatewayControlCenter</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">This is a useful narrow MVP for offline 1099 prep triage: import local files, normalize vendors, aggregate totals, and flag threshold crossings. The problem is real, and the privacy-first local-only angle helps. However, willingness to pay is still only plausible for a small tax-prep/accounting niche until the workflow proves repeatable and produces a trustworthy deliverable. I found a `.dmg` on disk, but there is no explicit verification output in the workspace that confirms `DMG PRESENT`, so it does not meet the release bar for PASS.</pre></section>
+  </main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
 right-click → Open on first launch. <a href="../index.html">All ventures</a></footer>
