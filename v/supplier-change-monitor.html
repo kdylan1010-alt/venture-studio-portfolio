@@ -359,8 +359,7 @@ Swift compile command:
 - Result: compile succeeded. The first sandboxed attempt failed with temp-file permission errors, but the elevated verification run completed silently with exit code `0`.
 
 3. `.app` bundle structure
-- Command: `find SupplierChangeMonitor.app -maxdepth 3 -type f</pre></section>
-  <section><h2 class="section-title">Independent review</h2><pre class="note">sort`
+- Command: `find SupplierChangeMonitor.app -maxdepth 3 -type f / sort`
 - Output:
   ```text
   SupplierChangeMonitor.app/Contents/Info.plist
@@ -369,8 +368,14 @@ Swift compile command:
 - Result: the bundle has both `Contents/MacOS` and `Contents/Info.plist`.
 
 4. TODO / FIXME / placeholder scan
-- Command: `rg -n &quot;TODO</pre></section>
-  <section><h2 class="section-title">What the studio learned</h2><pre class="note">FIXME</pre></section></main>
+- Command: `rg -n &quot;TODO/FIXME/placeholder&quot; Sources Tests`
+- Output:
+  ```text
+  Sources/Main.swift:92:        queryField.placeholderString = &quot;Add ticker or company name&quot;
+  ```
+- Result: no `TODO` or `FIXME` markers found. One</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">The problem is real: local 1099 prep triage for messy bank CSVs and invoice PDFs is a clear pain point for bookkeepers and small businesses. The MVP focus is reasonably tight, but this still reads like a prototype rather than a verified product. There is no app-specific packaging evidence for the 1099 copilot, and the demo flow is the main proof of value rather than an accepted end-to-end delivery.</pre></section>
+  </main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
 right-click → Open on first launch. <a href="../index.html">All ventures</a></footer>
