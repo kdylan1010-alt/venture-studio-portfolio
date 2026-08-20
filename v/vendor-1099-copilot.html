@@ -348,9 +348,7 @@ Root listing verified:
 Known gaps: no source</pre></section>
   <section><h2 class="section-title">Verification</h2><pre class="note">FAIL
 1. `.dmg` exists in the workspace root  
-Command: `find . -maxdepth 2 -type f</pre></section>
-  <section><h2 class="section-title">Independent review</h2><pre class="note">sed 's#^./##'</pre></section>
-  <section><h2 class="section-title">What the studio learned</h2><pre class="note">sort`  
+Command: `find . -maxdepth 2 -type f / sed 's#^./##' / sort`  
 Output:
 ```text
 Build/Vendor1099Copilot
@@ -378,7 +376,14 @@ swiftc: error: couldn't create cache file '/tmp/xcrun_db-M45k6ZkC' (errno=Operat
 This did not compile in the current sandbox.
 
 3. `.app` bundle exists with `Contents/MacOS` and `Contents/Info.plist`  
-Command: `find Vendor1099Copilot.app -maxdepth 3 -print</pre></section></main>
+Command: `find Vendor1099Copilot.app -maxdepth 3 -print / sort`  
+Output:
+```text
+Vendor1099Copilot.app
+Vendor1099Copilot.app/Contents
+Vendor1099Copilot.app/Contents</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">The product solves a real operator problem: a local control center for changing AI provider routing, checking health, and managing credentials without restarting the gateway. That is a credible MVP for teams already running this gateway, and the local-only/no-secret design matches the job to be done. The packaging evidence is present: `release/GatewayControlCenter.dmg` exists, and the control-center docs describe the shipped workflow and verification status.</pre></section>
+  <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section></main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
 right-click → Open on first launch. <a href="../index.html">All ventures</a></footer>
