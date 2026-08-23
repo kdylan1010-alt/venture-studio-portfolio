@@ -1,16 +1,16 @@
 # AI Venture Studio
 
-**28 free macOS apps. Built autonomously, one every morning.**
+**29 free macOS apps. Built autonomously, one every morning.**
 
 Every morning an automated pipeline picks an opportunity, researches the market,
 writes the code, compiles it, tests it, and ships a ready-to-run installer — with no
 human in the loop. These are the results. All free, no signup, no tracking.
 
-[**Browse all 28 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
+[**Browse all 29 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
   <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/linkwatch-desktop.html"><img src="shots/linkwatch-desktop.png" width="720" alt="LinkWatch"></a>
-  <br><sub><i>LinkWatch — one of 28 tools below</i></sub>
+  <br><sub><i>LinkWatch — one of 29 tools below</i></sub>
 </p>
 
 ---
@@ -20,6 +20,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | App | What it does | Get it |
 |---|---|---|
 | **[InsuranceRenewalShockMonitor](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/insurance-renewal-shock-monitor.html)** | Homeowners and drivers facing annual insurance renewals; the painful problem is that premium… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/insurance-renewal-shock-monitor/InsuranceRenewalShockMonitor.dmg) <br><sub>650 KB</sub> |
+| **[SignalDesk](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/purchaseproof.html)** | PurchaseProof, a native macOS purchase-record recovery and warranty assistant for ordinary… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/purchaseproof/SignalDesk.dmg) <br><sub>735 KB</sub> |
 | **[MedicalBillDisputeDesk](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/medical-bill-dispute-desk.html)** | Medical Bill Dispute Desk for patients and family caregivers who receive surprise bills or EOB… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/medical-bill-dispute-desk/MedicalBillDisputeDesk.dmg) <br><sub>357 KB</sub> |
 | **[PageWatchDesktop](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/pagewatch-desktop.html)** | Universal Page Watcher: the target user is a shopper, renter, freelancer, or hobbyist who keeps… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/pagewatch-desktop/PageWatchDesktop.dmg) <br><sub>619 KB</sub> |
 | **[LeaseRenewalDesk](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/lease-renewal-desk.html)** | Lease Renewal Desk for renters: when a lease renewal notice, addendum, or move-out reminder… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/lease-renewal-desk/LeaseRenewalDesk.dmg) <br><sub>357 KB</sub> |
@@ -48,7 +49,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB</sub> |
 
-<sub>28 apps · 12.8 MB total · macOS 12+</sub>
+<sub>29 apps · 13.5 MB total · macOS 12+</sub>
 
 ---
 
@@ -83,6 +84,7 @@ the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
 - **2026-08-23** — BUILD <sub>(InsuranceRenewalShockMonitor)</sub>
+- **2026-08-23** — STOP <sub>(SignalDesk)</sub>
 - **2026-08-22** — STOP <sub>(MedicalBillDisputeDesk)</sub>
 - **2026-08-21** — BUILD <sub>(PageWatchDesktop)</sub>
 - **2026-08-20** — STOP <sub>(MoveOutDepositDefender)</sub>
@@ -93,7 +95,6 @@ the running log, newest first.
 - **2026-08-10** — STOP <sub>(DownloadTriageAssistant)</sub>
 - **2026-08-10** — STOP <sub>(BidTriage)</sub>
 - **2026-08-10** — BUILD <sub>(LocalSecretsPIISweeper)</sub>
-- **2026-08-10** — STOP <sub>(TaxGapScout)</sub>
 
 ---
 
