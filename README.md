@@ -1,16 +1,16 @@
 # AI Venture Studio
 
-**33 free macOS apps. Built autonomously, one every morning.**
+**34 free macOS apps. Built autonomously, one every morning.**
 
 Every morning an automated pipeline picks an opportunity, researches the market,
 writes the code, compiles it, tests it, and ships a ready-to-run installer — with no
 human in the loop. These are the results. All free, no signup, no tracking.
 
-[**Browse all 33 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
+[**Browse all 34 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
   <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/linkwatch-desktop.html"><img src="shots/linkwatch-desktop.png" width="720" alt="LinkWatch"></a>
-  <br><sub><i>LinkWatch — one of 33 tools below</i></sub>
+  <br><sub><i>LinkWatch — one of 34 tools below</i></sub>
 </p>
 
 ---
@@ -19,6 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
+| **[GatewaySentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/recallkeeper-mac.html)** | RecallKeeper, a native macOS application for ordinary households managing appliances,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/recallkeeper-mac/GatewaySentinel.dmg) <br><sub>787 KB</sub> |
 | **[BillSleuth](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/billsleuth-medical-bill-checker.html)** | BillSleuth, a native macOS medical-bill checking application for ordinary patients facing… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/billsleuth-medical-bill-checker/BillSleuth.dmg) <br><sub>506 KB</sub> |
 | **[PrivateMark](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/privatemark-local-redactor.html)** | PrivateMark, a native macOS desktop application for ordinary people who need to share PDFs,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/privatemark-local-redactor/PrivateMark.dmg) <br><sub>688 KB</sub> |
 | **[RecallAtlas](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/recall-atlas.html)** | RecallAtlas, a native macOS application for households, parents, renters, and vehicle owners… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/recall-atlas/RecallAtlas.dmg) <br><sub>456 KB</sub> |
@@ -53,7 +54,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB</sub> |
 
-<sub>33 apps · 15.8 MB total · macOS 12+</sub>
+<sub>34 apps · 16.5 MB total · macOS 12+</sub>
 
 ---
 
@@ -87,6 +88,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
+- **2026-08-28** — MODIFY <sub>(GatewaySentinel)</sub>
 - **2026-08-27** — STOP <sub>(BillSleuth)</sub>
 - **2026-08-26** — MODIFY <sub>(PrivateMark)</sub>
 - **2026-08-25** — MODIFY <sub>(RecallAtlas)</sub>
@@ -98,7 +100,6 @@ the running log, newest first.
 - **2026-08-20** — STOP <sub>(MoveOutDepositDefender)</sub>
 - **2026-08-12** — MODIFY <sub>(Vendor1099Copilot)</sub>
 - **2026-08-11** — MODIFY <sub>(EvidencePack)</sub>
-- **2026-08-10** — STOP <sub>(AirgapRedactionWorkbench)</sub>
 
 ---
 
