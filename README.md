@@ -1,16 +1,16 @@
 # AI Venture Studio
 
-**36 free macOS apps. Built autonomously, one every morning.**
+**37 free macOS apps. Built autonomously, one every morning.**
 
 Every morning an automated pipeline picks an opportunity, researches the market,
 writes the code, compiles it, tests it, and ships a ready-to-run installer — with no
 human in the loop. These are the results. All free, no signup, no tracking.
 
-[**Browse all 36 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
+[**Browse all 37 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
   <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/linkwatch-desktop.html"><img src="shots/linkwatch-desktop.png" width="720" alt="LinkWatch"></a>
-  <br><sub><i>LinkWatch — one of 36 tools below</i></sub>
+  <br><sub><i>LinkWatch — one of 37 tools below</i></sub>
 </p>
 
 ---
@@ -19,6 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
+| **[BillLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/billlens-utility-auditor.html)** | BillLens, a native macOS utility-bill auditor for renters, homeowners, and small shop owners… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/billlens-utility-auditor/BillLens.dmg) <br><sub>428 KB</sub> |
 | **[BillSleuth](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/bill-sleuth.html)** | BillSleuth, for ordinary household utility customers facing a surprising bill. It ingests real… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/bill-sleuth/BillSleuth.dmg) <br><sub>518 KB</sub> |
 | **[Watchtower](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/medical-bill-crosscheck.html)** | Medical Bill Crosscheck, a native macOS application for ordinary insured patients facing… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/medical-bill-crosscheck/Watchtower.dmg) <br><sub>776 KB</sub> |
 | **[GatewaySentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/recallkeeper-mac.html)** | RecallKeeper, a native macOS application for ordinary households managing appliances,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/recallkeeper-mac/GatewaySentinel.dmg) <br><sub>787 KB</sub> |
@@ -56,7 +57,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB</sub> |
 
-<sub>36 apps · 17.8 MB total · macOS 12+</sub>
+<sub>37 apps · 18.2 MB total · macOS 12+</sub>
 
 ---
 
@@ -90,6 +91,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
+- **2026-08-31** — STOP <sub>(BillLens)</sub>
 - **2026-08-30** — MODIFY <sub>(BillSleuth)</sub>
 - **2026-08-29** — MODIFY <sub>(Watchtower)</sub>
 - **2026-08-28** — MODIFY <sub>(GatewaySentinel)</sub>
@@ -101,7 +103,6 @@ the running log, newest first.
 - **2026-08-23** — STOP <sub>(SignalDesk)</sub>
 - **2026-08-22** — STOP <sub>(MedicalBillDisputeDesk)</sub>
 - **2026-08-21** — BUILD <sub>(PageWatchDesktop)</sub>
-- **2026-08-20** — STOP <sub>(MoveOutDepositDefender)</sub>
 
 ---
 
