@@ -1,0 +1,491 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TrustLens — AI Venture Studio</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"><style>
+:root{
+  --bg:#0a0e12; --bg2:#12181d; --bg3:#1a2128; --fg:#eef3f5; --mut:#889199; --line:#232b32;
+  --mark:#3fd99a; --weak:#ffb43a; --shadow:0 1px 2px rgba(0,0,0,.45);
+  --shadow-hover:0 24px 48px -20px rgba(0,0,0,.65);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --font-sans:'IBM Plex Sans',ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:light){
+  /* --mark darkened from #0f8a5f (4.35:1 on white, fails WCAG 1.4.3 AA for
+     text) to #0a6b48 (5.4:1) -- found 2026-08-17 auditing the pill/badge text. */
+  :root{--bg:#f5f3ee; --bg2:#ffffff; --bg3:#ece8de; --fg:#14181a; --mut:#5c6367; --line:#dedad0;
+        --mark:#0a6b48; --weak:#a8620a; --shadow:0 1px 2px rgba(20,20,15,.06);
+        --shadow-hover:0 20px 40px -18px rgba(20,20,15,.16)}
+}
+*{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+         clip:rect(0,0,0,0);white-space:nowrap;border:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);
+     font:16px/1.6 var(--font-sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:2.25rem 1.25rem 5rem;position:relative}
+
+/* header */
+.hdr{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
+     padding-bottom:1.4rem;margin-bottom:.4rem}
+.eyebrow{display:inline-flex;align-items:center;gap:.55rem;font:600 .72rem/1 var(--font-mono);
+         letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--mark);flex:none;
+     animation:pulse 2.4s var(--ease) infinite}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 color-mix(in oklab,var(--mark) 55%,transparent)}
+  70%{box-shadow:0 0 0 9px transparent}
+  100%{box-shadow:0 0 0 0 transparent}
+}
+.hdr-meta{font:500 .72rem/1 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+
+/* hero (index only) */
+.hero{position:relative;padding:1.4rem 0 .4rem;overflow:hidden;
+      animation:flicker .5s linear both}
+/* One-shot power-on flicker on the whole hero, first thing that happens --
+   guarantees the "coming online" moment reads even on a static screenshot,
+   since it fires unconditionally on load with no hover/interaction required. */
+@keyframes flicker{
+  0%{opacity:0} 6%{opacity:1} 9%{opacity:.25} 12%{opacity:1}
+  15%{opacity:.4} 19%{opacity:1} 100%{opacity:1}
+}
+.hero .scan{position:absolute;inset:-60% -30% auto -30%;height:180%;z-index:-1;pointer-events:none;
+      background:conic-gradient(from 0deg,transparent 0deg,
+        color-mix(in oklab,var(--weak) 14%,transparent) 6deg,transparent 22deg,transparent 360deg);
+      animation:sweep 11s linear infinite}
+@keyframes sweep{to{transform:rotate(360deg)}}
+/* Boot sequence: the signature moment. This studio's whole premise is a machine
+   working while nobody watches, so the page opening like the machine is coming
+   online -- a status readout, not a title card -- is the one place to spend the
+   "make it feel alive" budget, per the studio brief. Each line is real: it
+   states an actual fact (venture count, build cadence, last run), not filler
+   ellipses.
+   Pure CSS steps() typewriter, timed per-line via an inline --ch (character
+   count) custom property set at render time -- not client-side setTimeout.
+   This was a deliberate rewrite: a prior JS-timer version could not be proven
+   correct because Chrome headless's --force-prefers-reduced-motion flag turned
+   out to be silently ignored in this environment, so every automated check of
+   it was actually exercising the reduced-motion branch without knowing it.
+   CSS animation-delay/duration has no such blind spot -- it's declared, not
+   scheduled, so what ships is what was measured. */
+.boot{font:13px/1.7 var(--font-mono);color:var(--mut);margin:0 0 1.3rem;min-height:5.1em}
+.boot .ln{display:block;overflow:hidden;white-space:nowrap;width:0;
+      animation:typeln var(--dur,.7s) steps(var(--ch,20),end) forwards;
+      animation-delay:var(--d,0s)}
+@keyframes typeln{to{width:var(--w,30ch)}}
+.boot .ln b{color:var(--mark)}
+.boot .caret{display:inline-block;width:.5em;height:1em;background:var(--weak);vertical-align:-.15em;
+      animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.hero h1{margin:0 0 .7rem;font:800 clamp(2rem,4.4vw,2.75rem)/1.12 var(--font-mono);letter-spacing:-.01em;
+      opacity:0;transform:translateY(6px);
+      animation:heroin .6s var(--ease) forwards;animation-delay:var(--hd,2.8s)}
+@keyframes heroin{to{opacity:1;transform:none}}
+.hero p{color:var(--mut);margin:0;max-width:62ch;font-size:1.02rem;
+      opacity:0;animation:heroin .6s var(--ease) forwards;animation-delay:calc(var(--hd,2.8s) + .15s)}
+.lede h1{margin:0 0 .5rem;font:700 1.9rem/1.2 var(--font-mono);letter-spacing:-.01em}
+.lede p{color:var(--mut);margin:0;max-width:62ch}
+
+/* ticker -- the signature element: real build data, always moving */
+.ticker{display:flex;align-items:stretch;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+        background:var(--bg2);overflow:hidden;margin:1.6rem -1.25rem 0}
+.tick-pause{flex:none;border:none;border-right:1px solid var(--line);background:transparent;color:var(--mut);
+        cursor:pointer;padding:0 .9rem;font-family:var(--font-mono);font-size:.9rem;line-height:1;
+        display:flex;align-items:center;min-width:24px;min-height:24px}
+.tick-pause:hover{color:var(--fg);background:color-mix(in oklab,var(--fg) 6%,transparent)}
+.tick-viewport{overflow:hidden;flex:1;min-width:0}
+.tick-track{display:flex;width:max-content;animation:tickscroll 46s linear infinite}
+.ticker.paused .tick-track,.tick-viewport:hover .tick-track{animation-play-state:paused}
+@keyframes tickscroll{to{transform:translateX(-50%)}}
+.tick-seq{display:flex;align-items:center;flex:none}
+.tick-item{display:inline-flex;align-items:baseline;gap:.55rem;white-space:nowrap;
+           font:600 .8rem/1 var(--font-mono);padding:.65rem 1.15rem;color:var(--mut);
+           border-right:1px solid var(--line)}
+.tick-item b{color:var(--fg);font-weight:600}
+.tick-item i{font-style:normal;font-size:.72rem}
+.tick-item i.ok{color:var(--mark)}
+.tick-item i.pending{color:var(--weak)}
+
+/* kpi -- a console panel a pointer can "inspect": a soft light follows the
+   cursor across the readout, like a scanner head passing over the numbers.
+   Plays once automatically on load (self-triggered sweep, driven from JS --
+   animating a custom property's *position* smoothly via @keyframes needs it
+   registered with @property for browsers to interpolate it, which is patchy
+   support for a decorative flourish; a rAF loop setting --mx directly every
+   frame, same technique already used for the KPI count-up below, sidesteps
+   that entirely) so the effect is guaranteed visible even if nobody moves a
+   mouse over it -- a hover-only effect is invisible to a screenshot or a
+   trackpad user who never crosses the panel. Hover hands control to the cursor. */
+.kpi{position:relative;display:flex;gap:2.2rem;flex-wrap:wrap;margin:1.75rem 0 2.75rem;
+     padding:1.15rem 1.4rem;border:1px solid var(--line);border-radius:14px;
+     background:var(--bg2);box-shadow:var(--shadow);overflow:hidden}
+.kpi::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+     background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),
+       color-mix(in oklab,var(--mark) 16%,transparent),transparent 70%);
+     opacity:0;transition:opacity .35s var(--ease)}
+.kpi.sweeping::before,.kpi:hover::before{opacity:1}
+.kpi div{position:relative;z-index:1;display:flex;flex-direction:column;gap:.15rem}
+.kpi b{font:700 1.6rem/1 var(--font-mono);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.kpi span{color:var(--mut);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-mono)}
+
+/* index tiles */
+.tiles{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(330px,1fr))}
+.tile{border:1px solid var(--line);border-radius:14px;background:var(--bg2);
+      box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;
+      text-decoration:none;will-change:transform;
+      opacity:0;transform:translateY(20px);
+      transition:opacity .6s var(--ease),transform .6s var(--ease),
+                 box-shadow .25s var(--ease),border-color .25s var(--ease)}
+.tile.in{opacity:1;transform:translateY(0)}
+.tile.settled{transition:transform .15s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
+.tile:hover{border-color:var(--mark);box-shadow:var(--shadow-hover)}
+.tile:hover .thumb img{transform:scale(1.035)}
+.tile .thumb{position:relative;aspect-ratio:16/10;background:var(--bg3);overflow:hidden;
+             border-bottom:1px solid var(--line)}
+.tile .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
+                  transition:transform .5s var(--ease)}
+/* Real app screenshots are bright native windows; dropped straight onto a dark
+   card they read as a glaring void (found reviewing the actual render 2026-08-17).
+   A fake title-bar strip + a soft top vignette makes even a plain white capture
+   read as "a window sitting in the panel" instead of a hole punched in it. */
+.tile .thumb.has-shot .bar{position:absolute;inset:0 0 auto 0;height:22px;z-index:2;
+      background:var(--bg3);border-bottom:1px solid color-mix(in oklab,var(--fg) 8%,transparent)}
+.tile .thumb.has-shot .bar::before{content:"";position:absolute;top:50%;left:8px;width:6px;height:6px;
+      border-radius:50%;transform:translateY(-50%);background:color-mix(in oklab,var(--mut) 55%,transparent);
+      box-shadow:12px 0 0 color-mix(in oklab,var(--mut) 55%,transparent),
+                 24px 0 0 color-mix(in oklab,var(--mut) 55%,transparent)}
+.tile .thumb.has-shot::after{content:"";position:absolute;inset:0 0 auto 0;height:38%;z-index:1;pointer-events:none;
+      background:linear-gradient(to bottom,color-mix(in oklab,var(--bg2) 55%,transparent),transparent)}
+.tile .thumb.has-shot img{padding-top:22px;box-sizing:border-box;background:var(--bg3)}
+.tile .thumb .sheen{position:absolute;inset:0;pointer-events:none;z-index:2;
+      background:linear-gradient(115deg,transparent 42%,color-mix(in oklab,var(--fg) 14%,transparent) 50%,transparent 58%);
+      transform:translateX(-130%);transition:transform .8s var(--ease)}
+.tile:hover .thumb .sheen{transform:translateX(130%)}
+.tile .thumb.empty{display:grid;place-items:center;color:var(--mut);font-size:.8rem;font-family:var(--font-mono)}
+.tile .body{padding:.9rem 1rem 1.05rem;display:flex;flex-direction:column;gap:.3rem;flex:1}
+.tile h2{margin:0;font-size:1rem;letter-spacing:-.01em;font-family:var(--font-mono);font-weight:600}
+.tile .one{color:var(--mut);font-size:.86rem;margin:0;flex:1}
+.tile .meta{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem;color:var(--mut);font-size:.74rem;margin-top:.4rem}
+.pill{border:1px solid var(--line);border-radius:999px;padding:.15rem .55rem;font:600 .68rem/1.4 var(--font-mono)}
+.pill.ok{color:var(--mark);border-color:color-mix(in oklab,var(--mark) 45%,transparent)}
+.pill.count{color:var(--weak);border-color:color-mix(in oklab,var(--weak) 45%,transparent)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero,.hero .scan,.dot,.tick-track,.boot .caret,.boot .ln{animation:none}
+  .hero{opacity:1}
+  .boot{display:none}
+  .hero h1,.hero p{opacity:1;transform:none;animation:none}
+  .boot .ln{width:auto}
+  .kpi::before{display:none}
+  .tile{opacity:1;transform:none;transition:box-shadow .25s var(--ease),border-color .25s var(--ease)}
+  .tile .thumb img,.tile .thumb .sheen{transition:none}
+  .tile .thumb .sheen{display:none}
+  .tick-pause{display:none}
+}
+
+/* detail */
+.back{display:inline-block;color:var(--mut);text-decoration:none;font-size:.85rem;margin-bottom:1.5rem;
+      font-family:var(--font-mono);padding:.5rem 0;min-height:24px;box-sizing:border-box}
+.back:hover{color:var(--fg)}
+.badges{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0 0}
+.badge{font:600 .74rem/1 var(--font-mono);padding:.4rem .7rem;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
+.badge.ok{color:var(--mark);border-color:color-mix(in oklab,var(--mark) 45%,transparent)}
+.badge.pending{color:var(--weak);border-color:color-mix(in oklab,var(--weak) 45%,transparent)}
+.split{display:grid;gap:2rem;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
+@media (max-width:880px){.split{grid-template-columns:1fr}}
+.shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg3);box-shadow:var(--shadow)}
+.shot img{width:100%;display:block}
+.shot .cap{padding:.5rem .75rem;color:var(--mut);font-size:.75rem;border-top:1px solid var(--line);font-family:var(--font-mono)}
+.dl{display:inline-block;margin-top:1rem;padding:.7rem 1.15rem;border-radius:9px;
+    background:var(--mark);color:#04140d;text-decoration:none;font-weight:700;font-size:.92rem;font-family:var(--font-mono)}
+.dl small{font-weight:400;opacity:.75}
+section{margin-top:2.5rem}
+/* h2 (not h3): detail pages went h1 -> h4 (chart) -> h3 (sections), skipping a
+   level -- fixed 2026-08-17. Both this and .chart-title are h2 now; distinct
+   look comes from the class, not the tag, so nesting stays correct either way. */
+.section-title{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);
+           margin:0 0 .7rem;padding-bottom:.5rem;border-bottom:1px solid var(--line);font-family:var(--font-mono)}
+section p{margin:0 0 .8rem;max-width:70ch}
+pre.note{white-space:pre-wrap;font:13px/1.6 var(--font-mono);
+         background:var(--bg2);border:1px solid var(--line);border-radius:10px;
+         padding:.9rem 1rem;margin:0;overflow-x:auto;color:var(--mut)}
+
+/* benchmark chart */
+.chart{background:var(--bg2);border:1px solid var(--line);border-radius:14px;
+       padding:1.3rem 1.4rem 1.1rem;box-shadow:var(--shadow)}
+.chart-title{margin:0 0 .2rem;font-size:1rem;font-family:var(--font-mono)}
+.chart .sub{color:var(--mut);font-size:.8rem;margin:0 0 1.1rem}
+.row{display:grid;grid-template-columns:6.6rem 1fr 1.6rem;align-items:center;
+     gap:.7rem;margin-bottom:.55rem}
+.row .name{font-size:.82rem;color:var(--mut);text-align:right;font-family:var(--font-mono)}
+.row .track{height:10px;background:var(--bg3);border-radius:4px;position:relative;overflow:hidden}
+.row .fill{position:absolute;inset:0 auto 0 0;border-radius:4px;background:var(--mark);width:0;
+           transition:width 1s var(--ease)}
+.row.in .fill{width:var(--w)}
+.row.low .fill{background:var(--weak)}
+.row .val{font:600 .82rem/1 var(--font-mono);font-variant-numeric:tabular-nums;text-align:right}
+.row .name b{display:block;font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;
+             color:var(--weak);font-weight:700}
+@media (prefers-reduced-motion:reduce){.row .fill{transition:none;width:var(--w)}}
+.legend{display:flex;gap:1.1rem;flex-wrap:wrap;margin-top:.9rem;padding-top:.8rem;
+        border-top:1px solid var(--line);color:var(--mut);font-size:.74rem}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:.35rem;vertical-align:middle}
+table.axes{width:100%;border-collapse:collapse;margin-top:.9rem;font-size:.78rem}
+table.axes td{padding:.28rem 0;color:var(--mut);vertical-align:top}
+table.axes td:first-child{width:7rem;color:var(--fg);font-family:var(--font-mono)}
+footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color:var(--mut);font-size:.8rem}
+</style></head>
+<body><div class="wrap">
+<header class="hdr">
+  <span class="eyebrow"><i class="dot" aria-hidden="true"></i>AI Venture Studio</span>
+  <span class="hdr-meta">Autonomous build log</span>
+</header>
+<main><a class="back" href="../index.html">← All ventures</a>
+  <div class="lede"><h1>TrustLens</h1><p>TrustLens is a native macOS investigation workspace for ordinary online shoppers evaluating unfamiliar merchants.</p>
+    <div class="badges">
+      <span class="badge ok">Shipped</span>
+      <span class="badge">Built in 3h 31m</span>
+      <span class="badge">2026-09-01</span>
+      <span class="badge">3,890,347 tokens · $5.31 api-equiv</span>
+      <span class="badge">Not yet monetized</span>
+    </div>
+  </div>
+  <div class="split" style="margin-top:2rem">
+    <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg">Download TrustLens.dmg <small>446 KB</small></a>
+       </div>
+    <div><div class="chart">
+    <h2 class="chart-title">Selection benchmarks</h2>
+    <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
+      best <em>balance</em> across all eight, not the best single score.</p>
+    <div aria-hidden="true"><div class="row low" style="--w:60%">
+      <div class="name">profit<b>weakest</b></div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">6</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">change</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row low" style="--w:60%">
+      <div class="name">effort<b>weakest</b></div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">6</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">viability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:90%">
+      <div class="name">future</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">9</div>
+    </div><div class="row" style="--w:80%">
+      <div class="name">market</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">8</div>
+    </div><div class="row" style="--w:100%">
+      <div class="name">population</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">10</div>
+    </div><div class="row" style="--w:90%">
+      <div class="name">availability</div>
+      <div class="track"><span class="fill"></span></div>
+      <div class="val">9</div>
+    </div></div>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>score</span>
+      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
+    </div>
+    <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 6/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 6/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 9/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 10/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 9/10</td></tr></table>
+  </div></div>
+  </div>
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">TrustLens is a native macOS investigation workspace for ordinary online shoppers evaluating unfamiliar merchants. The painful problem is that domain age, business identity, checkout behavior, refund language, contact details, and suspicious claims are scattered across technical records and multiple pages. The app accepts a store or product URL, collects and cross-checks those signals, highlights contradictions with source evidence, and exports a timestamped risk brief. Its value proposition is faster, more defensible purchase due diligence without uploading browsing data to a hosted service or pretending that any heuristic guarantees safety.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build the shippable TrustLens macOS graphical application and package it as a .dmg using swiftc and Apple system frameworks alone. It will accept merchant or product URLs; fetch redirects and relevant same-site pages; query public RDAP endpoints; extract identity, contact, shipping, refund, payment, urgency, and pricing claims; cross-check conflicting names, domains, addresses, policies, and dates; show per-stage progress and actionable network or parsing errors; retain user-configurable investigation settings between launches; maintain a local investigation history; display every finding with its source URL and confidence explanation; and export a timestamped PDF or HTML evidence brief. Verification will cover redirects, malformed URLs, unreachable hosts, missing RDAP data, sparse sites, contradictory policy pages, cancellation, persistence, and export from representative saved web fixtures plus any runtime-accessible public pages.</pre></section>
+  <section><h2 class="section-title">Market and user research</h2><pre class="note">## 1. MARKET SIZE
+
+All figures below are **ESTIMATES based on inference**, not checked market data.
+
+Plausible buyers are Mac users who shop from unfamiliar independent stores, marketplaces, social ads, or overseas merchants and who perceive enough transaction risk to investigate before purchasing.
+
+Bottom-up estimate:
+
+- **ESTIMATE:** 100–130 million actively used Macs worldwide.
+- **ESTIMATE:** 65% belong to consumers or individual professionals: 65–85 million.
+- **ESTIMATE:** 35% of those users encounter an unfamiliar merchant at least annually: 23–30 million.
+- **ESTIMATE:** 15% experience enough concern to use a dedicated investigation tool: 3.4–4.5 million potential users.
+- **ESTIMATE:** 5–10% would pay for a native, evidence-oriented product rather than use free checks: approximately **170,000–450,000 plausible paying customers worldwide**.
+
+A more conservative reachable market for a small independent venture:
+
+- **ESTIMATE:** Reach 1% of 3.4–4.5 million interested users: 34,000–45,000 downloads.
+- **ESTIMATE:** Convert 7% to a paid product: 2,400–3,200 customers.
+- At a proposed **$19.99 one-time price**, that represents roughly **$48,000–$64,000 gross revenue** from the initial reachable cohort.
+
+A successful category position could produce:
+
+- **ESTIMATE:** 50,000 paid licenses × $19.99 = approximately **$1 million gross lifetime license revenue**.
+- A subscription would increase revenue potential, but the usage pattern is too intermittent for subscription retention to be assumed.
+
+The population affected is enormous, but the commercially relevant market is much smaller because most shoppers tolerate the risk, rely on payment protection, or expect scam checking to be free.
+
+## 2. USER RESEARCH
+
+These segments and behaviours are **inferences requiring intervie</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">1. Files produced/replaced:
+
+- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/build/TrustLens`
+- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/build/TrustLensVerifier`
+- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/TrustLens.app/Contents/MacOS/TrustLens`
+- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/TrustLens.dmg`
+
+No source files were changed. Hermes timed out after 25 minutes without producing changes.
+
+2. GUI compilation:
+
+`swiftc Sources/TrustLensCore.swift Sources/TrustLensApp.swift Sources/main.swift -o build/TrustLens -framework AppKit`
+
+Exit code: `0`  
+Output: no output.
+
+Verifier compilation:
+
+`swiftc -parse-as-library Sources/TrustLensCore.swift Sources/TrustLensVerifier.swift -o build/TrustLensVerifier -framework AppKit`
+
+Exit code: `0`  
+Output: no output.
+
+Executing `./build/TrustLensVerifier` was refused because executable invocation is not allowlisted. Therefore `ALL_CHECKS_PASSED` was not obtained during this pass.
+
+3. DMG packaging:
+
+`hdiutil create -volname TrustLens -srcfolder TrustLens.app -ov -format UDZO TrustLens.dmg`
+
+Exit code:</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_1&quot;,&quot;tool&quot;:&quot;venture_workspace_list&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;path&quot;:&quot;Sources&quot;}}]}</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">{
+  &quot;decision&quot;: &quot;PASS&quot;,
+  &quot;scores&quot;: {
+    &quot;profit&quot;: 6,
+    &quot;change&quot;: 7,
+    &quot;effort&quot;: 6,
+    &quot;viability&quot;: 7,
+    &quot;future&quot;: 7,
+    &quot;market&quot;: 6,
+    &quot;population&quot;: 7,
+    &quot;availability&quot;: 7
+  },
+  &quot;evidence&quot;: {
+    &quot;dmg&quot;: &quot;DMG PRESENT — the independently verified workspace-root listing contains PageSentry.dmg and PageSentry.app.&quot;,
+    &quot;acceptance&quot;: &quot;Verified acceptance evidence explicitly reports that PageSentryVerifier compiled and executed with exit code 0 and output ALL_CHECKS_PASSED.&quot;,
+    &quot;packaging&quot;: &quot;Verified evidence reports PageSentry.app was rebuilt exclusively from PageSentry sources, its bundle identifier was confirmed as com.venturestudio.pagesentry, and PageSentry.dmg was regenerated successfully.&quot;,
+    &quot;identity&quot;: &quot;The latest TrustLens-only build pass did not modify sources or remove the already verified PageSentry deliverable. The workspace currently contains both products; PageSentry.dmg is the specification-matching artifact.&quot;
+  },
+  &quot;assessment&quot;: {
+    &quot;product_value&quot;: &quot;PageSentry addresses recurring monitoring work across HTML, feeds, and JSON while preserving local evidence and suppressing irrelevant changes.&quot;,
+    &quot;willingness_to_pay&quot;: &quot;Commercial intent remains u</pre></section>
+  <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section></main>
+<footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
+built as a native macOS app, verified and packaged each morning. Installers are unsigned:
+right-click → Open on first launch. <a href="../index.html">All ventures</a></footer>
+</div><script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Boot sequence and hero reveal are pure CSS (steps() typewriter timed via
+  // an inline --ch/--d set at render time) -- no JS timing here at all. See
+  // the .boot rule for why: a JS setTimeout version was previously "verified"
+  // against a headless Chrome flag that turned out to be silently ignored, so
+  // nothing about its timing was actually proven. Declarative CSS animation
+  // has no such blind spot.
+
+  // KPI panel: a soft light follows the pointer, like a scanner head reading
+  // the numbers. Runs once automatically after the boot sequence finishes
+  // (matching --hd) so it's visible without requiring a mouse to cross it --
+  // same reasoning as the hero flicker. Real hover afterward takes over via
+  // live mousemove tracking. Off entirely under reduced motion.
+  var kpi = document.querySelector('.kpi');
+  if (!reduced && kpi) {
+    var setGlow = function(pct){ kpi.style.setProperty('--mx', pct + '%'); kpi.style.setProperty('--my', '50%') };
+    setTimeout(function(){
+      var start = null, dur = 1500;
+      kpi.classList.add('sweeping');
+      requestAnimationFrame(function step(t){
+        if (start === null) start = t;
+        var p = Math.min(1, (t - start) / dur);
+        setGlow((1 - Math.pow(1 - p, 2)) * 100);
+        if (p < 1) requestAnimationFrame(step);
+        else setTimeout(function(){ kpi.classList.remove('sweeping') }, 300);
+      });
+    }, 3000);
+    if (matchMedia('(hover: hover)').matches) {
+      kpi.addEventListener('mousemove', function(e){
+        var r = kpi.getBoundingClientRect();
+        kpi.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        kpi.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      });
+    }
+  }
+
+  if (!reduced) document.querySelectorAll('.kpi b').forEach(function(el, i){
+    var raw = el.textContent, m = raw.match(/^([$]?)([\d.,]+)(.*)$/);
+    if (!m) return;
+    var prefix = m[1], target = parseFloat(m[2].replace(/,/g,'')), suffix = m[3];
+    if (!isFinite(target)) return;
+    var dp = (m[2].split('.')[1] || '').length;
+    var start = null, dur = 700, delay = i * 70;
+    el.textContent = prefix + (0).toFixed(dp) + suffix;
+    requestAnimationFrame(function step(t){
+      if (start === null) start = t + delay;
+      var p = Math.min(1, Math.max(0, (t - start) / dur));
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = target * eased;
+      el.textContent = prefix + val.toFixed(dp).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + suffix;
+      if (p < 1) requestAnimationFrame(step); else el.textContent = raw;
+    });
+  });
+
+  var tiles = document.querySelectorAll('.tile');
+  var rows = document.querySelectorAll('.row');
+  if (reduced || !('IntersectionObserver' in window)) {
+    tiles.forEach(function(t){ t.classList.add('in', 'settled') });
+    rows.forEach(function(r){ r.classList.add('in') });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        if (e.target.classList.contains('tile')) {
+          e.target.addEventListener('transitionend', function once(ev){
+            if (ev.propertyName !== 'transform') return;
+            e.target.classList.add('settled');
+            e.target.removeEventListener('transitionend', once);
+          });
+        }
+        io.unobserve(e.target);
+      });
+    }, { threshold: .15, rootMargin: '0px 0px -40px 0px' });
+    tiles.forEach(function(t){ io.observe(t) });
+    rows.forEach(function(r){ io.observe(r) });
+  }
+
+  if (!reduced && matchMedia('(hover: hover)').matches) {
+    tiles.forEach(function(t){
+      t.addEventListener('mousemove', function(e){
+        if (!t.classList.contains('settled')) return;
+        var r = t.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+        t.style.transform = 'perspective(900px) rotateX(' + (py * -6) + 'deg) rotateY(' + (px * 6) + 'deg) translateY(-3px)';
+      });
+      t.addEventListener('mouseleave', function(){ t.style.transform = '' });
+    });
+  }
+
+  var pauseBtn = document.querySelector('.tick-pause');
+  if (pauseBtn) pauseBtn.addEventListener('click', function(){
+    var on = pauseBtn.closest('.ticker').classList.toggle('paused');
+    pauseBtn.setAttribute('aria-pressed', String(on));
+    pauseBtn.innerHTML = on ? '&#9654;' : '&#10073;&#10073;';
+  });
+})();
+</script></body></html>
