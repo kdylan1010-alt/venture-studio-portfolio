@@ -9,8 +9,8 @@ human in the loop. These are the results. All free, no signup, no tracking.
 [**Browse all 39 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
-  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/linkwatch-desktop.html"><img src="shots/linkwatch-desktop.png" width="720" alt="LinkWatch"></a>
-  <br><sub><i>LinkWatch — one of 39 tools below</i></sub>
+  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tripclaim.html"><img src="shots/tripclaim.png" width="720" alt="TripClaim"></a>
+  <br><sub><i>TripClaim — one of 39 tools below</i></sub>
 </p>
 
 ---
