@@ -9,8 +9,8 @@ human in the loop. These are the results. All free, no signup, no tracking.
 [**Browse all 39 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
-  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tripclaim.html"><img src="shots/tripclaim.png" width="720" alt="TripClaim"></a>
-  <br><sub><i>TripClaim — one of 39 tools below</i></sub>
+  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html"><img src="shots/trustlens-merchant-investigator.png" width="720" alt="TrustLens"></a>
+  <br><sub><i>TrustLens — one of 39 tools below</i></sub>
 </p>
 
 ---
@@ -19,8 +19,8 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
+| **[TrustLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html)** | TrustLens Merchant Investigator helps ordinary online shoppers investigate unfamiliar merchants… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg) <br><sub>681 KB</sub> |
 | **[TripClaim](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tripclaim.html)** | TripClaim, for ordinary airline passengers dealing with cancellations, long delays, or missed… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tripclaim/TripClaim.dmg) <br><sub>194 KB</sub> |
-| **[TrustLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html)** | TrustLens is a native macOS investigation workspace for ordinary online shoppers evaluating… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg) <br><sub>446 KB</sub> |
 | **[BillLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/billlens-utility-auditor.html)** | BillLens, a native macOS utility-bill auditor for renters, homeowners, and small shop owners… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/billlens-utility-auditor/BillLens.dmg) <br><sub>428 KB</sub> |
 | **[BillSleuth](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/bill-sleuth.html)** | BillSleuth, for ordinary household utility customers facing a surprising bill. It ingests real… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/bill-sleuth/BillSleuth.dmg) <br><sub>518 KB</sub> |
 | **[Watchtower](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/medical-bill-crosscheck.html)** | Medical Bill Crosscheck, a native macOS application for ordinary insured patients facing… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/medical-bill-crosscheck/Watchtower.dmg) <br><sub>776 KB</sub> |
@@ -59,7 +59,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB</sub> |
 
-<sub>39 apps · 18.8 MB total · macOS 12+</sub>
+<sub>39 apps · 19.1 MB total · macOS 12+</sub>
 
 ---
 
@@ -93,8 +93,8 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
+- **2026-09-03** — MODIFY <sub>(TrustLens)</sub>
 - **2026-09-02** — MODIFY <sub>(TripClaim)</sub>
-- **2026-09-01** — MODIFY <sub>(TrustLens)</sub>
 - **2026-08-31** — STOP <sub>(BillLens)</sub>
 - **2026-08-30** — MODIFY <sub>(BillSleuth)</sub>
 - **2026-08-29** — MODIFY <sub>(Watchtower)</sub>
