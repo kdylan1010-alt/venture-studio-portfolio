@@ -244,172 +244,151 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>TrustLens</h1><p>TrustLens Merchant Investigator is a native macOS application for ordinary shoppers evaluating an unfamiliar online seller.</p>
+  <div class="lede"><h1>TrustLens</h1><p>TrustLens Merchant Investigator helps ordinary online shoppers assess unfamiliar merchants before purchasing by gathering and combining public…</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      <span class="badge">Built in 1h 7m</span>
-      <span class="badge">2026-09-04</span>
-      <span class="badge">11,262,383 tokens · $15.18 api-equiv</span>
+      <span class="badge">Built in 3h 41m</span>
+      <span class="badge">2026-09-05</span>
+      <span class="badge">18,617,740 tokens · $25.27 api-equiv</span>
       <span class="badge">Not yet monetized</span>
     </div>
   </div>
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><img src="../shots/trustlens-merchant-investigator.png" alt="TrustLens running">
-       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg">Download TrustLens.dmg <small>761 KB</small></a>
+       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg">Download TrustLens.dmg <small>682 KB</small></a>
        </div>
-    <div><div class="chart">
-    <h2 class="chart-title">Selection benchmarks</h2>
-    <p class="sub">Scored 1–10 on each perspective before building. The studio picks the
-      best <em>balance</em> across all eight, not the best single score.</p>
-    <div aria-hidden="true"><div class="row" style="--w:70%">
-      <div class="name">profit</div>
-      <div class="track"><span class="fill"></span></div>
-      <div class="val">7</div>
-    </div><div class="row" style="--w:80%">
-      <div class="name">change</div>
-      <div class="track"><span class="fill"></span></div>
-      <div class="val">8</div>
-    </div><div class="row low" style="--w:60%">
-      <div class="name">effort<b>weakest</b></div>
-      <div class="track"><span class="fill"></span></div>
-      <div class="val">6</div>
-    </div><div class="row" style="--w:80%">
-      <div class="name">viability</div>
-      <div class="track"><span class="fill"></span></div>
-      <div class="val">8</div>
-    </div><div class="row" style="--w:80%">
-      <div class="name">future</div>
-      <div class="track"><span class="fill"></span></div>
-      <div class="val">8</div>
-    </div><div class="row" style="--w:80%">
-      <div class="name">market</div>
-      <div class="track"><span class="fill"></span></div>
-      <div class="val">8</div>
-    </div><div class="row" style="--w:90%">
-      <div class="name">population</div>
-      <div class="track"><span class="fill"></span></div>
-      <div class="val">9</div>
-    </div><div class="row" style="--w:90%">
-      <div class="name">availability</div>
-      <div class="track"><span class="fill"></span></div>
-      <div class="val">9</div>
-    </div></div>
-    <div class="legend">
-      <span><i style="background:var(--mark)"></i>score</span>
-      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
-    </div>
-    <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 7/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 6/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 8/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 9/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 9/10</td></tr></table>
-  </div></div>
+    <div></div>
   </div>
-  <section><h2 class="section-title">The opportunity</h2><pre class="note">TrustLens Merchant Investigator is a native macOS application for ordinary shoppers evaluating an unfamiliar online seller. It addresses the painful, time-consuming work of checking identity, reputation, policies, contact details, domain signals, and contradictory claims across public sources. Its value proposition is an evidence-linked merchant trust dossier that exposes warning signs, preserves uncertainty, and can be exported before the user spends money.</pre></section>
-  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Deepen the existing Swift/AppKit product in place into a shippable .dmg application that accepts a merchant name or URL, fetches and combines public merchant evidence, extracts identity and policy details from messy pages, highlights contradictions and risk signals without asserting certainty, shows source-level progress and useful errors, persists investigation settings and history between launches, and exports a cited dossier.</pre></section>
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">TrustLens Merchant Investigator helps ordinary online shoppers assess unfamiliar merchants before purchasing by gathering and combining publicly available merchant, website, policy, security, and reputation evidence into an understandable, source-linked trust assessment that exposes warning signs and uncertainty.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Deepen the existing native macOS TrustLens application in place at /Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator: accept a merchant URL, perform resilient multi-source investigation with visible progress and useful errors, explain evidence and uncertainty, persist settings and investigation history, and export a source-linked assessment. Verify compilation with swiftc and exercise realistic successful, partial-failure, and malformed-input paths.</pre></section>
   <section><h2 class="section-title">Market and user research</h2><pre class="note">## 1. MARKET SIZE
 
-All figures below are **ESTIMATES**, based on the prior-stage evidence and domain inference—not fresh source checks.
+All figures below are **ESTIMATES based on inference**, not externally verified market data.
 
-Plausible buyers are consumers who encounter unfamiliar online merchants, care enough about purchase risk to investigate them, and use a Mac during that decision.
+Plausible buyers are people who encounter unfamiliar online merchants, care enough about purchase risk to investigate them, and are willing to pay for a clearer answer than a manual search provides. The addressable population should not be equated with everyone who shops online.
 
-Bottom-up annual reachable market:
+Bottom-up estimate for an initial English-language market:
 
-- **ESTIMATE:** 100 million consumers in English-speaking, Mac-heavy markets regularly shop online using a Mac.
-- **ESTIMATE:** 20% encounter an unfamiliar merchant and conduct at least one meaningful legitimacy check annually.
-- **ESTIMATE:** 10% of those users are willing to install a dedicated investigation application.
+- **ESTIMATE:** 120 million adults annually encounter at least one unfamiliar online merchant.
+- **ESTIMATE:** 15% actively investigate the merchant beyond casually viewing its site.
+- **ESTIMATE:** 10% of those investigators would consider paying for a faster, evidence-linked assessment.
+- **ESTIMATE:** 20% of willing prospects can realistically be reached by a focused consumer product.
 
 Arithmetic:
 
-`100M × 20% × 10% = 2M plausible users`
+`120M × 15% × 10% × 20% = 360,000 reachable prospective paying users`
 
-At an **ESTIMATE** average realized revenue of $18 per paying user per year:
+Possible annual revenue:
 
-`2M × $18 = $36M annual serviceable revenue`
+- At **ESTIMATE $19.99/year**: `360,000 × $19.99 ≈ $7.2M ARR`
+- At a more conservative 3% conversion from 18 million active investigators:  
+  `18M × 3% × $19.99 ≈ $10.8M ARR`
+- A credible early outcome of 10,000 subscribers would produce approximately **ESTIMATE $200,000 ARR** before store fees, taxes, support, and acquisition costs.
 
-A more realistic early obtainable market:
-
-- **ESTIMATE:** 250,000 qualified visitors or App Store impressions annually after distribution begins.
-- **ESTIMATE:** 8% install or try the product.
-- **ESTIMATE:** 12% of trial users pay.
-
-`250,000 × 8% × 12% = 2,400 paying customers`
-
-`2,400 × $18 = $43,200 annual revenue`
-
-A credible successful niche business might reach **ESTIMATE 25,000–75,000 paying users**, producing **ESTIMATE $450,000–$1.35M annually** at $18 realized revenue. The macOS-only format materially limits the market.
+The broader need is large, but the commercially addressable market is constrained by infrequent usage, strong free alternatives, platform limitations, and low consumer willingness to subscribe to another security product.
 
 ## 2. USER RESEARCH
 
-These segments are inferred; they have not been validated through interviews.
+These are **inferred segments**, not findings from completed interviews.
 
-### Risk-conscious cross-border shopper
+### Social-ad and marketplace shoppers
 
-- Current workaround: Google the merchant with “scam” or “reviews,” inspect return and shipping pages, check domain age, and search review platforms.
-- Current spending: usually **ESTIMATE $0**, plus **ESTIMATE 10–30 minutes** per suspicious purchase.
-- Discovery channel: search</pre></section>
-  <section><h2 class="section-title">What was built</h2><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_6&quot;,&quot;tool&quot;:&quot;venture_workspace_hermes&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;prompt&quot;:&quot;1. WORKSPACE: Work only in /Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator. Exact observed root entries: MARKET-RESEARCH.md, PageSentry, PageSentry.app/, PageSentry.dmg, PageSentryData/, README.md, Sources/, TrustLens-Xcode.zip, TrustLens.app/, TrustLens.dmg, TrustLensData/, build/, fixtures/, scripts/, verification-output/. Exact observed Sources entries: Sources/PageSentryApp.swift, Sources/PageSentryCore.swift, Sources/PageSentryVerifier.swift, Sources/TrustLensApp.swift, Sources/TrustLensCore.swift, Sources/TrustLensVerifier.swift, Sources/main.swift.\n\n2. GOAL: Deepen PageSentry, a native macOS AppKit webpage/feed change monitor, into a functional local application that accepts public HTTP/HTTPS sources, extracts readable HTML/RSS/Atom/JSON content, detects meaningful line-level changes, maintains an unread inbox and revision history, explains failures, schedules checks while running, persists state, and exports cited evidence as Markdown, CSV, and self-contained HTML.\n\n3. WHAT ALREADY EXISTS: Sources/PageSentryCore.swift contains Codable source/snapsh</pre></section>
+These buyers encounter unfamiliar stores through Instagram, TikTok, search ads, creator links, or marketplaces.
+
+- **Current workaround:** Search th</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">1. Created/rebuilt artifacts:
+
+- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/build/TrustLensVerifier`
+- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/build/TrustLens`
+- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/TrustLens.app/Contents/MacOS/TrustLens`
+- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/TrustLens.dmg`
+
+2. Compilation:
+
+`swiftc -parse-as-library Sources/TrustLensCore.swift Sources/TrustLensVerifier.swift -o build/TrustLensVerifier -framework AppKit`
+
+Output: no output; exit code 0.
+
+`swiftc -O Sources/TrustLensCore.swift Sources/TrustLensApp.swift Sources/main.swift -o build/TrustLens -framework AppKit`
+
+Output: no output; exit code 0.
+
+3. Packaging:
+
+`hdiutil create -volname TrustLens -srcfolder TrustLens.app -ov -format UDZO TrustLens.dmg`
+
+Succeeded with:
+
+`created: /Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/TrustLens.dmg`
+
+`hdiutil verify TrustLens.dmg` succeeded. It reported:
+
+`hdiutil: verify: checksum of &quot;TrustLens.dmg&quot; is VALID`
+
+4. Workspace root listing:
+
+`MARKET-RESEARCH.md, PageSentry, PageSentr</pre></section>
   <section><h2 class="section-title">Verification</h2><pre class="note">FAIL
 
 1. Root `.dmg`
 
-   Command: `venture_workspace_list {}`
+Command: `venture_workspace_list {&quot;body&quot;:{&quot;path&quot;:&quot;.&quot;}}`
 
-   Output included:
+Observed output:
 
-   ```text
-   PageSentry.dmg
-   TrustLens.dmg
-   ```
+`MARKET-RESEARCH.md, PAGEWATCH-REPAIR.md, PageSentry, PageSentry.app, PageSentry.dmg, PageSentryData, PageWatch, PageWatch.app, PageWatch.dmg, PageWatchVerifier, README.md, Sources, TrustLens-Xcode.zip, TrustLens.app, TrustLens.dmg, TrustLensData, build, fixtures, scripts, verification-output`
 
-   A DMG exists in the workspace root, although the product artifact remains named `PageSentry.dmg`, not PageWatch.
+A qualifying root-level `PageWatch.dmg` exists.
 
 2. Source compilation
 
-   Command:
+Command:
 
-   ```text
-   swiftc -O -framework AppKit -framework WebKit -framework UserNotifications -framework PDFKit -o build/PageWatch-verify Sources/PageSentryCore.swift Sources/PageSentryApp.swift Sources/main.swift
-   ```
+`swiftc Sources/PageWatch.swift -o build/PageWatch-verify -framework AppKit -framework WebKit -framework UserNotifications -framework CryptoKit`
 
-   Output:
+Observed output: no output; exit code `0`.
 
-   ```text
-   exit code: 0
-   stdout: no output
-   stderr: no output
-   ```
-
-   The sources compile successfully.
+The PageWatch source compiles successfully.
 
 3. Application bundle
 
-   Command: list `PageSentry.app/Contents`
+Command: `venture_workspace_list {&quot;body&quot;:{&quot;path&quot;:&quot;PageWatch.app/Contents&quot;}}`
 
-   Output:
+Observed output:
 
-   ```text
-   Info.plist
-   MacOS/
-   Resources/
-   _CodeSignature/
-   ```
+`Info.plist, MacOS`
 
-   Command: list `PageSentry.app/Contents/MacOS`
+Command: `venture_workspace_list {&quot;body&quot;:{&quot;path&quot;:&quot;PageWatch.app/Contents/MacOS&quot;}}`
 
-   Output:
+Observed output:
 
-   ```text
-   PageSentry
-   ```
+`PageWatch`
 
-   Reading `PageSentry.app/Contents/Info.plist` confirmed:
+The bundle contains `Contents/Info.plist` and `Contents/MacOS/PageWatch`.
 
-   ```text
-   CFBundleExecutable = PageSentry
-   CFBundleIdentifier = com.nousresearch.pagesentry
-   CFBundleName = PageSentry
-   CFBundlePackageType = APPL
-   ```
+4. TODO, FIXME, or placeholder text
 
-   The required bundle structure exists, but it is still branded PageSentry rather than Pa</pre></section>
-  <section><h2 class="section-title">Independent review</h2><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_5&quot;,&quot;tool&quot;:&quot;venture_workspace_read&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;path&quot;:&quot;Sources/PageSentryCore.swift&quot;}}]}</pre></section>
+Command: `venture_workspace_read {&quot;body&quot;:{&quot;path&quot;:&quot;Sources/PageWatch.swift&quot;}}`
+
+Observed output: the complete source was ret</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">{
+  &quot;decision&quot;: &quot;REWORK&quot;,
+  &quot;scores&quot;: {
+    &quot;profit&quot;: 5,
+    &quot;change&quot;: 7,
+    &quot;effort&quot;: 6,
+    &quot;viability&quot;: 6,
+    &quot;future&quot;: 7,
+    &quot;market&quot;: 6,
+    &quot;population&quot;: 6,
+    &quot;availability&quot;: 5
+  },
+  &quot;evidence&quot;: {
+    &quot;packaging&quot;: &quot;DMG PRESENT: venture_workspace_list on the root directly returned PageWatch.dmg, PageWatch.app, and PageWatch.&quot;,
+    &quot;identity&quot;: &quot;The specification describes PageWatch, but the venture slug and supplied build, packaging, and checksum evidence concern TrustLens. TrustLens.dmg cannot serve as acceptance evidence for PageWatch.&quot;,
+    &quot;functional_correctness&quot;: &quot;PageWatch still has six bounded gaps: add-time interval configuration, editing existing watches, validated regex exclusions, selection of any retained snapshot as baseline, retained unchanged snapshots for HTTP 304, and explicit rejection of redirects to non-HTTP(S) destinations.&quot;,
+    &quot;acceptance&quot;: &quot;No executed runtime or GUI evidence verifies PageWatch networking, retry, cancellation, persistence, scheduling, notifications, exports, or end-to-end change detection. A present DMG satisfies packaging only, not verified acceptance.&quot;,
+    &quot;maintainability_security&quot;: &quot;The local-first native architecture is cre</pre></section>
   <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section></main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
 built as a native macOS app, verified and packaged each morning. Installers are unsigned:
