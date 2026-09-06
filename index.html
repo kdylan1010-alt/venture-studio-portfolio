@@ -256,9 +256,15 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
 .radar .axl tspan.sc{fill:var(--fg);font-weight:700}
 .radar .axl.low,.radar .axl.low tspan.sc{fill:var(--weak)}
 .radar .axl .flag{font-size:8px;letter-spacing:.06em;text-transform:uppercase}
+.radar .sweepg{opacity:0;transform-origin:var(--cx) var(--cy)}
+.chart.in .radar .sweepg{opacity:1;animation:radar-sweep 5s linear infinite;animation-delay:1.6s}
+.radar .beam{stroke:var(--mark);stroke-width:1.5;opacity:.55}
+.radar .trail{fill:url(#sweeptrail);opacity:.35}
+@keyframes radar-sweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){
   .radar .data{stroke-dashoffset:0!important;fill-opacity:.16!important;transition:none}
-  .radar .dot{opacity:1!important;transition:none}}
+  .radar .dot{opacity:1!important;transition:none}
+  .radar .sweepg{animation:none!important;opacity:0!important}}
 
 /* what went out on the wire, quoted verbatim */
 .social{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--mark);
