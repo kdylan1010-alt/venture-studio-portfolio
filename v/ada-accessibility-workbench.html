@@ -256,9 +256,15 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
 .radar .axl tspan.sc{fill:var(--fg);font-weight:700}
 .radar .axl.low,.radar .axl.low tspan.sc{fill:var(--weak)}
 .radar .axl .flag{font-size:8px;letter-spacing:.06em;text-transform:uppercase}
+.radar .sweepg{opacity:0;transform-origin:var(--cx) var(--cy)}
+.chart.in .radar .sweepg{opacity:1;animation:radar-sweep 5s linear infinite;animation-delay:1.6s}
+.radar .beam{stroke:var(--mark);stroke-width:1.5;opacity:.55}
+.radar .trail{fill:url(#sweeptrail);opacity:.35}
+@keyframes radar-sweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){
   .radar .data{stroke-dashoffset:0!important;fill-opacity:.16!important;transition:none}
-  .radar .dot{opacity:1!important;transition:none}}
+  .radar .dot{opacity:1!important;transition:none}
+  .radar .sweepg{animation:none!important;opacity:0!important}}
 
 /* what went out on the wire, quoted verbatim */
 .social{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--mark);
@@ -294,6 +300,14 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
     <div class="radar-wrap" aria-hidden="true"><svg class="radar" viewBox="0 0 460 340" style="--per:586">
       <polygon class="grid" points="230.0,140.5 250.9,149.1 259.5,170.0 250.9,190.9 230.0,199.5 209.1,190.9 200.5,170.0 209.1,149.1"/><polygon class="grid" points="230.0,111.0 271.7,128.3 289.0,170.0 271.7,211.7 230.0,229.0 188.3,211.7 171.0,170.0 188.3,128.3"/><polygon class="grid" points="230.0,81.5 292.6,107.4 318.5,170.0 292.6,232.6 230.0,258.5 167.4,232.6 141.5,170.0 167.4,107.4"/><polygon class="grid" points="230.0,52.0 313.4,86.6 348.0,170.0 313.4,253.4 230.0,288.0 146.6,253.4 112.0,170.0 146.6,86.6"/>
       <line class="spoke" x1="230" y1="170" x2="230.0" y2="52.0"/><line class="spoke" x1="230" y1="170" x2="313.4" y2="86.6"/><line class="spoke" x1="230" y1="170" x2="348.0" y2="170.0"/><line class="spoke" x1="230" y1="170" x2="313.4" y2="253.4"/><line class="spoke" x1="230" y1="170" x2="230.0" y2="288.0"/><line class="spoke" x1="230" y1="170" x2="146.6" y2="253.4"/><line class="spoke" x1="230" y1="170" x2="112.0" y2="170.0"/><line class="spoke" x1="230" y1="170" x2="146.6" y2="86.6"/>
+      <defs><linearGradient id="sweeptrail" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="var(--mark)" stop-opacity="0"/>
+        <stop offset="1" stop-color="var(--mark)" stop-opacity=".28"/>
+      </linearGradient></defs>
+      <g class="sweepg" style="--cx:230px;--cy:170px">
+        <path class="trail" d="M 230 170 L 348 170 A 118 118 0 0 0 327.4 103.4 Z"/>
+        <line class="beam" x1="230" y1="170" x2="348" y2="170"/>
+      </g>
       <polygon class="data" points="230.0,87.4 305.1,94.9 300.8,170.0 296.8,236.8 230.0,276.2 163.2,236.8 135.6,170.0 163.2,103.2"/>
       <circle class="dot" cx="230.0" cy="87.4" r="4" style="transition-delay:1.10s"/><circle class="dot" cx="305.1" cy="94.9" r="4" style="transition-delay:1.18s"/><circle class="dot low" cx="300.8" cy="170.0" r="4" style="transition-delay:1.26s"/><circle class="dot" cx="296.8" cy="236.8" r="4" style="transition-delay:1.34s"/><circle class="dot" cx="230.0" cy="276.2" r="4" style="transition-delay:1.42s"/><circle class="dot" cx="163.2" cy="236.8" r="4" style="transition-delay:1.50s"/><circle class="dot" cx="135.6" cy="170.0" r="4" style="transition-delay:1.58s"/><circle class="dot" cx="163.2" cy="103.2" r="4" style="transition-delay:1.66s"/>
       <text class="axl" x="230.0" y="32.0" text-anchor="middle">profit <tspan class="sc">7</tspan></text><text class="axl" x="330.4" y="73.6" text-anchor="start">change <tspan class="sc">9</tspan></text><text class="axl low" x="372.0" y="174.0" text-anchor="start">effort <tspan class="sc">6</tspan><tspan class="flag" x="372.0" dy="11">weakest</tspan></text><text class="axl" x="330.4" y="274.4" text-anchor="start">viability <tspan class="sc">8</tspan></text><text class="axl" x="230.0" y="316.0" text-anchor="middle">future <tspan class="sc">9</tspan></text><text class="axl" x="129.6" y="274.4" text-anchor="end">market <tspan class="sc">8</tspan></text><text class="axl" x="88.0" y="174.0" text-anchor="end">population <tspan class="sc">8</tspan></text><text class="axl" x="129.6" y="73.6" text-anchor="end">availability <tspan class="sc">8</tspan></text>
