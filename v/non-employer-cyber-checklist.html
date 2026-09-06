@@ -237,6 +237,34 @@ table.axes{width:100%;border-collapse:collapse;margin-top:.9rem;font-size:.78rem
 table.axes td{padding:.28rem 0;color:var(--mut);vertical-align:top}
 table.axes td:first-child{width:7rem;color:var(--fg);font-family:var(--font-mono)}
 footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color:var(--mut);font-size:.8rem}
+
+/* radar: the balance the studio scores on, drawn as the shape it actually is.
+   Draw-on animation is pure CSS from server-computed perimeter; the .in class
+   arrives from the same IntersectionObserver the bars used. */
+.radar-wrap{display:flex;justify-content:center;margin:.4rem 0 .2rem}
+.radar-wrap svg{width:100%;max-width:420px;height:auto}
+.radar .grid{fill:none;stroke:var(--line);stroke-width:1}
+.radar .spoke{stroke:var(--line);stroke-width:1}
+.radar .data{fill:var(--mark);fill-opacity:0;stroke:var(--mark);stroke-width:2;
+             stroke-linejoin:round;stroke-dasharray:var(--per);stroke-dashoffset:var(--per);
+             transition:stroke-dashoffset 1.4s var(--ease),fill-opacity .8s ease 1.1s}
+.chart.in .radar .data{stroke-dashoffset:0;fill-opacity:.16}
+.radar .dot{fill:var(--mark);opacity:0;transition:opacity .3s ease}
+.radar .dot.low{fill:var(--weak)}
+.chart.in .radar .dot{opacity:1}
+.radar .axl{font:600 11px var(--font-mono);fill:var(--mut)}
+.radar .axl tspan.sc{fill:var(--fg);font-weight:700}
+.radar .axl.low,.radar .axl.low tspan.sc{fill:var(--weak)}
+.radar .axl .flag{font-size:8px;letter-spacing:.06em;text-transform:uppercase}
+@media (prefers-reduced-motion:reduce){
+  .radar .data{stroke-dashoffset:0!important;fill-opacity:.16!important;transition:none}
+  .radar .dot{opacity:1!important;transition:none}}
+
+/* what went out on the wire, quoted verbatim */
+.social{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--mark);
+        border-radius:10px;padding:1rem 1.2rem;margin-top:.6rem}
+.social .post{white-space:pre-wrap;font-size:.92rem;line-height:1.55;margin:0}
+.social .stat{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem;padding-top:.7rem;border-top:1px solid var(--line)}
 </style></head>
 <body><div class="wrap">
 <header class="hdr">
@@ -251,12 +279,14 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
       
       
       
+      
     </div>
   </div>
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div></div>
     <div></div>
   </div>
+  
   
   
   
@@ -325,7 +355,7 @@ right-click → Open on first launch. <a href="../index.html">All ventures</a></
   });
 
   var tiles = document.querySelectorAll('.tile');
-  var rows = document.querySelectorAll('.row');
+  var rows = document.querySelectorAll('.row, .chart');
   if (reduced || !('IntersectionObserver' in window)) {
     tiles.forEach(function(t){ t.classList.add('in', 'settled') });
     rows.forEach(function(r){ r.classList.add('in') });
