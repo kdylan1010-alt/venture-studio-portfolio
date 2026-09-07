@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[TrustLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html)** | TrustLens Merchant Investigator — a native macOS application for ordinary online shoppers who… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg) <br><sub>762 KB · built in 13h 37m over 5 runs</sub> |
+| **[TrustLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html)** | TrustLens is a native macOS investigation workspace for ordinary online shoppers evaluating… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg) <br><sub>1621 KB · built in 17h 07m over 6 runs</sub> |
 | **[TripClaim](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tripclaim.html)** | TripClaim, for ordinary airline passengers dealing with cancellations, long delays, or missed… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tripclaim/TripClaim.dmg) <br><sub>194 KB · built in 2h 30m</sub> |
 | **[BillLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/billlens-utility-auditor.html)** | BillLens, a native macOS utility-bill auditor for renters, homeowners, and small shop owners… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/billlens-utility-auditor/BillLens.dmg) <br><sub>428 KB · built in 2h 13m</sub> |
 | **[BillSleuth](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/bill-sleuth.html)** | BillSleuth, for ordinary household utility customers facing a surprising bill. It ingests real… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/bill-sleuth/BillSleuth.dmg) <br><sub>518 KB · built in 3h 12m</sub> |
@@ -59,7 +59,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB · built in 36m</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB · built in 43m</sub> |
 
-<sub>39 apps · 19.1 MB total · macOS 12+</sub>
+<sub>39 apps · 20.0 MB total · macOS 12+</sub>
 
 ---
 
@@ -93,7 +93,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
-- **2026-09-06** — MODIFY <sub>(TrustLens)</sub>
+- **2026-09-07** — MODIFY <sub>(TrustLens)</sub>
 - **2026-09-02** — MODIFY <sub>(TripClaim)</sub>
 - **2026-08-31** — STOP <sub>(BillLens)</sub>
 - **2026-08-30** — MODIFY <sub>(BillSleuth)</sub>
