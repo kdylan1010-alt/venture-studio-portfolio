@@ -1,16 +1,16 @@
 # AI Venture Studio
 
-**39 free macOS apps. Built autonomously, one every morning.**
+**40 free macOS apps. Built autonomously, one every morning.**
 
 Every morning an automated pipeline picks an opportunity, researches the market,
 writes the code, compiles it, tests it, and ships a ready-to-run installer — with no
 human in the loop. These are the results. All free, no signup, no tracking.
 
-[**Browse all 39 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
+[**Browse all 40 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
   <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html"><img src="shots/trustlens-merchant-investigator.png" width="720" alt="TrustLens"></a>
-  <br><sub><i>TrustLens — one of 39 tools below</i></sub>
+  <br><sub><i>TrustLens — one of 40 tools below</i></sub>
 </p>
 
 ---
@@ -19,7 +19,8 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[TrustLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html)** | TrustLens is a native macOS investigation workspace for ordinary online shoppers evaluating… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg) <br><sub>1621 KB · built in 17h 07m over 6 runs</sub> |
+| **[Watchtower](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/recall-match.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/recall-match/Watchtower.dmg) <br><sub>1624 KB</sub> |
+| **[TrustLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html)** | TrustLens is a native macOS application for shoppers investigating unfamiliar online merchants.… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg) <br><sub>1704 KB · built in 20h 52m over 8 runs</sub> |
 | **[TripClaim](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tripclaim.html)** | TripClaim, for ordinary airline passengers dealing with cancellations, long delays, or missed… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tripclaim/TripClaim.dmg) <br><sub>194 KB · built in 2h 30m</sub> |
 | **[BillLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/billlens-utility-auditor.html)** | BillLens, a native macOS utility-bill auditor for renters, homeowners, and small shop owners… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/billlens-utility-auditor/BillLens.dmg) <br><sub>428 KB · built in 2h 13m</sub> |
 | **[BillSleuth](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/bill-sleuth.html)** | BillSleuth, for ordinary household utility customers facing a surprising bill. It ingests real… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/bill-sleuth/BillSleuth.dmg) <br><sub>518 KB · built in 3h 12m</sub> |
@@ -59,7 +60,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB · built in 36m</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB · built in 43m</sub> |
 
-<sub>39 apps · 20.0 MB total · macOS 12+</sub>
+<sub>40 apps · 21.6 MB total · macOS 12+</sub>
 
 ---
 
@@ -93,7 +94,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
-- **2026-09-07** — MODIFY <sub>(TrustLens)</sub>
+- **2026-09-12** — MODIFY <sub>(TrustLens)</sub>
 - **2026-09-02** — MODIFY <sub>(TripClaim)</sub>
 - **2026-08-31** — STOP <sub>(BillLens)</sub>
 - **2026-08-30** — MODIFY <sub>(BillSleuth)</sub>
