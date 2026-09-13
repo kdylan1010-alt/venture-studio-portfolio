@@ -276,19 +276,19 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>TrustLens</h1><p>TrustLens is a native macOS application for shoppers investigating unfamiliar online merchants.</p>
+  <div class="lede"><h1>TrustLens</h1><p>TrustLens Merchant Investigator helps ordinary online shoppers assess an unfamiliar seller before purchasing by fetching and combining public…</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      <span class="badge">Built in 2h 32m</span>
-      <span class="badge">20h 52m total across 8 runs</span>
-      <span class="badge">2026-09-12</span>
-      <span class="badge">35,231,630 tokens · $48.11 api-equiv</span>
+      <span class="badge">Built in 1h 26m</span>
+      <span class="badge">22h 18m total across 9 runs</span>
+      <span class="badge">2026-09-13</span>
+      <span class="badge">38,626,509 tokens · $52.75 api-equiv</span>
       <span class="badge">Not yet monetized</span>
     </div>
   </div>
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><img src="../shots/trustlens-merchant-investigator.png" alt="TrustLens running">
-       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg">Download TrustLens.dmg <small>1704 KB</small></a>
+       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg">Download TrustLens.dmg <small>1626 KB</small></a>
        </div>
     <div><div class="chart">
     <h2 class="chart-title">Selection benchmarks</h2>
@@ -326,66 +326,153 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
     <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 7/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 6/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 8/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 9/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 9/10</td></tr></table>
   </div></div>
   </div>
-  <section><h2 class="section-title">The opportunity</h2><pre class="note">TrustLens is a native macOS application for shoppers investigating unfamiliar online merchants. It addresses the slow, unreliable process of manually checking scattered storefront pages by producing a privacy-preserving, source-backed investigation brief covering merchant policies, contact signals, domain-registration evidence, contradictions, timestamps, and uncertainty.</pre></section>
-  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Deepen the existing TrustLens graphical macOS application in place so it accepts messy merchant URLs, fetches and combines relevant merchant pages and public domain-registration evidence, extracts quoted policy and contact signals, highlights contradictions and uncertainty, shows progress and useful errors, persists settings, exports an inspectable investigation brief, and ships as a verified .dmg built with swiftc and Apple system frameworks only.</pre></section>
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">TrustLens Merchant Investigator helps ordinary online shoppers assess an unfamiliar seller before purchasing by fetching and combining public merchant, domain, policy, contact, and reputation evidence into a transparent trust dossier with cited findings and warning signals.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Deepen the existing native macOS application in place into a shippable merchant-investigation tool: accept a merchant URL, fetch and reconcile messy public evidence, display progress and useful source-level errors, explain trust and risk signals with citations, persist settings and investigation history, and export a useful dossier.</pre></section>
   <section><h2 class="section-title">Market and user research</h2><pre class="note">## 1. MARKET SIZE
 
-All market figures below are **ESTIMATES based on inference**, not externally verified facts.
+All figures are **ESTIMATES** based on commercial reasoning, not newly verified market data.
 
-Plausible initial buyers are English-speaking Mac users who occasionally shop at unfamiliar independent stores and care enough about fraud, returns, or merchant legitimacy to investigate before purchasing.
+The plausible paying audience is narrower than “all online shoppers”: frequent cross-border, social-commerce, collectible, resale, electronics, and specialist-hobby shoppers who repeatedly encounter unfamiliar sellers and want evidence rather than a simple trust score.
 
-Bottom-up annual market estimate:
+Initial macOS wedge:
 
-- **ESTIMATE:** 100 million active Mac users in reachable English-speaking markets.
-- **ESTIMATE:** 40% shop online from a Mac at least occasionally = 40 million.
-- **ESTIMATE:** 25% encounter an unfamiliar merchant and conduct some form of manual check each year = 10 million.
-- **ESTIMATE:** 8% of those users would consider paying for a dedicated investigation tool = 800,000 plausible buyers.
-- **ESTIMATE:** At a proposed $24 one-time price, the theoretical serviceable revenue pool is `800,000 × $24 = $19.2 million`.
+- **ESTIMATE:** 2,000,000 annually reachable users.
+- **ESTIMATE:** 8% experience recurring or high-value merchant uncertainty.
+- 2,000,000 × 8% = **160,000 qualified prospects**.
+- **ESTIMATE:** 8% become active users: 160,000 × 8% = **12,800**.
+- **ESTIMATE:** 12% convert: 12,800 × 12% = **1,536 paying users**.
+- At **ESTIMATE: $24/year**, that equals **$36,864 annual recurring revenue**.
 
-A more realistic obtainable market:
+With browser and mobile distribution:
 
-- **ESTIMATE:** Reaching 2%–5% of the plausible buyer pool would mean 16,000–40,000 customers.
-- **ESTIMATE:** Gross lifetime sales at $24 would be approximately `$384,000–$960,000`.
-- **ESTIMATE:** If useful updates support a $12 annual renewal from 30% of customers, the installed base could add approximately `$57,600–$144,000` annually.
+- **ESTIMATE:** 20,000,000 reachable shoppers.
+- 20,000,000 × 6% qualified × 10% activated × 10% paid = **12,000 paying users**.
+- 12,000 × $24 = **ESTIMATE: $288,000 annual recurring revenue**.
 
-This is likely a credible independent-software market, but the present Mac-only scope does not support a venture-scale outcome by itself. Expansion into browser extensions, iOS, Windows, or merchant-risk APIs could materially enlarge the opportunity.
+A strong expanded outcome would be **ESTIMATE: 40,000–80,000 customers**, producing **$960,000–$1.92 million annually**. This would require broader distribution and external evidence beyond the merchant’s own site.
 
 ## 2. USER RESEARCH
 
-The segment descriptions and spending behavior are **inferences requiring interviews or behavioral testing**.
+These are inferred segments; interviews and outreach were **BLOCKED**.
 
-### Cautious high-value shoppers
+### Frequent cross-border or social-commerce shopper
 
-These users investigate unfamiliar merchants before buying electronics, furniture, collectibles, event tickets, or luxury</pre></section>
-  <section><h2 class="section-title">What was built</h2><pre class="note">1. Files created or replaced:
+- Current workaround: Search the merchant’s name with “reviews” or “scam,” inspect policies and contact details, consult reputation sites, or abandon the purchase.
+- Current cost: **ESTIMATE: $0 plus 10–30 minutes per merchant**.
+- Discovery: Search, browser-extension stores, consumer-safety content, deal communities, and app stores.
+- Refusal trigger: False positives, slow results, merchant-site e</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">1. Created artifacts:
 
-- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/Sources/main.swift`
-- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/PagePulse`
-- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/PagePulse.app/Contents/MacOS/PagePulse`
-- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/PagePulse.dmg`
+- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/TrustLens`
+- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/TrustLensVerifier`
+- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/TrustLens.app/Contents/MacOS/TrustLens`
+- `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/TrustLens.dmg`
 
-2. Successful compiler command:
+2. Application compilation:
 
-`swiftc -O -framework AppKit -framework Foundation -framework WebKit -framework UserNotifications Sources/main.swift Sources/PagePulseCompatibility.swift -o PagePulse`
+`swiftc -O -framework AppKit -framework UniformTypeIdentifiers -o TrustLens Sources/TrustLensCore.swift Sources/TrustLensApp.swift Sources/main.swift`
+
+Output: no output. Exit code: `0`.
+
+Verifier compilation:
+
+`swiftc -O -framework AppKit -o TrustLensVerifier Sources/TrustLensCore.swift Sources/TrustLensVerifier.swift`
 
 Output: no output. Exit code: `0`.
 
 3. Packaging:
 
-DMG path: `/Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/PagePulse.dmg`
+`hdiutil create -volname TrustLens -srcfolder TrustLens.app -ov -format UDZO TrustLens.dmg`
 
-`hdiutil` succeeded with exit code `0`:
+Succeeded with:
 
-`created: /Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/PagePulse.dmg`
+`created: /Users/a1111/ai-venture-studio/apps/ventures/trustlens-merchant-investigator/TrustLens.dmg`
 
-The verified root listing contains `PagePulse`, `PagePulse.app`, and `PagePulse.dmg`.
+The root listing confirmed `Sources/`, `TrustLens`, `TrustLensVerifier`, `TrustLens.app/`, and `TrustLens.dmg`.
 
-4. Outstanding issues:
+4. Remaining limitations:
 
-- Hermes failed without producing a response, so the requested deeper multi-file implementation was not completed.
-- No deterministic PagePulse verifi</pre></section>
-  <section><h2 class="section-title">Verification</h2><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_1&quot;,&quot;tool&quot;:&quot;venture_workspace_read&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;path&quot;:&quot;Sources/PagePulse.swift&quot;}}]}</pre></section>
-  <section><h2 class="section-title">Independent review</h2><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_1&quot;,&quot;tool&quot;:&quot;venture_workspace_list&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;path&quot;:&quot;verification-output&quot;}}]}</pre></section>
+- Hermes failed</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">FAIL
+
+1. DMG in workspace root
+
+Command:
+
+```text
+venture_workspace_list {}
+```
+
+Observed root listing included:
+
+```text
+TrustLens.app/
+TrustLens.dmg
+TrustLens
+TrustLensVerifier
+Sources/
+```
+
+`TrustLens.dmg` exists in the workspace root.
+
+2. Source compilation
+
+Command:
+
+```text
+swiftc -O -framework AppKit -framework UniformTypeIdentifiers -o TrustLens Sources/TrustLensCore.swift Sources/TrustLensApp.swift Sources/main.swift
+```
+
+Observed output:
+
+```text
+exit code: 0
+stdout: no output
+stderr: no output
+```
+
+The TrustLens sources compile successfully.
+
+3. Application bundle structure
+
+Commands:
+
+```text
+venture_workspace_list {&quot;path&quot;:&quot;TrustLens.app/Contents&quot;}
+venture_workspace_list {&quot;path&quot;:&quot;TrustLens.app/Contents/MacOS&quot;}
+venture_workspace_read {&quot;path&quot;:&quot;TrustLens.app/Contents/Info.plist&quot;}
+```
+
+Observed:
+
+```text
+TrustLens.app/Contents:
+Info.plist
+MacOS/
+Resources/
+_CodeSignature/
+```
+
+```text
+TrustLens.app/Contents/MacOS:
+TrustLens
+```
+
+The readable `Info.plist` specifies:
+
+```xml
+&lt;key&gt;CFBundleExecutable&lt;/key&gt;
+&lt;string&gt;TrustLens&lt;/string&gt;
+&lt;key&gt;CFBundleName&lt;/key&gt;
+&lt;string&gt;TrustLens&lt;/string&gt;
+```
+
+The required `.app` structure exists.
+
+4. TODO, FIXME, or placeholder text
+
+Files inspected</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_2&quot;,&quot;tool&quot;:&quot;venture_workspace_list&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;path&quot;:&quot;Sources&quot;}}]}</pre></section>
   <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section>
   <section><h2 class="section-title">Posted to social media</h2>
     <div class="social">
