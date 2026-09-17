@@ -1,0 +1,547 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PrivateBlur — AI Venture Studio</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"><style>
+:root{
+  --bg:#0a0e12; --bg2:#12181d; --bg3:#1a2128; --fg:#eef3f5; --mut:#889199; --line:#232b32;
+  --mark:#3fd99a; --weak:#ffb43a; --shadow:0 1px 2px rgba(0,0,0,.45);
+  --shadow-hover:0 24px 48px -20px rgba(0,0,0,.65);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --font-sans:'IBM Plex Sans',ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:light){
+  /* --mark darkened from #0f8a5f (4.35:1 on white, fails WCAG 1.4.3 AA for
+     text) to #0a6b48 (5.4:1) -- found 2026-08-17 auditing the pill/badge text. */
+  :root{--bg:#f5f3ee; --bg2:#ffffff; --bg3:#ece8de; --fg:#14181a; --mut:#5c6367; --line:#dedad0;
+        --mark:#0a6b48; --weak:#a8620a; --shadow:0 1px 2px rgba(20,20,15,.06);
+        --shadow-hover:0 20px 40px -18px rgba(20,20,15,.16)}
+}
+*{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+         clip:rect(0,0,0,0);white-space:nowrap;border:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);
+     font:16px/1.6 var(--font-sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:2.25rem 1.25rem 5rem;position:relative}
+
+/* header */
+.hdr{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
+     padding-bottom:1.4rem;margin-bottom:.4rem}
+.eyebrow{display:inline-flex;align-items:center;gap:.55rem;font:600 .72rem/1 var(--font-mono);
+         letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--mark);flex:none;
+     animation:pulse 2.4s var(--ease) infinite}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 color-mix(in oklab,var(--mark) 55%,transparent)}
+  70%{box-shadow:0 0 0 9px transparent}
+  100%{box-shadow:0 0 0 0 transparent}
+}
+.hdr-meta{font:500 .72rem/1 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+
+/* hero (index only) */
+.hero{position:relative;padding:1.4rem 0 .4rem;overflow:hidden;
+      animation:flicker .5s linear both}
+/* One-shot power-on flicker on the whole hero, first thing that happens --
+   guarantees the "coming online" moment reads even on a static screenshot,
+   since it fires unconditionally on load with no hover/interaction required. */
+@keyframes flicker{
+  0%{opacity:0} 6%{opacity:1} 9%{opacity:.25} 12%{opacity:1}
+  15%{opacity:.4} 19%{opacity:1} 100%{opacity:1}
+}
+.hero .scan{position:absolute;inset:-60% -30% auto -30%;height:180%;z-index:-1;pointer-events:none;
+      background:conic-gradient(from 0deg,transparent 0deg,
+        color-mix(in oklab,var(--weak) 14%,transparent) 6deg,transparent 22deg,transparent 360deg);
+      animation:sweep 11s linear infinite}
+@keyframes sweep{to{transform:rotate(360deg)}}
+/* Boot sequence: the signature moment. This studio's whole premise is a machine
+   working while nobody watches, so the page opening like the machine is coming
+   online -- a status readout, not a title card -- is the one place to spend the
+   "make it feel alive" budget, per the studio brief. Each line is real: it
+   states an actual fact (venture count, build cadence, last run), not filler
+   ellipses.
+   Pure CSS steps() typewriter, timed per-line via an inline --ch (character
+   count) custom property set at render time -- not client-side setTimeout.
+   This was a deliberate rewrite: a prior JS-timer version could not be proven
+   correct because Chrome headless's --force-prefers-reduced-motion flag turned
+   out to be silently ignored in this environment, so every automated check of
+   it was actually exercising the reduced-motion branch without knowing it.
+   CSS animation-delay/duration has no such blind spot -- it's declared, not
+   scheduled, so what ships is what was measured. */
+.boot{font:13px/1.7 var(--font-mono);color:var(--mut);margin:0 0 1.3rem;min-height:5.1em}
+.boot .ln{display:block;overflow:hidden;white-space:nowrap;width:0;
+      animation:typeln var(--dur,.7s) steps(var(--ch,20),end) forwards;
+      animation-delay:var(--d,0s)}
+@keyframes typeln{to{width:var(--w,30ch)}}
+.boot .ln b{color:var(--mark)}
+.boot .caret{display:inline-block;width:.5em;height:1em;background:var(--weak);vertical-align:-.15em;
+      animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.hero h1{margin:0 0 .7rem;font:800 clamp(2rem,4.4vw,2.75rem)/1.12 var(--font-mono);letter-spacing:-.01em;
+      opacity:0;transform:translateY(6px);
+      animation:heroin .6s var(--ease) forwards;animation-delay:var(--hd,2.8s)}
+@keyframes heroin{to{opacity:1;transform:none}}
+.hero p{color:var(--mut);margin:0;max-width:62ch;font-size:1.02rem;
+      opacity:0;animation:heroin .6s var(--ease) forwards;animation-delay:calc(var(--hd,2.8s) + .15s)}
+.lede h1{margin:0 0 .5rem;font:700 1.9rem/1.2 var(--font-mono);letter-spacing:-.01em}
+.lede p{color:var(--mut);margin:0;max-width:62ch}
+
+/* ticker -- the signature element: real build data, always moving */
+.ticker{display:flex;align-items:stretch;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+        background:var(--bg2);overflow:hidden;margin:1.6rem -1.25rem 0}
+.tick-pause{flex:none;border:none;border-right:1px solid var(--line);background:transparent;color:var(--mut);
+        cursor:pointer;padding:0 .9rem;font-family:var(--font-mono);font-size:.9rem;line-height:1;
+        display:flex;align-items:center;min-width:24px;min-height:24px}
+.tick-pause:hover{color:var(--fg);background:color-mix(in oklab,var(--fg) 6%,transparent)}
+.tick-viewport{overflow:hidden;flex:1;min-width:0}
+.tick-track{display:flex;width:max-content;animation:tickscroll 46s linear infinite}
+.ticker.paused .tick-track,.tick-viewport:hover .tick-track{animation-play-state:paused}
+@keyframes tickscroll{to{transform:translateX(-50%)}}
+.tick-seq{display:flex;align-items:center;flex:none}
+.tick-item{display:inline-flex;align-items:baseline;gap:.55rem;white-space:nowrap;
+           font:600 .8rem/1 var(--font-mono);padding:.65rem 1.15rem;color:var(--mut);
+           border-right:1px solid var(--line)}
+.tick-item b{color:var(--fg);font-weight:600}
+.tick-item i{font-style:normal;font-size:.72rem}
+.tick-item i.ok{color:var(--mark)}
+.tick-item i.pending{color:var(--weak)}
+
+/* kpi -- a console panel a pointer can "inspect": a soft light follows the
+   cursor across the readout, like a scanner head passing over the numbers.
+   Plays once automatically on load (self-triggered sweep, driven from JS --
+   animating a custom property's *position* smoothly via @keyframes needs it
+   registered with @property for browsers to interpolate it, which is patchy
+   support for a decorative flourish; a rAF loop setting --mx directly every
+   frame, same technique already used for the KPI count-up below, sidesteps
+   that entirely) so the effect is guaranteed visible even if nobody moves a
+   mouse over it -- a hover-only effect is invisible to a screenshot or a
+   trackpad user who never crosses the panel. Hover hands control to the cursor. */
+.kpi{position:relative;display:flex;gap:2.2rem;flex-wrap:wrap;margin:1.75rem 0 2.75rem;
+     padding:1.15rem 1.4rem;border:1px solid var(--line);border-radius:14px;
+     background:var(--bg2);box-shadow:var(--shadow);overflow:hidden}
+.kpi::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+     background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),
+       color-mix(in oklab,var(--mark) 16%,transparent),transparent 70%);
+     opacity:0;transition:opacity .35s var(--ease)}
+.kpi.sweeping::before,.kpi:hover::before{opacity:1}
+.kpi div{position:relative;z-index:1;display:flex;flex-direction:column;gap:.15rem}
+.kpi b{font:700 1.6rem/1 var(--font-mono);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.kpi span{color:var(--mut);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-mono)}
+
+/* index tiles */
+.tiles{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(330px,1fr))}
+.tile{border:1px solid var(--line);border-radius:14px;background:var(--bg2);
+      box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;
+      text-decoration:none;will-change:transform;
+      opacity:0;transform:translateY(20px);
+      transition:opacity .6s var(--ease),transform .6s var(--ease),
+                 box-shadow .25s var(--ease),border-color .25s var(--ease)}
+.tile.in{opacity:1;transform:translateY(0)}
+.tile.settled{transition:transform .15s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
+.tile:hover{border-color:var(--mark);box-shadow:var(--shadow-hover)}
+.tile:hover .thumb img{transform:scale(1.035)}
+.tile .thumb{position:relative;aspect-ratio:16/10;background:var(--bg3);overflow:hidden;
+             border-bottom:1px solid var(--line)}
+.tile .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
+                  transition:transform .5s var(--ease)}
+/* Real app screenshots are bright native windows; dropped straight onto a dark
+   card they read as a glaring void (found reviewing the actual render 2026-08-17).
+   A fake title-bar strip + a soft top vignette makes even a plain white capture
+   read as "a window sitting in the panel" instead of a hole punched in it. */
+.tile .thumb.has-shot .bar{position:absolute;inset:0 0 auto 0;height:22px;z-index:2;
+      background:var(--bg3);border-bottom:1px solid color-mix(in oklab,var(--fg) 8%,transparent)}
+.tile .thumb.has-shot .bar::before{content:"";position:absolute;top:50%;left:8px;width:6px;height:6px;
+      border-radius:50%;transform:translateY(-50%);background:color-mix(in oklab,var(--mut) 55%,transparent);
+      box-shadow:12px 0 0 color-mix(in oklab,var(--mut) 55%,transparent),
+                 24px 0 0 color-mix(in oklab,var(--mut) 55%,transparent)}
+.tile .thumb.has-shot::after{content:"";position:absolute;inset:0 0 auto 0;height:38%;z-index:1;pointer-events:none;
+      background:linear-gradient(to bottom,color-mix(in oklab,var(--bg2) 55%,transparent),transparent)}
+.tile .thumb.has-shot img{padding-top:22px;box-sizing:border-box;background:var(--bg3)}
+.tile .thumb .sheen{position:absolute;inset:0;pointer-events:none;z-index:2;
+      background:linear-gradient(115deg,transparent 42%,color-mix(in oklab,var(--fg) 14%,transparent) 50%,transparent 58%);
+      transform:translateX(-130%);transition:transform .8s var(--ease)}
+.tile:hover .thumb .sheen{transform:translateX(130%)}
+.tile .thumb.empty{display:grid;place-items:center;color:var(--mut);font-size:.8rem;font-family:var(--font-mono)}
+.tile .body{padding:.9rem 1rem 1.05rem;display:flex;flex-direction:column;gap:.3rem;flex:1}
+.tile h2{margin:0;font-size:1rem;letter-spacing:-.01em;font-family:var(--font-mono);font-weight:600}
+.tile .one{color:var(--mut);font-size:.86rem;margin:0;flex:1}
+.tile .meta{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem;color:var(--mut);font-size:.74rem;margin-top:.4rem}
+.pill{border:1px solid var(--line);border-radius:999px;padding:.15rem .55rem;font:600 .68rem/1.4 var(--font-mono)}
+.pill.ok{color:var(--mark);border-color:color-mix(in oklab,var(--mark) 45%,transparent)}
+.pill.count{color:var(--weak);border-color:color-mix(in oklab,var(--weak) 45%,transparent)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero,.hero .scan,.dot,.tick-track,.boot .caret,.boot .ln{animation:none}
+  .hero{opacity:1}
+  .boot{display:none}
+  .hero h1,.hero p{opacity:1;transform:none;animation:none}
+  .boot .ln{width:auto}
+  .kpi::before{display:none}
+  .tile{opacity:1;transform:none;transition:box-shadow .25s var(--ease),border-color .25s var(--ease)}
+  .tile .thumb img,.tile .thumb .sheen{transition:none}
+  .tile .thumb .sheen{display:none}
+  .tick-pause{display:none}
+}
+
+/* detail */
+.back{display:inline-block;color:var(--mut);text-decoration:none;font-size:.85rem;margin-bottom:1.5rem;
+      font-family:var(--font-mono);padding:.5rem 0;min-height:24px;box-sizing:border-box}
+.back:hover{color:var(--fg)}
+.badges{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0 0}
+.badge{font:600 .74rem/1 var(--font-mono);padding:.4rem .7rem;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
+.badge.ok{color:var(--mark);border-color:color-mix(in oklab,var(--mark) 45%,transparent)}
+.badge.pending{color:var(--weak);border-color:color-mix(in oklab,var(--weak) 45%,transparent)}
+.split{display:grid;gap:2rem;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
+@media (max-width:880px){.split{grid-template-columns:1fr}}
+.shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg3);box-shadow:var(--shadow)}
+.shot img{width:100%;display:block}
+.shot .cap{padding:.5rem .75rem;color:var(--mut);font-size:.75rem;border-top:1px solid var(--line);font-family:var(--font-mono)}
+.dl{display:inline-block;margin-top:1rem;padding:.7rem 1.15rem;border-radius:9px;
+    background:var(--mark);color:#04140d;text-decoration:none;font-weight:700;font-size:.92rem;font-family:var(--font-mono)}
+.dl small{font-weight:400;opacity:.75}
+section{margin-top:2.5rem}
+/* h2 (not h3): detail pages went h1 -> h4 (chart) -> h3 (sections), skipping a
+   level -- fixed 2026-08-17. Both this and .chart-title are h2 now; distinct
+   look comes from the class, not the tag, so nesting stays correct either way. */
+.section-title{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);
+           margin:0 0 .7rem;padding-bottom:.5rem;border-bottom:1px solid var(--line);font-family:var(--font-mono)}
+section p{margin:0 0 .8rem;max-width:70ch}
+pre.note{white-space:pre-wrap;font:13px/1.6 var(--font-mono);
+         background:var(--bg2);border:1px solid var(--line);border-radius:10px;
+         padding:.9rem 1rem;margin:0;overflow-x:auto;color:var(--mut)}
+
+/* benchmark chart */
+.chart{background:var(--bg2);border:1px solid var(--line);border-radius:14px;
+       padding:1.3rem 1.4rem 1.1rem;box-shadow:var(--shadow)}
+.chart-title{margin:0 0 .2rem;font-size:1rem;font-family:var(--font-mono)}
+.chart .sub{color:var(--mut);font-size:.8rem;margin:0 0 1.1rem}
+.row{display:grid;grid-template-columns:6.6rem 1fr 1.6rem;align-items:center;
+     gap:.7rem;margin-bottom:.55rem}
+.row .name{font-size:.82rem;color:var(--mut);text-align:right;font-family:var(--font-mono)}
+.row .track{height:10px;background:var(--bg3);border-radius:4px;position:relative;overflow:hidden}
+.row .fill{position:absolute;inset:0 auto 0 0;border-radius:4px;background:var(--mark);width:0;
+           transition:width 1s var(--ease)}
+.row.in .fill{width:var(--w)}
+.row.low .fill{background:var(--weak)}
+.row .val{font:600 .82rem/1 var(--font-mono);font-variant-numeric:tabular-nums;text-align:right}
+.row .name b{display:block;font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;
+             color:var(--weak);font-weight:700}
+@media (prefers-reduced-motion:reduce){.row .fill{transition:none;width:var(--w)}}
+.legend{display:flex;gap:1.1rem;flex-wrap:wrap;margin-top:.9rem;padding-top:.8rem;
+        border-top:1px solid var(--line);color:var(--mut);font-size:.74rem}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:.35rem;vertical-align:middle}
+table.axes{width:100%;border-collapse:collapse;margin-top:.9rem;font-size:.78rem}
+table.axes td{padding:.28rem 0;color:var(--mut);vertical-align:top}
+table.axes td:first-child{width:7rem;color:var(--fg);font-family:var(--font-mono)}
+footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color:var(--mut);font-size:.8rem}
+
+/* radar: the balance the studio scores on, drawn as the shape it actually is.
+   Draw-on animation is pure CSS from server-computed perimeter; the .in class
+   arrives from the same IntersectionObserver the bars used. */
+.radar-wrap{display:flex;justify-content:center;margin:.4rem 0 .2rem}
+.radar-wrap svg{width:100%;max-width:420px;height:auto}
+.radar .grid{fill:none;stroke:var(--line);stroke-width:1}
+.radar .spoke{stroke:var(--line);stroke-width:1}
+.radar .data{fill:var(--mark);fill-opacity:.16;stroke:var(--mark);stroke-width:2;
+             stroke-linejoin:round}
+.radar .rip{fill:none;stroke:var(--mark);stroke-width:1.5;opacity:0}
+.radar .dot{fill:var(--mark);animation:radar-dot .35s ease both}
+@keyframes radar-dot{from{opacity:0}to{opacity:1}}
+.radar .dot.low{fill:var(--weak)}
+.radar .axl{font:600 11px var(--font-mono);fill:var(--mut)}
+.radar .axl tspan.sc{fill:var(--fg);font-weight:700}
+.radar .axl.low,.radar .axl.low tspan.sc{fill:var(--weak)}
+.radar .axl .flag{font-size:8px;letter-spacing:.06em;text-transform:uppercase}
+.radar .sweepg{animation:radar-sweep-in .6s ease 1.8s both}
+@keyframes radar-sweep-in{from{opacity:0}to{opacity:1}}
+.radar .beam{stroke:var(--mark);stroke-width:1.5;opacity:.55}
+.radar .trail{fill:url(#sweeptrail);opacity:.35}
+@media (prefers-reduced-motion:reduce){
+  .radar .dot{animation:none!important}
+  .radar .sweepg,.radar .rip{display:none}
+  .radar .datag{transform:scale(1)}}
+
+/* what went out on the wire, quoted verbatim */
+.social{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--mark);
+        border-radius:10px;padding:1rem 1.2rem;margin-top:.6rem}
+.social .post{white-space:pre-wrap;font-size:.92rem;line-height:1.55;margin:0}
+.social .stat{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem;padding-top:.7rem;border-top:1px solid var(--line)}
+</style></head>
+<body><div class="wrap">
+<header class="hdr">
+  <span class="eyebrow"><i class="dot" aria-hidden="true"></i>AI Venture Studio</span>
+  <span class="hdr-meta">Autonomous build log</span>
+</header>
+<main><a class="back" href="../index.html">← All ventures</a>
+  <div class="lede"><h1>PrivateBlur</h1><p>PrivateBlur is a native offline macOS privacy-redaction application for parents, online sellers, renters, activists, teachers, and anyone shar…</p>
+    <div class="badges">
+      <span class="badge ok">Shipped</span>
+      <span class="badge">Built in 4h 56m</span>
+      
+      <span class="badge">2026-09-17</span>
+      <span class="badge">8,856,651 tokens · $12.76 api-equiv</span>
+      <span class="badge">Not yet monetized</span>
+    </div>
+  </div>
+  <div class="split" style="margin-top:2rem">
+    <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/privateblur-macos/PrivateBlur.dmg">Download PrivateBlur.dmg <small>1675 KB</small></a>
+       </div>
+    <div><div class="chart">
+    <h2 class="chart-title">Selection benchmarks</h2>
+    <p class="sub">Scored 1–10 on eight perspectives before building. The shape is the
+      point: the studio picks the best <em>balance</em> — a round polygon is a safe bet,
+      a spike is a gamble.</p>
+    <div class="radar-wrap" aria-hidden="true"><svg class="radar" viewBox="0 0 460 340">
+      <defs><linearGradient id="sweeptrail" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="var(--mark)" stop-opacity="0"/>
+        <stop offset="1" stop-color="var(--mark)" stop-opacity=".28"/>
+      </linearGradient></defs>
+      <g transform="translate(230 170)">
+        <polygon class="grid" points="0.0,-29.5 20.9,-20.9 29.5,0.0 20.9,20.9 0.0,29.5 -20.9,20.9 -29.5,0.0 -20.9,-20.9"/><polygon class="grid" points="0.0,-59.0 41.7,-41.7 59.0,0.0 41.7,41.7 0.0,59.0 -41.7,41.7 -59.0,0.0 -41.7,-41.7"/><polygon class="grid" points="0.0,-88.5 62.6,-62.6 88.5,0.0 62.6,62.6 0.0,88.5 -62.6,62.6 -88.5,0.0 -62.6,-62.6"/><polygon class="grid" points="0.0,-118.0 83.4,-83.4 118.0,0.0 83.4,83.4 0.0,118.0 -83.4,83.4 -118.0,0.0 -83.4,-83.4"/>
+        <line class="spoke" x1="0" y1="0" x2="0.0" y2="-118.0"/><line class="spoke" x1="0" y1="0" x2="83.4" y2="-83.4"/><line class="spoke" x1="0" y1="0" x2="118.0" y2="0.0"/><line class="spoke" x1="0" y1="0" x2="83.4" y2="83.4"/><line class="spoke" x1="0" y1="0" x2="0.0" y2="118.0"/><line class="spoke" x1="0" y1="0" x2="-83.4" y2="83.4"/><line class="spoke" x1="0" y1="0" x2="-118.0" y2="0.0"/><line class="spoke" x1="0" y1="0" x2="-83.4" y2="-83.4"/>
+        <circle class="rip" r="0">
+        <animate attributeName="r" values="0;118" dur="2.4s" begin="0.25s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values=".38;0" dur="2.4s" begin="0.25s" repeatCount="indefinite"/>
+      </circle><circle class="rip" r="0">
+        <animate attributeName="r" values="0;118" dur="2.4s" begin="1.45s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values=".38;0" dur="2.4s" begin="1.45s" repeatCount="indefinite"/>
+      </circle>
+        <g class="sweepg">
+          <path class="trail" d="M 0 0 L 118 0 A 118 118 0 0 0 97.4 -66.6 Z"/>
+          <line class="beam" x1="0" y1="0" x2="118" y2="0"/>
+          <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="5s" begin="1.6s" repeatCount="indefinite"/>
+        </g>
+        <g class="datag" transform="scale(0)"><animateTransform attributeName="transform" type="scale" values="0;1.07;1" keyTimes="0;0.72;1" calcMode="spline" keySplines="0.2 0.7 0.3 1;0.4 0 0.6 1" dur="1.1s" begin="0.25s" fill="freeze"/><polygon class="data" points="0.0,-82.6 66.8,-66.8 82.6,0.0 66.8,66.8 0.0,94.4 -58.4,58.4 -106.2,0.0 -75.1,-75.1"/><circle class="dot low" cx="0.0" cy="-82.6" r="4" style="animation-delay:1.00s"/><circle class="dot" cx="66.8" cy="-66.8" r="4" style="animation-delay:1.07s"/><circle class="dot low" cx="82.6" cy="0.0" r="4" style="animation-delay:1.14s"/><circle class="dot" cx="66.8" cy="66.8" r="4" style="animation-delay:1.21s"/><circle class="dot" cx="0.0" cy="94.4" r="4" style="animation-delay:1.28s"/><circle class="dot low" cx="-58.4" cy="58.4" r="4" style="animation-delay:1.35s"/><circle class="dot" cx="-106.2" cy="0.0" r="4" style="animation-delay:1.42s"/><circle class="dot" cx="-75.1" cy="-75.1" r="4" style="animation-delay:1.49s"/></g>
+      </g>
+      <text class="axl low" x="230.0" y="32.0" text-anchor="middle">profit <tspan class="sc">7</tspan><tspan class="flag" x="230.0" dy="11">weakest</tspan></text><text class="axl" x="330.4" y="73.6" text-anchor="start">change <tspan class="sc">8</tspan></text><text class="axl low" x="372.0" y="174.0" text-anchor="start">effort <tspan class="sc">7</tspan><tspan class="flag" x="372.0" dy="11">weakest</tspan></text><text class="axl" x="330.4" y="274.4" text-anchor="start">viability <tspan class="sc">8</tspan></text><text class="axl" x="230.0" y="316.0" text-anchor="middle">future <tspan class="sc">8</tspan></text><text class="axl low" x="129.6" y="274.4" text-anchor="end">market <tspan class="sc">7</tspan><tspan class="flag" x="129.6" dy="11">weakest</tspan></text><text class="axl" x="88.0" y="174.0" text-anchor="end">population <tspan class="sc">9</tspan></text><text class="axl" x="129.6" y="73.6" text-anchor="end">availability <tspan class="sc">9</tspan></text>
+    </svg></div>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>score shape — rounder is safer</span>
+      <span><i style="background:var(--weak)"></i>weakest perspective — the reason this venture is risky</span>
+    </div>
+    <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 7/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 7/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 8/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 7/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 9/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 9/10</td></tr></table>
+  </div></div>
+  </div>
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">PrivateBlur is a native offline macOS privacy-redaction application for parents, online sellers, renters, activists, teachers, and anyone sharing photos or screenshots. The painful problem is that manually finding and concealing every face, address, license plate, QR code, email address, phone number, and account identifier across many images is slow and dangerously easy to get wrong. The value proposition is private on-device detection, a visual confirmation workflow, batch-safe pixel redaction, and exportable sanitized copies without uploading sensitive media.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build the useful shippable PrivateBlur tool as a genuine AppKit macOS application compiled with swiftc alone and packaged as a .dmg. It will accept folders, dragged images, PDFs, and screenshots; render PDF pages when needed; use Vision to detect faces, text, barcodes, and QR codes; apply pattern recognition to OCR text for emails, phone numbers, addresses, account-like identifiers, and license plates; show per-file progress and actionable errors; present an interactive canvas where detections can be accepted, rejected, resized, or added manually; support blur, pixelation, and solid-mask styles; preserve originals; export sanitized JPEG, PNG, or flattened PDF copies plus an optional non-sensitive processing manifest; and persist detector, confidence, output, and redaction-style settings between launches. Verification will use messy fixtures including rotated images, screenshots, multi-page scanned PDFs, low-contrast text, multiple faces, and images with no detections.</pre></section>
+  <section><h2 class="section-title">Market and user research</h2><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_1&quot;,&quot;tool&quot;:&quot;venture_workspace_write&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;path&quot;:&quot;MARKET_ANALYSIS.md&quot;,&quot;content&quot;:&quot;# PrivateBlur Commercial Market Analysis\n\nAll numerical figures below are **ESTIMATES** based on domain knowledge, not checked market sources. Qualitative market claims are labeled as inference where appropriate.\n\n## 1. MARKET SIZE\n\n### Plausible buyers\n\nPrivateBlur’s plausible paying market is narrower than everyone who shares images. It consists mainly of Mac users who repeatedly publish or distribute images containing personal information and who care enough about privacy, speed, or offline processing to pay for a dedicated tool.\n\nThree plausible buyer pools:\n\n1. **Privacy-conscious households and individual sellers** — parents sharing school or family photos, people listing goods or vehicles, renters submitting documents, and people posting screenshots.\n2. **Small organizations and independent professionals** — teachers, therapists, property managers, journalists, researchers, legal-support workers, and nonprofit staff handling identifiable images without a full enterprise compliance stack.\n3. **Operational teams with recurring batches** — schools, small clinics, community organizations, real-estate offices, marketplace sellers, and documentation teams that routinely sanitize photos or screenshots.\n\n### Bottom-up estimate\n\n**ESTIMATE:** Apple’s active Mac installed base is roughly 100–150 million devices worldwide. Use a midpoint of **125 million Macs** for arithmetic.\n\n- **ESTIMATE:** 60% are controlled by users or small organizations able to install or purchase a utility: 125M × 60% = **75M addressable Macs**.\n- **ESTIMATE:** 12% of those users redact an image, screenshot, or PDF at least several times per year: 75M × 12%</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">1. Created or updated:
+
+- `/Users/a1111/ai-venture-studio/apps/ventures/privateblur-macos/Sources/MainViewController.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/privateblur-macos/Sources/PrivateBlurCore.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/privateblur-macos/Sources/RedactionCanvas.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/privateblur-macos/Tests/CoreTests.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/privateblur-macos/PrivateBlur`
+- `/Users/a1111/ai-venture-studio/apps/ventures/privateblur-macos/CoreTests`
+- `/Users/a1111/ai-venture-studio/apps/ventures/privateblur-macos/PrivateBlur.app/Contents/MacOS/PrivateBlur`
+- `/Users/a1111/ai-venture-studio/apps/ventures/privateblur-macos/PrivateBlur.app/Contents/Info.plist`
+- `/Users/a1111/ai-venture-studio/apps/ventures/privateblur-macos/PrivateBlur.dmg`
+
+2. Final compilation:
+
+`swiftc -O -framework AppKit -framework Vision -framework PDFKit -framework CoreImage -framework UniformTypeIdentifiers -o PrivateBlur Sources/AppDelegate.swift Sources/MainViewController.swift Sources/PrivateBlurCore.swift Sources/RedactionCanvas.swift Sources/main.swift`
+
+Exit code: `0`  
+Compiler output: no outpu</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">FAIL
+
+1. Root-level DMG
+
+Command: `venture_workspace_list` on the workspace root.
+
+Observed output:
+
+```text
+Build
+CoreTests
+Fixtures
+PageSentry
+PageSentry.app
+PageSentry.dmg
+PageSentry.verify
+PrivateBlur
+PrivateBlur.app
+PrivateBlur.dmg
+PrivateBlur.verify
+Sources
+Tests
+```
+
+`PageSentry.dmg` exists in the workspace root.
+
+2. Source compilation
+
+Command:
+
+```text
+swiftc Build/main.swift Sources/PageSentryCompatibility.swift -O -framework AppKit -framework UserNotifications -o PageSentry.verify
+```
+
+Observed output:
+
+```text
+Exit code: 0
+stdout: no output
+stderr: no output
+```
+
+The PageSentry build sources compile successfully.
+
+3. Application bundle
+
+Command: `venture_workspace_list PageSentry.app/Contents`
+
+Observed output:
+
+```text
+Info.plist
+MacOS
+```
+
+Command: `venture_workspace_list PageSentry.app/Contents/MacOS`
+
+Observed output:
+
+```text
+PageSentry
+```
+
+The `.app` contains `Contents/Info.plist`, `Contents/MacOS`, and the `PageSentry` executable.
+
+4. TODO, FIXME, or placeholder text
+
+Commands:
+
+```text
+venture_workspace_read Sources/PageSentry.swift
+venture_workspace_read Sources/PageSentryCompatibility.swift
+venture_workspace_read Build/main.swift
+```
+
+Observed output: no `TOD</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">{
+  &quot;decision&quot;: &quot;REWORK&quot;,
+  &quot;scores&quot;: {
+    &quot;profit&quot;: 5,
+    &quot;change&quot;: 6,
+    &quot;effort&quot;: 5,
+    &quot;viability&quot;: 5,
+    &quot;future&quot;: 6,
+    &quot;market&quot;: 6,
+    &quot;population&quot;: 6,
+    &quot;availability&quot;: 4
+  },
+  &quot;assessment&quot;: {
+    &quot;product_value&quot;: &quot;PageSentry solves a credible recurring problem by detecting meaningful changes to public pages while keeping monitoring data local.&quot;,
+    &quot;willingness_to_pay&quot;: &quot;Researchers, compliance teams, recruiters, and operators may pay for reliable monitoring and evidence export, but no verified customer, retention, recommendation, or payment evidence was provided.&quot;,
+    &quot;mvp_focus&quot;: &quot;The PageSentry scope is coherent, but the submitted build report primarily describes PrivateBlur source files, frameworks, tests, application bundle, and DMG. That product does not satisfy the PageSentry specification.&quot;,
+    &quot;functional_correctness&quot;: &quot;Earlier independent inspection found a compiling PageSentry implementation with substantial functionality. However, configurable schedules, an actual user-facing region-selection and selector-generation workflow, and redirect-destination throttling remained incomplete. GUI, notification, export, and runtime behavior were not exercised.</pre></section>
+  <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section>
+  </main>
+<footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
+built as a native macOS app, verified and packaged each morning. Installers are unsigned:
+right-click → Open on first launch. <a href="../index.html">All ventures</a></footer>
+</div><script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Boot sequence and hero reveal are pure CSS (steps() typewriter timed via
+  // an inline --ch/--d set at render time) -- no JS timing here at all. See
+  // the .boot rule for why: a JS setTimeout version was previously "verified"
+  // against a headless Chrome flag that turned out to be silently ignored, so
+  // nothing about its timing was actually proven. Declarative CSS animation
+  // has no such blind spot.
+
+  // KPI panel: a soft light follows the pointer, like a scanner head reading
+  // the numbers. Runs once automatically after the boot sequence finishes
+  // (matching --hd) so it's visible without requiring a mouse to cross it --
+  // same reasoning as the hero flicker. Real hover afterward takes over via
+  // live mousemove tracking. Off entirely under reduced motion.
+  var kpi = document.querySelector('.kpi');
+  if (!reduced && kpi) {
+    var setGlow = function(pct){ kpi.style.setProperty('--mx', pct + '%'); kpi.style.setProperty('--my', '50%') };
+    setTimeout(function(){
+      var start = null, dur = 1500;
+      kpi.classList.add('sweeping');
+      requestAnimationFrame(function step(t){
+        if (start === null) start = t;
+        var p = Math.min(1, (t - start) / dur);
+        setGlow((1 - Math.pow(1 - p, 2)) * 100);
+        if (p < 1) requestAnimationFrame(step);
+        else setTimeout(function(){ kpi.classList.remove('sweeping') }, 300);
+      });
+    }, 3000);
+    if (matchMedia('(hover: hover)').matches) {
+      kpi.addEventListener('mousemove', function(e){
+        var r = kpi.getBoundingClientRect();
+        kpi.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        kpi.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      });
+    }
+  }
+
+  if (!reduced) document.querySelectorAll('.kpi b').forEach(function(el, i){
+    var raw = el.textContent, m = raw.match(/^([$]?)([\d.,]+)(.*)$/);
+    if (!m) return;
+    var prefix = m[1], target = parseFloat(m[2].replace(/,/g,'')), suffix = m[3];
+    if (!isFinite(target)) return;
+    var dp = (m[2].split('.')[1] || '').length;
+    var start = null, dur = 700, delay = i * 70;
+    el.textContent = prefix + (0).toFixed(dp) + suffix;
+    requestAnimationFrame(function step(t){
+      if (start === null) start = t + delay;
+      var p = Math.min(1, Math.max(0, (t - start) / dur));
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = target * eased;
+      el.textContent = prefix + val.toFixed(dp).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + suffix;
+      if (p < 1) requestAnimationFrame(step); else el.textContent = raw;
+    });
+  });
+
+  var tiles = document.querySelectorAll('.tile');
+  var rows = document.querySelectorAll('.row');
+  if (reduced || !('IntersectionObserver' in window)) {
+    tiles.forEach(function(t){ t.classList.add('in', 'settled') });
+    rows.forEach(function(r){ r.classList.add('in') });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        if (e.target.classList.contains('tile')) {
+          e.target.addEventListener('transitionend', function once(ev){
+            if (ev.propertyName !== 'transform') return;
+            e.target.classList.add('settled');
+            e.target.removeEventListener('transitionend', once);
+          });
+        }
+        io.unobserve(e.target);
+      });
+    }, { threshold: .15, rootMargin: '0px 0px -40px 0px' });
+    tiles.forEach(function(t){ io.observe(t) });
+    rows.forEach(function(r){ io.observe(r) });
+  }
+
+  if (!reduced && matchMedia('(hover: hover)').matches) {
+    tiles.forEach(function(t){
+      t.addEventListener('mousemove', function(e){
+        if (!t.classList.contains('settled')) return;
+        var r = t.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+        t.style.transform = 'perspective(900px) rotateX(' + (py * -6) + 'deg) rotateY(' + (px * 6) + 'deg) translateY(-3px)';
+      });
+      t.addEventListener('mouseleave', function(){ t.style.transform = '' });
+    });
+  }
+
+  var pauseBtn = document.querySelector('.tick-pause');
+  if (pauseBtn) pauseBtn.addEventListener('click', function(){
+    var on = pauseBtn.closest('.ticker').classList.toggle('paused');
+    pauseBtn.setAttribute('aria-pressed', String(on));
+    pauseBtn.innerHTML = on ? '&#9654;' : '&#10073;&#10073;';
+  });
+})();
+</script></body></html>
