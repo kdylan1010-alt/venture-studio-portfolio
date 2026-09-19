@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[PrivateBlur](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/privateblur-macos.html)** | PrivateBlur is a native macOS privacy-redaction tool for ordinary people who need to share… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/privateblur-macos/PrivateBlur.dmg) <br><sub>1675 KB · built in 8h 49m over 2 runs</sub> |
+| **[PrivateBlur](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/privateblur-macos.html)** | PrivateBlur is a native macOS privacy tool for ordinary people sharing images or PDFs who need… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/privateblur-macos/PrivateBlur.dmg) <br><sub>1672 KB · built in 11h 17m over 3 runs</sub> |
 | **[TrustLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html)** | TrustLens Merchant Investigator helps ordinary online shoppers investigate unfamiliar merchants… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg) <br><sub>1392 KB · built in 32h 44m over 12 runs</sub> |
 | **[Watchtower](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/recall-match.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/recall-match/Watchtower.dmg) <br><sub>1624 KB</sub> |
 | **[TripClaim](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tripclaim.html)** | TripClaim, for ordinary airline passengers dealing with cancellations, long delays, or missed… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tripclaim/TripClaim.dmg) <br><sub>194 KB · built in 2h 30m</sub> |
@@ -95,7 +95,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
-- **2026-09-17** — MODIFY <sub>(PrivateBlur)</sub>
+- **2026-09-19** — MODIFY <sub>(PrivateBlur)</sub>
 - **2026-09-17** — MODIFY <sub>(TrustLens)</sub>
 - **2026-09-02** — MODIFY <sub>(TripClaim)</sub>
 - **2026-08-31** — STOP <sub>(BillLens)</sub>
@@ -107,6 +107,16 @@ the running log, newest first.
 - **2026-08-25** — MODIFY <sub>(RecallAtlas)</sub>
 - **2026-08-24** — MODIFY <sub>(BillLens)</sub>
 - **2026-08-23** — BUILD <sub>(InsuranceRenewalShockMonitor)</sub>
+
+---
+
+## On the wire
+
+What the studio announced publicly when each app shipped — posted to
+[Mastodon](https://mastodon.social/@ai_venture_studio) by the pipeline itself.
+
+> ANNOUNCE_SKIP: No run report was provided, so a verified downloadable artifact cannot be confirmed.
+> <sub>— posted for **PrivateBlur**, 2026-09-19</sub>
 
 ---
 
