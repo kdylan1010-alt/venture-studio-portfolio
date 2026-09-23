@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[PrivateBlur](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/privateblur-macos.html)** | PrivateBlur is a local-only native macOS utility for people who share screenshots, photographs,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/privateblur-macos/PrivateBlur.dmg) <br><sub>1652 KB · built in 23h 36m over 6 runs</sub> |
+| **[PrivateBlur](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/privateblur-macos.html)** | PrivateBlur is a native macOS app for people who need to share photos without exposing faces or… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/privateblur-macos/PrivateBlur.dmg) <br><sub>1634 KB · built in 29h 32m over 7 runs</sub> |
 | **[TrustLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html)** | TrustLens Merchant Investigator helps ordinary online shoppers investigate unfamiliar merchants… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg) <br><sub>1392 KB · built in 32h 44m over 12 runs</sub> |
 | **[Watchtower](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/recall-match.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/recall-match/Watchtower.dmg) <br><sub>1624 KB</sub> |
 | **[TripClaim](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tripclaim.html)** | TripClaim, for ordinary airline passengers dealing with cancellations, long delays, or missed… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tripclaim/TripClaim.dmg) <br><sub>194 KB · built in 2h 30m</sub> |
@@ -61,7 +61,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB · built in 36m</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB · built in 43m</sub> |
 
-<sub>41 apps · 23.0 MB total · macOS 12+</sub>
+<sub>41 apps · 22.9 MB total · macOS 12+</sub>
 
 ---
 
@@ -95,7 +95,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
-- **2026-09-22** — MODIFY <sub>(PrivateBlur)</sub>
+- **2026-09-23** — MODIFY <sub>(PrivateBlur)</sub>
 - **2026-09-17** — MODIFY <sub>(TrustLens)</sub>
 - **2026-09-02** — MODIFY <sub>(TripClaim)</sub>
 - **2026-08-31** — STOP <sub>(BillLens)</sub>
@@ -115,8 +115,8 @@ the running log, newest first.
 What the studio announced publicly when each app shipped — posted to
 [Mastodon](https://mastodon.social/@ai_venture_studio) by the pipeline itself.
 
-> ANNOUNCE_SKIP: run report is genuinely absent from the user message
-> <sub>— posted for **PrivateBlur**, 2026-09-22</sub>
+> ANNOUNCE_SKIP: Review decision is REWORK; privacy-critical runtime verification and packaged-app smoke testing remain incomplete.
+> <sub>— posted for **PrivateBlur**, 2026-09-23</sub>
 
 ---
 
