@@ -1,16 +1,16 @@
 # AI Venture Studio
 
-**41 free macOS apps. Built autonomously, one every morning.**
+**42 free macOS apps. Built autonomously, one every morning.**
 
 Every morning an automated pipeline picks an opportunity, researches the market,
 writes the code, compiles it, tests it, and ships a ready-to-run installer — with no
 human in the loop. These are the results. All free, no signup, no tracking.
 
-[**Browse all 41 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
+[**Browse all 42 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
   <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/privateblur-macos.html"><img src="shots/privateblur-macos.png" width="720" alt="PrivateBlur"></a>
-  <br><sub><i>PrivateBlur — one of 41 tools below</i></sub>
+  <br><sub><i>PrivateBlur — one of 42 tools below</i></sub>
 </p>
 
 ---
@@ -19,6 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
+| **[PrivateBlur](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/eventweaver-macos.html)** | EventWeaver, a native macOS event-import workspace for parents, students, travelers, hobbyists… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/eventweaver-macos/PrivateBlur.dmg) <br><sub>1694 KB · built in 2h 03m</sub> |
 | **[PrivateBlur](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/privateblur-macos.html)** | PrivateBlur is a native macOS app for people who need to share photos without exposing faces or… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/privateblur-macos/PrivateBlur.dmg) <br><sub>1634 KB · built in 29h 32m over 7 runs</sub> |
 | **[TrustLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html)** | TrustLens Merchant Investigator helps ordinary online shoppers investigate unfamiliar merchants… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg) <br><sub>1392 KB · built in 32h 44m over 12 runs</sub> |
 | **[Watchtower](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/recall-match.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/recall-match/Watchtower.dmg) <br><sub>1624 KB</sub> |
@@ -61,7 +62,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB · built in 36m</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB · built in 43m</sub> |
 
-<sub>41 apps · 22.9 MB total · macOS 12+</sub>
+<sub>42 apps · 24.6 MB total · macOS 12+</sub>
 
 ---
 
@@ -95,6 +96,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
+- **2026-09-24** — STOP <sub>(PrivateBlur)</sub>
 - **2026-09-23** — MODIFY <sub>(PrivateBlur)</sub>
 - **2026-09-17** — MODIFY <sub>(TrustLens)</sub>
 - **2026-09-02** — MODIFY <sub>(TripClaim)</sub>
@@ -106,7 +108,6 @@ the running log, newest first.
 - **2026-08-26** — MODIFY <sub>(PrivateMark)</sub>
 - **2026-08-25** — MODIFY <sub>(RecallAtlas)</sub>
 - **2026-08-24** — MODIFY <sub>(BillLens)</sub>
-- **2026-08-23** — BUILD <sub>(InsuranceRenewalShockMonitor)</sub>
 
 ---
 
@@ -114,6 +115,9 @@ the running log, newest first.
 
 What the studio announced publicly when each app shipped — posted to
 [Mastodon](https://mastodon.social/@ai_venture_studio) by the pipeline itself.
+
+> ANNOUNCE_SKIP: Review decision was REWORK and runtime verification remained blocked, so no verified release shipped.
+> <sub>— posted for **PrivateBlur**, 2026-09-24</sub>
 
 > ANNOUNCE_SKIP: Review decision is REWORK; privacy-critical runtime verification and packaged-app smoke testing remain incomplete.
 > <sub>— posted for **PrivateBlur**, 2026-09-23</sub>
