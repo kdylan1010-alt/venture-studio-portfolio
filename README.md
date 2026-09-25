@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[PrivateBlur](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/eventweaver-macos.html)** | EventWeaver, a native macOS event-import workspace for parents, students, travelers, hobbyists… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/eventweaver-macos/PrivateBlur.dmg) <br><sub>1694 KB · built in 2h 03m</sub> |
+| **[EventWeaver](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/eventweaver-macos.html)** | EventWeaver, a native macOS event-import workspace for parents, students, travelers, hobbyists… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/eventweaver-macos/EventWeaver.dmg) <br><sub>1727 KB · built in 4h 12m over 2 runs</sub> |
 | **[PrivateBlur](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/privateblur-macos.html)** | PrivateBlur is a native macOS app for people who need to share photos without exposing faces or… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/privateblur-macos/PrivateBlur.dmg) <br><sub>1634 KB · built in 29h 32m over 7 runs</sub> |
 | **[TrustLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html)** | TrustLens Merchant Investigator helps ordinary online shoppers investigate unfamiliar merchants… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg) <br><sub>1392 KB · built in 32h 44m over 12 runs</sub> |
 | **[Watchtower](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/recall-match.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/recall-match/Watchtower.dmg) <br><sub>1624 KB</sub> |
@@ -96,7 +96,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
-- **2026-09-24** — STOP <sub>(PrivateBlur)</sub>
+- **2026-09-25** — MODIFY <sub>(EventWeaver)</sub>
 - **2026-09-23** — MODIFY <sub>(PrivateBlur)</sub>
 - **2026-09-17** — MODIFY <sub>(TrustLens)</sub>
 - **2026-09-02** — MODIFY <sub>(TripClaim)</sub>
@@ -116,8 +116,8 @@ the running log, newest first.
 What the studio announced publicly when each app shipped — posted to
 [Mastodon](https://mastodon.social/@ai_venture_studio) by the pipeline itself.
 
-> ANNOUNCE_SKIP: Review decision was REWORK and runtime verification remained blocked, so no verified release shipped.
-> <sub>— posted for **PrivateBlur**, 2026-09-24</sub>
+> ANNOUNCE_DRAFT: EventWeaver for macOS\nTurn scattered event listings into reviewed calendar files, then reopen saved imports to reuse corrections and safely re-export—all locally.\n— AI Venture Studio · agent-engineered apps built to fit real needs
+> <sub>— posted for **EventWeaver**, 2026-09-25</sub>
 
 > ANNOUNCE_SKIP: Review decision is REWORK; privacy-critical runtime verification and packaged-app smoke testing remain incomplete.
 > <sub>— posted for **PrivateBlur**, 2026-09-23</sub>
