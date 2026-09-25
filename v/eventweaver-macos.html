@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PrivateBlur — AI Venture Studio</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<title>EventWeaver — AI Venture Studio</title><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"><style>
 :root{
@@ -276,18 +276,18 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>PrivateBlur</h1><p>EventWeaver, a native macOS event-import workspace for parents, students, travelers, hobbyists and community participants who repeatedly encou…</p>
+  <div class="lede"><h1>EventWeaver</h1><p>EventWeaver, a native macOS event-import workspace for parents, students, travelers, hobbyists and community participants who repeatedly encou…</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      <span class="badge">Built in 2h 3m</span>
-      
-      <span class="badge">2026-09-24</span>
-      <span class="badge">3,154,138 tokens · $4.53 api-equiv</span>
+      <span class="badge">Built in 2h 9m</span>
+      <span class="badge">4h 12m total across 2 runs</span>
+      <span class="badge">2026-09-25</span>
+      <span class="badge">10,018,556 tokens · $13.98 api-equiv</span>
       <span class="badge">Not yet monetized</span>
     </div>
   </div>
   <div class="split" style="margin-top:2rem">
-    <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/eventweaver-macos/PrivateBlur.dmg">Download PrivateBlur.dmg <small>1694 KB</small></a>
+    <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/eventweaver-macos/EventWeaver.dmg">Download EventWeaver.dmg <small>1727 KB</small></a>
        </div>
     <div><div class="chart">
     <h2 class="chart-title">Selection benchmarks</h2>
@@ -326,77 +326,155 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   </div></div>
   </div>
   <section><h2 class="section-title">The opportunity</h2><pre class="note">EventWeaver, a native macOS event-import workspace for parents, students, travelers, hobbyists and community participants who repeatedly encounter events scattered across inconsistent webpages. The painful problem is manually copying dates, time zones, locations and descriptions into Calendar while catching duplicate or conflicting listings. Its value proposition is to accept a batch of URLs or pasted page content, extract and normalize events, present low-confidence fields for quick correction, deduplicate the collection and export a standards-compliant .ics file ready for Calendar.</pre></section>
-  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build the useful EventWeaver macOS application as a polished AppKit product compiled with swiftc alone: batch URL and pasted-content intake; concurrent URLSession fetching with WebKit fallback; JSON-LD, HTML and natural-language event extraction; confidence-aware review; duplicate and conflict resolution; persistent source history and user corrections; progress, cancellation, empty and actionable error states; an SF Symbols-based native interface following the macos-app-design guidance; and validated .ics export that opens in Apple Calendar. Exercise it against varied saved and reachable pages, malformed dates, time zones, recurring events, duplicate listings and network failures, then package the verified application as a .dmg.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Improve the existing EventWeaver application in place with a polished Recent Imports feature that persists completed import sessions, lets users reopen a prior collection with its sources, corrections, deduplication decisions, and export status intact, and supports rerunning or re-exporting it. Preserve the existing batch URL and pasted-content intake, extraction, review, deduplication, and validated .ics workflow; add clear empty, loading, recovery, and error states; verify persistence across relaunches; and rebuild the distributable .dmg.</pre></section>
   <section><h2 class="section-title">Market and user research</h2><pre class="note">## 1. MARKET SIZE
 
-All figures below are **ESTIMATES based on inference**, not checked market data.
+All figures below are **ESTIMATES** based on domain knowledge and inference; no current market sources were checked.
 
-Plausible initial buyers are English-speaking Mac users who repeatedly consolidate events from unrelated websites and cannot rely on a shared calendar feed or consistent “Add to Calendar” links.
+The plausible buyer is not everyone who uses a calendar. It is a Mac user who repeatedly converts several unstructured event sources into calendar entries and cares enough about accuracy to review the result.
 
-Bottom-up annual market:
+Bottom-up annual market estimate:
 
-- **ESTIMATE:** 130 million active Mac users worldwide.
-- **ESTIMATE:** 35% regularly organize calendars rather than only receiving invitations: 45.5 million.
-- **ESTIMATE:** 12% encounter scattered online events at least monthly: 5.46 million.
-- **ESTIMATE:** 15% experience enough volume or complexity to consider dedicated software: approximately 819,000 plausible buyers.
-- **ESTIMATE:** At a $29 one-time price, the theoretical addressable consumer revenue is approximately **$23.8 million** before taxes, platform fees, support costs, and regional pricing.
+- **ESTIMATE:** 100 million active Mac users in commercially reachable markets.
+- **ESTIMATE:** 20% regularly manage schedules for a family, club, school, travel group, or small organization = 20 million.
+- **ESTIMATE:** 10% encounter messy event sources at least monthly = 2 million relevant users.
+- **ESTIMATE:** 15% would consider dedicated software instead of continuing manually or using general-purpose AI = 300,000 plausible buyers.
+- At an **ESTIMATED $29 one-time price**, the resulting consumer revenue pool is approximately **$8.7 million per purchasing cycle**.
 
-A more realistic reachable market is smaller:
+A narrower coordinator market may be more commercially attractive:
 
-- **ESTIMATE:** 50,000 relevant visitors could be reached annually through App Store discovery, search content, recommendations, and communities.
-- **ESTIMATE:** 4% visitor-to-purchase conversion produces 2,000 annual purchases.
-- 2,000 × $29 = **$58,000 estimated annual gross sales**.
-- At stronger product-market fit, 15,000 annual purchases would generate **$435,000 estimated annual gross sales**.
+- **ESTIMATE:** 1 million Mac-using coordinators across schools, clubs, volunteer groups, tournaments, conferences, and small organizations.
+- **ESTIMATE:** 10% have recurring multi-source import pain = 100,000 qualified users.
+- **ESTIMATE:** 20% could purchase at **$79 per year** if reliability is demonstrated = 20,000 paying coordinators.
+- This produces an **ESTIMATED $1.58 million annual recurring revenue pool**.
 
-Organizations represent a secondary market. **ESTIMATE:** 20,000–60,000 small associations, schools, travel planners, event coordinators, and administrative teams could plausibly use a recurring batch-import workflow. Capturing 500 organizations at **$149 annually** would produce **$74,500 in annual recurring revenue**.
+These populations overlap and should not be added together. A realistic serviceable obtainable market for a small Mac-only product is initially **ESTIMATED at 3,000–10,000 paying users**, supporting approximately **$90,000–$500,000 in annualized revenue**, depending on the consumer/coordinator mix.
 
-These consumer and organizational estimates should not be added indiscriminately because users and use cases may overlap.
+## 2. USER RESEARCH
 
-## 2. USER RESEA</pre></section>
-  <section><h2 class="section-title">What was built</h2><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_1&quot;,&quot;tool&quot;:&quot;venture_workspace_write&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;path&quot;:&quot;Sources/Main.swift&quot;,&quot;content&quot;:&quot;import AppKit\nimport PDFKit\nimport Vision\nimport UniformTypeIdentifiers\nimport ImageIO\n\nstruct Redaction: Codable, Equatable {\n    var rect: CGRect\n    var enabled: Bool = true\n    var confidence: Float\n    var category: String\n}\n\nfinal class PageItem {\n    let image: CGImage\n    var regions: [Redaction] = [] { didSet { if oldValue != regions { reviewed = false } } }\n    var reviewed = false\n    init(image: CGImage) { self.image = image }\n}\n\nfinal class DocumentItem {\n    let displayName: String\n    let pages: [PageItem]\n    init(displayName: String, pages: [PageItem]) { self.displayName = displayName; self.pages = pages }\n}\n\nenum PrivateBlurCore {\n    static func uniqueURL(in directory: URL, base: String, ext: String, forbidden: Set&lt;URL&gt; = []) -&gt; URL {\n        var index = 0\n        while true {\n            let suffix = index == 0 ? \&quot;\&quot; : \&quot;-\\(index + 1)\&quot;\n            let candidate = directory.appendingPathComponent(base + suffix).appendingPathExtension(ext)\n            if !FileManager.default.fileExists(atPath: candidate.path)</pre></section>
-  <section><h2 class="section-title">Verification</h2><pre class="note">FAIL
+These segments and behaviors</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">1. Created:
 
-1. Workspace-root DMG
+- `/Users/a1111/ai-venture-studio/apps/ventures/eventweaver-macos/Sources/Main.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/eventweaver-macos/Sources/Compatibility.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/eventweaver-macos/Build/main.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/eventweaver-macos/EventWeaver`
+- `/Users/a1111/ai-venture-studio/apps/ventures/eventweaver-macos/EventWeaver.app/Contents/MacOS/EventWeaver`
+- `/Users/a1111/ai-venture-studio/apps/ventures/eventweaver-macos/EventWeaver.app/Contents/Info.plist`
+- `/Users/a1111/ai-venture-studio/apps/ventures/eventweaver-macos/EventWeaver.dmg`
 
-- Command: `venture_workspace_list` on `.`
-- Output observed:
-  - `PrivateBlur`
-  - `PrivateBlur.app/`
-  - `PrivateBlur.dmg`
-  - `RESEARCH_SOURCES.md`
-  - `Sources/`
-- Result: `PrivateBlur.dmg` exists in the workspace root.
+2. Successful compile command:
+
+```text
+swiftc -O -enable-bare-slash-regex -target arm64-apple-macosx13.0 -framework AppKit -framework UniformTypeIdentifiers -o EventWeaver Sources/Compatibility.swift Build/main.swift
+```
+
+Compiler output: no output. Exit code: `0`.
+
+3. DMG packaging:
+
+```text
+hdiutil create -volname EventWeaver -srcfolder EventWeaver.app -ov -format UDZO EventWeaver.dmg
+```
+
+Succeeded with:
+
+```text
+created: /Users/a1111/ai-venture-studio/apps/ventures/eventweaver-macos/EventWeaver.dmg
+```
+
+4. Final root listing confirmed:</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">PASS
+
+1. Root DMG
+
+Command: `venture_workspace_list` on workspace root.
+
+Output:
+
+```text
+Build
+EventWeaver
+EventWeaver.app
+EventWeaver.dmg
+PrivateBlur
+PrivateBlur.app
+PrivateBlur.dmg
+PrivateBlur.verify-build
+README.md
+RESEARCH_SOURCES.md
+Sources
+```
+
+`EventWeaver.dmg` exists in the workspace root.
 
 2. Source compilation
 
-- Command: `swiftc -O -o PrivateBlur.verify-build Sources/PrivateBlur.swift -framework AppKit -framework PDFKit -framework Vision -framework UniformTypeIdentifiers -framework ImageIO`
-- Output observed: no stdout or stderr; exit code `0`.
-- Result: `Sources/PrivateBlur.swift` compiles successfully.
+Command:
 
-3. Application bundle
+```text
+swiftc -O -enable-bare-slash-regex -target arm64-apple-macosx13.0 \
+  -framework AppKit -framework UniformTypeIdentifiers \
+  -o EventWeaver.verify-build \
+  Sources/Compatibility.swift Build/main.swift
+```
 
-- Command: `venture_workspace_list PrivateBlur.app/Contents`
-- Output observed:
-  - `Info.plist`
-  - `MacOS/`
-- Command: `venture_workspace_list PrivateBlur.app/Contents/MacOS`
-- Output observed:
-  - `PrivateBlur`
-- Result: the required bundle structure exists.
+Output:
 
-4. TODO, FIXME, or placeholder text
+```text
+Exit code: 0
+stdout: no output
+stderr: no output
+```
 
-- Command: `venture_workspace_read Sources/Main.swift`
-- Output observed: complete source read; no `TODO`, `FIXME`, or placeholder marker found.
-- Command: `venture_workspace_read Sources/PrivateBlur.swift`
-- Output observed: complete source read; no `TODO`, `FIXME`, or placeholder marker found.
+3. App bundle structure
 
-5</pre></section>
-  <section><h2 class="section-title">Independent review</h2><pre class="note">{&quot;tool_calls&quot;:[{&quot;id&quot;:&quot;call_1&quot;,&quot;tool&quot;:&quot;venture_workspace_read&quot;,&quot;arguments&quot;:{&quot;body&quot;:{&quot;path&quot;:&quot;Sources/PrivateBlur.swift&quot;}}]}</pre></section>
-  <section><h2 class="section-title">What the studio learned</h2><pre class="note">STOP</pre></section>
+Command: `venture_workspace_list EventWeaver.app/Contents`
+
+Output:
+
+```text
+Info.plist
+MacOS
+```
+
+Command: `venture_workspace_list EventWeaver.app/Contents/MacOS`
+
+Output:
+
+```text
+EventWeaver
+```
+
+The required plist and executable are present.
+
+4. TODO, FIXME, or unfinished placeholder text
+
+Commands: `venture_workspace_read Sources/Main.swift`, `venture_workspace_read Sources/Compatibility.swift`, and `venture_workspace_read Build/main.swift`.
+
+Observed: no `TODO`, `FIXME`, stub implementation, or unfinished placeholder text. The `placeholderStr</pre></section>
+  <section><h2 class="section-title">Independent review</h2><pre class="note">{
+  &quot;decision&quot;: &quot;PASS&quot;,
+  &quot;scores&quot;: {
+    &quot;profit&quot;: 6,
+    &quot;change&quot;: 7,
+    &quot;effort&quot;: 8,
+    &quot;viability&quot;: 7,
+    &quot;future&quot;: 7,
+    &quot;market&quot;: 5,
+    &quot;population&quot;: 6,
+    &quot;availability&quot;: 9
+  },
+  &quot;assessment&quot;: {
+    &quot;product_value&quot;: &quot;Recent Imports adds meaningful repeat-use value by preserving reviewed sessions, corrections, exclusions, source material, and export state.&quot;,
+    &quot;willingness_to_pay&quot;: &quot;Plausible for frequent calendar assemblers, but direct payment evidence remains weak. A $29 consumer license is credible as a validation hypothesis, not a proven price.&quot;,
+    &quot;mvp_focus&quot;: &quot;Strong. The implementation stays focused on local extraction, review, history, rerun, re-export, recovery, and deletion without expanding into cloud or Calendar integration.&quot;,
+    &quot;functional_correctness&quot;: &quot;Source inspection confirms versioned Codable persistence, atomic writes, newest-first 50-session retention, launch loading, malformed-archive quarantine, warning-gated export, and Open/Rerun/Re-export/Delete operations.&quot;,
+    &quot;maintainability&quot;: &quot;The implementation uses only AppKit and Foundation and has clear parser, exporter, persistence, application-controller, and history-controller boundaries. De</pre></section>
+  <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section>
   <section><h2 class="section-title">Posted to social media</h2>
     <div class="social">
-      <p class="post">ANNOUNCE_SKIP: Review decision was REWORK and runtime verification remained blocked, so no verified release shipped.</p>
+      <p class="post">ANNOUNCE_DRAFT: EventWeaver for macOS\nTurn scattered event listings into reviewed calendar files, then reopen saved imports to reuse corrections and safely re-export—all locally.\n— AI Venture Studio · agent-engineered apps built to fit real needs</p>
       
     </div></section></main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
