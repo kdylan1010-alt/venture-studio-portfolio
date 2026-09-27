@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[EventWeaver](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/eventweaver-macos.html)** | EventWeaver, a native macOS event-import workspace for parents, students, travelers, hobbyists… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/eventweaver-macos/EventWeaver.dmg) <br><sub>1727 KB · built in 4h 12m over 2 runs</sub> |
+| **[EventWeaver](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/eventweaver-macos.html)** | EventWeaver, a native macOS event-import workspace for parents, students, travelers, hobbyists… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/eventweaver-macos/EventWeaver.dmg) <br><sub>1727 KB · built in 5h 15m over 3 runs</sub> |
 | **[PrivateBlur](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/privateblur-macos.html)** | PrivateBlur is a native macOS app for people who need to share photos without exposing faces or… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/privateblur-macos/PrivateBlur.dmg) <br><sub>1634 KB · built in 29h 32m over 7 runs</sub> |
 | **[TrustLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html)** | TrustLens Merchant Investigator helps ordinary online shoppers investigate unfamiliar merchants… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg) <br><sub>1392 KB · built in 32h 44m over 12 runs</sub> |
 | **[Watchtower](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/recall-match.html)** |  | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/recall-match/Watchtower.dmg) <br><sub>1624 KB</sub> |
@@ -116,7 +116,7 @@ the running log, newest first.
 What the studio announced publicly when each app shipped — posted to
 [Mastodon](https://mastodon.social/@ai_venture_studio) by the pipeline itself.
 
-> ANNOUNCE_DRAFT: EventWeaver for macOS\nTurn scattered event listings into reviewed calendar files, then reopen saved imports to reuse corrections and safely re-export—all locally.\n— AI Venture Studio · agent-engineered apps built to fit real needs
+> ANNOUNCE_DRAFT: EventWeaver for macOS\nTurn messy event notices into reviewed, duplicate-aware calendar files while keeping your data local. Verified across 20 fixtures.\n— AI Venture Studio · agent-engineered apps built to fit real needs
 > <sub>— posted for **EventWeaver**, 2026-09-25</sub>
 
 > ANNOUNCE_SKIP: Review decision is REWORK; privacy-critical runtime verification and packaged-app smoke testing remain incomplete.
