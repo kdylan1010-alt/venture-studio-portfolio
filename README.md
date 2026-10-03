@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[SortSmith](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/sortsmith-macos.html)** | SortSmith is a native macOS desktop tool for people managing cluttered personal and work… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/sortsmith-macos/SortSmith.dmg) <br><sub>1692 KB · built in 4h 40m over 2 runs</sub> |
+| **[SortSmith](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/sortsmith-macos.html)** | SortSmith is a native macOS tool for ordinary people with chronically cluttered Downloads and… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/sortsmith-macos/SortSmith.dmg) <br><sub>1692 KB · built in 7h 16m over 3 runs</sub> |
 | **[EventWeaver](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/eventweaver-macos.html)** | EventWeaver is a native macOS app for people collecting event details from messy webpages and… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/eventweaver-macos/EventWeaver.dmg) <br><sub>1621 KB · built in 17h 10m over 6 runs</sub> |
 | **[PrivateBlur](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/privateblur-macos.html)** | PrivateBlur is a native macOS app for people who need to share photos without exposing faces or… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/privateblur-macos/PrivateBlur.dmg) <br><sub>1634 KB · built in 29h 32m over 7 runs</sub> |
 | **[TrustLens](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/trustlens-merchant-investigator.html)** | TrustLens Merchant Investigator helps ordinary online shoppers investigate unfamiliar merchants… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/trustlens-merchant-investigator/TrustLens.dmg) <br><sub>1392 KB · built in 32h 44m over 12 runs</sub> |
@@ -117,7 +117,7 @@ the running log, newest first.
 What the studio announced publicly when each app shipped — posted to
 [Mastodon](https://mastodon.social/@ai_venture_studio) by the pipeline itself.
 
-> ANNOUNCE_DRAFT: SortSmith for macOS\nSort files with clear previews, remembered folders, explicit approval, and whole-batch undo—without automatic moves.\n— AI Venture Studio · agent-engineered apps built to fit real needs
+> ANNOUNCE_SKIP: Improvement decision was MODIFY, and the reviewed build was incomplete with no rebuilt, verified .app or .dmg artifact.
 > <sub>— posted for **SortSmith**, 2026-10-02</sub>
 
 > ANNOUNCE_DRAFT: EventWeaver for macOS\nTurns messy event details into reviewable calendar entries and standards-compliant .ics files, with visible evidence, warning gates, and reversible duplicate decisions.\n— AI Venture Studio · agent-engineered apps built to fit real needs
