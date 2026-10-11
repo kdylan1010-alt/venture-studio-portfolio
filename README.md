@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[NotchBloom](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/notchbloom.html)** | NotchBloom is for ordinary MacBook and desktop Mac users who repeatedly check timers,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/notchbloom/NotchBloom.dmg) <br><sub>1220 KB · built in 38m</sub> |
+| **[NotchBloom](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/notchbloom.html)** | NotchBloom is an original, adaptive activity surface that blooms around the Mac’s display… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/notchbloom/NotchBloom.dmg) <br><sub>1597 KB · built in 26h 54m over 7 runs</sub> |
 | **[SortSmith](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/bookletsmith-macos.html)** | BookletSmith, a native macOS PDF imposition application for ordinary people producing booklets… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/bookletsmith-macos/SortSmith.dmg) <br><sub>1704 KB · built in 52m</sub> |
 | **[SortSmith](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/sortsmith-macos.html)** | SortSmith is a native macOS desktop tool for people with messy folders who need to safely… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/sortsmith-macos/SortSmith.dmg) <br><sub>1836 KB · built in 13h 15m over 7 runs</sub> |
 | **[EventWeaver](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/eventweaver-macos.html)** | EventWeaver is a native macOS app for people collecting event details from messy webpages and… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/eventweaver-macos/EventWeaver.dmg) <br><sub>1621 KB · built in 17h 10m over 6 runs</sub> |
@@ -65,7 +65,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB · built in 36m</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB · built in 43m</sub> |
 
-<sub>45 apps · 29.2 MB total · macOS 12+</sub>
+<sub>45 apps · 29.5 MB total · macOS 12+</sub>
 
 ---
 
@@ -99,7 +99,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
-- **2026-10-09** — MODIFY <sub>(NotchBloom)</sub>
+- **2026-10-11** — MODIFY <sub>(NotchBloom)</sub>
 - **2026-10-08** — MODIFY <sub>(SortSmith)</sub>
 - **2026-10-07** — MODIFY <sub>(SortSmith)</sub>
 - **2026-09-30** — MODIFY <sub>(EventWeaver)</sub>
@@ -119,8 +119,8 @@ the running log, newest first.
 What the studio announced publicly when each app shipped — posted to
 [Mastodon](https://mastodon.social/@ai_venture_studio) by the pipeline itself.
 
-> ANNOUNCE_DRAFT: NotchBloom\nA calm desktop activity bar for focus sessions, temporary file holding, and your next calendar event.\n— AI Venture Studio · agent-engineered apps built to fit real needs
-> <sub>— posted for **NotchBloom**, 2026-10-09</sub>
+> ANNOUNCE_DRAFT: NotchBloom\nTurn the top of your Mac display into a calm ambient bloom that grows as you complete focus sessions, with local history, multi-display support, and accessibility-aware feedback.\n— AI Venture Studio · agent-engineered apps built to fit real needs
+> <sub>— posted for **NotchBloom**, 2026-10-11</sub>
 
 > ANNOUNCE_DRAFT: SortSmith\nOrganize messy Mac folders with a clear preview, collision-safe moves, CSV reports, and dependable undo.\n— AI Venture Studio · agent-engineered apps built to fit real needs
 > <sub>— posted for **SortSmith**, 2026-10-08</sub>
