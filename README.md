@@ -9,8 +9,8 @@ human in the loop. These are the results. All free, no signup, no tracking.
 [**Browse all 45 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
-  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/privateblur-macos.html"><img src="shots/privateblur-macos.png" width="720" alt="PrivateBlur"></a>
-  <br><sub><i>PrivateBlur — one of 45 tools below</i></sub>
+  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/notchbloom.html"><img src="shots/notchbloom.png" width="720" alt="NotchBloom"></a>
+  <br><sub><i>NotchBloom — one of 45 tools below</i></sub>
 </p>
 
 ---
@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[NotchBloom](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/notchbloom.html)** | NotchBloom is a polished native macOS activity surface that blooms around the MacBook notch,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/notchbloom/NotchBloom.dmg) <br><sub>1555 KB · built in 28h 32m over 9 runs</sub> |
+| **[NotchBloom](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/notchbloom.html)** | NotchBloom is the existing native macOS activity surface that turns the area around the MacBook… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/notchbloom/NotchBloom.dmg) <br><sub>1679 KB · built in 29h 23m over 10 runs</sub> |
 | **[SortSmith](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/bookletsmith-macos.html)** | BookletSmith, a native macOS PDF imposition application for ordinary people producing booklets… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/bookletsmith-macos/SortSmith.dmg) <br><sub>1704 KB · built in 52m</sub> |
 | **[SortSmith](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/sortsmith-macos.html)** | SortSmith is a native macOS desktop tool for people with messy folders who need to safely… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/sortsmith-macos/SortSmith.dmg) <br><sub>1836 KB · built in 13h 15m over 7 runs</sub> |
 | **[EventWeaver](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/eventweaver-macos.html)** | EventWeaver is a native macOS app for people collecting event details from messy webpages and… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/eventweaver-macos/EventWeaver.dmg) <br><sub>1621 KB · built in 17h 10m over 6 runs</sub> |
@@ -65,7 +65,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB · built in 36m</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB · built in 43m</sub> |
 
-<sub>45 apps · 29.5 MB total · macOS 12+</sub>
+<sub>45 apps · 29.6 MB total · macOS 12+</sub>
 
 ---
 
@@ -99,7 +99,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
-- **2026-10-13** — MODIFY <sub>(NotchBloom)</sub>
+- **2026-10-14** — MODIFY <sub>(NotchBloom)</sub>
 - **2026-10-08** — MODIFY <sub>(SortSmith)</sub>
 - **2026-10-07** — MODIFY <sub>(SortSmith)</sub>
 - **2026-09-30** — MODIFY <sub>(EventWeaver)</sub>
@@ -119,8 +119,8 @@ the running log, newest first.
 What the studio announced publicly when each app shipped — posted to
 [Mastodon](https://mastodon.social/@ai_venture_studio) by the pipeline itself.
 
-> ANNOUNCE_DRAFT: NotchBloom\nA native macOS focus companion with reliable focus/break cycles, adaptive top-screen progress, and private local history.\n— AI Venture Studio · agent-engineered apps built to fit real needs
-> <sub>— posted for **NotchBloom**, 2026-10-13</sub>
+> ANNOUNCE_DRAFT: NotchBloom\nKeep focus timers, temporary files, and scratch notes within easy reach from a compact Mac activity shelf.\n— AI Venture Studio · agent-engineered apps built to fit real needs
+> <sub>— posted for **NotchBloom**, 2026-10-14</sub>
 
 > ANNOUNCE_DRAFT: SortSmith\nOrganize messy Mac folders with a clear preview, collision-safe moves, CSV reports, and dependable undo.\n— AI Venture Studio · agent-engineered apps built to fit real needs
 > <sub>— posted for **SortSmith**, 2026-10-08</sub>
