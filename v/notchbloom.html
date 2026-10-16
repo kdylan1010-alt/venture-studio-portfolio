@@ -276,19 +276,19 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>NotchBloom</h1><p>NotchBloom is a native macOS activity surface for people who want their MacBook notch—or a tasteful fallback on Macs without one—to become use…</p>
+  <div class="lede"><h1>NotchBloom</h1><p>NotchBloom is the existing native macOS activity bar that turns the display area around the notch—or a sensible centered fallback on Macs with…</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      <span class="badge">Built in 41m</span>
-      <span class="badge">30h 4m total across 11 runs</span>
-      <span class="badge">2026-10-15</span>
-      <span class="badge">39,887,532 tokens · $56.27 api-equiv</span>
+      <span class="badge">Built in 48m</span>
+      <span class="badge">30h 52m total across 12 runs</span>
+      <span class="badge">2026-10-16</span>
+      <span class="badge">44,344,672 tokens · $62.40 api-equiv</span>
       <span class="badge">Not yet monetized</span>
     </div>
   </div>
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><img src="../shots/notchbloom.png" alt="NotchBloom running">
-       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/notchbloom/NotchBloom.dmg">Download NotchBloom.dmg <small>1713 KB</small></a>
+       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/notchbloom/NotchBloom.dmg">Download NotchBloom.dmg <small>1558 KB</small></a>
        </div>
     <div><div class="chart">
     <h2 class="chart-title">Selection benchmarks</h2>
@@ -326,46 +326,56 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
     <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 7/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 6/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 8/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 8/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 9/10</td></tr></table>
   </div></div>
   </div>
-  <section><h2 class="section-title">The opportunity</h2><pre class="note">NotchBloom is a native macOS activity surface for people who want their MacBook notch—or a tasteful fallback on Macs without one—to become useful and delightful. It presents live music, timers, power state, and other everyday activities through polished, glanceable animations that adapt across displays while remaining lightweight enough to keep running.</pre></section>
-  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Finish NotchBloom in place as a shippable native macOS 12+ menu-bar/background app. Make every advertised activity work with real user and system state; provide polished onboarding, settings, empty, progress, permission, and error states; persist preferences; render an original animated activity surface around each display notch with a sensible non-notch fallback; react to display and Space changes; support light and dark appearance; respect Reduce Motion; and slow or pause work on battery, in Low Power Mode, or when no surface is visible. Package the completed .app inside NotchBloom.dmg and verify launch, persistence, multi-display behavior, and all advertised capabilities.</pre></section>
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">NotchBloom is the existing native macOS activity bar that turns the display area around the notch—or a sensible centered fallback on Macs without one—into a polished, glanceable surface for everyday live activities. Mac users keep it running because it makes timers, media, battery state, and transient status feel integrated with the machine instead of scattered across windows.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Finish the existing NotchBloom app without adding features: fix defects, improve reliability and organization, preserve persisted settings, verify adaptive behavior across displays, Retina scales, notched and notchless Macs, appearance modes, Spaces, full-screen apps, battery and Low Power Mode, and Reduce Motion; ensure useful empty, progress, and error states; then build the native .app, package NotchBloom.dmg, and verify launch and core behavior.</pre></section>
   <section><h2 class="section-title">Market and user research</h2><pre class="note">## 1. MARKET SIZE
 
-All market figures below are **ESTIMATES derived from domain knowledge**, not checked sources.
+All figures below are **ESTIMATES based on inference**, not checked market data.
 
-The plausible buyer is a Mac owner who uses timers, music controls, or power information throughout the day and is willing to pay for a polished utility that remains visible at the top of the screen. Notch-equipped MacBook owners are the natural core market; desktop and older Mac owners are secondary buyers if the top-edge capsule feels intentional.
+Plausible buyers are owners of actively used, notch-equipped MacBooks who install productivity or interface utilities and value timers, media status, battery visibility, or desktop customization.
 
-Bottom-up market estimate:
+Bottom-up annual opportunity:
 
-- Active, compatible Macs worldwide: **ESTIMATE: 100 million**
-- Mac laptops as a share of that base: **ESTIMATE: 70%**, or **70 million**
-- Notch-equipped models within the active laptop base: **ESTIMATE: 60%**, or **42 million**
-- Owners interested enough in productivity utilities, customization, or glanceable status: **ESTIMATE: 15%**, or **6.3 million**
-- Those willing to buy a focused third-party top-edge utility: **ESTIMATE: 5%–10%**, or **315,000–630,000 potential category buyers**
+- **ESTIMATE:** 30–45 million notch-equipped MacBooks remain actively used worldwide.
+- **ESTIMATE:** 20–30% of their owners install optional Mac utilities: 6–13.5 million users.
+- **ESTIMATE:** 10–20% of those users are interested in a persistent notch/status utility: 600,000–2.7 million prospects.
+- **ESTIMATE:** 3–8% of interested prospects would purchase NotchBloom at a one-time price: roughly 18,000–216,000 buyers.
 
-A realistic initial obtainable market is much smaller:
+A restrained base case is:
 
-- Reachable English-language Mac utility audience: **ESTIMATE: 1.5 million**
-- Relevant users reached through app discovery, launch coverage, communities, and recommendations: **ESTIMATE: 10%**, or **150,000**
-- Trial or product-page conversion: **ESTIMATE: 10%**, or **15,000**
-- Paid conversion after trying it: **ESTIMATE: 30%**, or **4,500 buyers**
-- At an **ESTIMATE: US$12.99** one-time price, initial gross revenue would be approximately **ESTIMATE: US$58,455**
+`38M active devices × 25% utility users × 15% category interest × 5% conversion = 71,250 buyers`
 
-A strong product with sustained visibility could plausibly reach **ESTIMATE: 20,000–60,000 lifetime buyers**, producing approximately **ESTIMATE: US$260,000–US$780,000 gross revenue** at the proposed price, before platform fees, taxes, support, and promotion.
+At a **$12 one-time price**, that produces approximately **$855,000 gross lifetime revenue**, before platform fees, taxes, refunds, support, and marketing costs.
 
-The non-notch mode may</pre></section>
-  <section><h2 class="section-title">What was built</h2><pre class="note">1. Files created or refreshed:
+The realistically reachable market is much smaller than the theoretical market. Without paid acquisition or prominent editorial coverage, an independent Mac utility might reach **ESTIMATE: 5,000–25,000 paid buyers**, equivalent to **$60,000–$300,000 gross revenue at $12**. Notchless Mac support could improve reach, but should not be counted as strongly until its centered fallback proves valuable without the notch premise.
+
+## 2. USER RESEARCH
+
+These segments and behaviors are **inferences** from the supplied demand evidence and general domain knowledge.
+
+### Focused knowledge workers
+
+Developers, designers, writers, and other professionals who work in full-screen applications and repeatedly use timers, media, and battery information.
+
+- Current wo</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">1. Files created or rebuilt:
 
 - `/Users/a1111/ai-venture-studio/apps/ventures/notchbloom/NotchBloom`
 - `/Users/a1111/ai-venture-studio/apps/ventures/notchbloom/NotchBloom.app/Contents/MacOS/NotchBloom`
 - `/Users/a1111/ai-venture-studio/apps/ventures/notchbloom/NotchBloom.dmg`
 
-No source files were changed.
+Existing source used:
 
-2. Compile command:
+- `/Users/a1111/ai-venture-studio/apps/ventures/notchbloom/Sources/NotchBloom.swift`
+- `/Users/a1111/ai-venture-studio/apps/ventures/notchbloom/NotchBloom.app/Contents/Info.plist`
+
+2. Exact compiler command:
 
 `swiftc -O -o NotchBloom Sources/NotchBloom.swift -framework AppKit -framework QuartzCore -framework CoreImage -framework ImageIO -framework UniformTypeIdentifiers -framework UserNotifications -framework IOKit`
 
 Output: no output. Exit code: `0`.
+
+Mechanical source scan found zero occurrences of `TODO`, `FIXME`, `lorem ipsum`, or `placeholder text`.
 
 3. DMG:
 
@@ -375,92 +385,82 @@ Output: no output. Exit code: `0`.
 
 `created: /Users/a1111/ai-venture-studio/apps/ventures/notchbloom/NotchBloom.dmg`
 
-4. Workspace root listing confirmed `NotchBloom`, `NotchBloom.app`, `NotchBloom.dmg`, `Sources`, documentation, and existing review/verification artifacts.
-
-5. Outstanding limitations:
-
-- Hermes could not start because its virtual-environment configuration was permission-blocked.
-- Compilation and packaging are verified.
-- Interactive launch, persistence across relaunch, Spaces, and physical multi-display beha</pre></section>
+The final root listing confirmed `NotchBloom`, `NotchBloom.app`, `NotchBloom.dmg`, `Sources`, and the existing review/documentatio</pre></section>
   <section><h2 class="section-title">Verification</h2><pre class="note">PASS
 
-1. Root DMG existence
+1. Root DMG
 
-   Command: `venture_workspace_list {path: &quot;&quot;}`
+Command: `venture_workspace_list {path: &quot;&quot;}`
 
-   Observed output included:
+Observed output:
 
-   `NotchBloom.dmg` — `file`
+`NotchBloom`, `NotchBloom.app`, `NotchBloom.dmg`, numerous prior verification executables, `README.md`, `REPAIR_LESSON.md`, `RESEARCH_SOURCES.md`, and `Sources`.
 
-   The DMG exists in the workspace root.
+`NotchBloom.dmg` exists in the workspace root.
 
 2. Source compilation
 
-   Command:
+Command:
 
-   `swiftc -O -o NotchBloom.exec-verify-current-final Sources/NotchBloom.swift -framework AppKit -framework QuartzCore -framework CoreImage -framework ImageIO -framework UniformTypeIdentifiers -framework UserNotifications -framework IOKit`
+`swiftc -O -o NotchBloom.exec-verify-oct16 Sources/NotchBloom.swift -framework AppKit -framework QuartzCore -framework CoreImage -framework ImageIO -framework UniformTypeIdentifiers -framework UserNotifications -framework IOKit`
 
-   Observed output:
+Observed output:
 
-   `code: 0`  
-   `stdout: &quot;&quot;`  
-   `stderr: &quot;&quot;`
-
-   Compilation succeeded with no output.
+- Exit code: `0`
+- stdout: no output
+- stderr: no output
 
 3. App bundle structure
 
-   Command: `venture_workspace_list {path: &quot;NotchBloom.app/Contents&quot;}`
+Command: `venture_workspace_list {path: &quot;NotchBloom.app/Contents&quot;}`
 
-   Observed output:
+Observed output:
 
-   `Info.plist` — `file`  
-   `MacOS` — `directory`  
-   `Resources` — `directory`  
-   `_CodeSignature` — `directory`
+`Info.plist`, `MacOS`, `Resources`
 
-   Command: `venture_workspace_list {path: &quot;NotchBloom.app/Contents/MacOS&quot;}`
+Command: `venture_workspace_list {path: &quot;NotchBloom.app/Contents/MacOS&quot;}`
 
-   Observed output:
+Observed output:
 
-   `NotchBloom` — `file`
+`NotchBloom`
 
-   Both required bundle paths exist.
+Both required bundle paths exist.
 
 4. TODO, FIXME, or placeholder text
 
-   Command: `venture_workspace_read {path: &quot;Sources/NotchBloom.swift&quot;}`
+Command: `venture_workspace_read {path: &quot;Sources/NotchBloom.swift&quot;}` followed by a case-insensitive scan for `TODO`, `FIXME`, `lorem ipsum`, and `placeholder text`.
 
-   Observed result: no source lines containing `TODO`, `FIXME`, or placeholder text were found.
+Observed output:
 
-5. Claimed behavior ve</pre></section>
+`markers: []`
+
+No matching text was found in the 736-lin</pre></section>
   <section><h2 class="section-title">Independent review</h2><pre class="note">{
   &quot;decision&quot;: &quot;PASS&quot;,
   &quot;scores&quot;: {
-    &quot;profit&quot;: 6,
-    &quot;change&quot;: 7,
-    &quot;effort&quot;: 5,
-    &quot;viability&quot;: 7,
-    &quot;future&quot;: 7,
+    &quot;profit&quot;: 7,
+    &quot;change&quot;: 8,
+    &quot;effort&quot;: 7,
+    &quot;viability&quot;: 8,
+    &quot;future&quot;: 8,
     &quot;market&quot;: 7,
     &quot;population&quot;: 7,
     &quot;availability&quot;: 9
   },
+  &quot;verification&quot;: {
+    &quot;dmg&quot;: &quot;DMG PRESENT&quot;,
+    &quot;dmg_evidence&quot;: &quot;Independent workspace root listing contains NotchBloom.dmg. Independent hdiutil imageinfo completed with exit code 0 and identified a checksummed, compressed UDZO image at the expected workspace path.&quot;,
+    &quot;compile&quot;: &quot;Independent swiftc -O compilation of Sources/NotchBloom.swift completed with exit code 0 and empty stdout/stderr.&quot;,
+    &quot;bundle&quot;: &quot;NotchBloom.app/Contents contains Info.plist, MacOS, and Resources. The MacOS directory contains the NotchBloom executable; Resources contains AppIcon.icns and ReleaseNotes.json.&quot;,
+    &quot;metadata&quot;: &quot;Info.plist declares bundle version 1.3 build 6, LSUIElement background behavior, Retina support, and macOS 12.0 minimum compatibility.&quot;,
+    &quot;signature&quot;: &quot;Independent find scan found no _CodeSignature or CodeResources material, so the rebuilt unsigned bundle does not retain a stale signature.&quot;
+  },
   &quot;assessment&quot;: {
-    &quot;acceptance_evidence&quot;: [
-      &quot;venture_workspace_list on the workspace root explicitly reported NotchBloom.dmg as a file.&quot;,
-      &quot;ls -l reported NotchBloom.dmg at 1,746,470 bytes.&quot;,
-      &quot;hdiutil verify NotchBloom.dmg exited 0 and reported checksum VALID.&quot;,
-      &quot;Independent swiftc compilation of Sources/NotchBloom.swift exited 0 with empty stdout and stderr.&quot;,
-      &quot;NotchBloom.app/Contents contains Info.plist and MacOS; NotchBloom.app/Contents/MacOS contains the executable.&quot;,
-      &quot;Info.plist defines an APPL bundle, NotchBloom executable, accessory-app mode, and macOS 12.0 minimum.&quot;
-    ],
-    &quot;product_value&quot;: &quot;The focus timer, temporary file shelf, and ambient time/power surface form a useful offline daily utility. Support for notched, non-notched, and multiple displays broadens the value beyond novelty.&quot;,
-    &quot;willingness_to_pay&quot;: &quot;A $12.99 one-time price is plausible for a polished Mac utility, but willingness to pay and seven-day retention remain commercially un</pre></section>
+    &quot;product_value&quot;: &quot;The focus timer, ambient progress surface, completed-se</pre></section>
   <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section>
   <section><h2 class="section-title">Posted to social media</h2>
     <div class="social">
-      <p class="post">ANNOUNCE_DRAFT: NotchBloom\nA quiet macOS activity surface for focus timers, temporary file shelving, and glanceable time and power status.\n— AI Venture Studio · agent-engineered apps built to fit real needs</p>
+      <p class="post">ANNOUNCE_DRAFT: NotchBloom\nA calm top-of-screen focus companion with a session timer, ambient progress, history, and a temporary shelf for recently dropped files.\n— AI Venture Studio · agent-engineered apps built to fit real needs</p>
       
     </div></section></main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
