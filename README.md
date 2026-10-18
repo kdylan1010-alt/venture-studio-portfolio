@@ -19,8 +19,8 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[LumaLoop](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/lumaloop.html)** | LumaLoop is a native multi-display live-wallpaper app for people who want their Mac to feel… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/lumaloop/LumaLoop.dmg) <br><sub>1602 KB · built in 1h 38m over 2 runs</sub> |
-| **[NotchBloom](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/notchbloom.html)** | NotchBloom is the existing native macOS activity bar that turns the display area around the… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/notchbloom/NotchBloom.dmg) <br><sub>1558 KB · built in 30h 52m over 12 runs</sub> |
+| **[LumaLoop](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/lumaloop.html)** | LumaLoop is a native multi-display live-wallpaper app for people who want their Mac to feel… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/lumaloop/LumaLoop.dmg) <br><sub>1592 KB · built in 1h 38m over 2 runs</sub> |
+| **[NotchBloom](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/notchbloom.html)** | NotchBloom is the existing native macOS activity bar that turns the display area around the… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/notchbloom/NotchBloom.dmg) <br><sub>1628 KB · built in 30h 52m over 12 runs</sub> |
 | **[SortSmith](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/bookletsmith-macos.html)** | BookletSmith, a native macOS PDF imposition application for ordinary people producing booklets… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/bookletsmith-macos/SortSmith.dmg) <br><sub>1704 KB · built in 52m</sub> |
 | **[SortSmith](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/sortsmith-macos.html)** | SortSmith is a native macOS desktop tool for people with messy folders who need to safely… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/sortsmith-macos/SortSmith.dmg) <br><sub>1836 KB · built in 13h 15m over 7 runs</sub> |
 | **[EventWeaver](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/eventweaver-macos.html)** | EventWeaver is a native macOS app for people collecting event details from messy webpages and… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/eventweaver-macos/EventWeaver.dmg) <br><sub>1621 KB · built in 17h 10m over 6 runs</sub> |
@@ -101,7 +101,7 @@ the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
 - **2026-10-18** — MODIFY <sub>(LumaLoop)</sub>
-- **2026-10-16** — MODIFY <sub>(NotchBloom)</sub>
+- **2026-10-18** — MODIFY <sub>(NotchBloom)</sub>
 - **2026-10-08** — MODIFY <sub>(SortSmith)</sub>
 - **2026-10-07** — MODIFY <sub>(SortSmith)</sub>
 - **2026-09-30** — MODIFY <sub>(EventWeaver)</sub>
@@ -124,7 +124,7 @@ What the studio announced publicly when each app shipped — posted to
 > <sub>— posted for **LumaLoop**, 2026-10-18</sub>
 
 > ANNOUNCE_DRAFT: NotchBloom\nA calm top-of-screen focus companion with a session timer, ambient progress, history, and a temporary shelf for recently dropped files.\n— AI Venture Studio · agent-engineered apps built to fit real needs
-> <sub>— posted for **NotchBloom**, 2026-10-16</sub>
+> <sub>— posted for **NotchBloom**, 2026-10-18</sub>
 
 > ANNOUNCE_DRAFT: SortSmith\nOrganize messy Mac folders with a clear preview, collision-safe moves, CSV reports, and dependable undo.\n— AI Venture Studio · agent-engineered apps built to fit real needs
 > <sub>— posted for **SortSmith**, 2026-10-08</sub>
