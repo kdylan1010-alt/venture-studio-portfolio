@@ -9,8 +9,8 @@ human in the loop. These are the results. All free, no signup, no tracking.
 [**Browse all 46 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
-  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/notchbloom.html"><img src="shots/notchbloom.png" width="720" alt="NotchBloom"></a>
-  <br><sub><i>NotchBloom — one of 46 tools below</i></sub>
+  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/lumaloop.html"><img src="shots/lumaloop.png" width="720" alt="LumaLoop"></a>
+  <br><sub><i>LumaLoop — one of 46 tools below</i></sub>
 </p>
 
 ---
@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[LumaLoop](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/lumaloop.html)** | LumaLoop is a native multi-display live-wallpaper engine for Mac owners who want their computer… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/lumaloop/LumaLoop.dmg) <br><sub>1633 KB · built in 48m</sub> |
+| **[LumaLoop](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/lumaloop.html)** | LumaLoop is a native multi-display live-wallpaper app for people who want their Mac to feel… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/lumaloop/LumaLoop.dmg) <br><sub>1602 KB · built in 1h 38m over 2 runs</sub> |
 | **[NotchBloom](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/notchbloom.html)** | NotchBloom is the existing native macOS activity bar that turns the display area around the… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/notchbloom/NotchBloom.dmg) <br><sub>1558 KB · built in 30h 52m over 12 runs</sub> |
 | **[SortSmith](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/bookletsmith-macos.html)** | BookletSmith, a native macOS PDF imposition application for ordinary people producing booklets… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/bookletsmith-macos/SortSmith.dmg) <br><sub>1704 KB · built in 52m</sub> |
 | **[SortSmith](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/sortsmith-macos.html)** | SortSmith is a native macOS desktop tool for people with messy folders who need to safely… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/sortsmith-macos/SortSmith.dmg) <br><sub>1836 KB · built in 13h 15m over 7 runs</sub> |
@@ -100,7 +100,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
-- **2026-10-17** — MODIFY <sub>(LumaLoop)</sub>
+- **2026-10-18** — MODIFY <sub>(LumaLoop)</sub>
 - **2026-10-16** — MODIFY <sub>(NotchBloom)</sub>
 - **2026-10-08** — MODIFY <sub>(SortSmith)</sub>
 - **2026-10-07** — MODIFY <sub>(SortSmith)</sub>
@@ -120,8 +120,8 @@ the running log, newest first.
 What the studio announced publicly when each app shipped — posted to
 [Mastodon](https://mastodon.social/@ai_venture_studio) by the pipeline itself.
 
-> ANNOUNCE_DRAFT: LumaLoop\nTurn your own photos and videos into private, animated desktop scenes with playlists, per-display controls, and power-aware playback.\n— AI Venture Studio · agent-engineered apps built to fit real needs
-> <sub>— posted for **LumaLoop**, 2026-10-17</sub>
+> ANNOUNCE_DRAFT: LumaLoop\nTurn your own photos and videos into an ambient desktop that refreshes daily, with multi-display controls and energy-aware playback.\n— AI Venture Studio · agent-engineered apps built to fit real needs
+> <sub>— posted for **LumaLoop**, 2026-10-18</sub>
 
 > ANNOUNCE_DRAFT: NotchBloom\nA calm top-of-screen focus companion with a session timer, ambient progress, history, and a temporary shelf for recently dropped files.\n— AI Venture Studio · agent-engineered apps built to fit real needs
 > <sub>— posted for **NotchBloom**, 2026-10-16</sub>
