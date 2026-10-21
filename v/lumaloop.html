@@ -276,19 +276,19 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>LumaLoop</h1><p>LumaLoop is a native macOS live-wallpaper engine for people who want their Mac to feel personal and alive.</p>
+  <div class="lede"><h1>LumaLoop</h1><p>LumaLoop is a native macOS live-wallpaper engine for people who want their Mac to feel personal and alive, using their own videos, photos, and…</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      <span class="badge">Built in 1h 10m</span>
-      <span class="badge">3h 44m total across 4 runs</span>
-      <span class="badge">2026-10-20</span>
-      <span class="badge">15,011,840 tokens · $20.95 api-equiv</span>
+      <span class="badge">Built in 40m</span>
+      <span class="badge">4h 24m total across 5 runs</span>
+      <span class="badge">2026-10-21</span>
+      <span class="badge">16,759,877 tokens · $23.42 api-equiv</span>
       <span class="badge">Not yet monetized</span>
     </div>
   </div>
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><img src="../shots/lumaloop.png" alt="LumaLoop running">
-       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/lumaloop/LumaLoop.dmg">Download LumaLoop.dmg <small>1696 KB</small></a>
+       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/lumaloop/LumaLoop.dmg">Download LumaLoop.dmg <small>1723 KB</small></a>
        </div>
     <div><div class="chart">
     <h2 class="chart-title">Selection benchmarks</h2>
@@ -326,113 +326,126 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
     <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 7/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 6/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 8/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 8/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 8/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 9/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 9/10</td></tr></table>
   </div></div>
   </div>
-  <section><h2 class="section-title">The opportunity</h2><pre class="note">LumaLoop is a native macOS live-wallpaper engine for people who want their Mac to feel personal and alive. It turns the user’s own videos, photos, and animations into polished wallpapers across every connected display, adapting to screen changes, power conditions, appearance, and accessibility preferences.</pre></section>
-  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Improve the existing shippable LumaLoop app in place. Add an opt-in feedback experience that a real user deliberately opens, with a simple rating and free-text comment, clear disclosure that nothing is collected or sent automatically, useful validation and error states, and an explicit user-controlled action such as copying the feedback or opening a prefilled mail draft. Preserve the core multi-display live-wallpaper experience, support user-supplied videos, photos, and animations, persist settings, adapt to display changes and Retina resolutions, respect Reduce Motion and power conditions, provide complete quit and reopen paths, package LumaLoop.app inside LumaLoop.dmg, and run the existing verification checks.</pre></section>
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">LumaLoop is a native macOS live-wallpaper engine for people who want their Mac to feel personal and alive, using their own videos, photos, and animations across every connected display while adapting to screen geometry, appearance, Spaces, battery power, Low Power Mode, and Reduce Motion.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Continue the installed LumaLoop product with a polished lifecycle experience: add a clear first-run onboarding flow that helps users choose their own media and understand multi-display behavior; an honest, user-initiated update check with current-version, availability, progress, offline, and failure states; a persisted What's New presentation shown only when appropriate after an upgrade and available again from the app; and one restrained in-app notice surface for relevant lifecycle messages. Preserve the complete live-wallpaper experience, multi-display adaptation, power-aware playback, settings persistence, visible errors, Finder reopen behavior, and every required quit path. Produce and verify the LumaLoop.app inside LumaLoop.dmg.</pre></section>
   <section><h2 class="section-title">Market and user research</h2><pre class="note">## 1. MARKET SIZE
 
-All figures below are **ESTIMATES based on domain inference**, not externally verified market data.
+All figures below are **ESTIMATES based on domain knowledge**, not verified market data.
 
-The plausible buyer is a Mac owner who values desktop personalization, accepts animated backgrounds, and is willing to pay for reliable use of personal media.
+Plausible buyers are Mac owners who control their device, care about desktop personalization, and accept the battery or GPU cost of animated wallpaper.
 
-Bottom-up estimate:
+- Addressable consumer and creator Macs: **ESTIMATE: 100 million**
+- Share meaningfully interested in desktop customization: **ESTIMATE: 10%**
+- Broad potential audience: **ESTIMATE: 100 million × 10% = 10 million users**
+- Share reachable through English-language direct-download and Mac-app discovery channels: **ESTIMATE: 35%**
+- Serviceable audience: **ESTIMATE: 10 million × 35% = 3.5 million users**
+- Plausible mature penetration for a small independent utility: **ESTIMATE: 0.5%–2%**
+- Plausible paying customers: **ESTIMATE: 3.5 million × 0.5%–2% = 17,500–70,000**
+- At an **ESTIMATED $9.99 one-time price**, gross lifetime sales would be approximately **ESTIMATE: $175,000–$699,000**, before store fees, taxes, refunds, support, and ongoing compatibility work.
 
-- **100 million ESTIMATE** actively used Macs worldwide
-- × **15% ESTIMATE** who actively customize their desktop beyond changing a stock wallpaper
-- × **15% ESTIMATE** interested in motion or personal video wallpaper
-- × **15% ESTIMATE** willing to pay for a dedicated utility
-- = **337,500 potential paying users ESTIMATE**
+A narrower early market is multi-display enthusiasts, creators, streamers, photographers, and desk-setup hobbyists. That population is likely only **ESTIMATE: 250,000–750,000 reachable users**, but its need is more acute.
 
-A narrower initial market:
-
-- **20 million ESTIMATE** English-speaking, direct-purchase-accessible Mac users
-- × **12% ESTIMATE** creators, desk-setup enthusiasts, or multi-display users
-- × **15% ESTIMATE** interested in personal live wallpaper
-- × **15% ESTIMATE** willing to pay
-- = **54,000 realistically addressable early buyers ESTIMATE**
-
-Plausible obtainable scale for a small independent product:
-
-- **3,000–15,000 lifetime customers ESTIMATE**
-- × **$19.99 one-time price ESTIMATE**
-- = approximately **$60,000–$300,000 gross lifetime revenue ESTIMATE**, before store fees, taxes, refunds, support, and marketing
-
-The market is large enough for a profitable indie utility, but the evidence does not support a venture-scale outcome. The principal constraint is willingness to pay, not the number of Mac owners.
+These estimates should not be treated as validated demand. The missing evidence is conversion: how many users will pay when static wallpapers and free alternatives cost nothing.
 
 ## 2. USER RESEARCH
 
-These segments and behaviors are **inference requiring direct validation**.
+The following segments and behaviors are **inference**, not findings from interviews or checked sources.
 
-### Segment A: Multi-display desk-setup enthusiasts
+### Segment A: Mac customization and desk-setup enthusiasts
 
-- **Current workaround:** Apple wallpapers, separate static images per display, looping video-player windows, or a generic live-wallpaper app.
-- **What they pay:** **$0–$15 ESTIMATE** for wallpaper ut</pre></section>
-  <section><h2 class="section-title">What was built</h2><pre class="note">1. Files created/refreshed:
+- Current workaround: macOS dynamic wallpapers, free wallpaper utilities, screensavers, or manually running video loops.
+- Current spend: **ESTIMATE: $0–$15** per wallpaper uti</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">1. Files created or updated:
 
 - `/Users/a1111/ai-venture-studio/apps/ventures/lumaloop/Sources/LumaLoop.swift`
 - `/Users/a1111/ai-venture-studio/apps/ventures/lumaloop/LumaLoop`
+- `/Users/a1111/ai-venture-studio/apps/ventures/lumaloop/LumaLoop.verify`
 - `/Users/a1111/ai-venture-studio/apps/ventures/lumaloop/LumaLoop.app/Contents/MacOS/LumaLoop`
 - `/Users/a1111/ai-venture-studio/apps/ventures/lumaloop/LumaLoop.dmg`
 
-2. Compile command:
+Added onboarding, persisted lifecycle state, semantic-version handling, manual/throttled update checks, cancellation and failure states, Notice Center, status-item indication, and reopenable What’s New. Existing wallpaper behavior was preserved. No forbidden placeholder markers were found.
+
+2. Exact compiler command:
 
 `swiftc -O -o LumaLoop Sources/LumaLoop.swift -framework AppKit -framework AVFoundation -framework UniformTypeIdentifiers -framework QuartzCore -framework IOKit -framework CoreImage -framework ServiceManagement`
 
-Output: no stdout or stderr; exit code 0.
+Output: no output. Exit code: `0`.
 
 3. DMG:
 
 `/Users/a1111/ai-venture-studio/apps/ventures/lumaloop/LumaLoop.dmg`
 
-`hdiutil` succeeded with exit code 0:
+`hdiutil` succeeded with exit code `0`:
 
 `created: /Users/a1111/ai-venture-studio/apps/ventures/lumaloop/LumaLoop.dmg`
 
-4. Remaining limitations:
-
-- No network Send endpoint was added; feedback uses explicit Copy Feedback or Open Mail Draft actions.
-- The optional three-launch invitation was omitted.
-- Interactive UI and real multi-display hardware testing were not available in this build pass.
-- Hermes scaffolding failed because its runtime could not access `/Users/a1111/.hermes/hermes-agent/.ven</pre></section>
+Verified root</pre></section>
   <section><h2 class="section-title">Verification</h2><pre class="note">PASS
 
-1. Root `.dmg`
+1. Root DMG
 
-   Command: `venture_workspace_list {&quot;path&quot;:&quot;.&quot;}`
+Command: `venture_workspace_list {path:&quot;&quot;}`
 
-   Output: `LumaLoop`, `LumaLoop.app`, `LumaLoop.dmg`, `LumaLoop.verify`, `README.md`, `Sources`
+Output:
 
-   Result: `LumaLoop.dmg` exists in the workspace root.
+```text
+LumaLoop
+LumaLoop.app
+LumaLoop.dmg
+LumaLoop.verify
+README.md
+Sources
+```
+
+`LumaLoop.dmg` exists in the workspace root. `ls -l` reported:
+
+```text
+-rw-r--r--@ 1 a1111 staff 1756837 Oct 21 07:45 LumaLoop.dmg
+```
 
 2. Source compilation
 
-   Command:
+Command:
 
-   `swiftc -O -o LumaLoop.verify Sources/LumaLoop.swift -framework AppKit -framework AVFoundation -framework UniformTypeIdentifiers -framework QuartzCore -framework IOKit -framework CoreImage -framework ServiceManagement`
+```text
+swiftc -O -o LumaLoop.verify Sources/LumaLoop.swift -framework AppKit -framework AVFoundation -framework UniformTypeIdentifiers -framework QuartzCore -framework IOKit -framework CoreImage -framework ServiceManagement
+```
 
-   Output: no stdout or stderr; exit code `0`.
-
-   Result: the current source compiles successfully.
+Output: no output. Exit code: `0`.
 
 3. Application bundle
 
-   Command: `venture_workspace_list {&quot;path&quot;:&quot;LumaLoop.app/Contents&quot;}`
+Commands:
 
-   Output: `Info.plist`, `MacOS`, `Resources`, `_CodeSignature`
+```text
+venture_workspace_list {path:&quot;LumaLoop.app/Contents&quot;}
+venture_workspace_list {path:&quot;LumaLoop.app/Contents/MacOS&quot;}
+```
 
-   Command: `venture_workspace_list {&quot;path&quot;:&quot;LumaLoop.app/Contents/MacOS&quot;}`
+Output:
 
-   Output: `LumaLoop`
+```text
+LumaLoop.app/Contents:
+Info.plist
+MacOS
+Resources
 
-   Command: `venture_workspace_read {&quot;path&quot;:&quot;LumaLoop.app/Contents/Info.plist&quot;}`
+LumaLoop.app/Contents/MacOS:
+LumaLoop
+```
 
-   Observed output includes:
+`ls -l` additionally reported:
 
-   - `CFBundleExecutable` → `LumaLoop`
-   - `CFBundleIdentifier` → `com.aiventurestudio.lumaloop`
-   - `CFBundleShortVersionString` → `1.3.0`
-   - `LSMinimumSystemVersion` → `12.0`
+```text
+-rw-r--r-- 1 a1111 staff    843 Oct 20 08:12 LumaLoop.app/Contents/Info.plist
+-rwxr-xr-x 1 a1111 staff 824104 Oct 21 07:45 LumaLoop.app/Contents/MacOS/LumaLoop
+```
 
-   Result: the `.app` has both `Contents/Info.plist` and `</pre></section>
+4. TODOs, FIXMEs, and placeholders
+
+Command: `venture_workspace_read {path:&quot;Sources/LumaLoop.swift&quot;}`
+
+Observed output contained no</pre></section>
   <section><h2 class="section-title">Independent review</h2><pre class="note">{
   &quot;decision&quot;: &quot;PASS&quot;,
   &quot;scores&quot;: {
@@ -446,14 +459,15 @@ Output: no stdout or stderr; exit code 0.
     &quot;availability&quot;: 9
   },
   &quot;assessment&quot;: {
-    &quot;packaging&quot;: &quot;DMG PRESENT. The independent root listing returned LumaLoop.dmg. `ls -l LumaLoop.dmg` reported 1,728,522 bytes, and `hdiutil verify LumaLoop.dmg` exited 0 with a VALID checksum.&quot;,
-    &quot;compilation&quot;: &quot;The current Sources/LumaLoop.swift compiled independently with the required AppKit, AVFoundation, UniformTypeIdentifiers, QuartzCore, IOKit, CoreImage, and ServiceManagement frameworks. swiftc exited 0 without diagnostics.&quot;,
-    &quot;bundle&quot;: &quot;LumaLoop.app contains its executable; `ls -l` reported a 902,120-byte Contents/MacOS/LumaLoop. Info.plist declares executable LumaLoop, identifier com.aiventurestudio.lumaloop, version 1.3.0 (6), macOS 12.0 minimum, and LSUIElement.&quot;,
-    &quot;depth&quot;: &quot;The product is substantive rather than a shell: local media import and validation, thumbnails, security-scoped bookmarks, missing-file recovery, image/video playback, looping, trimming, ordering and shuffle, fit modes, crossfades, Reduce Motion behavior, one wallpaper surface per dis</pre></section>
+    &quot;product_value&quot;: &quot;Substantive native wallpaper utility with personal image/video loops, multi-display assignment, energy-aware playback, onboarding, update visibility, and centralized operational notices.&quot;,
+    &quot;willingness_to_pay&quot;: &quot;A $9.99 one-time purchase is plausible for customization and multi-monitor users, though willingness-to-pay remains the principal commercial assumption requiring market validation.&quot;,
+    &quot;mvp_focus&quot;: &quot;Focused on local personal media and native macOS reliability; accounts, subscriptions, analytics, cloud sync, catalogs, and automatic installation remain excluded.&quot;,
+    &quot;functional_correctness&quot;: &quot;Source inspection confirms real implementations for media validation and playback, security-scoped bookmarks, display reconciliation, power and Reduce Motion adaptation, lifecycle persistence, update checking, notices, reopening, and termination routes.&quot;,
+    &quot;maintainability&quot;: &quot;Dependency-free Swift/AppKit implementation compiles successfully. The sing</pre></section>
   <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section>
   <section><h2 class="section-title">Posted to social media</h2>
     <div class="social">
-      <p class="post">ANNOUNCE_DRAFT: LumaLoop\nTurn your own photos and videos into private, power-aware live wallpapers, with independent scenes for every display.\n— AI Venture Studio · agent-engineered apps built to fit real needs</p>
+      <p class="post">ANNOUNCE_DRAFT: LumaLoop\nTurn your own photos and videos into animated desktop backgrounds, with multi-display controls and energy-aware playback.\n— AI Venture Studio · agent-engineered apps built to fit real needs</p>
       
     </div></section></main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
