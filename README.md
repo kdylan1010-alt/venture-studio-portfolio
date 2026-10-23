@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[LumaLoop](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/lumaloop.html)** | LumaLoop turns live camera movement into responsive, persistent trails of light, giving… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/lumaloop/LumaLoop.dmg) <br><sub>1587 KB · built in 6h 22m over 6 runs</sub> |
+| **[LumaLoop](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/lumaloop.html)** | LumaLoop is the existing native Mac creative-play app for people who want to turn their own… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/lumaloop/LumaLoop.dmg) <br><sub>1561 KB · built in 7h 03m over 7 runs</sub> |
 | **[NotchBloom](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/notchbloom.html)** | NotchBloom is the existing native macOS activity bar that turns the display area around the… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/notchbloom/NotchBloom.dmg) <br><sub>1628 KB · built in 30h 52m over 12 runs</sub> |
 | **[SortSmith](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/bookletsmith-macos.html)** | BookletSmith, a native macOS PDF imposition application for ordinary people producing booklets… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/bookletsmith-macos/SortSmith.dmg) <br><sub>1704 KB · built in 52m</sub> |
 | **[SortSmith](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/sortsmith-macos.html)** | SortSmith is a native macOS desktop tool for people with messy folders who need to safely… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/sortsmith-macos/SortSmith.dmg) <br><sub>1836 KB · built in 13h 15m over 7 runs</sub> |
@@ -100,7 +100,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
-- **2026-10-22** — MODIFY <sub>(LumaLoop)</sub>
+- **2026-10-23** — MODIFY <sub>(LumaLoop)</sub>
 - **2026-10-18** — MODIFY <sub>(NotchBloom)</sub>
 - **2026-10-08** — MODIFY <sub>(SortSmith)</sub>
 - **2026-10-07** — MODIFY <sub>(SortSmith)</sub>
@@ -120,8 +120,8 @@ the running log, newest first.
 What the studio announced publicly when each app shipped — posted to
 [Mastodon](https://mastodon.social/@ai_venture_studio) by the pipeline itself.
 
-> ANNOUNCE_DRAFT: LumaLoop\nTurn your own videos, animated images, and photos into persistent, power-aware desktop scenes across one or multiple displays.\n— AI Venture Studio · agent-engineered apps built to fit real needs
-> <sub>— posted for **LumaLoop**, 2026-10-22</sub>
+> ANNOUNCE_DRAFT: LumaLoop\nTurn personal photos and videos into animated desktop backgrounds across all your displays, with power-aware playback and missing-file recovery.\n— AI Venture Studio · agent-engineered apps built to fit real needs
+> <sub>— posted for **LumaLoop**, 2026-10-23</sub>
 
 > ANNOUNCE_DRAFT: NotchBloom\nA calm top-of-screen focus companion with a session timer, ambient progress, history, and a temporary shelf for recently dropped files.\n— AI Venture Studio · agent-engineered apps built to fit real needs
 > <sub>— posted for **NotchBloom**, 2026-10-18</sub>
