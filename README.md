@@ -9,8 +9,8 @@ human in the loop. These are the results. All free, no signup, no tracking.
 [**Browse all 47 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
-  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/lumaloop.html"><img src="shots/lumaloop.png" width="720" alt="LumaLoop"></a>
-  <br><sub><i>LumaLoop — one of 47 tools below</i></sub>
+  <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/cut-magnet.html"><img src="shots/cut-magnet.png" width="720" alt="CutMagnet"></a>
+  <br><sub><i>CutMagnet — one of 47 tools below</i></sub>
 </p>
 
 ---
@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[CutMagnet](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/cut-magnet.html)** | Cut Magnet is a native Mac creative instrument for hobby filmmakers, dancers, families,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/cut-magnet/CutMagnet.dmg) <br><sub>1742 KB · built in 34m</sub> |
+| **[CutMagnet](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/cut-magnet.html)** | Cut Magnet is a native Mac creative instrument for hobby filmmakers, dancers, families,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/cut-magnet/CutMagnet.dmg) <br><sub>1788 KB · built in 2h 56m over 3 runs</sub> |
 | **[LumaLoop](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/lumaloop.html)** | LumaLoop is the existing native Mac creative-play app for people who want to turn their own… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/lumaloop/LumaLoop.dmg) <br><sub>1561 KB · built in 7h 03m over 7 runs</sub> |
 | **[NotchBloom](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/notchbloom.html)** | NotchBloom is the existing native macOS activity bar that turns the display area around the… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/notchbloom/NotchBloom.dmg) <br><sub>1628 KB · built in 30h 52m over 12 runs</sub> |
 | **[SortSmith](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/bookletsmith-macos.html)** | BookletSmith, a native macOS PDF imposition application for ordinary people producing booklets… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/bookletsmith-macos/SortSmith.dmg) <br><sub>1704 KB · built in 52m</sub> |
@@ -101,7 +101,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
-- **2026-10-23** — MODIFY <sub>(CutMagnet)</sub>
+- **2026-10-25** — MODIFY <sub>(CutMagnet)</sub>
 - **2026-10-23** — MODIFY <sub>(LumaLoop)</sub>
 - **2026-10-18** — MODIFY <sub>(NotchBloom)</sub>
 - **2026-10-08** — MODIFY <sub>(SortSmith)</sub>
@@ -121,8 +121,8 @@ the running log, newest first.
 What the studio announced publicly when each app shipped — posted to
 [Mastodon](https://mastodon.social/@ai_venture_studio) by the pipeline itself.
 
-> ANNOUNCE_DRAFT: Cut Magnet\nTemporarily stage files, images, links, and text at the top of your Mac’s display, then drag them into another app when you’re ready.\n— AI Venture Studio · agent-engineered apps built to fit real needs
-> <sub>— posted for **CutMagnet**, 2026-10-23</sub>
+> ANNOUNCE_DRAFT: Cut Magnet helps you find movement-compatible cuts in your own footage, arrange clips on a spatial canvas, and export an edited movie—all locally on your Mac.\n— AI Venture Studio · agent-engineered apps built to fit real needs
+> <sub>— posted for **CutMagnet**, 2026-10-25</sub>
 
 > ANNOUNCE_DRAFT: LumaLoop\nTurn personal photos and videos into animated desktop backgrounds across all your displays, with power-aware playback and missing-file recovery.\n— AI Venture Studio · agent-engineered apps built to fit real needs
 > <sub>— posted for **LumaLoop**, 2026-10-23</sub>
