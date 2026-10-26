@@ -279,16 +279,16 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <div class="lede"><h1>CutMagnet</h1><p>Cut Magnet is a native Mac creative instrument for hobby filmmakers, dancers, families, students, and social-video creators.</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      <span class="badge">Built in 1h 35m</span>
-      <span class="badge">2h 56m total across 3 runs</span>
-      <span class="badge">2026-10-25</span>
+      <span class="badge">Built in 1h 11m</span>
+      <span class="badge">4h 7m total across 4 runs</span>
+      <span class="badge">2026-10-26</span>
       <span class="badge">3,810,400 tokens · $5.49 api-equiv</span>
       <span class="badge">Not yet monetized</span>
     </div>
   </div>
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><img src="../shots/cut-magnet.png" alt="CutMagnet running">
-       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/cut-magnet/CutMagnet.dmg">Download CutMagnet.dmg <small>1788 KB</small></a>
+       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/cut-magnet/CutMagnet.dmg">Download CutMagnet.dmg <small>1851 KB</small></a>
        </div>
     <div><div class="chart">
     <h2 class="chart-title">Selection benchmarks</h2>
@@ -328,103 +328,113 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   </div>
   <section><h2 class="section-title">The opportunity</h2><pre class="note">Cut Magnet is a native Mac creative instrument for hobby filmmakers, dancers, families, students, and social-video creators. Users drop their own raw clips onto a spatial canvas; the app samples body poses, makes clips with compatible movement attract, makes opposing gestures repel, and lets the user physically resolve those forces into a cut sequence. People want it because continuity editing is difficult to learn on a timeline, while movement is immediately visible and tangible here. Its value proposition is discovering and exporting surprisingly fluid edits by manipulating motion itself rather than inspecting tracks and metadata.</pre></section>
   <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build Cut Magnet as a polished native AppKit macOS application distributed as CutMagnet.app inside CutMagnet.dmg. From first launch, users can import their own video clips; see useful thumbnails, duration, pose confidence, and processing progress; manipulate clips on a spacious SpriteKit motion canvas; understand attraction and repulsion through restrained animation and direction overlays; pin, group, reorder, preview, undo, and remove clips; resolve the canvas into a cut sequence; adjust cut points; play the assembled result; and export a standard movie through AVFoundation. Vision body-pose sampling should operate locally, cache results, tolerate clips without a detectable person, and explain failures rather than silently excluding media. The app must preserve projects and settings between launches, support light and dark appearances, provide considered empty, processing, error, and export states, and remain useful with arbitrary user footage rather than fixtures. Layout must adapt to every connected display, resolution, Retina scale, safe-area shape, Spaces, and full-screen use; react to screen changes; respect Reduce Motion; and reduce analysis or animation on battery, in Low Power Mode, or when not visible. The core experience must be a visual creative instrument, not a command-line wrapper or generic timeline editor.</pre></section>
-  <section><h2 class="section-title">Market and user research</h2><pre class="note"># Cut Magnet — Commercial Assessment
+  <section><h2 class="section-title">Market and user research</h2><pre class="note">## 1. MARKET SIZE
 
-**Evidence status:** No web access or verified demand evidence. Reading `RESEARCH_SOURCES.md` returned a directory listing, not the requested document. The Mac App Store supply table is therefore unavailable: **COMPETITION is unmeasured.** Research delegation also failed. The assessment below is domain knowledge and explicitly labeled inference—not checked market research.
+**Cut Magnet is an unvalidated editing-workflow opportunity, not an established product category.** Its plausible buyers are Mac users who repeatedly assemble movement-heavy footage and find transition selection difficult.
 
-## 1. MARKET SIZE
-
-**Plausible buyers:** Mac users who regularly edit footage containing human movement and find matching moments across clips difficult. Dance creators, movement-focused filmmakers, and instructors are stronger prospects than occasional family-video editors.
-
-**Bottom-up scenario—all figures ESTIMATE:**
+**Bottom-up scenario—all inputs and outputs below are ESTIMATES, not measured market statistics:**
 
 / Filter / Assumption / Result /
 /---/---:/---:/
-/ Active Mac users / 100 million / 100 million /
-/ Regularly edit personal/social video / 15% / 15 million /
-/ Frequently edit movement-heavy footage / 8% / 1.2 million /
-/ Have sufficient difficulty and willingness to adopt a separate paid tool / 20% / 240,000 potential buyers /
+/ Active Mac users worldwide / ESTIMATE: 100 million / ESTIMATE: 100 million /
+/ Regularly edit dance, performance, sports or action footage / ESTIMATE: 2% / ESTIMATE: 2 million /
+/ Experience recurring movement-matching friction and would try a separate tool / ESTIMATE: 20% / ESTIMATE: 400,000 potential users /
+/ Would eventually pay for a proven solution / ESTIMATE: 10% / ESTIMATE: 40,000 potential buyers /
 
-At a **proposed $39 one-time price**, that represents **ESTIMATE $9.36 million in theoretical purchase value**, not annual revenue or a forecast.
+At an **ESTIMATE proposed price of $39**, that represents **ESTIMATE: $1.56 million in cumulative gross purchase revenue**, not annual revenue or a sales forecast. Reaching this population would take time, distribution and demonstrated usefulness.
 
-Distribution sharply reduces the obtainable market. An **ESTIMATE 20,000 qualified prospects reached annually × 3–5% purchase conversion** produces **ESTIMATE 600–1,000 purchases**, or **ESTIMATE $23,400–$39,000 gross annual sales**, before fees, refunds, support, and acquisition costs.
-
-The weakest inputs are movement-editing frequency and willingness to introduce another application. This is plausibly a small independent-software business, not yet a demonstrated mass market.
+Families and occasional student editors expand theoretical reach, but their purchase frequency is likely too low to anchor the business.
 
 ## 2. USER RESEARCH
 
-These are **segment hypotheses, not interview findings**.
+These are **inferred segments**, not interview findings. The supplied evidence supports general editing frustration, not willingness to buy pose-based editing.
 
-/ Segment / Current w</pre></section>
-  <section><h2 class="section-title">What was built</h2><pre class="note">1. Created files: none. Modified:
-   - `/Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/Sources/Model.swift`
-   - `/Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/CHANGELOG.md`
-   - `/Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/BUILD_VERIFICATION.md`
+/ Segment / Current workaround / Existing spending / Discovery / Reasons to refuse /
+/---/---/---/---/---/
+/ Dance creators and instructors / Scrub takes, compare gestures, trim repeatedly, sometimes choreograph transitions before filming / Free editors can mean no incremental software expense; paid subscriptions are possible but spending is unmeasured / Dance-editing tutorials and convincing before/after demonstrations /</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">1. **Files created:** None. Latest specification restricts this pass to read-only work.
 
-   Added source-level hidden-window analysis pausing with cancellation checks; untested.
-
-2. Exact compiler request:
+2. **Compiler verification:**
+   ```text
+   swiftc -typecheck Sources/CutMagnet.swift Sources/App.swift Sources/Model.swift Sources/ShelfUI.swift
    ```
-   swiftc -O -o CutMagnet.app/Contents/MacOS/CutMagnet Sources/App.swift Sources/Model.swift Sources/ShelfUI.swift -framework AppKit -framework SpriteKit -framework AVKit -framework AVFoundation -framework Vision -framework IOKit
+   Exit code: **0**. stdout: no output. stderr:
+   ```text
+   Sources/ShelfUI.swift:504:102: warning: 'allowedFileTypes' was deprecated in macOS 12.0: Use -allowedContentTypes instead
+   Sources/ShelfUI.swift:506:97: warning: 'allowedFileTypes' was deprecated in macOS 12.0: Use -allowedContentTypes instead
    ```
-   Service returned:
-   ```
-   {&quot;ok&quot;:false,&quot;refused&quot;:true,&quot;error&quot;:&quot;Command is not allowlisted. Allowed: pwd, find, git, swiftc, hdiutil, mkdir, cp, ls, research&quot;}
-   ```
-   Compiler never executed; no compiler output exists.
+   Type-checking succeeded; no executable was rebuilt.
 
-3. `/Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/CutMagnet.dmg`: hdiutil received the same refusal. Existing app and DMG remain stale.
+3. **Existing installer:** `/Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/CutMagnet.dmg`. No hdiutil command ran this pass. Historical checksum success is recorded, not freshly verified.
 
-4. Blockers: Hermes initialization failed. Compilation, tests, real-footage workflow, export, and packaged launch remain unverified. Current date unavailable.
+4. **Outstanding:** Runtime launch, import-to-export, recovery and accessibility remain unverified. No synthetic sample implementation was found by source search. `promo/` contains only `day-1-summary/`; requested brief/posts are absent. No changelog or README changes made. Hermes review failed during Python initialization with `PermissionError`.
 
-Actual final root listing:</pre></section>
+**Actual final root listing:**
+```text</pre></section>
   <section><h2 class="section-title">Verification</h2><pre class="note">PASS
 
-1. **Root installer exists.** `venture_workspace_list {}` returned:
+1. **Root DMG exists.** Ran `venture_workspace_list {}`:
    ```text
-   BUILD_VERIFICATION.md, CHANGELOG.md, CutMagnet, CutMagnet.app/,
-   CutMagnet.dmg, Launch.swift, README.md, REPAIR_LESSONS.md,
-   Sources/, Tests/, Verify.swift
-   ```
-   `hdiutil verify CutMagnet.dmg` exited **0**:
-   ```text
-   hdiutil: verify: checksum of &quot;CutMagnet.dmg&quot; is VALID
-   ```
-
-2. **Active sources compile.** The supplied three-source command failed, exit **1**:
-   ```text
-   Undefined symbols for architecture x86_64:
-     &quot;_main&quot;
-   ```
-   Reading `Sources/CutMagnet.swift` revealed the required `@main` entry point. Ran:
-   ```text
-   swiftc -O -o CutMagnet Sources/CutMagnet.swift Sources/App.swift Sources/Model.swift Sources/ShelfUI.swift -framework AppKit -framework SpriteKit -framework AVKit -framework AVFoundation -framework Vision -framework IOKit
-   ```
-   Exit **0**, no stdout. Compiler stderr contained two warnings:
-   ```text
-   Sources/ShelfUI.swift:504:102: warning: 'allowedFileTypes' was deprecated in macOS 12.0
-   Sources/ShelfUI.swift:506:97: warning: 'allowedFileTypes' was deprecated in macOS 12.0
+   BUILD_VERIFICATION.md
+   CHANGELOG.md
+   CutMagnet
+   CutMagnet.app/
+   CutMagnet.dmg
+   CutMagnet.verify
+   Launch.swift
+   README.md
+   REPAIR_LESSONS.md
+   RESEARCH_SOURCES.md
+   Sources/
+   Tests/
+   Verify.swift
+   promo/
    ```
 
-3. **Bundle structure exists.** `venture_workspace_list {&quot;path&quot;:&quot;</pre></section>
+2. **Sources typecheck.** Ran:
+   ```text
+   swiftc -typecheck Sources/CutMagnet.swift Sources/App.swift Sources/Model.swift Sources/ShelfUI.swift Sources/Sample.swift
+   ```
+   Exit **0**; stdout: **no output**. Compiler diagnostics:
+   ```text
+   Sources/ShelfUI.swift:509:102: warning: 'allowedFileTypes' was deprecated in macOS 12.0: Use -allowedContentTypes instead
+   Sources/ShelfUI.swift:511:97: warning: 'allowedFileTypes' was deprecated in macOS 12.0: Use -allowedContentTypes instead
+   ```
+   No executable rebuilt or link check performed. Legacy `Sources/Main.swift` was excluded.
+
+3. **Bundle structure exists.** Ran `venture_workspace_list` on:
+   ```text
+   CutMagnet.app/Contents:
+   Info.plist
+   MacOS/
+   Resources/
+   _CodeSignature/
+
+   CutMagnet.app/Contents/MacOS:
+   CutMagnet
+   ```
+   Signature validity was not checked.
+
+4. **No TODO/FIXME/placeholder markers</pre></section>
   <section><h2 class="section-title">Independent review</h2><pre class="note">{
   &quot;decision&quot;: &quot;PASS&quot;,
   &quot;verification&quot;: {
-    &quot;installer&quot;: &quot;DMG PRESENT: independent venture_workspace_list returned CutMagnet.dmg and CutMagnet.app.&quot;,
-    &quot;integrity&quot;: &quot;hdiutil verify CutMagnet.dmg exited 0 and reported checksum VALID.&quot;,
-    &quot;sources&quot;: &quot;Independent swiftc -typecheck of the four active sources exited 0; only two deprecated allowedFileTypes warnings.&quot;,
-    &quot;provenance&quot;: &quot;Latest build record documents compilation, bundle copy and DMG creation. Independent ls timestamps place all active sources before the bundled executable and DMG. Binary correspondence was not independently byte-compared.&quot;,
-    &quot;bundle&quot;: &quot;Executable path exists. Info.plist is structurally well formed and preserves com.aiventurestudio.cutmagnet.&quot;,
-    &quot;depth&quot;: &quot;SUBSTANTIVE: local analysis, magnetic canvas, pin/group, undo, persistence, trimming, playback and movie export.&quot;,
-    &quot;quit&quot;: &quot;Regular activation; Quit Cut Magnet and Cmd-Q correctly target NSApp.&quot;
+    &quot;artifact&quot;: &quot;DMG PRESENT: fresh venture_workspace_list output includes CutMagnet.dmg.&quot;,
+    &quot;integrity&quot;: &quot;Fresh hdiutil verify exited 0 and reported checksum VALID, CRC32 $22FC3032.&quot;,
+    &quot;compilation&quot;: &quot;Fresh five-source swiftc typecheck exited 0; two deprecated-dialog API warnings.&quot;,
+    &quot;bundle&quot;: &quot;Info.plist is structurally complete; its named executable exists.&quot;,
+    &quot;depth&quot;: &quot;SUBSTANTIVE: pose analysis, explained relationships, spatial editing, explicit sequencing, persistence, recovery and shared preview/export composition.&quot;,
+    &quot;quit&quot;: &quot;Regular foreground activation; Quit Cut Magnet and Cmd-Q correctly target NSApp.terminate.&quot;
   },
-  &quot;source_review&quot;: {
-    &quot;relationships&quot;: &quot;Active-trim boundary samples are validated; insufficient evidence remains neutral. Trimming refreshes relationships.&quot;,
-    &quot;relinking&quot;: &quot;Replacement validation precedes commitment; trims are preserv</pre></section>
+  &quot;assessment&quot;: {
+    &quot;product_value&quot;: &quot;Focused response to repetitive movement-transition searching; practical advantage remains a hypothesis.&quot;,
+    &quot;willingness_to_pay&quot;: &quot;Unvalidated. The proposed $39 price is an experiment, not demonstrated demand.&quot;,
+    &quot;mvp_focus&quot;: &quot;Preserves the creative spatial editor and manual control without becoming a general editing suite.&quot;,
+    &quot;functional_correctness&quot;: &quot;Inspected boundary-evidence filtering, shared composition, source protection and asynchronous guards</pre></section>
   <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section>
   <section><h2 class="section-title">Posted to social media</h2>
     <div class="social">
-      <p class="post">ANNOUNCE_DRAFT: Cut Magnet helps you find movement-compatible cuts in your own footage, arrange clips on a spatial canvas, and export an edited movie—all locally on your Mac.\n— AI Venture Studio · agent-engineered apps built to fit real needs</p>
+      <p class="post">ANNOUNCE_SKIP: Cut Magnet has a rebuilt DMG, but launch and real-footage import-to-export remain unverified; release readiness is not established.</p>
       
     </div></section></main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
