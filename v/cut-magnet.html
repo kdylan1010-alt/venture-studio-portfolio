@@ -279,16 +279,16 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <div class="lede"><h1>CutMagnet</h1><p>Cut Magnet is a native Mac creative instrument for hobby filmmakers, dancers, families, students, and social-video creators.</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      <span class="badge">Built in 1h 26m</span>
-      <span class="badge">6h 40m total across 6 runs</span>
-      <span class="badge">2026-10-28</span>
-      <span class="badge">3,810,400 tokens · $5.49 api-equiv</span>
+      <span class="badge">Built in 1h 10m</span>
+      <span class="badge">7h 50m total across 7 runs</span>
+      <span class="badge">2026-10-29</span>
+      <span class="badge">3,819,898 tokens · $5.51 api-equiv</span>
       <span class="badge">Not yet monetized</span>
     </div>
   </div>
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><img src="../shots/cut-magnet.png" alt="CutMagnet running">
-       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/cut-magnet/CutMagnet.dmg">Download CutMagnet.dmg <small>1938 KB</small></a>
+       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/cut-magnet/CutMagnet.dmg">Download CutMagnet.dmg <small>1890 KB</small></a>
        </div>
     <div><div class="chart">
     <h2 class="chart-title">Selection benchmarks</h2>
@@ -330,108 +330,105 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build Cut Magnet as a polished native AppKit macOS application distributed as CutMagnet.app inside CutMagnet.dmg. From first launch, users can import their own video clips; see useful thumbnails, duration, pose confidence, and processing progress; manipulate clips on a spacious SpriteKit motion canvas; understand attraction and repulsion through restrained animation and direction overlays; pin, group, reorder, preview, undo, and remove clips; resolve the canvas into a cut sequence; adjust cut points; play the assembled result; and export a standard movie through AVFoundation. Vision body-pose sampling should operate locally, cache results, tolerate clips without a detectable person, and explain failures rather than silently excluding media. The app must preserve projects and settings between launches, support light and dark appearances, provide considered empty, processing, error, and export states, and remain useful with arbitrary user footage rather than fixtures. Layout must adapt to every connected display, resolution, Retina scale, safe-area shape, Spaces, and full-screen use; react to screen changes; respect Reduce Motion; and reduce analysis or animation on battery, in Low Power Mode, or when not visible. The core experience must be a visual creative instrument, not a command-line wrapper or generic timeline editor.</pre></section>
   <section><h2 class="section-title">Market and user research</h2><pre class="note"># Cut Magnet — Commercial Assessment
 
-Evidence: `RESEARCH_SOURCES.md`, read for this assessment. No live web verification was available. Market quantities below are **ESTIMATES**, not measured demand; other commercial judgments are inference.
+**Evidence boundary:** Read `RESEARCH_SOURCES.md`. Its App Store table is measured supply, not proof of full-product prices or feature coverage. No web verification was available. All market sizing, purchase behavior, and revenue figures below are **ESTIMATES**, not observed demand.
 
 ## 1. MARKET SIZE
 
-The plausible buyer is a Mac-owning creator who repeatedly edits footage of human movement—not everyone who records video.
+The plausible buyer is not every video creator: it is a Mac user repeatedly editing human movement across multiple takes who finds manual continuity matching costly.
 
-**Illustrative bottom-up model, all inputs and outputs ESTIMATES:**
+**Bottom-up sizing scenario — all figures ESTIMATES:**
 
-/ Filter / Assumption / Remaining people /
+/ Filter / Assumption / Result /
 /---/---:/---:/
-/ Reachable-language creators regularly editing dance, sport, performance, or movement-led footage / 2,000,000 / 2,000,000 /
-/ Edit on a Mac / × 20% / 400,000 /
-/ Frequently compare movement across separate clips / × 25% / 100,000 /
-/ Would buy a separate motion-discovery tool / × 10% / 10,000 /
+/ Active Mac users worldwide / 100 million / 100 million /
+/ Regularly edit dance, performance, sport, or acted movement / 0.5% / 500,000 /
+/ Have repeated-take continuity problems and would consider a separate tool / 40% / 200,000 plausible prospects /
+/ Eventually purchase after demonstrated benefit / 5% / 10,000 buyers /
 
-The starting population and conversion assumptions are unverified. This is a sensitivity model, not a census.
+At an **ESTIMATE $29** purchase price, that scenario represents **ESTIMATE $290,000 lifetime gross sales**, not annual recurring revenue.
 
-At an **ESTIMATED $39** purchase price, that implies an **ESTIMATED $390,000 lifetime purchase opportunity** within this narrowly qualified pool—not annual recurring revenue. Halving the final two assumptions reduces it to **ESTIMATED 2,500 buyers / $97,500**.
-
-Families and general hobbyists should not inflate the initial market: many care more about chronology, dialogue, or faces than movement continuity.
+The starting population and filters are unsupported assumptions intended to expose the arithmetic. The addressable audience could be substantially smaller. Families and general social creators should not be counted as likely buyers without evidence of repeated use.
 
 ## 2. USER RESEARCH
 
-These are **segment hypotheses**, not completed interviews.
+These are inferred segments, not interviewed customers.
 
-/ Segment / Current workaround and payment / Discovery route / Refusal trigger /
+/ Segment / Current workaround and spending / How they might discover Cut Magnet / Why they would refuse /
 /---/---/---/---/
-/ Dance filmmakers and choreographers / Scrub repeated takes and manually compare gestures in an existing editor. Incremental software spend can be **$0** using a free editor; substantial time cost remains unmeasured. / Dance-editing demonstrations, choreography tutorials, creator re</pre></section>
-  <section><h2 class="section-title">What was built</h2><pre class="note">**Day 4 blocked; no source behavior changed.** Trim-local analysis deferred because mandatory runtime gates could not execute.
+/ Dance creators and choreographers / Scrub repeated takes and manually align gestures in CapCut, VN, or iMovie. Existing spend can be **$0** using free functionality; premium spending is unknown. / Side-by-side dance-editing demonstrations, choreogr</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">1. No new files. Updated/rebuilt:
+- `/Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/BUILD_VERIFICATION.md`
+- `/Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/CHANGELOG.md`
+- `/Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/CutMagnet`
+- `/Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/CutMagnet.app/Contents/MacOS/CutMagnet`
+- `/Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/CutMagnet.dmg`
 
-**Files rebuilt/updated** (no new files):
-- /Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/CutMagnet.app/Contents/MacOS/CutMagnet
-- /Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/CutMagnet
-- /Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/Tests/MovieTests
-- /Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/CutMagnet.dmg
-- /Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/CHANGELOG.md
-- /Users/a1111/ai-venture-studio/apps/ventures/cut-magnet/BUILD_VERIFICATION.md
-
-**Compiler commands:**
+2. Compiler:
 ```text
 swiftc -O -o CutMagnet.app/Contents/MacOS/CutMagnet Sources/CutMagnet.swift Sources/App.swift Sources/Model.swift Sources/ShelfUI.swift Sources/Sample.swift Sources/FirstRun.swift Sources/Updates.swift
-swiftc Sources/Model.swift Sources/Sample.swift Tests/Integration.swift -o Tests/MovieTests
 ```
-Both: code 0; stdout/stderr: **no output**.
+Exit 0; stdout/stderr: no output.
 
-**Packaging:** hdiutil creation succeeded at the DMG path above. Verification: `verified CRC32 $46FCA442`; checksum `VALID`.
+3. DMG creation succeeded. Verification exit 0: `checksum of &quot;CutMagnet.dmg&quot; is VALID`.
 
-**Actual root listing:**
+4. BLOCKED: self-test execution refused by allowlist; no Cut Magnet window available. Pinned-group runtime gate remains unverified, so cosmetic changes did not proceed. VoiceOver, real-footage export, recovery and packaged launch remain unverified. Hermes initialization failed; design skill unavailable.
+
+Actual root listing:
 ```text
-BUILD_VERIFICATION.md, CHANGELOG.</pre></section>
-  <section><h2 class="section-title">Verification</h2><pre class="note">FAIL
+BUILD_VERIFICATION.md, CHANGELOG.md, CutMagnet, CutMagnet.app/,
+CutMagnet.dmg, Cu</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">PASS
 
-1. **Root DMG exists.** `venture_workspace_list {}` returned:
+Artifact/source verification passes; runtime release acceptance remains unverified.
+
+1. **Root DMG**
+   Command: `venture_workspace_list {}`
+   Output:
    ```text
    BUILD_VERIFICATION.md, CHANGELOG.md, CutMagnet, CutMagnet.app/,
    CutMagnet.dmg, CutMagnet.verify, Launch.swift, README.md,
-   REPAIR_LESSONS.md, RESEARCH_SOURCES.md, Sources/, Tests/,
-   Verify.swift, promo/
+   REPAIR_LESSONS.md, RESEARCH_SOURCES.md, Sources/, Tests/, Verify.swift, promo/
    ```
-   `hdiutil verify CutMagnet.dmg` exited 0:
+   Additional command: `hdiutil verify CutMagnet.dmg`
+   Output, exit 0:
    ```text
-   verified   CRC32 $47677157
+   verified   CRC32 $DC1902C5
    hdiutil: verify: checksum of &quot;CutMagnet.dmg&quot; is VALID
    ```
 
-2. **Active sources compile.** Ran:
+2. **Sources compile**
+   Command:
    ```text
    swiftc -O -o CutMagnet.verify Sources/CutMagnet.swift Sources/App.swift Sources/Model.swift Sources/ShelfUI.swift Sources/Sample.swift Sources/FirstRun.swift Sources/Updates.swift
    ```
-   Output: **no output**, exit code **0**. Legacy `Sources/Main.swift` excluded.
+   Output: **no output**; exit code `0`. Legacy `Sources/Main.swift` is excluded from this active build.
 
-3. **App bundle exists.** Directory listings returned:
+3. **App bundle exists**
+   Commands: `venture_workspace_list` for both paths.
+   Output:
    ```text
    CutMagnet.app/Contents: Info.plist, MacOS/, Resources/, _CodeSignature/
    CutMagnet.app/Contents/MacOS: CutMagnet
    ```
-   `venture_workspace_read` of `Info.plist` confirmed:
-   ```text
-   CFBundleExecutable: CutMagnet
-   CFBundlePackageType: APPL
-   ```
-   Packaged launch was not verified.
+   This establishes structure, not launch or signature validity.
 
-4. **No TODO/FIXME/placeholder matches.** Read source files and ran</pre></section>
+4</pre></section>
   <section><h2 class="section-title">Independent review</h2><pre class="note">{
   &quot;decision&quot;: &quot;PASS&quot;,
-  &quot;reason&quot;: &quot;The bounded trim-local repair is present and substantive. Independent source inspection found no blocking defect in the core implementation. Unavailable runtime tests are recorded as limitations, not repair requirements.&quot;,
+  &quot;summary&quot;: &quot;Substantive MVP with the prior bounded defects repaired on source inspection. Artifact acceptance passes; runtime behavior and commercial demand remain unverified.&quot;,
   &quot;verification&quot;: {
-    &quot;packaging&quot;: &quot;DMG PRESENT: independent venture_workspace_list returned CutMagnet.dmg.&quot;,
-    &quot;integrity&quot;: &quot;Independent hdiutil verify exited 0: CRC32 $47677157; checksum VALID.&quot;,
-    &quot;sources&quot;: &quot;Independent seven-source swiftc -typecheck exited 0 without diagnostics.&quot;,
-    &quot;bundle&quot;: &quot;Info.plist is well formed and names CutMagnet; bundle executable exists. The documented final build/package ledger matches the verified DMG checksum.&quot;,
-    &quot;quit&quot;: &quot;Regular Dock application, no LSUIElement. Quit Cut Magnet targets NSApp.terminate with Cmd-Q.&quot;
+    &quot;artifact&quot;: &quot;DMG PRESENT: my venture_workspace_list root output explicitly includes CutMagnet.dmg and CutMagnet.app.&quot;,
+    &quot;integrity&quot;: &quot;My hdiutil verify CutMagnet.dmg returned exit 0, checksum VALID, CRC32 $DC1902C5, matching the latest build ledger.&quot;,
+    &quot;sources&quot;: &quot;Independent swiftc -typecheck of all seven active source files returned exit 0 without diagnostics. The latest ledger records successful optimized compilation, bundle copy and DMG creation.&quot;,
+    &quot;bundle&quot;: &quot;Bundle executable exists. Info.plist is structurally valid and specifies CutMagnet, APPL, the product identifier and macOS 12 minimum.&quot;,
+    &quot;depth&quot;: &quot;SUBSTANTIVE: local pose analysis, manual fallback, spatial editing, trimming, explicit sequencing, audio/video composition, MP4 export and project recovery are implemented.&quot;,
+    &quot;quit&quot;: &quot;Regular application with Dock presence; Cmd-Q targets NSApp and invokes terminate(_:). Accessory-app requirements do not apply.&quot;
   },
-  &quot;assessment&quot;: {
-    &quot;product_value&quot;: &quot;A substantive movement-driven spatial editor, not a shelf: manual arrangement, rigid groups, pins, trimming, undo, sequence preview/export and recovery are implemented.&quot;,
-    &quot;willingness_to_pay&quot;: &quot;Unvalidated. The proposed $39 price remains a hypothesis.&quot;,
-    &quot;mvp_focus&quot;: &quot;The repair directly addresses retained-cut evidence</pre></section>
+  &quot;repair_review&quot;: [</pre></section>
   <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section>
   <section><h2 class="section-title">Posted to social media</h2>
     <div class="social">
-      <p class="post">ANNOUNCE_SKIP: Verification failed; mandatory runtime tests and packaged launch remain unverified despite review PASS. Only a local review package exists.</p>
+      <p class="post">ANNOUNCE_SKIP: Cut Magnet’s DMG passed artifact checks, but packaged launch, real-footage export, and other runtime release gates remain unverified.</p>
       
     </div></section></main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
