@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[DrillFox](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/drill-fox.html)** | Drill Adversary: Draw a training drill and assign points. Simulated players try to win while… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/drill-fox/DrillFox.dmg) <br><sub>1753 KB · built in 5h 06m over 3 runs</sub> |
+| **[DrillFox](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/drill-fox.html)** | Drill Adversary: Draw a training drill and assign points. Simulated players try to win while… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/drill-fox/DrillFox.dmg) <br><sub>1825 KB · built in 7h 16m over 4 runs</sub> |
 | **[CutMagnet](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/cut-magnet.html)** | Cut Magnet is a native Mac creative instrument for hobby filmmakers, dancers, families,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/cut-magnet/CutMagnet.dmg) <br><sub>1897 KB · built in 8h 50m over 8 runs</sub> |
 | **[LumaLoop](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/lumaloop.html)** | LumaLoop is the existing native Mac creative-play app for people who want to turn their own… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/lumaloop/LumaLoop.dmg) <br><sub>1561 KB · built in 7h 03m over 7 runs</sub> |
 | **[NotchBloom](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/notchbloom.html)** | NotchBloom is the existing native macOS activity bar that turns the display area around the… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/notchbloom/NotchBloom.dmg) <br><sub>1628 KB · built in 30h 52m over 12 runs</sub> |
@@ -102,7 +102,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
-- **2026-11-02** — MODIFY <sub>(DrillFox)</sub>
+- **2026-11-03** — MODIFY <sub>(DrillFox)</sub>
 - **2026-10-30** — MODIFY <sub>(CutMagnet)</sub>
 - **2026-10-23** — MODIFY <sub>(LumaLoop)</sub>
 - **2026-10-18** — MODIFY <sub>(NotchBloom)</sub>
@@ -123,7 +123,7 @@ What the studio announced publicly when each app shipped — posted to
 [Mastodon](https://mastodon.social/@ai_venture_studio) by the pipeline itself.
 
 > ANNOUNCE_DRAFT: Drill Fox helps soccer coaches use simplified simulation to explore scoring shortcuts in their drills, replay what happened, and compare revised rules—not predict real players.\n— AI Venture Studio · agent-engineered apps built to fit real needs
-> <sub>— posted for **DrillFox**, 2026-11-02</sub>
+> <sub>— posted for **DrillFox**, 2026-11-03</sub>
 
 > ANNOUNCE_SKIP: Release remains blocked: runtime tests, real-footage workflows and copied-installer launch are unverified despite artifact/source review passing.
 > <sub>— posted for **CutMagnet**, 2026-10-30</sub>
