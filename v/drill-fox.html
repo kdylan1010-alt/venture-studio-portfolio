@@ -276,19 +276,19 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>DrillFox</h1><p>Drill Adversary: Draw a training drill and assign points.</p>
+  <div class="lede"><h1>DrillFox</h1><p>Drill Fox: Draw a training drill and assign points.</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      <span class="badge">Built in 1h 48m</span>
-      <span class="badge">12h 2m total across 6 runs</span>
-      <span class="badge">2026-11-05</span>
-      <span class="badge">149,117 tokens · $0.20 api-equiv</span>
+      <span class="badge">Built in 2h 34m</span>
+      <span class="badge">14h 36m total across 7 runs</span>
+      <span class="badge">2026-11-06</span>
+      <span class="badge">308,261 tokens · $0.41 api-equiv</span>
       <span class="badge">Not yet monetized</span>
     </div>
   </div>
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><img src="../shots/drill-fox.png" alt="DrillFox running">
-       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/drill-fox/DrillFox.dmg">Download DrillFox.dmg <small>1859 KB</small></a>
+       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/drill-fox/DrillFox.dmg">Download DrillFox.dmg <small>1962 KB</small></a>
        </div>
     <div><div class="chart">
     <h2 class="chart-title">Selection benchmarks</h2>
@@ -326,102 +326,98 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
     <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 6/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 7/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 3/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 6/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 7/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 5/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 5/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 7/10</td></tr></table>
   </div></div>
   </div>
-  <section><h2 class="section-title">The opportunity</h2><pre class="note">Drill Adversary: Draw a training drill and assign points. Simulated players try to win while doing as little intended practice as possible; close the loopholes they discover.</pre></section>
-  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Complete and harden Drill Fox in place: a native macOS drill editor with SpriteKit simulation, bounded adversarial strategy search, evidence-led replay, rule revision, matched-seed comparison and persistent user-created drills. Prioritize outstanding runtime gates: historical replay must not edit another drill, invalid pending input must support correction or explicit discard on quit, and guided-sample cancellation/retry must reject stale results. Ensure every advertised feature works, errors offer recovery, and settings survive relaunch. Add a discoverable feedback button with a reviewable local draft/copy fallback; transmit nothing automatically. Preserve macOS 12 compatibility, keyboard accessibility, display adaptation and low-power behavior. Deliver the canonical DrillFox.app inside DrillFox.dmg through the build chain.</pre></section>
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">Drill Fox: Draw a training drill and assign points. Simulated players try to win while doing as little intended practice as possible; close the loopholes they discover.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Finish Drill Fox in place, with no new features. Preserve its native drill editor, bounded adversarial strategy search, replay ledger, scoring revisions and matched-seed comparisons. Prioritize historical-replay edit isolation, transactional invalid-input quit/close/import, and sample cancellation/retry. Tidy existing behavior, write an evidence-based product review, and record the week's lessons. Rebuild the canonical DrillFox.app using swiftc and package DrillFox.dmg when the build chain permits.</pre></section>
   <section><h2 class="section-title">Market and user research</h2><pre class="note">## 1. MARKET SIZE
 
-**Drill Fox is a specialist coaching utility, not a general sports app.** Plausible buyers are paid academy coaches, coach educators and club methodology leads who repeatedly design scored practice games.
+**Drill Fox has a plausible specialist market, not demonstrated demand.** Likely buyers are paid coaches, academy coaching leads and coach educators who repeatedly design scoring-based practice games.
 
-No verified buyer census is available. The following is an **ESTIMATE scenario**, not measured market size:
+**Bottom-up planning scenario — every input and calculated result below is an ESTIMATE, not a measured market count:**
 
-/ Bottom-up assumption / ESTIMATE /
+/ Filter / Assumption /
 /---/---:/
-/ Relevant clubs, academies and coach-education organizations in initially addressable English-speaking markets / 20,000 /
-/ Frequent drill designers per organization / 3 /
-/ Potential professional users / 20,000 × 3 = 60,000 /
-/ Have a suitable Mac and permission to use it for coaching / 25% /
-/ Technically addressable users / 60,000 × 25% = 15,000 /
-/ Experience this problem often enough to consider a dedicated purchase / 20% /
-/ Plausible paying-user pool / 15,000 × 20% = **3,000** /
+/ Reachable English-speaking clubs, academies and coaching-education organizations / ESTIMATE: 20,000 /
+/ Regular drill designers per organization / ESTIMATE: 2 /
+/ Designers with suitable Mac access / ESTIMATE: 25% /
+/ Those frequently creating scoring-based drills / ESTIMATE: 30% /
+/ Potential individual buyers / ESTIMATE: 20,000 × 2 × 25% × 30% = **3,000** /
+/ Buyers eventually captured / ESTIMATE: 10–20% = **300–600** /
 
-At an **ESTIMATE $39** one-time price, that pool represents **ESTIMATE $117,000 gross lifetime license revenue**, before acquisition, support, taxes and platform fees—not annual revenue.
+The starting organization count is an unsupported planning assumption requiring verification. Overlapping roles and shared organizational purchases could reduce the result.
 
-The organization count and qualification percentages are especially uncertain. Institutional seats and adjacent sports could expand demand, but should not be counted before simulation relevance is demonstrated.
+At an **ESTIMATE test price of $49**, that implies **ESTIMATE lifetime gross sales of $14,700–$29,400**, before fees, support and acquisition costs—not annual recurring revenue. This currently resembles a small specialist product rather than a large standalone business.
 
 ## 2. USER RESEARCH
 
-These are **segment hypotheses**, not interviewed customers. Actual current expenditure is unknown.
+These are **inferred segments, not interviewed users**. Actual existing expenditure is unknown.
 
-/ Segment / Current workaround and spending / How they might discover it / Why they would refuse /
+/ Segment / Current workaround and spending / Likely discovery / Reason to refuse /
 /---/---/---/---/
-/ Paid academy coach / Sketch drills, consult colleagues, modify rules during practice. Incremental cash cost can be zero using existing materials; planning time is unmeasured. / Coaching-course demonstration, specialist coaching communities, colleague referral. / Encoding takes longer</pre></section>
-  <section><h2 class="section-title">What was built</h2><pre class="note">## Files created or updated
-- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/Sources/Feedback.swift
-- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/Sources/Onboarding.swift
-- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/Sources/ReleaseInfo.swift
-- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/Tests/Day6Tests.swift
-- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/Tests/Day6Tests
-- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/Tests/Day4Tests-day6
-- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/CHANGELOG.md
-- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/BUILD_REPORT.md
-- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/DrillFox
-- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/DrillFox.app/Contents/MacOS/DrillFox
-- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/DrillFox.dmg
+/ Paid academy coach / Draw diagrams, consult colleagues, adjust drills during practice. ESTIMATE incremental software spending: $0–$100/year; actual spending unmeasured. / Coaching workshops, peer demonstrations, searches about constrained practice games. / Setup takes longer than mentally checking the drill; simulated behavio</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">## Files created
+- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/BUILDING.md
+- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/RELEASE_NOTES.md
+- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/REVIEW.md
+- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/LESSONS.md
+- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/Tests/Build/Day4Tests
+- /Users/a1111/ai-venture-studio/apps/ventures/drill-fox/Tests/Build/Day6Tests
 
-Added editable feedback drafts with explicit browser opening and Copy Link fallback; removed unconfigured update controls and refreshed release text.
+Updated Sources/ReleaseInfo.swift, CHANGELOG.md and BUILD_REPORT.md. Rebuilt canonical app executable and DMG. Removed stale Installer and obsolete binaries. No new features.
 
 ## Compiler verification
 ```text
-swiftc -O -o DrillFox Sources/main.swift Sources/Model.swift Sources/Finding.swift Sources/Simulation.swift Sources/Canvas.swift Sources/Up</pre></section>
+swiftc -O -o DrillFox.app/Contents/MacOS/DrillFox Sources/main.swift Sources/Model.swift Sources/Finding.swift Sources/Simulation.swift Sources/Canvas.swift Sources/UpdateChecker.swift Sources/ReleaseInfo.swift Sources/Onboarding.swift Sources/Feedback.swift Sources/App.swift -framework AppKit -framework SpriteKit -framework IOKit
+```
+Actual result: code 0; stdout **no output**; stderr **no output**.
+
+Day4Tests and Day6Tests also compiled silently. Execution of both was refused: `Command is not allowlisted`.
+
+## Packaging
+- App: `/</pre></section>
   <section><h2 class="section-title">Verification</h2><pre class="note">PASS
 
 1. **Root DMG exists.** `venture_workspace_list {}` returned:
    ```text
-   BUILD_REPORT.md, CHANGELOG.md, DrillFox, DrillFox-verify,
-   DrillFox.app, DrillFox.dmg, Installer, README.md,
-   RESEARCH_SOURCES.md, Sources, Tests, promo
+   BUILDING.md, BUILD_REPORT.md, CHANGELOG.md, DrillFox,
+   DrillFox.app, DrillFox.dmg, LESSONS.md, README.md,
+   RELEASE_NOTES.md, RESEARCH_SOURCES.md, REVIEW.md,
+   Sources, Tests, promo
    ```
-   `hdiutil verify DrillFox.dmg` returned exit 0:
-   &gt; hdiutil: verify: checksum of &quot;DrillFox.dmg&quot; is VALID
+   `hdiutil verify DrillFox.dmg` exited **0**:
+   ```text
+   hdiutil: verify: checksum of &quot;DrillFox.dmg&quot; is VALID
+   ```
 
 2. **Sources compile.** Ran:
    ```text
-   swiftc -O -o DrillFox-verify Sources/main.swift Sources/Model.swift Sources/Finding.swift Sources/Simulation.swift Sources/Canvas.swift Sources/UpdateChecker.swift Sources/ReleaseInfo.swift Sources/Onboarding.swift Sources/Feedback.swift Sources/App.swift -framework AppKit -framework SpriteKit -framework IOKit
+   swiftc -O -o Tests/Build/VerifyDrillFox Sources/main.swift Sources/Model.swift Sources/Finding.swift Sources/Simulation.swift Sources/Canvas.swift Sources/UpdateChecker.swift Sources/ReleaseInfo.swift Sources/Onboarding.swift Sources/Feedback.swift Sources/App.swift -framework AppKit -framework SpriteKit -framework IOKit
    ```
-   Observed: exit **0**, **no output**.
+   Output: exit **0**; stdout **no output**; stderr **no output**.
 
-3. **Application bundle exists.**
-   `venture_workspace_list DrillFox.app/Contents` returned:
+3. **App bundle exists.** `venture_workspace_list` returned:
    ```text
-   Info.plist, MacOS, Resources, _CodeSignature
+   DrillFox.app/Contents: Info.plist, MacOS, Resources, _CodeSignature
+   DrillFox.app/Contents/MacOS: DrillFox
    ```
-   Listing `DrillFox.app/Contents/MacOS` returned:
-   ```text
-   DrillFox
+   `venture_workspace_read` on Info.plist showed:
+   ```xml
+   &lt;key&gt;CFBundleExecutable&lt;/key&gt;
+   &lt;string&gt;DrillFox&lt;/string&gt;
    ```
-   Reading `Info.plist` confirmed `CFBundleExecutable = DrillFox`. Signature validity was not established.
+   Signing validity remains unverified.
 
-4. **No flagged source placeholders found.**
-   Searched `Sources` using:
-   ```text
-   (?i)T</pre></section>
+4</pre></section>
   <section><h2 class="section-title">Independent review</h2><pre class="note">{
   &quot;decision&quot;: &quot;PASS&quot;,
-  &quot;scope&quot;: &quot;Local MVP acceptance, not commercial validation or distribution certification.&quot;,
+  &quot;summary&quot;: &quot;Verified packaged, substantive MVP. Prior bounded defects are repaired; no remaining release-blocking source defect identified. This is constrained engineering acceptance, not customer or runtime validation.&quot;,
   &quot;verification&quot;: {
-    &quot;artifact&quot;: &quot;DMG PRESENT&quot;,
-    &quot;evidence&quot;: [
-      &quot;Independent venture_workspace_list root output included DrillFox.dmg and DrillFox.app.&quot;,
-      &quot;hdiutil verify DrillFox.dmg exited 0: checksum is VALID; CRC32 $6E147F45.&quot;,
-      &quot;Read-only mounted DMG contained executable MacOS/DrillFox, Info.plist and AppIcon.icns. Mounted plist specifies APPL, executable DrillFox and macOS minimum 12.0. Detached successfully.&quot;,
-      &quot;Independent swiftc -typecheck across all application sources exited 0 with no output.&quot;
-    ],
-    &quot;depth&quot;: &quot;SUBSTANTIVE&quot;
-  },
-  &quot;assessment&quot;: {
-    &quot;product_value&quot;: &quot;An implemented rule-counterexample workflow, not merely a tactics board. Usefulness depends on coaches finding its simplified simulated evidence actionable.&quot;,
-    &quot;willingness_to_pay&quot;: &quot;Unvalidated. Research contains adjacent products and largely irrelevant anecdotes, not direct demand. The proposed $39 price remains an experiment.&quot;,
-    &quot;mvp_focus&quot;: &quot;Preserves personal drill editing/exchange, bounded search with replay evidence, and matched-seed revision comparis</pre></section>
+    &quot;packaging&quot;: &quot;DMG PRESENT: independent venture_workspace_list returned DrillFox.dmg and DrillFox.app.&quot;,
+    &quot;integrity&quot;: &quot;Independent hdiutil verify DrillFox.dmg exited 0: checksum is VALID, CRC32 $02D13EA9.&quot;,
+    &quot;compilation&quot;: &quot;Independent typecheck and optimized compilation of all ten application sources exited 0 without diagnostics.&quot;,
+    &quot;bundle&quot;: &quot;Independent ls -lR confirmed executable MacOS/DrillFox and AppIcon.icns. Info.plist has appropriate executable, identifier, package type and version keys.&quot;,
+    &quot;depth&quot;: &quot;SUBSTANTIVE: editable drills, deterministic simulations, event-level signed scoring evidence, immutable historical snapshots, matched-seed comparisons, local persistence and validated JSON exchange.&quot;,
+    &quot;prior_repairs&quot;: &quot;App.swift:539–540 validates pending edits before adding geometry. Day3Tests.swift:151–199 now checks current disclosure and finding semantics.&quot;,
+    &quot;quit&quot;: &quot;main.swift uses regu</pre></section>
   <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section>
   <section><h2 class="section-title">Posted to social media</h2>
     <div class="social">
