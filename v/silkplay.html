@@ -279,16 +279,16 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <div class="lede"><h1>Silkplay</h1><p>Silkplay is a tabletop physics playground for curious families, students and adults.</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      <span class="badge">Built in 3h 0m</span>
-      
-      <span class="badge">2026-11-07</span>
+      <span class="badge">Built in 2h 10m</span>
+      <span class="badge">5h 10m total across 2 runs</span>
+      <span class="badge">2026-11-08</span>
       
       
     </div>
   </div>
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><img src="../shots/silkplay.png" alt="Silkplay running">
-       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/silkplay/Silkplay.dmg">Download Silkplay.dmg <small>1841 KB</small></a>
+       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/silkplay/Silkplay.dmg">Download Silkplay.dmg <small>1831 KB</small></a>
        </div>
     <div><div class="chart">
     <h2 class="chart-title">Selection benchmarks</h2>
@@ -327,116 +327,93 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   </div></div>
   </div>
   <section><h2 class="section-title">The opportunity</h2><pre class="note">Silkplay is a tabletop physics playground for curious families, students and adults. Their own desk objects become anchors for virtual silk. Plucking a strand sends visible waves through the web, and players use arrival timing to decide where a simulated spider should wait. Its value is making an otherwise invisible physical phenomenon something people can touch, investigate and play with.</pre></section>
-  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build Silkplay as a finished native macOS 12+ graphical application, compiled using swiftc and Apple frameworks alone, packaged as Silkplay.app inside Silkplay.dmg. Preserve S1's object recognition, hand pose and SpriteKit core. On first launch, explain camera placement and permissions, then help the user recognize and confirm several real tabletop objects. Use system image classification on bounded object regions, contour-supported placement and explicit user correction; do not assume Vision supplies arbitrary object detection or persistent physical-object tracking. Freeze confirmed image-space anchors during each experiment and provide an obvious recalibration action when the camera or objects move.  Let users connect anchors with silk, adjust strand tension and damping, and pluck strands using a calibrated tracked fingertip. Use a discretized, damped wave network with fixed simulation steps and explicit junction coupling; SpriteKit presents the web and interactions rather than pretending its stock springs calculate wave propagation. Show wavefronts and junction arrival traces, let players place the spider, trigger hidden prey disturbances, and compare arrival-time clues before revealing the origin. Provide progressive challenges, free exploration, repeatable experiments and saved user-created webs with their parameters and progress. Include mouse interaction as an accessibility and camera-denial fallback, without substituting it for the camera experience.  Provide clear tracking-confidence feedback, hand-loss recovery, pause, undo, useful errors and onboarding that leads directly into play. Use original code-drawn creatures and silk, considered typography and spacing, semantic colors, light/dark appearances and restrained motion. Consult macos-app-design before interface implementation if that skill is available to the build stage; it is not in this session's catalog. Maintain legible layouts across connected displays, Retina scales, safe areas, resolution changes, full-screen and Spaces. Reduce or pause camera processing and animation when hidden, on battery or in Low Power Mode; respect Reduce Motion. Persist settings and recover saved experiments across launches. Use a normal foreground app with working application, Edit and Window menus, Cmd-Q, an explicit Quit Silkplay action and Finder reopen behavior.</pre></section>
-  <section><h2 class="section-title">Market and user research</h2><pre class="note"># Silkplay — commercial assessment
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Continue Silkplay in place for campaign day 2: SOCIAL UPLOADS. Preserve object recognition, calibrated fingertip plucking, coupled wave simulation, arrival comparisons, editable webs and persisted progress. Improve first-launch clarity and visual presentation so someone immediately understands and can demonstrate the experience. Replace the generic utility description with accurate product copy. Prepare a concise promotional description, captions and a shot-by-shot demonstration script showing real tabletop anchors, silk construction, a pluck and the resulting arrival-time comparison. Clearly distinguish camera interaction from mouse fallback; do not claim unverified hardware performance. The downstream build chain should compile with swiftc and Apple frameworks alone, package Silkplay.app inside Silkplay.dmg, and verify the resulting artifact. Studio jobs handle video rendering and posting separately.</pre></section>
+  <section><h2 class="section-title">Market and user research</h2><pre class="note">## 1. MARKET SIZE
 
-**Evidence boundary:** `RESEARCH_SOURCES.md` was read. Its relevant competitive coverage is inadequate. No web verification was available; all market assumptions below are **ESTIMATES or inference**, not measured demand.
+**Evidence boundary:** Read `RESEARCH_SOURCES.md`. Its store table measures available listings, not sales or demand. No web verification performed. Everything below is inference unless identified as snapshot evidence.
 
-## 1. MARKET SIZE
+Plausible buyers are Mac-owning families buying science activities, individual physics educators, and adults buying interactive desk toys. Count purchases per household or educator—not every student who might use the app.
 
-Plausible buyers are Mac-owning families seeking shared science activities, educators with suitable equipment, and adults buying experimental games.
+**Illustrative bottom-up addressable pool, not a measured population:**
+- Families: **ESTIMATE 100** reachable education communities × **ESTIMATE 1,000** households × **ESTIMATE 20%** suitable Mac ownership and interest = **ESTIMATE 20,000** prospective buyers.
+- Educators: **ESTIMATE 100** relevant networks × **ESTIMATE 200** educators × **ESTIMATE 20%** suitable hardware and teaching need = **ESTIMATE 4,000**.
+- After **ESTIMATE 20%** overlap: **ESTIMATE 19,200** distinct prospects.
 
-An illustrative bottom-up **US household opportunity**, not a forecast:
+These community counts, memberships and qualification rates are assumptions, not discovered distribution.
 
-/ Funnel / ESTIMATE /
-/---/---:/
-/ Households with school-age children / 30 million /
-/ × compatible Mac access / 15% /
-/ × interest in paid hands-on science software / 10% /
-/ × willingness and ability to arrange tabletop camera play / 20% /
-/ **Potential buying households** / **90,000** /
-
-**ESTIMATE arithmetic:** 30 million × 15% × 10% × 20% = **90,000 households**. At an **ESTIMATE $14.99** one-time price, that represents approximately **ESTIMATE $1.35 million lifetime gross opportunity**, not annual revenue or achievable sales.
-
-Every filter is unverified; camera suitability could reduce this substantially. Educators and adult enthusiasts offer additional potential, but adding unsupported populations would create false precision.
-
-A distribution-constrained annual scenario is more useful:
-
-**ESTIMATE 25,000 qualified visitors × 2% purchase conversion = 500 purchases × $14.99 = $7,495 annual gross revenue.** Obtaining those visitors is itself unproven.
+At **ESTIMATE 5%** eventual purchase conversion, that pool yields **ESTIMATE 960 purchases**. At a proposed **ESTIMATE $6.99** price, gross lifetime receipts from that pool are approximately **ESTIMATE $6,710**, before fees, refunds, acquisition and support. This supports a small-product hypothesis, not a venture-scale forecast.
 
 ## 2. USER RESEARCH
 
-These are **segment hypotheses, not interviews**. Actual spending is unknown.
+These are proposed segments, not interviewed users.
 
-/ Segment / Current workaround / Existing expenditure / Discovery hypothesis / Refusal trigger /
-/---/---/---/---/---/
-/ Mac-owning parents and homeschool families / Free simulations, videos, rope or spring experiments / Free di</pre></section>
-  <section><h2 class="section-title">What was built</h2><pre class="note">1. Files created or regenerated:
+/ Segment / Current workaround and spending / Discovery hypothesis / Refusal trigger /
+/---/---/---/---/
+/ Mac-owning parents and homeschoolers / Free videos and browser simulations; household string already owned. Incremental spending can be **ESTIMATE $0**; actual budgets unknown. / A short, accurately labelled demonstration; homes</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">## Files created or updated
+- /Users/a1111/ai-venture-studio/apps/ventures/silkplay/Sources/AppController.swift
+- /Users/a1111/ai-venture-studio/apps/ventures/silkplay/Sources/WebScene.swift
+- /Users/a1111/ai-venture-studio/apps/ventures/silkplay/Sources/SelfTests.swift
+- /Users/a1111/ai-venture-studio/apps/ventures/silkplay/CHANGELOG.md
+- /Users/a1111/ai-venture-studio/apps/ventures/silkplay/promo/brief.md
+- /Users/a1111/ai-venture-studio/apps/ventures/silkplay/promo/posts.md
+- /Users/a1111/ai-venture-studio/apps/ventures/silkplay/promo/demo-script.md
+- /Users/a1111/ai-venture-studio/apps/ventures/silkplay/docs/verification-2026-11-08.md
+- /Users/a1111/ai-venture-studio/apps/ventures/silkplay/Silkplay
+- /Users/a1111/ai-venture-studio/apps/ventures/silkplay/Silkplay.app/Contents/MacOS/Silkplay
+- /Users/a1111/ai-venture-studio/apps/ventures/silkplay/Installer/Silkplay.app
+- /Users/a1111/ai-venture-studio/apps/ventures/silkplay/Silkplay.dmg
 
-- `/Users/a1111/ai-venture-studio/apps/ventures/silkplay/Silkplay.app/Contents/MacOS/Silkplay`
-- `/Users/a1111/ai-venture-studio/apps/ventures/silkplay/Silkplay.dmg`
+Implemented isolated sample, replay/paused return, nonmodal first-launch guidance, clearer simulated arrivals and draft promotional material.
 
-Existing bundle metadata:
-
-- `/Users/a1111/ai-venture-studio/apps/ventures/silkplay/Silkplay.app/Contents/Info.plist`
-
-2. Exact compile command:
-
-`swiftc -O -o Silkplay.app/Contents/MacOS/Silkplay Sources/main.swift Sources/Model.swift Sources/WaveSolver.swift Sources/Physics.swift Sources/Camera.swift Sources/CameraController.swift Sources/WebScene.swift Sources/Playfield.swift Sources/AppController.swift Sources/SelfTests.swift -framework AppKit -framework SpriteKit -framework Vision -framework AVFoundation -framework CoreImage -framework CoreVideo -framework Accelerate -framework IOKit`
-
-Output:
-
+## Compilation
 ```text
-stdout: no output
-stderr:
-Sources/CameraController.swift:28:66: warning: 'devices(for:)' was deprecated in macOS 10.15: Use AVCaptureDeviceDiscoverySession instead.
+swiftc Sources/Silkplay.swift Sources/main.swift Sources/Model.swift Sources/Wav</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">PASS
+
+1. **Root DMG exists.** `venture_workspace_list {}` returned:
+```text
+CHANGELOG.md
+Installer/
+README.md
+RESEARCH_SOURCES.md
+Silkplay
+Silkplay.app/
+Silkplay.dmg
+Sources/
+Tests/
+VerificationMount/
+docs/
+promo/
+```
+`hdiutil verify Silkplay.dmg` exited **0**:
+```text
+verified   CRC32 $3574D4D8
+hdiutil: verify: checksum of &quot;Silkplay.dmg&quot; is VALID
 ```
 
-Exit code: `0`.
-
-3. DMG:
-
-`/Users/a1111/ai-venture-studio/apps/ventures/silkplay/Silkplay.dmg`
-
-`hdiutil create` succeeded:
-
-```text
-created: /Users/a1111/ai-venture-studio/apps/ventures/silkplay/Silkplay.dmg
-```</pre></section>
-  <section><h2 class="section-title">Verification</h2><pre class="note">FAIL
-
-1. **Root DMG exists.** Ran `venture_workspace_list {}`:
-   ```text
-   Installer/
-   RESEARCH_SOURCES.md
-   Silkplay
-   Silkplay.app/
-   Silkplay.dmg
-   Sources/
-   Tests/
-   docs/
-   ```
-   Also ran `hdiutil verify Silkplay.dmg`. Exit `0`:
-   ```text
-   hdiutil: verify: checksum of &quot;Silkplay.dmg&quot; is VALID
-   ```
-
 2. **Sources compile.** Ran:
-   ```text
-   swiftc -O -o Tests/Silkplay-verify Sources/Silkplay.swift Sources/main.swift Sources/Model.swift Sources/WaveSolver.swift Sources/Physics.swift Sources/Camera.swift Sources/CameraController.swift Sources/WebScene.swift Sources/Playfield.swift Sources/AppController.swift Sources/SelfTests.swift -framework AppKit -framework SpriteKit -framework Vision -framework AVFoundation -framework CoreImage -framework CoreVideo -framework Accelerate -framework IOKit
-   ```
-   Exit `0`; stdout: **no output**. Stderr:
-   ```text
-   Sources/CameraController.swift:28:66: warning: 'devices(for:)' was deprecated in macOS 10.15: Use AVCaptureDeviceDiscoverySession instead.
-       static func devices() -&gt; [AVCaptureDevice] { AVCaptureDevice.devices(for: .video) }
-                                                                    ^
-   ```
-
-3. **</pre></section>
+```text
+swiftc Sources/Silkplay.swift Sources/main.swift Sources/Model.swift Sources/WaveSolver.swift Sources/Physics.swift Sources/Camera.swift Sources/CameraController.swift Sources/WebScene.swift Sources/Playfield.swift Sources/AppController.swift Sources/SelfTests.swift -target arm64-apple-macos12.0 -O -o Silkplay -framework AppKit -framework SpriteKit -framework Vision -framework AVFoundation -framework CoreImage -framework CoreVideo -framework Accelerate -framework IOKit
+```
+Exit **0**; stdout: **no output**. stderr:
+```text
+Sources/CameraController.swift:28:66: warning: 'devices(for:)' was deprecated in macOS 10.15: Use AVCaptureDeviceDiscoverySession instead.
+    static func devices() -&gt; [AVCaptureDevice] { AVCaptureDevice.devices(for: .video) }</pre></section>
   <section><h2 class="section-title">Independent review</h2><pre class="note">{
   &quot;decision&quot;: &quot;PASS&quot;,
-  &quot;depth&quot;: &quot;SUBSTANTIVE&quot;,
-  &quot;scope&quot;: &quot;Reviewed the established camera-enabled wave laboratory. The explicitly unconfirmed hunting-game specification does not supersede that selection.&quot;,
   &quot;verification&quot;: {
-    &quot;packaging&quot;: &quot;DMG PRESENT: independent venture_workspace_list returned Silkplay.dmg and Silkplay.app.&quot;,
-    &quot;integrity&quot;: &quot;Independent hdiutil verify Silkplay.dmg exited 0 and reported checksum VALID.&quot;,
-    &quot;compilation&quot;: &quot;Delegated full-source swiftc -typecheck exited 0; one deprecated camera API warning remains.&quot;,
-    &quot;bundle_and_exit&quot;: &quot;Info.plist identifies the bundled executable and camera purpose. Regular activation provides a Dock icon; Quit Silkplay / Cmd-Q targets implemented quit(), reaching NSApp.terminate.&quot;,
-    &quot;correctness&quot;: &quot;Source inspection confirms projected plucks, fresh tracking checks, shared camera resume, attempt cancellation, visible-spider comparison, tied-arrival tolerance and termination mutation guards. No remaining acceptance-blocking defect identified.&quot;
+    &quot;artifact&quot;: &quot;DMG PRESENT: independent venture_workspace_list returned root Silkplay.dmg.&quot;,
+    &quot;integrity&quot;: &quot;hdiutil verify exited 0; checksum VALID, CRC32 $3574D4D8.&quot;,
+    &quot;contents&quot;: &quot;Read-only mounted image contains Silkplay.app. Executable and Info.plist comparisons exited 0; workspace bundle executable also matches.&quot;,
+    &quot;source&quot;: &quot;Fresh full-source arm64 typecheck exited 0; one existing camera-discovery deprecation warning. Previous full compilation is documented, not repeated here.&quot;,
+    &quot;depth&quot;: &quot;SUBSTANTIVE: construction, connected-wave propagation, camera calibration/pinch, investigations, persistence and isolated sample are implemented.&quot;
   },
   &quot;assessment&quot;: {
-    &quot;value&quot;: &quot;Editable coupled waves, seeded disturbances and arrival comparisons provide meaningful educational exploration.&quot;,
-    &quot;mvp_focus&quot;: &quot;The</pre></section>
+    &quot;product_value&quot;: &quot;Playable junction propagation and arrival comparisons offer plausible educational value.&quot;,
+    &quot;willingness_to_pay&quot;: &quot;Unvalidated; the proposed $6.99 price faces strong free substitutes.&quot;,
+    &quot;mvp_focus&quot;: &quot;Preserves the specified tabletop laboratory and all three capabilities. Sample replay and paused return directly serve today's goal.&quot;,
+    &quot;functional_correctness&quot;: &quot;Source inspection confirms prior repairs, including hidden-source concealmen</pre></section>
   <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section>
   </main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
