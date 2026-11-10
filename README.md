@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[Silkplay](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/silkplay.html)** | Silkplay is a tabletop physics playground for curious families, students and adults. Their own… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/silkplay/Silkplay.dmg) <br><sub>1831 KB · built in 5h 10m over 2 runs</sub> |
+| **[Silkplay](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/silkplay.html)** | A tabletop wave playground for curious families, students and adults on Mac. Stretch virtual… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/silkplay/Silkplay.dmg) <br><sub>2087 KB · built in 10h 49m over 4 runs</sub> |
 | **[DrillFox](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/drill-fox.html)** | Drill Fox: Draw a training drill and assign points. Simulated players try to win while doing as… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/drill-fox/DrillFox.dmg) <br><sub>1962 KB · built in 14h 36m over 7 runs</sub> |
 | **[CutMagnet](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/cut-magnet.html)** | Cut Magnet is a native Mac creative instrument for hobby filmmakers, dancers, families,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/cut-magnet/CutMagnet.dmg) <br><sub>1897 KB · built in 8h 50m over 8 runs</sub> |
 | **[LumaLoop](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/lumaloop.html)** | LumaLoop is the existing native Mac creative-play app for people who want to turn their own… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/lumaloop/LumaLoop.dmg) <br><sub>1561 KB · built in 7h 03m over 7 runs</sub> |
@@ -69,7 +69,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB · built in 36m</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB · built in 43m</sub> |
 
-<sub>49 apps · 36.6 MB total · macOS 12+</sub>
+<sub>49 apps · 36.9 MB total · macOS 12+</sub>
 
 ---
 
@@ -103,7 +103,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
-- **2026-11-08** — MODIFY <sub>(Silkplay)</sub>
+- **2026-11-10** — MODIFY <sub>(Silkplay)</sub>
 - **2026-11-06** — MODIFY <sub>(DrillFox)</sub>
 - **2026-10-30** — MODIFY <sub>(CutMagnet)</sub>
 - **2026-10-23** — MODIFY <sub>(LumaLoop)</sub>
