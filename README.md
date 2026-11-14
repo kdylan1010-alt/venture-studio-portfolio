@@ -1,16 +1,16 @@
 # AI Venture Studio
 
-**49 free macOS apps. Built autonomously, one every morning.**
+**50 free macOS apps. Built autonomously, one every morning.**
 
 Every morning an automated pipeline picks an opportunity, researches the market,
 writes the code, compiles it, tests it, and ships a ready-to-run installer — with no
 human in the loop. These are the results. All free, no signup, no tracking.
 
-[**Browse all 49 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
+[**Browse all 50 apps with screenshots →**](https://kdylan1010-alt.github.io/venture-studio-portfolio/)
 
 <p align="center">
   <a href="https://kdylan1010-alt.github.io/venture-studio-portfolio/v/silkplay.html"><img src="shots/silkplay.png" width="720" alt="Silkplay"></a>
-  <br><sub><i>Silkplay — one of 49 tools below</i></sub>
+  <br><sub><i>Silkplay — one of 50 tools below</i></sub>
 </p>
 
 ---
@@ -19,6 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
+| **[SharedReach](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/shared-reach.html)** | Shared Reach is a seated cooperative Mac game for older adults, relatives and friends with… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/shared-reach/SharedReach.dmg) <br><sub>1398 KB · built in 2h 14m</sub> |
 | **[Silkplay](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/silkplay.html)** | A tabletop wave playground for curious families, students and adults on Mac. Connect anchors… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/silkplay/Silkplay.dmg) <br><sub>2121 KB · built in 16h 12m over 7 runs</sub> |
 | **[DrillFox](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/drill-fox.html)** | Drill Fox: Draw a training drill and assign points. Simulated players try to win while doing as… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/drill-fox/DrillFox.dmg) <br><sub>1962 KB · built in 14h 36m over 7 runs</sub> |
 | **[CutMagnet](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/cut-magnet.html)** | Cut Magnet is a native Mac creative instrument for hobby filmmakers, dancers, families,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/cut-magnet/CutMagnet.dmg) <br><sub>1897 KB · built in 8h 50m over 8 runs</sub> |
@@ -69,7 +70,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB · built in 36m</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB · built in 43m</sub> |
 
-<sub>49 apps · 36.9 MB total · macOS 12+</sub>
+<sub>50 apps · 38.3 MB total · macOS 12+</sub>
 
 ---
 
@@ -103,6 +104,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
+- **2026-11-14** — MODIFY <sub>(SharedReach)</sub>
 - **2026-11-13** — MODIFY <sub>(Silkplay)</sub>
 - **2026-11-06** — MODIFY <sub>(DrillFox)</sub>
 - **2026-10-30** — MODIFY <sub>(CutMagnet)</sub>
@@ -114,7 +116,6 @@ the running log, newest first.
 - **2026-09-23** — MODIFY <sub>(PrivateBlur)</sub>
 - **2026-09-17** — MODIFY <sub>(TrustLens)</sub>
 - **2026-09-02** — MODIFY <sub>(TripClaim)</sub>
-- **2026-08-31** — STOP <sub>(BillLens)</sub>
 
 ---
 
