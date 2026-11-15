@@ -276,18 +276,18 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <span class="hdr-meta">Autonomous build log</span>
 </header>
 <main><a class="back" href="../index.html">← All ventures</a>
-  <div class="lede"><h1>SharedReach</h1><p>Shared Reach is a seated cooperative Mac game for older adults, relatives and friends with different comfortable movement ranges.</p>
+  <div class="lede"><h1>SharedReach</h1><p>Shared Reach: Two people separately trace comfortable seated reaches;</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      <span class="badge">Built in 2h 14m</span>
-      
-      <span class="badge">2026-11-14</span>
+      <span class="badge">Built in 2h 1m</span>
+      <span class="badge">4h 15m total across 2 runs</span>
+      <span class="badge">2026-11-15</span>
       
       
     </div>
   </div>
   <div class="split" style="margin-top:2rem">
-    <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/shared-reach/SharedReach.dmg">Download SharedReach.dmg <small>1398 KB</small></a>
+    <div><div class="shot"><div class="cap">No screenshot captured for this venture.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/shared-reach/SharedReach.dmg">Download SharedReach.dmg <small>1425 KB</small></a>
        </div>
     <div><div class="chart">
     <h2 class="chart-title">Selection benchmarks</h2>
@@ -325,115 +325,105 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
     <table class="axes"><caption class="sr-only">Scores by perspective, 1 to 10, weakest called out</caption><tr><td>profit</td><td>revenue potential and margin — scored 5/10</td></tr><tr><td>change</td><td>genuine improvement for the people it serves — scored 8/10</td></tr><tr><td>effort</td><td>how little work it takes to reach a usable result — scored 3/10</td></tr><tr><td>viability</td><td>survives real constraints, competitors and economics — scored 6/10</td></tr><tr><td>future</td><td>durability and timing, not a passing fad — scored 8/10</td></tr><tr><td>market</td><td>size, growth and willingness to pay — scored 5/10</td></tr><tr><td>population</td><td>how many people it can reach — scored 6/10</td></tr><tr><td>availability</td><td>buildable now with the resources on hand — scored 7/10</td></tr></table>
   </div></div>
   </div>
-  <section><h2 class="section-title">The opportunity</h2><pre class="note">Shared Reach is a seated cooperative Mac game for older adults, relatives and friends with different comfortable movement ranges. Each player separately demonstrates movements they choose; the app creates a shared tabletop challenge with reachable personal interaction zones and a common goal. Its value is enjoyable time together without forcing either player to match the other's range. It is entertainment, not rehabilitation, diagnosis or a safety assessment.</pre></section>
-  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Build SharedReach.app, distributed inside SharedReach.dmg: a complete native macOS 12+ graphical game compiled with swiftc and Apple frameworks alone. Provide guided camera framing, separate one-person seated calibrations, mirrored movement previews and an explicitly confirmed comfortable range for each player. Use shoulder-relative, two-dimensional wrist positions; never infer distance, pain or safe motion. Reject low-confidence samples and never expand a player's confirmed range automatically. Generate a polished cooperative tabletop game in which players take alternating camera turns to move reachable pieces and assemble a shared kinetic garden. Each contribution must affect the same shared challenge; include meaningful choices, multiple generated layouts, short sessions, gentle difficulty controls and saved progress rather than a calibration demo. Separate players' reach mappings from the common board, show clearly whose turn it is, and pause whenever tracking is uncertain. Include mouse/keyboard access, manual range editing and a usable camera-denied path without pretending those validate camera calibration. Persist profiles, settings and sessions locally; process camera frames transiently without recording. Provide first-launch guidance, meaningful empty and error states, visible progress, original drawn artwork, sound controls and restrained celebratory motion. Use a regular Dock application with functional Quit, Cmd-Q, Edit and Window menus and Finder reopen behavior. Adapt layout to all connected displays, Retina scale, safe areas, appearance, Spaces and display changes. Reduce motion and suspend camera processing and unnecessary animation when hidden or inactive; throttle on battery and Low Power Mode. During implementation, load macos-app-design if available; it is not present in this approval session's supplied skill catalog.</pre></section>
+  <section><h2 class="section-title">The opportunity</h2><pre class="note">Shared Reach: Two people separately trace comfortable seated reaches; the Mac invents cooperative tabletop games whose pieces remain accessible to both.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Continue Shared Reach in place for campaign day 2: SOCIAL UPLOADS. Make its seated cooperative garden game showable, clearly demonstrating separate player calibration, explicitly confirmed comfortable reach regions, accessible piece placement and alternating contributions. Preserve camera play, mouse/keyboard fallback, saved settings and local progress. Improve first-launch explanation, calibration feedback, permission errors and polished gameplay presentation. Prepare truthful promotional copy, captions and a shot list for the studio's rendering and posting jobs; distinguish demonstration footage from live camera operation. Build the native macOS 12-compatible app with swiftc, package SharedReach.app in SharedReach.dmg, and verify when execution capabilities permit.</pre></section>
   <section><h2 class="section-title">Market and user research</h2><pre class="note"># Shared Reach — commercial assessment
 
-**Evidence:** I read `RESEARCH_SOURCES.md`. Its store table measures listed supply, not feature equivalence or demand. No web verification was available. Customer behavior, market sizing and pricing below are hypotheses unless explicitly attributed to that table.
+**Evidence:** Read `RESEARCH_SOURCES.md`. Its store table is measured supply reported by the prior collection, not independently rechecked here. No web research was performed. Customer behavior, market sizing and commercial conclusions below are **inferences**, not validated demand.
 
 ## 1. MARKET SIZE
 
-**Plausible buyer:** a Mac-owning household where two people want to play together, conventional controls exclude or frustrate one participant, and someone will handle installation and setup. The purchaser may be a relative rather than the older player.
+**Plausible buyer:** A Mac-owning household with two people who want seated cooperative play, have different comfortable movement ranges, and find ordinary games awkward. Count purchasing households—not individual players or everyone with a disability.
 
-**Illustrative US household model—not a checked demographic count:**
+**Bottom-up planning scenario; every figure is an ESTIMATE:**
 
-/ Filter / Planning assumption /
+/ Funnel / ESTIMATE /
 /---/---:/
-/ Households containing an older adult / ESTIMATE 30 million /
-/ Have access to a suitable Mac / ESTIMATE 15% /
-/ Have a regularly available, willing play partner / ESTIMATE 40% /
-/ Experience a relevant mismatch in comfortable controls or movement / ESTIMATE 25% /
-/ Would consider this particular shared game / ESTIMATE 20% /
+/ Mac-owning households in an initial English-language market / 10 million /
+/ Have a relevant movement mismatch and a willing play partner / 2% → 200,000 /
+/ Interested in this style of shared digital play / 20% → 40,000 /
+/ Can practically use the proposed setup / 50% → 20,000 potentially suitable households /
+/ Eventually purchase if reached and convinced / 10–25% → 2,000–5,000 buyers /
 
-Arithmetic: **ESTIMATE 30 million × 15% × 40% × 25% × 20% = 90,000 potentially suitable buying households.**
+These percentages are explicit assumptions, not population statistics. The **ESTIMATE of 20,000 suitable households** is a working hypothesis, not a measured market.
 
-This is an assumption-driven serviceable-market scenario, **not demonstrated demand**. It excludes additional younger-adult households and institutional buyers rather than counting them without evidence.
+At an **ESTIMATE price of $14.99**, **ESTIMATE lifetime gross revenue of approximately $30,000–$75,000** follows from the purchase scenario, before distribution fees, taxes, support and development. Institutions could add sales, but there is insufficient evidence to include them.
 
-At **ESTIMATE $14.99**, that entire hypothetical pool represents **ESTIMATE $1.35 million lifetime gross receipts**, not annual revenue. Reaching and converting **ESTIMATE 2–5% annually** would produce **ESTIMATE 1,800–4,500 purchases**, or **ESTIMATE $27,000–$67,000 annual gross receipts**, before acquisition, fees, refunds, support and development.
+## 2. USER RESEARCH
 
-The commercial implication is a possible small independent product—not an evidenced venture-scale opportunity</pre></section>
-  <section><h2 class="section-title">What was built</h2><pre class="note">Created files:
+These are recruitment hypotheses, not completed interviews.
 
+/ Segment / Current workaround / What they already pay / Discovery route / Reason to refuse /
+/---/---/---/---/---/
+/ Partners or friends with different comfortable reaches / Move t</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">1. Files created or updated:
+
+- `/Users/a1111/ai-venture-studio/apps/ventures/shared-reach/CHANGELOG.md`
+- `/Users/a1111/ai-venture-studio/apps/ventures/shared-reach/promo/brief.md`
+- `/Users/a1111/ai-venture-studio/apps/ventures/shared-reach/promo/posts.md`
+- `/Users/a1111/ai-venture-studio/apps/ventures/shared-reach/promo/shot-list.md`
+- `/Users/a1111/ai-venture-studio/apps/ventures/shared-reach/Tests/SharedReachTests`
+- `/Users/a1111/ai-venture-studio/apps/ventures/shared-reach/SharedReach`
 - `/Users/a1111/ai-venture-studio/apps/ventures/shared-reach/SharedReach.app/Contents/MacOS/SharedReach`
 - `/Users/a1111/ai-venture-studio/apps/ventures/shared-reach/SharedReach.dmg`
-- `/Users/a1111/ai-venture-studio/apps/ventures/shared-reach/Tests/SharedReachTests`
 
-Compile command:
+2. Compilation:
 
-`swiftc -O -framework AppKit -framework AVFoundation -framework Vision -framework CoreImage -o SharedReach.app/Contents/MacOS/SharedReach Sources/main.swift Sources/Model.swift Sources/Camera.swift Sources/Artwork.swift Sources/Views.swift Sources/App.swift`
-
-Output: no output; exit code 0.
-
-Test executable compile:
-
-`swiftc -O -o Tests/SharedReachTests Sources/Model.swift Tests/main.swift`
+`swiftc -O -o Tests/SharedReachTests Sources/Model.swift Sources/SampleSession.swift Tests/main.swift`
 
 Output: no output; exit code 0.
 
-DMG:
+`swiftc -O -framework AppKit -framework AVFoundation -framework Vision -framework CoreImage -o SharedReach Sources/main.swift Sources/Model.swift Sources/Camera.swift Sources/Artwork.swift Sources/Views.swift Sources/SampleSession.swift Sources/App.swift`
 
-`/Users/a1111/ai-venture-studio/apps/ventures/shared-reach/SharedReach.dmg`
+Output: no output; exit code 0.
 
-`hdiutil create` succeeded with exit code 0. `hdiutil verify SharedReach.dmg` succeeded and reported: `checksum of &quot;SharedReach.dmg&quot; is VALID`.
+3. Packaging:
 
-Actual workspace-root listing:
-
-`.build`, `Packaging`, `RESEARCH_SOURCES.md`, `SharedReach.app`, `SharedReach.dmg`, `Sources`, `Tests`.
-
-Not yet verified:
-
-- The allowlisted command runner cannot execute the compiled test binary, so runtime</pre></section>
+DMG: `/Users/a1111/ai-venture-studio/apps/ventures/shared-</pre></section>
   <section><h2 class="section-title">Verification</h2><pre class="note">PASS
 
-1. **Root DMG** — `venture_workspace_list {}` returned:
-   ```text
-   .build/
-   Build/
-   Packaging/
-   REPAIR_REPORT.md
-   RESEARCH_SOURCES.md
-   SharedReach
-   SharedReach.app/
-   SharedReach.dmg
-   Sources/
-   Tests/
+1. **Root DMG present.** `venture_workspace_list {}` returned:
    ```
-   `hdiutil verify SharedReach.dmg` returned exit **0**:
-   ```text
+   .build, Build, CHANGELOG.md, Packaging, README.md,
+   REPAIR_REPORT.md, RESEARCH_SOURCES.md, SharedReach,
+   SharedReach.app, SharedReach.dmg, Sources, Tests, promo
+   ```
+   `hdiutil verify SharedReach.dmg` exited 0:
+   ```
    hdiutil: verify: checksum of &quot;SharedReach.dmg&quot; is VALID
    ```
 
-2. **Source compilation** — Ran:
-   ```text
-   swiftc -O -framework AppKit -framework AVFoundation -framework Vision -framework CoreImage -o .build/SharedReach-verify Sources/main.swift Sources/Model.swift Sources/Camera.swift Sources/Artwork.swift Sources/Views.swift Sources/App.swift
+2. **Active sources compile.** Ran:
    ```
-   Exit **0**; **no output**. This explicit build excludes unused `Domain.swift`, which duplicates active type names.
+   swiftc -O -framework AppKit -framework AVFoundation -framework Vision -framework CoreImage -o .build/SharedReach-verify Sources/main.swift Sources/Model.swift Sources/Camera.swift Sources/Artwork.swift Sources/Views.swift Sources/SampleSession.swift Sources/App.swift
+   ```
+   Output: **no output**, exit 0. Unused, conflicting `Domain.swift` excluded.
 
-3. **App bundle** — Directory-list commands returned:
-   ```text
-   SharedReach.app/Contents: Info.plist, MacOS/
-   SharedReach.app/Contents/MacOS: SharedReach
+3. **App bundle present.**
+   `venture_workspace_list SharedReach.app/Contents` returned:
    ```
-   Reading `Info.plist` returned:
-   ```xml
-   &lt;key&gt;CFBundleExecutable&lt;/key&gt;&lt;string&gt;SharedReach&lt;/string&gt;
+   Info.plist, MacOS, Resources, _CodeSignature
    ```
+   `venture_workspace_list SharedReach.app/Contents/MacOS` returned:
+   ```
+   SharedReach
+   ```
+   `venture_workspace_read SharedReach.app/Contents/Info.plist` confirmed executable `SharedReach` and package type `APPL`. Signing not verified.
 
-4. **Unfinished source text** — Read all seven source files. Searched `Sources/*.swift` using `(?i)TODO/FIXME/placeholder/stub`:
-   ```tex</pre></section>
+4. **No TODO/FIXME/placeholder</pre></section>
   <section><h2 class="section-title">Independent review</h2><pre class="note">{
   &quot;decision&quot;: &quot;PASS&quot;,
   &quot;verification&quot;: {
-    &quot;packaging&quot;: &quot;DMG PRESENT: independent venture_workspace_list root output includes SharedReach.dmg and SharedReach.app.&quot;,
-    &quot;integrity&quot;: &quot;Independent hdiutil verify returned exit 0: checksum VALID.&quot;,
-    &quot;compilation&quot;: &quot;Independent application and regression-test compilations returned exit 0 without diagnostics. Neither binary was executed.&quot;,
-    &quot;bundle&quot;: &quot;Info.plist is well formed and names the independently confirmed executable. REPAIR_REPORT.md records compilation, executable copying and DMG creation.&quot;,
-    &quot;depth&quot;: &quot;SUBSTANTIVE: generated cooperative puzzles, alternating contributions, connected-path victory, undo, independent calibration, manual alternatives and local persistence.&quot;,
-    &quot;quit&quot;: &quot;Regular Dock application with responder-chain Quit Shared Reach and Cmd-Q.&quot;
+    &quot;packaging&quot;: &quot;DMG PRESENT: independent venture_workspace_list root output includes SharedReach.dmg. hdiutil verify exited 0 and reported checksum VALID.&quot;,
+    &quot;bundle&quot;: &quot;SharedReach.app/Contents/MacOS/SharedReach exists. Info.plist specifies APPL, the correct executable, macOS 12 minimum and camera permission purpose.&quot;,
+    &quot;sources&quot;: &quot;Active-source macOS 12 arm64 typecheck and regression-source typecheck both exited 0 without diagnostics. Prior build commands and packaging provenance are recorded in REPAIR_REPORT.md.&quot;,
+    &quot;depth&quot;: &quot;SUBSTANTIVE: reciprocal channel connectivity, alternating turns, explicit handoffs, undo, saved gardens, optional calibration and a playable near-bloom sample.&quot;,
+    &quot;quit&quot;: &quot;Regular activation policy; main menu includes Quit Shared Reach with Cmd-Q.&quot;
   },
-  &quot;repair_acceptance&quot;: {
-    &quot;result&quot;: &quot;Previous calibration-isolation blocker resolved on inspection.&quot;,
-    &quot;evidence&quot;: &quot;Model.swift binds samples and proposals to player/wrist, consumes evidence on confirmation and checks draft revisions. App.swift resets calibration on automatic and manual player changes. Camera.swift invalidates stale queued deliveries</pre></section>
+  &quot;assessment&quot;: {
+    &quot;product_value&quot;: &quot;Coherent shared entertainment with independently chosen controls and no time pressure. Enjoyment and repeat use remain unvalidated.&quot;,
+    &quot;willingness_to_pay&quot;: &quot;No demonstrated purchase intent. The hypothetical $14.99 household price is not validated; free games remain substitutes.&quot;,
+    &quot;mvp_focus&quot;: &quot;Preserves th</pre></section>
   <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section>
   </main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
