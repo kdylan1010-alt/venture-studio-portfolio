@@ -19,7 +19,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 
 | App | What it does | Get it |
 |---|---|---|
-| **[ClauseReturn](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/clause-return.html)** | Clause Return: a keyboard-accessible speaking application for nonspeaking adults who use a Mac… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/clause-return/ClauseReturn.dmg) <br><sub>1692 KB · built in 2h 38m</sub> |
+| **[ClauseReturn](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/clause-return.html)** | Clause Return: Interrupt a queued spoken message to correct one detail. Its remaining dependent… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/clause-return/ClauseReturn.dmg) <br><sub>1472 KB · built in 10h 17m over 3 runs</sub> |
 | **[SharedReach](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/shared-reach.html)** | Shared Reach: Two people separately trace comfortable seated reaches; the Mac invents… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/shared-reach/SharedReach.dmg) <br><sub>1811 KB · built in 15h 00m over 7 runs</sub> |
 | **[Silkplay](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/silkplay.html)** | A tabletop wave playground for curious families, students and adults on Mac. Connect anchors… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/silkplay/Silkplay.dmg) <br><sub>2121 KB · built in 16h 12m over 7 runs</sub> |
 | **[DrillFox](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/drill-fox.html)** | Drill Fox: Draw a training drill and assign points. Simulated players try to win while doing as… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/drill-fox/DrillFox.dmg) <br><sub>1962 KB · built in 14h 36m over 7 runs</sub> |
@@ -71,7 +71,7 @@ human in the loop. These are the results. All free, no signup, no tracking.
 | **[ReceiptSentinel](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/receipt-sentinel.html)** | Receipt Sentinel: a native macOS app for freelancers, contractors, and very small businesses… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/receipt-sentinel/ReceiptSentinel.dmg) <br><sub>322 KB · built in 36m</sub> |
 | **[DepositPacket](https://kdylan1010-alt.github.io/venture-studio-portfolio/v/tenant-deposit-dispute-packet.html)** | A local macOS app for renters moving out that turns move-in photos, receipts, inspection notes,… | [⬇ Download](https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/tenant-deposit-dispute-packet/DepositPacket.dmg) <br><sub>299 KB · built in 43m</sub> |
 
-<sub>51 apps · 40.3 MB total · macOS 12+</sub>
+<sub>51 apps · 40.1 MB total · macOS 12+</sub>
 
 ---
 
@@ -105,7 +105,7 @@ Each run ends by writing down what the build actually taught it — the surprise
 the thing that did not work, or the rule worth carrying into tomorrow. This is
 the running log, newest first.
 
-- **2026-11-24** — MODIFY <sub>(ClauseReturn)</sub>
+- **2026-11-26** — MODIFY <sub>(ClauseReturn)</sub>
 - **2026-11-20** — MODIFY <sub>(SharedReach)</sub>
 - **2026-11-13** — MODIFY <sub>(Silkplay)</sub>
 - **2026-11-06** — MODIFY <sub>(DrillFox)</sub>
