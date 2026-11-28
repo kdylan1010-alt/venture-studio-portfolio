@@ -279,16 +279,16 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   <div class="lede"><h1>ClauseReturn</h1><p>Clause Return: Interrupt a queued spoken message to correct one detail.</p>
     <div class="badges">
       <span class="badge ok">Shipped</span>
-      <span class="badge">Built in 2h 44m</span>
-      <span class="badge">10h 17m total across 3 runs</span>
-      <span class="badge">2026-11-26</span>
-      <span class="badge">80,467 tokens · $0.10 api-equiv</span>
+      <span class="badge">Built in 2h 15m</span>
+      <span class="badge">16h 8m total across 5 runs</span>
+      <span class="badge">2026-11-28</span>
+      <span class="badge">101,310 tokens · $0.13 api-equiv</span>
       <span class="badge">Not yet monetized</span>
     </div>
   </div>
   <div class="split" style="margin-top:2rem">
     <div><div class="shot"><img src="../shots/clause-return.png" alt="ClauseReturn running">
-       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/clause-return/ClauseReturn.dmg">Download ClauseReturn.dmg <small>1472 KB</small></a>
+       <div class="cap">The app running on macOS — captured from the packaged build.</div></div><a class="dl" href="https://github.com/kdylan1010-alt/venture-studio-portfolio/releases/download/clause-return/ClauseReturn.dmg">Download ClauseReturn.dmg <small>1785 KB</small></a>
        </div>
     <div><div class="chart">
     <h2 class="chart-title">Selection benchmarks</h2>
@@ -327,106 +327,120 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color
   </div></div>
   </div>
   <section><h2 class="section-title">The opportunity</h2><pre class="note">Clause Return: Interrupt a queued spoken message to correct one detail. Its remaining dependent clauses update, then speech resumes without repeating the words your listener already heard.</pre></section>
-  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Improve Clause Return in place for nonspeaking adults using Mac keyboards for prepared everyday messages. Make first launch explain the correction workflow and provide an editable sample that supports successful speech, interruption, dependency repair and continuation within one minute. Preserve explicit dependency graphs, accessible phrase blocks, speech callbacks, uncertain-boundary acknowledgement and saved settings. Add version-specific what's-new and a notify-only update check with clear offline/error states, no automatic downloads or installation, and no transmission of message content.</pre></section>
+  <section><h2 class="section-title">Objective for this build</h2><pre class="note">Polish the existing native macOS AAC app for nonspeaking adults using keyboard-accessible prepared messages. Improve layout, typography, contrast, focus visibility, VoiceOver labels, keyboard navigation and clear empty/error states without adding features or changing the dependency-graph speech-repair mechanic. Preserve settings and existing speech-boundary safeguards.</pre></section>
   <section><h2 class="section-title">Market and user research</h2><pre class="note">## 1. MARKET SIZE
 
-**A small specialist market is plausible; its size is unmeasured.** Likely buyers are nonspeaking adults who use Mac keyboards for prepared communication, encounter consequential mid-message corrections, and can manage explicit dependencies. Supporters or accommodation services might fund purchases; this is inference.
+**Buyer:** A nonspeaking adult who uses a Mac and keyboard-accessible prepared speech, frequently corrects messages mid-delivery, and can purchase software personally or through an accommodation budget.
 
-An illustrative bottom-up acquisition model—not a population census:
+**All figures below are ESTIMATES, not measured population statistics.** Illustrative English-language, international market funnel:
 
-/ Filter / Assumption and arithmetic /
-/---/---/
-/ Reachable audience / **ESTIMATE:** 40 relevant communities/services × 500 unique adult keyboard-message users = 20,000 people /
-/ Mac communication users / **ESTIMATE:** 20,000 × 25% = 5,000 /
-/ Frequent correction need / **ESTIMATE:** 5,000 × 30% = 1,500 /
-/ Accept dependency preparation / **ESTIMATE:** 1,500 × 40% = 600 plausible-fit users /
-/ Purchase conversion / **ESTIMATE:** 600 × 25% = 150 buyers /
-/ Gross cohort revenue / **ESTIMATE:** 150 × proposed $39 = $5,850 /
+/ Filter / ESTIMATE /
+/---/---:/
+/ Adult keyboard-capable AAC prospect pool / 250,000 /
+/ Use a Mac in relevant conversations: 8% / 20,000 /
+/ Frequently need prepared-message corrections: 25% / 5,000 /
+/ Reachable over three years: 40% / 2,000 /
+/ Reachable prospects purchasing: 15% / 300 buyers /
 
-Channel availability, deduplication, Mac usage, need frequency and conversion are all unvalidated assumptions. This estimates a hypothetical reachable cohort, **not worldwide market size or annual revenue**.
+**ESTIMATE arithmetic:** 250,000 × 8% × 25% × 40% × 15% = **300 buyers over three years**.
+
+The starting population is an unsupported planning assumption, not a sourced count. This model exposes the constraints rather than establishes demand. Mac availability, keyboard access, correction frequency and switching willingness compound sharply.
 
 ## 2. USER RESEARCH
 
-These are **segment hypotheses, not interview findings**. Actual current spending is unknown.
+These are **inferred segments, not interviewed users**. Actual existing expenditure is unknown.
 
-/ Segment / Current workaround—inference / What they already pay / Possible discovery / Reasons to refuse /
-/---/---/---/---/---/
-/ Adults using prepared messages at work or in education / Speak short chunks; stop, edit and replay; show written corrections / Existing communication software spending unknown; showing existing text adds no software purchase / AAC peer communities, accessibility services, accommodation referrals / Mac unavailable in relevant situations; preparation interrupts participation; existing tools suffice /
-/</pre></section>
-  <section><h2 class="section-title">What was built</h2><pre class="note">## Files created
-- `/Users/a1111/ai-venture-studio/apps/ventures/clause-return/Sources/FirstRun.swift`
-- `/Users/a1111/ai-venture-studio/apps/ventures/clause-return/DAY3_BUILD_NOTES.md`
+/ Segment / Current workaround and spending / Discovery hypothesis / Reason to refuse /
+/---/---/---/---/
+/ Nonspeaking professionals using prepared meeting contributions / Edit/replay, type into meeting chat, or abandon a turn. Free tools permit **$0 incremental software spending**; actual AAC expenditure unknown. / Peer recommendations, workplace accessibility services, AAC communities / Their primary communicator is mobile; switching loses more time than correction saves /
+/ Adults preparing medical or administrative conversations / Prepared scripts, written corrections, communication-partner assistance. Free documents are available; assistance costs are unknown. / AAC</pre></section>
+  <section><h2 class="section-title">What was built</h2><pre class="note">## Files created or updated
+- /Users/a1111/ai-venture-studio/apps/ventures/clause-return/Sources/App.swift
+- /Users/a1111/ai-venture-studio/apps/ventures/clause-return/CHANGELOG.md
+- /Users/a1111/ai-venture-studio/apps/ventures/clause-return/DAY5_BUILD_NOTES.md
+- /Users/a1111/ai-venture-studio/apps/ventures/clause-return/ClauseReturn
+- /Users/a1111/ai-venture-studio/apps/ventures/clause-return/ClauseReturnTests
+- /Users/a1111/ai-venture-studio/apps/ventures/clause-return/ClauseReturn.app/Contents/MacOS/ClauseReturn
+- /Users/a1111/ai-venture-studio/apps/ventures/clause-return/ClauseReturn.dmg
 
-Updated existing App.swift, Tests.swift, CHANGELOG.md, ClauseReturn, ClauseReturnTests, ClauseReturn.app/Contents/MacOS/ClauseReturn and ClauseReturn.dmg under that same absolute workspace.
+Polish includes standard-size guidance, native editor borders/focus settings, accessibility descriptions and keyboard menu access. Speech-repair mechanics retained.
 
 ## Compilation
 ```text
 swiftc -O -target x86_64-apple-macosx12.0 Sources/ClauseReturn.swift Sources/Model.swift Sources/SpeechState.swift Sources/SpeechAdapter.swift Sources/Tests.swift Sources/FirstRun.swift Sources/App.swift -o ClauseReturn
 ```
-Exit 0. Compiler output: **no output**.
+Exit 0; compiler output: **no output**.
 
-Regression runner compiled successfully. Interpreter execution failed:
 ```text
-error: unable to load standard library for target 'x86_64-apple-macosx12.0'
+swiftc -O -target x86_64-apple-macosx12.0 Sources/ClauseReturn.swift Sources/Model.swift Sources/SpeechState.swift Sources/FirstRun.swift</pre></section>
+  <section><h2 class="section-title">Verification</h2><pre class="note">FAIL
+
+Artifacts exist and sources compile, but locked acceptance remains incomplete: regression assertions and required interactive accessibility/launch checks were not executed.
+
+### 1. Root DMG — present
+Command: `venture_workspace_list {}`
+
+Actual entry names:
+```text
+.DS_Store
+.SwiftModuleCache
+.VerificationTemporary
+.bounded-correction-tmp
+BACKEND_DAY3.md
+BACKEND_DAY4.md
+BACKEND_DAY5.md
+BACKEND_HARDENING.md
+BENCHMARK_BLOCKER_RECHECK_2026-11-25.md
+BOUNDED_CORRECTION_REPAIR_2026-11-26.md
+BOUNDED_REPAIR_2026-11-25.md
+BOUNDED_REPAIR_2026-11-26.md
+BOUNDED_REPAIR_2026-11-27.md
+CHANGELOG.md
+CORRECTION_BOUNDARY_REPAIR_2026-11-25.md
+ClauseReturn
+ClauseReturn-launch.png
+ClauseReturn.app
+ClauseReturn.dmg
+ClauseReturnRepairTests
+ClauseReturnTests
+DAY2_BUILD_NOTES.md
+DAY3_BUILD_NOTES.md
+DAY4_BUILD_NOTES.md
+DAY5_BUILD_NOTES.md
+FRONTEND_DAY5_RECHECK.md
+FRONTEND_POLISH.md
+README.md
+REPAIR_REPORT.md
+RESEARCH_SOURCES.md
+RepairArtifactsBefore5480636914f05518
+Sources
+Tests
+VerificationMount
+promo
 ```
-No regression pass count claimed.
 
-## Packaging
-`/Users/a1111/ai-venture-studio/apps/ventures/clause-return/ClauseReturn.dmg`
-
-hdiutil create, verify, mount and detach succeeded:
+Fresh command: `hdiutil verify ClauseReturn.dmg`
 ```text
+code: 0
+verified   CRC32 $E67DA76B
 hdiutil: verify: checksum of &quot;ClauseReturn.dmg&quot; is VALID
 ```
 
-## Final root listing
-```text
-.DS_Store, .SwiftModuleCache/, .VerificationTemporary/,
-BACKEND_HARDENING.md, BENCHMARK_BLOCKER_</pre></section>
-  <section><h2 class="section-title">Verification</h2><pre class="note">FAIL
-
-Scope: `clause-return/52c1b6bc313989a8`
-
-Artifacts and model checks pass; locked interactive acceptance remains unverified. **Not release-ready.**
-
-1. **Root DMG — present**
-
-   `venture_workspace_list {}` returned:
-   ```text
-   .DS_Store, .SwiftModuleCache/, .VerificationTemporary/,
-   .bounded-correction-tmp/, BACKEND_DAY3.md, BACKEND_HARDENING.md,
-   BENCHMARK_BLOCKER_RECHECK_2026-11-25.md,
-   BOUNDED_CORRECTION_REPAIR_2026-11-26.md,
-   BOUNDED_REPAIR_2026-11-25.md, BOUNDED_REPAIR_2026-11-26.md,
-   CHANGELOG.md, CORRECTION_BOUNDARY_REPAIR_2026-11-25.md,
-   ClauseReturn, ClauseReturn-launch.png, ClauseReturn.app/,
-   ClauseReturn.dmg, ClauseReturnRepairTests, ClauseReturnTests,
-   DAY2_BUILD_NOTES.md, DAY3_BUILD_NOTES.md, FRONTEND_POLISH.md,
-   README.md, REPAIR_REPORT.md, RESEARCH_SOURCES.md,
-   RepairArtifactsBefore5480636914f05518/, Sources/, Tests/,
-   VerificationMount/, promo/
-   ```
-
-2. **Sources compile; regressions execute successfully**
-
-   Ran:
-   ```text
-   swiftc -O -target x86_64-apple-macosx12.0 Sources/ClauseReturn.swift Sources/Model.swift Sources/SpeechState.swift Sources/SpeechAdapter.swift Sources/Tests.swift Sources/FirstRun.swift Sources/App.swift -o</pre></section>
+### 2. Sources compile — yes
+Command:
+```tex</pre></section>
   <section><h2 class="section-title">Independent review</h2><pre class="note">{
   &quot;decision&quot;: &quot;PASS&quot;,
-  &quot;scope_id&quot;: &quot;clause-return/52c1b6bc313989a8&quot;,
-  &quot;assessment&quot;: {
-    &quot;product_value&quot;: &quot;Substantive specialist workflow; dependency preparation costs remain unvalidated.&quot;,
-    &quot;willingness_to_pay&quot;: &quot;The proposed $39 price has no direct validation.&quot;,
-    &quot;mvp_focus&quot;: &quot;Aligned with the locked correction-and-continuation mechanic.&quot;,
-    &quot;functional_correctness&quot;: &quot;No blocking source defect found. The previously rejected empty interrupted correction is now transactionally reconciled, with acknowledgement and protection against discarding changed facts.&quot;,
-    &quot;maintainability&quot;: &quot;Separated model, speech state and adapter support focused regression coverage; the UI delegate remains large.&quot;,
-    &quot;security&quot;: &quot;Live networking is disabled. Update handling is notify-only, fixture-based and has no installation path. Local message storage warrants privacy guidance.&quot;,
-    &quot;revenue_path&quot;: &quot;One-time purchase remains a hypothesis, not demonstrated revenue.&quot;,
-    &quot;acquisition_realism&quot;: &quot;No measured acquisition channel or validated demand; recruitment remains unauthorized.&quot;
+  &quot;scope&quot;: &quot;Existing-product polish and local packaging; not commercial validation or deployment approval.&quot;,
+  &quot;verification&quot;: {
+    &quot;artifact&quot;: &quot;DMG PRESENT: my venture_workspace_list root result explicitly contained ClauseReturn.dmg.&quot;,
+    &quot;integrity&quot;: &quot;Fresh hdiutil verify exited 0: checksum VALID, CRC32 $E67DA76B.&quot;,
+    &quot;contents&quot;: &quot;Fresh read-only mount contained ClauseReturn.app and Contents/MacOS/ClauseReturn. Packaged Info.plist identifies the executable and macOS 12 minimum. Detach succeeded.&quot;,
+    &quot;source&quot;: &quot;Independent macOS 12-targeted swiftc typechecks for application and regression runner both exited 0 without diagnostics. Earlier compilation and packaging results are recorded separately; no fresh binary build or test execution is claimed.&quot;
   },
-  &quot;verified_evidence&quot;: [
-    &quot;DMG PRESENT: independent venture_workspace_list root output includes Cl</pre></section>
+  &quot;acceptance_assessment&quot;: {
+    &quot;correction_workflow&quot;: &quot;Complete on inspection: transitive dependency expansion, revision-guarded callbacks, explicit correction review, listener-reconciled uncertain remainders and exclusion of completed/correction-covered blocks preserve the selected mechanic. Exact non-repetition requires user reconciliation, not inferred hearing.&quot;,
+    &quot;accessibility&quot;: &quot;Source implem</pre></section>
   <section><h2 class="section-title">What the studio learned</h2><pre class="note">MODIFY</pre></section>
   </main>
 <footer>Built unattended by the AI Venture Studio — an opportunity is scanned, scored,
